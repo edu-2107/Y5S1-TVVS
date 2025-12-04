@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="pt.feup.tvvs.soulknight.BlackBoxTests" time="0.24" tests="15" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="pt.feup.tvvs.soulknight.PBTests" time="0.581" tests="6" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -57,19 +57,100 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="wrapPositionYAtUpperBoundWrapsToOne" classname="pt.feup.tvvs.soulknight.BlackBoxTests" time="0.057"/>
-  <testcase name="drawTextWithEmptyStringDoesNotModifyBuffer" classname="pt.feup.tvvs.soulknight.BlackBoxTests" time="0.117"/>
-  <testcase name="wrapPositionXJustBelowLowerBoundWrapsToMaxMinusOne" classname="pt.feup.tvvs.soulknight.BlackBoxTests" time="0.0"/>
-  <testcase name="drawTextWithCoordinatesFarOutsideImageDoesNotModifyBuffer" classname="pt.feup.tvvs.soulknight.BlackBoxTests" time="0.002"/>
-  <testcase name="drawTextWithNullTextThrowsNullPointerException" classname="pt.feup.tvvs.soulknight.BlackBoxTests" time="0.003"/>
-  <testcase name="drawTextWithValidArgumentModifiesBuffer" classname="pt.feup.tvvs.soulknight.BlackBoxTests" time="0.003"/>
-  <testcase name="wrapPositionWrapsBothCoordinatesWhenBothOutOfBoundsCase1" classname="pt.feup.tvvs.soulknight.BlackBoxTests" time="0.0"/>
-  <testcase name="wrapPositionWrapsBothCoordinatesWhenBothOutOfBoundsCase2" classname="pt.feup.tvvs.soulknight.BlackBoxTests" time="0.0"/>
-  <testcase name="wrapPositionYJustBelowLowerBoundWrapsToMaxMinusOne" classname="pt.feup.tvvs.soulknight.BlackBoxTests" time="0.0"/>
-  <testcase name="wrapPositionKeepsXInsideBoundsWhenXIsValid" classname="pt.feup.tvvs.soulknight.BlackBoxTests" time="0.0"/>
-  <testcase name="wrapPositionXAtLowerBoundZeroStaysZero" classname="pt.feup.tvvs.soulknight.BlackBoxTests" time="0.0"/>
-  <testcase name="wrapPositionYAtLowerBoundZeroStaysZero" classname="pt.feup.tvvs.soulknight.BlackBoxTests" time="0.001"/>
-  <testcase name="wrapPositionXAtUpperBoundWrapsToOne" classname="pt.feup.tvvs.soulknight.BlackBoxTests" time="0.001"/>
-  <testcase name="drawTextWithNullColorThrowsNullPointerException" classname="pt.feup.tvvs.soulknight.BlackBoxTests" time="0.002"/>
-  <testcase name="wrapPositionXJustAboveLowerBoundOneStaysOne" classname="pt.feup.tvvs.soulknight.BlackBoxTests" time="0.001"/>
+  <testcase name="movingUpThenDownReturnsToOriginal" classname="PBTests" time="0.389">
+    <system-out><![CDATA[timestamp = 2025-12-04T17:35:22.213833700, PBTests:movingUpThenDownReturnsToOriginal = 
+                              |-----------------------jqwik-----------------------
+tries = 1000                  | # of calls to property
+checks = 1000                 | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = MIXIN       | edge cases are mixed in
+edge-cases#total = 81         | # of all combined edge cases
+edge-cases#tried = 78         | # of edge cases tried in current run
+seed = 6293484015122721023    | random seed to reproduce generated values
+
+
+]]></system-out>
+  </testcase>
+  <testcase name="movingDownThenUpReturnsToOriginal" classname="PBTests" time="0.051">
+    <system-out><![CDATA[timestamp = 2025-12-04T17:35:22.271344800, PBTests:movingDownThenUpReturnsToOriginal = 
+                              |-----------------------jqwik-----------------------
+tries = 1000                  | # of calls to property
+checks = 1000                 | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = MIXIN       | edge cases are mixed in
+edge-cases#total = 81         | # of all combined edge cases
+edge-cases#tried = 77         | # of edge cases tried in current run
+seed = 7655629999614304773    | random seed to reproduce generated values
+
+
+]]></system-out>
+  </testcase>
+  <testcase name="movingLeftThenRightReturnsToOriginal" classname="PBTests" time="0.041">
+    <system-out><![CDATA[timestamp = 2025-12-04T17:35:22.313353300, PBTests:movingLeftThenRightReturnsToOriginal = 
+                              |-----------------------jqwik-----------------------
+tries = 1000                  | # of calls to property
+checks = 1000                 | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = MIXIN       | edge cases are mixed in
+edge-cases#total = 81         | # of all combined edge cases
+edge-cases#tried = 77         | # of edge cases tried in current run
+seed = -404654828783914164    | random seed to reproduce generated values
+
+
+]]></system-out>
+  </testcase>
+  <testcase name="movingRightThenLeftReturnsToOriginal" classname="PBTests" time="0.024">
+    <system-out><![CDATA[timestamp = 2025-12-04T17:35:22.338861500, PBTests:movingRightThenLeftReturnsToOriginal = 
+                              |-----------------------jqwik-----------------------
+tries = 1000                  | # of calls to property
+checks = 1000                 | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = MIXIN       | edge cases are mixed in
+edge-cases#total = 81         | # of all combined edge cases
+edge-cases#tried = 73         | # of edge cases tried in current run
+seed = -4786266804303375887   | random seed to reproduce generated values
+
+
+]]></system-out>
+  </testcase>
+  <testcase name="movingLeftDecreasesXByOneAndKeepsY" classname="PBTests" time="0.024">
+    <system-out><![CDATA[timestamp = 2025-12-04T17:35:22.363862900, PBTests:movingLeftDecreasesXByOneAndKeepsY = 
+                              |-----------------------jqwik-----------------------
+tries = 1000                  | # of calls to property
+checks = 1000                 | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = MIXIN       | edge cases are mixed in
+edge-cases#total = 81         | # of all combined edge cases
+edge-cases#tried = 81         | # of edge cases tried in current run
+seed = 5472420498489185247    | random seed to reproduce generated values
+
+
+]]></system-out>
+  </testcase>
+  <testcase name="movingUpDecreasesYByOneAndKeepsX" classname="PBTests" time="0.021">
+    <system-out><![CDATA[timestamp = 2025-12-04T17:35:22.385862500, PBTests:movingUpDecreasesYByOneAndKeepsX = 
+                              |-----------------------jqwik-----------------------
+tries = 1000                  | # of calls to property
+checks = 1000                 | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = MIXIN       | edge cases are mixed in
+edge-cases#total = 81         | # of all combined edge cases
+edge-cases#tried = 81         | # of edge cases tried in current run
+seed = 1419711701694630499    | random seed to reproduce generated values
+
+
+]]></system-out>
+  </testcase>
 </testsuite>
