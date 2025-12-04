@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: pt.feup.tvvs.soulknight.BlackBoxTests
 -------------------------------------------------------------------------------
-Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.240 s -- in pt.feup.tvvs.soulknight.BlackBoxTests
+Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.310 s -- in pt.feup.tvvs.soulknight.BlackBoxTests

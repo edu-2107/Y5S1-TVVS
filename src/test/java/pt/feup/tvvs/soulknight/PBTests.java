@@ -83,4 +83,28 @@ class PBTests {
 
         assertEquals(new Position(x, y - 1), up);
     }
+
+    @Property
+    void movingRightIncreasesXByOneAndKeepsY(
+            @ForAll @IntRange(min = MIN_COORD, max = MAX_COORD) int x,
+            @ForAll @IntRange(min = MIN_COORD, max = MAX_COORD) int y
+    ) {
+        Position start = new Position(x, y);
+
+        Position right = start.getRight();
+
+        assertEquals(new Position(x + 1, y), right);
+    }
+
+    @Property
+    void movingDownIncreasesYByOneAndKeepsX(
+            @ForAll @IntRange(min = MIN_COORD, max = MAX_COORD) int x,
+            @ForAll @IntRange(min = MIN_COORD, max = MAX_COORD) int y
+    ) {
+        Position start = new Position(x, y);
+
+        Position down = start.getDown();
+
+        assertEquals(new Position(x, y + 1), down);
+    }
 }
