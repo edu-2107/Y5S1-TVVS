@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="pt.feup.tvvs.soulknight.BlackBoxTests" time="0.283" tests="15" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="pt.feup.tvvs.soulknight.KnightStatesWhiteBoxTests" time="1.921" tests="29" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -57,19 +57,33 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="wrapPositionYAtUpperBoundWrapsToOne" classname="pt.feup.tvvs.soulknight.BlackBoxTests" time="0.066"/>
-  <testcase name="drawTextWithEmptyStringDoesNotModifyBuffer" classname="pt.feup.tvvs.soulknight.BlackBoxTests" time="0.138"/>
-  <testcase name="wrapPositionXJustBelowLowerBoundWrapsToMaxMinusOne" classname="pt.feup.tvvs.soulknight.BlackBoxTests" time="0.001"/>
-  <testcase name="drawTextWithCoordinatesFarOutsideImageDoesNotModifyBuffer" classname="pt.feup.tvvs.soulknight.BlackBoxTests" time="0.002"/>
-  <testcase name="drawTextWithNullTextThrowsNullPointerException" classname="pt.feup.tvvs.soulknight.BlackBoxTests" time="0.003"/>
-  <testcase name="drawTextWithValidArgumentModifiesBuffer" classname="pt.feup.tvvs.soulknight.BlackBoxTests" time="0.002"/>
-  <testcase name="wrapPositionWrapsBothCoordinatesWhenBothOutOfBoundsCase1" classname="pt.feup.tvvs.soulknight.BlackBoxTests" time="0.0"/>
-  <testcase name="wrapPositionWrapsBothCoordinatesWhenBothOutOfBoundsCase2" classname="pt.feup.tvvs.soulknight.BlackBoxTests" time="0.0"/>
-  <testcase name="wrapPositionYJustBelowLowerBoundWrapsToMaxMinusOne" classname="pt.feup.tvvs.soulknight.BlackBoxTests" time="0.0"/>
-  <testcase name="wrapPositionKeepsXInsideBoundsWhenXIsValid" classname="pt.feup.tvvs.soulknight.BlackBoxTests" time="0.0"/>
-  <testcase name="wrapPositionXAtLowerBoundZeroStaysZero" classname="pt.feup.tvvs.soulknight.BlackBoxTests" time="0.0"/>
-  <testcase name="wrapPositionYAtLowerBoundZeroStaysZero" classname="pt.feup.tvvs.soulknight.BlackBoxTests" time="0.001"/>
-  <testcase name="wrapPositionXAtUpperBoundWrapsToOne" classname="pt.feup.tvvs.soulknight.BlackBoxTests" time="0.001"/>
-  <testcase name="drawTextWithNullColorThrowsNullPointerException" classname="pt.feup.tvvs.soulknight.BlackBoxTests" time="0.001"/>
-  <testcase name="wrapPositionXJustAboveLowerBoundOneStaysOne" classname="pt.feup.tvvs.soulknight.BlackBoxTests" time="0.0"/>
+  <testcase name="afterDashStateGetNextStateReturnsRespawnWhenSpikeCollision" classname="pt.feup.tvvs.soulknight.KnightStatesWhiteBoxTests" time="1.787"/>
+  <testcase name="limitVelocityZeroesVerySmallX" classname="pt.feup.tvvs.soulknight.KnightStatesWhiteBoxTests" time="0.005"/>
+  <testcase name="idleStateJumpIncrementsJumpCounter" classname="pt.feup.tvvs.soulknight.KnightStatesWhiteBoxTests" time="0.016"/>
+  <testcase name="damagedStateEventuallyTransitionsToNonDamagedState" classname="pt.feup.tvvs.soulknight.KnightStatesWhiteBoxTests" time="0.011"/>
+  <testcase name="idleStateGetNextStateStaysIdleWhenOnGroundAndNoHorizontalVelocity" classname="pt.feup.tvvs.soulknight.KnightStatesWhiteBoxTests" time="0.005"/>
+  <testcase name="getNextGroundStateReturnsWalkingWhenVelocityBetweenWalkingAndRunning" classname="pt.feup.tvvs.soulknight.KnightStatesWhiteBoxTests" time="0.004"/>
+  <testcase name="resetParticlesTimerResetsToHundred" classname="pt.feup.tvvs.soulknight.KnightStatesWhiteBoxTests" time="0.003"/>
+  <testcase name="runningStateGetNextStateGoesToMaxVelocityWhenAtMax" classname="pt.feup.tvvs.soulknight.KnightStatesWhiteBoxTests" time="0.004"/>
+  <testcase name="dashStateGetNextStateGoesToAfterDashWhenVelocityBelowMin" classname="pt.feup.tvvs.soulknight.KnightStatesWhiteBoxTests" time="0.004"/>
+  <testcase name="jumpStateJumpIncrementsJumpCounterIfBelowLimit" classname="pt.feup.tvvs.soulknight.KnightStatesWhiteBoxTests" time="0.006"/>
+  <testcase name="respawnStateDashDoesNotThrowAndReturnsVector" classname="pt.feup.tvvs.soulknight.KnightStatesWhiteBoxTests" time="0.004"/>
+  <testcase name="maxVelocityStateGetNextStateGoesToRunningWhenVelocityDropsBelowMax" classname="pt.feup.tvvs.soulknight.KnightStatesWhiteBoxTests" time="0.003"/>
+  <testcase name="damagedStateStaysDamagedAtLeastForFirstStep" classname="pt.feup.tvvs.soulknight.KnightStatesWhiteBoxTests" time="0.002"/>
+  <testcase name="limitVelocityClampsXBelowMinusMax" classname="pt.feup.tvvs.soulknight.KnightStatesWhiteBoxTests" time="0.002"/>
+  <testcase name="limitVelocityClampsXAboveMax" classname="pt.feup.tvvs.soulknight.KnightStatesWhiteBoxTests" time="0.002"/>
+  <testcase name="getNextGroundStateReturnsIdleWhenVelocityIsLow" classname="pt.feup.tvvs.soulknight.KnightStatesWhiteBoxTests" time="0.002"/>
+  <testcase name="respawnStateJumpDoesNotThrowAndReturnsVector" classname="pt.feup.tvvs.soulknight.KnightStatesWhiteBoxTests" time="0.002"/>
+  <testcase name="walkingStateGetNextStateGoesToIdleWhenVelocityBelowMin" classname="pt.feup.tvvs.soulknight.KnightStatesWhiteBoxTests" time="0.003"/>
+  <testcase name="limitVelocityClampsYToMaxY" classname="pt.feup.tvvs.soulknight.KnightStatesWhiteBoxTests" time="0.002"/>
+  <testcase name="runningStateGetNextStateGoesToWalkingWhenBelowMin" classname="pt.feup.tvvs.soulknight.KnightStatesWhiteBoxTests" time="0.002"/>
+  <testcase name="walkingStateGetNextStateGoesToRunningWhenVelocityAboveRunningMin" classname="pt.feup.tvvs.soulknight.KnightStatesWhiteBoxTests" time="0.002"/>
+  <testcase name="fallingStateGetNextStateGoesToGroundStateWhenOnGround" classname="pt.feup.tvvs.soulknight.KnightStatesWhiteBoxTests" time="0.003"/>
+  <testcase name="getNextOnAirStateReturnsJumpWhenVerticalVelocityNegative" classname="pt.feup.tvvs.soulknight.KnightStatesWhiteBoxTests" time="0.003"/>
+  <testcase name="tickParticlesDecrementsParticlesTimer" classname="pt.feup.tvvs.soulknight.KnightStatesWhiteBoxTests" time="0.003"/>
+  <testcase name="respawnStateGetNextStateStaysInRespawnBeforeTimerExpires" classname="pt.feup.tvvs.soulknight.KnightStatesWhiteBoxTests" time="0.007"/>
+  <testcase name="afterDashStateGetNextStateUsesGroundStateWhenOnGround" classname="pt.feup.tvvs.soulknight.KnightStatesWhiteBoxTests" time="0.003"/>
+  <testcase name="dashStateGetNextStateReturnsRespawnWhenSpikeCollision" classname="pt.feup.tvvs.soulknight.KnightStatesWhiteBoxTests" time="0.002"/>
+  <testcase name="getNextOnAirStateReturnsFallingWhenVerticalVelocityNonNegative" classname="pt.feup.tvvs.soulknight.KnightStatesWhiteBoxTests" time="0.002"/>
+  <testcase name="getNextGroundStateReturnsRunningWhenVelocityAboveRunningMin" classname="pt.feup.tvvs.soulknight.KnightStatesWhiteBoxTests" time="0.002"/>
 </testsuite>

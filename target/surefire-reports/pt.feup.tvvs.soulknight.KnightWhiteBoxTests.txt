@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: pt.feup.tvvs.soulknight.KnightWhiteBoxTests
 -------------------------------------------------------------------------------
-Tests run: 33, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.192 s -- in pt.feup.tvvs.soulknight.KnightWhiteBoxTests
+Tests run: 41, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.278 s -- in pt.feup.tvvs.soulknight.KnightWhiteBoxTests
