@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="pt.feup.tvvs.soulknight.BlackBoxTests" time="0.305" tests="15" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="pt.feup.tvvs.soulknight.KnightWhiteBoxTests" time="2.192" tests="33" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -57,19 +57,37 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="wrapPositionYAtUpperBoundWrapsToOne" classname="pt.feup.tvvs.soulknight.BlackBoxTests" time="0.075"/>
-  <testcase name="drawTextWithEmptyStringDoesNotModifyBuffer" classname="pt.feup.tvvs.soulknight.BlackBoxTests" time="0.141"/>
-  <testcase name="wrapPositionXJustBelowLowerBoundWrapsToMaxMinusOne" classname="pt.feup.tvvs.soulknight.BlackBoxTests" time="0.001"/>
-  <testcase name="drawTextWithCoordinatesFarOutsideImageDoesNotModifyBuffer" classname="pt.feup.tvvs.soulknight.BlackBoxTests" time="0.002"/>
-  <testcase name="drawTextWithNullTextThrowsNullPointerException" classname="pt.feup.tvvs.soulknight.BlackBoxTests" time="0.003"/>
-  <testcase name="drawTextWithValidArgumentModifiesBuffer" classname="pt.feup.tvvs.soulknight.BlackBoxTests" time="0.002"/>
-  <testcase name="wrapPositionWrapsBothCoordinatesWhenBothOutOfBoundsCase1" classname="pt.feup.tvvs.soulknight.BlackBoxTests" time="0.0"/>
-  <testcase name="wrapPositionWrapsBothCoordinatesWhenBothOutOfBoundsCase2" classname="pt.feup.tvvs.soulknight.BlackBoxTests" time="0.002"/>
-  <testcase name="wrapPositionYJustBelowLowerBoundWrapsToMaxMinusOne" classname="pt.feup.tvvs.soulknight.BlackBoxTests" time="0.001"/>
-  <testcase name="wrapPositionKeepsXInsideBoundsWhenXIsValid" classname="pt.feup.tvvs.soulknight.BlackBoxTests" time="0.001"/>
-  <testcase name="wrapPositionXAtLowerBoundZeroStaysZero" classname="pt.feup.tvvs.soulknight.BlackBoxTests" time="0.001"/>
-  <testcase name="wrapPositionYAtLowerBoundZeroStaysZero" classname="pt.feup.tvvs.soulknight.BlackBoxTests" time="0.001"/>
-  <testcase name="wrapPositionXAtUpperBoundWrapsToOne" classname="pt.feup.tvvs.soulknight.BlackBoxTests" time="0.001"/>
-  <testcase name="drawTextWithNullColorThrowsNullPointerException" classname="pt.feup.tvvs.soulknight.BlackBoxTests" time="0.001"/>
-  <testcase name="wrapPositionXJustAboveLowerBoundOneStaysOne" classname="pt.feup.tvvs.soulknight.BlackBoxTests" time="0.001"/>
+  <testcase name="constructorInitialFacingDirectionIsRight" classname="pt.feup.tvvs.soulknight.KnightWhiteBoxTests" time="0.011"/>
+  <testcase name="playerHitWithPositiveHpReducesHpByDamage" classname="pt.feup.tvvs.soulknight.KnightWhiteBoxTests" time="1.831"/>
+  <testcase name="updateVelocityDelegatesToState" classname="pt.feup.tvvs.soulknight.KnightWhiteBoxTests" time="0.258"/>
+  <testcase name="dashDelegatesToState" classname="pt.feup.tvvs.soulknight.KnightWhiteBoxTests" time="0.004"/>
+  <testcase name="isOnGroundReturnsFalseWhenSceneCollidesDownIsFalse" classname="pt.feup.tvvs.soulknight.KnightWhiteBoxTests" time="0.009"/>
+  <testcase name="constructorSetsInitialEnergy" classname="pt.feup.tvvs.soulknight.KnightWhiteBoxTests" time="0.001"/>
+  <testcase name="setBirthTimeOverridesInitialBirthTime" classname="pt.feup.tvvs.soulknight.KnightWhiteBoxTests" time="0.0"/>
+  <testcase name="getNextStateDelegatesToCurrentState" classname="pt.feup.tvvs.soulknight.KnightWhiteBoxTests" time="0.002"/>
+  <testcase name="resetValuesChangesStateToFallingState" classname="pt.feup.tvvs.soulknight.KnightWhiteBoxTests" time="0.003"/>
+  <testcase name="playerHitChangesStateToDamagedState" classname="pt.feup.tvvs.soulknight.KnightWhiteBoxTests" time="0.001"/>
+  <testcase name="increaseDeathsIncrementsDeathCounter" classname="pt.feup.tvvs.soulknight.KnightWhiteBoxTests" time="0.001"/>
+  <testcase name="resetValuesSetsFacingRightToTrue" classname="pt.feup.tvvs.soulknight.KnightWhiteBoxTests" time="0.001"/>
+  <testcase name="setOrbsOverridesCurrentValue" classname="pt.feup.tvvs.soulknight.KnightWhiteBoxTests" time="0.001"/>
+  <testcase name="isOverMaxXVelocityReturnsFalseWhenBelowLimit" classname="pt.feup.tvvs.soulknight.KnightWhiteBoxTests" time="0.001"/>
+  <testcase name="constructorOffsetsInitialPosition" classname="pt.feup.tvvs.soulknight.KnightWhiteBoxTests" time="0.001"/>
+  <testcase name="createDashParticlesReturnsListOfGivenSize" classname="pt.feup.tvvs.soulknight.KnightWhiteBoxTests" time="0.01"/>
+  <testcase name="jumpDelegatesToState" classname="pt.feup.tvvs.soulknight.KnightWhiteBoxTests" time="0.001"/>
+  <testcase name="createParticlesDoubleJumpReturnsListOfGivenSize" classname="pt.feup.tvvs.soulknight.KnightWhiteBoxTests" time="0.007"/>
+  <testcase name="playerHitWithZeroHpSetsHpToOneBeforeApplyingDamage" classname="pt.feup.tvvs.soulknight.KnightWhiteBoxTests" time="0.001"/>
+  <testcase name="isOnGroundReturnsTrueWhenSceneCollidesDownIsTrue" classname="pt.feup.tvvs.soulknight.KnightWhiteBoxTests" time="0.001"/>
+  <testcase name="moveRightDelegatesToState" classname="pt.feup.tvvs.soulknight.KnightWhiteBoxTests" time="0.007"/>
+  <testcase name="playerHitSetsGotHitToTrue" classname="pt.feup.tvvs.soulknight.KnightWhiteBoxTests" time="0.001"/>
+  <testcase name="constructorSetsInitialDamageMultiplier" classname="pt.feup.tvvs.soulknight.KnightWhiteBoxTests" time="0.0"/>
+  <testcase name="isOverMaxXVelocityReturnsTrueWhenAboveLimit" classname="pt.feup.tvvs.soulknight.KnightWhiteBoxTests" time="0.0"/>
+  <testcase name="constructorInitialGotHitIsFalse" classname="pt.feup.tvvs.soulknight.KnightWhiteBoxTests" time="0.001"/>
+  <testcase name="createRespawnParticlesReturnsListOfGivenSize" classname="pt.feup.tvvs.soulknight.KnightWhiteBoxTests" time="0.001"/>
+  <testcase name="playerHitDoesNothingWhenAlreadyGotHit" classname="pt.feup.tvvs.soulknight.KnightWhiteBoxTests" time="0.001"/>
+  <testcase name="constructorSetsInitialHp" classname="pt.feup.tvvs.soulknight.KnightWhiteBoxTests" time="0.0"/>
+  <testcase name="constructorInitialStateIsIdle" classname="pt.feup.tvvs.soulknight.KnightWhiteBoxTests" time="0.0"/>
+  <testcase name="updatePositionUsesStateApplyCollisionsAndUpdatesPosition" classname="pt.feup.tvvs.soulknight.KnightWhiteBoxTests" time="0.001"/>
+  <testcase name="moveLeftDelegatesToState" classname="pt.feup.tvvs.soulknight.KnightWhiteBoxTests" time="0.002"/>
+  <testcase name="createParticlesJumpReturnsListOfGivenSize" classname="pt.feup.tvvs.soulknight.KnightWhiteBoxTests" time="0.006"/>
+  <testcase name="addOrbsIncrementsOrbsByOne" classname="pt.feup.tvvs.soulknight.KnightWhiteBoxTests" time="0.001"/>
 </testsuite>

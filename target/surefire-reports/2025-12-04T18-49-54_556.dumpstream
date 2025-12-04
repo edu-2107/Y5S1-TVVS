@@ -1,4 +1,4 @@
-# Created at 2025-12-04T15:23:17.906
+# Created at 2025-12-04T18:49:54.783
 Boot Manifest-JAR contains absolute paths in classpath 'D:\UNIVERSIDADE\5º Ano\TVVS\01-HollowKnight\target\test-classes'
 Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
 'other' has different root
