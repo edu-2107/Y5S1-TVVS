@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Knight.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Soul Knight</a> &gt; <a href="index.source.html" class="el_package">pt.feup.tvvs.soulknight.model.game.elements.knight</a> &gt; <span class="el_source">Knight.java</span></div><h1>Knight.java</h1><pre class="source lang-java linenums">package pt.feup.tvvs.soulknight.model.game.elements.knight;
+
+import pt.feup.tvvs.soulknight.model.dataStructs.Position;
+import pt.feup.tvvs.soulknight.model.dataStructs.Vector;
+import pt.feup.tvvs.soulknight.model.game.elements.Element;
+import pt.feup.tvvs.soulknight.model.game.elements.particle.*;
+import pt.feup.tvvs.soulknight.model.game.scene.Scene;
+import com.googlecode.lanterna.TextColor;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+public class Knight extends Element {
+
+    private static final int WIDTH = 7;
+    private static final int HEIGHT = 8;
+    private KnightState state;
+    private int jumpCounter;
+    private int HP;
+    private float Damage_multiplier;
+    private int Energy;
+<span class="fc" id="L24">    private int orbs = 0;</span>
+    private Vector velocity;
+    private Vector maxVelocity;
+    private double acceleration;
+    private Scene scene;
+    private boolean isFacingRight;
+    private double jumpBoost;
+    private double dashBoost;
+<span class="fc" id="L32">    private final int offSetX = 4;</span>
+<span class="fc" id="L33">    private final int offSetY = 1;</span>
+    private boolean gotHit;
+    private int deaths;
+    private long birthTime;
+
+
+    //General Knight's attributes
+    public Knight(int x, int y, int HP, float Damage_multiplier, int Energy){
+<span class="fc" id="L41">        super(x, y); //calls the constructor of the Element class, supplying the position in coordinates</span>
+<span class="fc" id="L42">        this.setPosition(new Position(x + offSetX, y + offSetY));</span>
+<span class="fc" id="L43">        this.HP=HP;</span>
+<span class="fc" id="L44">        this.Damage_multiplier = Damage_multiplier;</span>
+<span class="fc" id="L45">        this.Energy = Energy;</span>
+<span class="fc" id="L46">        this.velocity = new Vector(0,0);</span>
+<span class="fc" id="L47">        this.maxVelocity = new Vector(2.0,4.0);</span>
+<span class="fc" id="L48">        this.jumpBoost = Math.PI;</span>
+<span class="fc" id="L49">        this.acceleration = 0.75;</span>
+<span class="fc" id="L50">        this.state = new IdleState(this);</span>
+<span class="fc" id="L51">        this.isFacingRight = true;</span>
+<span class="fc" id="L52">        this.jumpCounter = 0;</span>
+<span class="fc" id="L53">        this.dashBoost = 6;</span>
+<span class="fc" id="L54">        this.gotHit = false;</span>
+<span class="fc" id="L55">        this.orbs = 0;</span>
+<span class="fc" id="L56">        this.deaths = 0;</span>
+<span class="fc" id="L57">        this.birthTime = System.currentTimeMillis();</span>
+        //assigns the supplied values (and some other default values) to the Knight's attributes
+<span class="fc" id="L59">    }</span>
+
+    //GETTERS
+    public KnightState getNextState() throws IOException {
+<span class="fc" id="L63">        return state.getNextState();</span>
+    }
+
+    public double getJumpBoost() {
+<span class="fc" id="L67">        return jumpBoost;</span>
+    }
+
+    public int getHP() {
+<span class="fc" id="L71">        return HP;</span>
+    }
+
+    public boolean isFacingRight() {
+<span class="fc" id="L75">        return isFacingRight;</span>
+    }
+
+    public float getDamage() {
+<span class="fc" id="L79">        return Damage_multiplier;</span>
+    }
+
+    public int getEnergy() {
+<span class="fc" id="L83">        return Energy;</span>
+    }
+
+    public double getAcceleration() {
+<span class="fc" id="L87">        return acceleration;</span>
+    }
+
+    public Vector getMaxVelocity() {
+<span class="fc" id="L91">        return maxVelocity;</span>
+    }
+
+    public Vector getVelocity() {
+<span class="fc" id="L95">        return velocity;</span>
+    }
+
+    public Scene getScene() {
+<span class="fc" id="L99">        return scene;</span>
+    }
+
+    public KnightState getState() {
+<span class="fc" id="L103">        return state;</span>
+    }
+
+    public int getWidth() {
+<span class="fc" id="L107">        return WIDTH;</span>
+    }
+
+    public int getHeight() {
+<span class="fc" id="L111">        return HEIGHT;</span>
+    }
+
+    public int getJumpCounter() {
+<span class="fc" id="L115">        return jumpCounter;</span>
+    }
+
+    public double getDashBoost() {
+<span class="fc" id="L119">        return dashBoost;</span>
+    }
+
+    public boolean isGotHit() {
+<span class="fc" id="L123">        return gotHit;</span>
+    }
+
+    //SETTERS
+
+    public void setHP(int HP) {
+<span class="fc" id="L129">        this.HP = HP;</span>
+<span class="fc" id="L130">    }</span>
+
+    public void setFacingRight(boolean facingRight) {
+<span class="fc" id="L133">        isFacingRight = facingRight;</span>
+<span class="fc" id="L134">    }</span>
+
+    public void setDamage(float damage) {
+<span class="fc" id="L137">        this.Damage_multiplier = damage;</span>
+<span class="fc" id="L138">    }</span>
+
+    public void setEnergy(int Energy) {
+<span class="fc" id="L141">        this.Energy = Energy;</span>
+<span class="fc" id="L142">    }</span>
+
+    public void setJumpCounter(int jumpCounter) {
+<span class="fc" id="L145">        this.jumpCounter = jumpCounter;</span>
+<span class="fc" id="L146">    }</span>
+
+    public void setMaxVelocity(Vector maxVelocity) {
+<span class="fc" id="L149">        this.maxVelocity = maxVelocity;</span>
+<span class="fc" id="L150">    }</span>
+
+    public void setVelocity(Vector velocity) {
+<span class="fc" id="L153">        this.velocity = velocity;</span>
+<span class="fc" id="L154">    }</span>
+
+    public void setScene(Scene scene) {
+<span class="fc" id="L157">        this.scene = scene;</span>
+<span class="fc" id="L158">    }</span>
+
+    public void setState(KnightState state) {
+<span class="fc" id="L161">        this.state = state;</span>
+<span class="fc" id="L162">    }</span>
+
+    public void setGotHit(boolean gotHit) {
+<span class="fc" id="L165">        this.gotHit = gotHit;</span>
+<span class="fc" id="L166">    }</span>
+
+    public Vector updateVelocity() {
+<span class="fc" id="L169">        return state.updateVelocity(velocity);</span>
+    }
+
+    public Position updatePosition() {
+<span class="fc" id="L173">        Vector resolvedVelocity = state.applyCollisions(velocity);</span>
+
+        // Update position with resolved velocity
+<span class="fc" id="L176">        double newX = getPosition().x() + resolvedVelocity.x();</span>
+<span class="fc" id="L177">        double newY = getPosition().y() + resolvedVelocity.y();</span>
+
+        //Position newPosition = new Position(newX, newY);
+
+
+<span class="fc" id="L182">        return new Position(newX, newY);</span>
+    }
+
+    //ACTIONS
+
+    public Vector moveLeft() {
+<span class="fc" id="L188">        return state.moveKnightLeft();</span>
+    }
+
+    public Vector moveRight() {
+<span class="fc" id="L192">        return state.moveKnightRight();</span>
+    }
+
+    public Vector jump() {
+<span class="fc" id="L196">        return state.jump();</span>
+    }
+<span class="fc" id="L198">    public Vector dash(){return state.dash();}</span>
+
+    public void increaseDeaths() {
+<span class="fc" id="L201">        this.deaths++;</span>
+<span class="fc" id="L202">    }</span>
+    public int getNumberOfDeaths() {
+<span class="fc" id="L204">        return deaths;</span>
+    }
+
+    public long getBirthTime() {
+<span class="fc" id="L208">        return birthTime;</span>
+    }
+<span class="fc" id="L210">    public void setBirthTime(long birthTime) {this.birthTime = birthTime; }</span>
+
+
+
+    ////////////Create Knight Particles ///////////////////////////////////////////////
+
+    public List&lt;Particle&gt; createParticlesDoubleJump(int size, Scene scene) {
+<span class="fc" id="L217">        List&lt;Particle&gt; particles = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L218">        Random random = new Random();</span>
+
+<span class="fc bfc" id="L220" title="All 2 branches covered.">        for (int i = 0; i &lt; size; i++) {</span>
+            double angle;
+<span class="fc bfc" id="L222" title="All 2 branches covered.">            if (random.nextBoolean()) {</span>
+                // Generate angle in the range [180°, 225°] (converted to radians)
+<span class="fc" id="L224">                angle = Math.toRadians(155 + random.nextDouble() * 45);</span>
+<span class="fc bfc" id="L225" title="All 2 branches covered.">            } else if (random.nextBoolean()) {</span>
+                // Generate angle in the range [315°, 360°] (converted to radians)
+<span class="fc" id="L227">                angle = Math.toRadians(345 + random.nextDouble() * 45);</span>
+            }
+            else
+<span class="fc" id="L230">                angle = Math.toRadians(45 + random.nextDouble() * 90);</span>
+
+
+<span class="fc" id="L233">            double speed = random.nextDouble() + 1; // Narrowed speed range [1.5, 2.5]</span>
+<span class="fc" id="L234">            Position velocity = new Position(</span>
+<span class="fc" id="L235">                    Math.cos(angle) * speed,  // Horizontal velocity</span>
+<span class="fc" id="L236">                    Math.sin(angle) * speed   // Ensure Y velocity is positive (downward)</span>
+            );
+
+<span class="fc" id="L239">            particles.add(new DoubleJumpParticle(</span>
+                    //random.nextInt((int) this.getPosition().x(), (int) this.getPosition().x() + getWidth()),
+<span class="fc" id="L241">                    ((int) this.getPosition().x()) + random.nextInt(((int) this.getPosition().x() + getWidth()) - ((int) this.getPosition().x()) + 1),</span>
+                    //random.nextInt((int) this.getPosition().y() - 4 + getHeight(), (int) this.getPosition().y() + getHeight()),
+<span class="fc" id="L243">                    ((int) this.getPosition().y() - 4 + getHeight()) + random.nextInt(((int) this.getPosition().y() + getHeight()) - ((int) this.getPosition().y() - 4 + getHeight()) + 1),</span>
+                    velocity,
+                    new TextColor.RGB(0, 0, 0) // Default black color for now
+            ));
+        }
+
+<span class="fc" id="L249">        return particles;</span>
+    }
+
+    public List&lt;Particle&gt; createParticlesJump(int size) {
+<span class="fc" id="L253">        List&lt;Particle&gt; particles = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L254">        Random random = new Random();</span>
+
+<span class="fc" id="L256">        double coneAngle = Math.toRadians(90); // Total cone spread (45 degrees)</span>
+<span class="fc" id="L257">        double baseSpeed = -jumpBoost / 2.0;     // Base speed magnitude</span>
+
+        // Starting position (centered at the entity's position)
+<span class="fc" id="L260">        double startX = this.getPosition().x() + getWidth() / 2.0;</span>
+<span class="fc" id="L261">        double startY = this.getPosition().y() + getHeight();</span>
+
+<span class="fc bfc" id="L263" title="All 2 branches covered.">        for (int i = 0; i &lt; size; i++) {</span>
+            // Randomize a position within the cone
+<span class="fc" id="L265">            double factor = random.nextDouble(); // 0.0 to 1.0 (distance from the center)</span>
+<span class="fc" id="L266">            double angle = (random.nextDouble() - 0.5) * coneAngle; // Random angle within the cone</span>
+
+            // Calculate speedX and speedY based on the ^ shape
+<span class="fc" id="L269">            double speedX = baseSpeed * factor * Math.sin(angle) - (getVelocity().x() / 1.10); // Increases with factor</span>
+<span class="fc" id="L270">            double speedY = baseSpeed * (1 - factor); // High upward speed at the center, reduces outward</span>
+
+<span class="fc" id="L272">            Position velocity = new Position(speedX, speedY);</span>
+
+            // Add the particle with calculated properties
+<span class="fc" id="L275">            particles.add(new JumpParticle(</span>
+                    (int)startX, // All particles start from the same X position
+                    (int)startY, // All particles start from the same Y position
+                    velocity,
+                    new TextColor.RGB(150, 150, 225))); // Adjust color as needed
+        }
+<span class="fc" id="L281">        return particles;</span>
+    }
+
+    public List&lt;Particle&gt; createRespawnParticles(int size) {
+<span class="fc" id="L285">        List&lt;Particle&gt; particles = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L286">        Random random = new Random();</span>
+
+<span class="fc bfc" id="L288" title="All 2 branches covered.">        for (int i = 0; i &lt; size; i++) {</span>
+            double angle;
+<span class="fc" id="L290">            angle = Math.toRadians(180 + random.nextDouble() * 180);</span>
+<span class="fc" id="L291">            double speed = random.nextDouble() + 1; // Narrowed speed range [1.5, 2.5]</span>
+<span class="fc" id="L292">            Position velocity = new Position(</span>
+<span class="fc" id="L293">                    Math.cos(angle) * (speed / 2.5),  // Horizontal velocity</span>
+<span class="fc" id="L294">                    Math.sin(angle) * speed - jumpBoost / 4  // Ensure Y velocity is positive (downward)</span>
+            );
+
+<span class="fc" id="L297">            particles.add(new RespawnParticle(</span>
+                    //random.nextInt((int) this.getPosition().x(), (int) this.getPosition().x() + getWidth()),
+<span class="fc" id="L299">                    ((int) this.getPosition().x()) + random.nextInt(((int) this.getPosition().x() + getWidth()) - ((int) this.getPosition().x()) + 1),</span>
+                    //random.nextInt((int) this.getPosition().y() - 8 + getHeight(), (int) this.getPosition().y() + getHeight()),
+<span class="fc" id="L301">                    ((int) this.getPosition().y() - 8 + getHeight()) + random.nextInt(((int) this.getPosition().y() + getHeight()) - ((int) this.getPosition().y() - 8 + getHeight()) + 1),</span>
+                    velocity,
+                    new TextColor.RGB(255, 0, 0) // Default black color for now
+            ));
+        }
+
+<span class="fc" id="L307">        return particles;</span>
+    }
+
+    public List&lt;Particle&gt; createDashParticles(int size){
+<span class="fc" id="L311">        List&lt;Particle&gt; particles = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L312">        Random random = new Random();</span>
+
+<span class="fc" id="L314">        double coneAngle = Math.toRadians(90); // Total cone spread (45 degrees)</span>
+<span class="fc" id="L315">        double baseSpeed = -jumpBoost / 2.0;     // Base speed magnitude</span>
+
+        // Starting position (centered at the entity's position)
+<span class="fc" id="L318">        double startX = this.getPosition().x() + getWidth() / 2.0;</span>
+<span class="fc" id="L319">        double startY = this.getPosition().y() + getHeight();</span>
+
+<span class="fc bfc" id="L321" title="All 2 branches covered.">        for (int i = 0; i &lt; size; i++) {</span>
+            // Randomize a position within the cone
+<span class="fc" id="L323">            double factor = random.nextDouble(); // 0.0 to 1.0 (distance from the center)</span>
+<span class="fc" id="L324">            double angle = (random.nextDouble() - 0.5) * coneAngle; // Random angle within the cone</span>
+
+            // Calculate speedX and speedY based on the ^ shape
+<span class="fc" id="L327">            double speedX = baseSpeed * factor * Math.sin(angle) - (getVelocity().x() / 1.10); // Increases with factor</span>
+<span class="fc" id="L328">            double speedY = baseSpeed * (1 - factor); // High upward speed at the center, reduces outward</span>
+
+<span class="fc" id="L330">            Position velocity = new Position(speedX, speedY);</span>
+
+            // Add the particle with calculated properties
+<span class="fc" id="L333">            particles.add(new DashParticle(</span>
+                    (int)startX, // All particles start from the same X position
+                    (int)startY, // All particles start from the same Y position
+                    velocity,
+                    new TextColor.RGB(0, 0, 0))); // Adjust color as needed
+        }
+<span class="fc" id="L339">        return particles;</span>
+    }
+
+    public void resetValues(){
+<span class="fc" id="L343">        this.isFacingRight = true;</span>
+<span class="fc" id="L344">        this.state = new FallingState(this);</span>
+<span class="fc" id="L345">    }</span>
+
+    //BOOLS
+
+    public boolean isOverMaxXVelocity() {
+<span class="fc bfc" id="L350" title="All 2 branches covered.">        return Math.abs(velocity.x()) &gt; maxVelocity.x();</span>
+    }
+
+    public boolean isOnGround() {
+<span class="fc" id="L354">        Position positionBelow = new Position(</span>
+<span class="fc" id="L355">                getPosition().x(),</span>
+<span class="fc" id="L356">                 getPosition().y() + 1</span>
+        );
+<span class="fc" id="L358">        Position playerSize = new Position(WIDTH, HEIGHT);</span>
+<span class="fc" id="L359">        return scene.collidesDown(positionBelow, playerSize);</span>
+    }
+
+    public void PlayerHit(int damage){
+<span class="fc bfc" id="L363" title="All 2 branches covered.">        if(gotHit) return;  // works as a timeout to prevent multiple collisions on the player almost instantly</span>
+<span class="fc bfc" id="L364" title="All 2 branches covered.">        if (this.HP == 0)</span>
+<span class="fc" id="L365">            this.HP = 1;</span>
+        //simply formula that translates more particles when low hp and high dmg hit
+<span class="fc" id="L367">        double ratio = 1.0 - (this.HP / 50.0);</span>
+<span class="fc" id="L368">        double blood = 10.0 * ratio;</span>
+<span class="fc" id="L369">        setState(new DamagedState(this, (int)blood + (damage / 5)));</span>
+<span class="fc" id="L370">        setHP(this.HP - damage);</span>
+<span class="fc" id="L371">        setGotHit(true);</span>
+<span class="fc" id="L372">    }</span>
+
+    public int getOrbs() {
+<span class="fc" id="L375">        return orbs;</span>
+    }
+
+    public void setOrbs(int orbs) {
+<span class="fc" id="L379">        this.orbs = orbs;</span>
+<span class="fc" id="L380">    }</span>
+
+    public void addOrbs() {
+<span class="fc" id="L383">        orbs++;</span>
+<span class="fc" id="L384">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Sprite.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Soul Knight</a> &gt; <a href="index.source.html" class="el_package">pt.feup.tvvs.soulknight.view.sprites</a> &gt; <span class="el_source">Sprite.java</span></div><h1>Sprite.java</h1><pre class="source lang-java linenums">package pt.feup.tvvs.soulknight.view.sprites;
+
+import pt.feup.tvvs.soulknight.gui.GUI;
+import com.googlecode.lanterna.TextColor;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.io.InputStream;
+
+<span class="fc" id="L11">public class Sprite {</span>
+    private final BufferedImage image;
+
+<span class="fc" id="L14">    public Sprite(String spritePath) throws IOException {</span>
+<span class="fc" id="L15">        InputStream resource = getClass().getClassLoader().getResourceAsStream(spritePath);</span>
+<span class="pc bpc" id="L16" title="1 of 2 branches missed.">        assert resource != null;</span>
+<span class="fc" id="L17">        image = ImageIO.read(resource);</span>
+<span class="fc" id="L18">    }</span>
+<span class="nc" id="L19">    public BufferedImage getImage() {return image;}</span>
+
+    public void draw(GUI gui, int x, int y) {
+<span class="nc bnc" id="L22" title="All 2 branches missed.">        for (int dx = 0; dx &lt; image.getWidth(); dx++) {</span>
+<span class="nc bnc" id="L23" title="All 2 branches missed.">            for (int dy = 0; dy &lt; image.getHeight(); dy++) {</span>
+<span class="nc" id="L24">                int ARGB = image.getRGB(dx, dy);</span>
+<span class="nc bnc" id="L25" title="All 2 branches missed.">                if (getTransparency(ARGB) == 0)</span>
+<span class="nc" id="L26">                    continue;</span>
+<span class="nc" id="L27">                gui.drawPixel(x + dx, y + dy, getRGB(ARGB));</span>
+            }
+        }
+<span class="nc" id="L30">    }</span>
+
+    private int getTransparency(int ARGB) {
+<span class="nc" id="L33">        return ARGB &gt;&gt; 24;</span>
+    }
+
+    private TextColor.RGB getRGB(int ARGB) {
+<span class="nc" id="L37">        int red = ARGB &gt;&gt; 16 &amp; 0xFF;</span>
+<span class="nc" id="L38">        int green = ARGB &gt;&gt; 8 &amp; 0xFF;</span>
+<span class="nc" id="L39">        int blue = ARGB &amp; 0xFF;</span>
+<span class="nc" id="L40">        return new TextColor.RGB(red, green, blue);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

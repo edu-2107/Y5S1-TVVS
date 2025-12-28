@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BufferedImageGUI.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Soul Knight</a> &gt; <a href="index.source.html" class="el_package">pt.feup.tvvs.soulknight.gui</a> &gt; <span class="el_source">BufferedImageGUI.java</span></div><h1>BufferedImageGUI.java</h1><pre class="source lang-java linenums">package pt.feup.tvvs.soulknight.gui;
+
+import java.awt.image.BufferedImage;
+import java.awt.Color;
+import com.googlecode.lanterna.TextColor;
+
+public class BufferedImageGUI implements GUI {
+    private final BufferedImage buffer;
+
+<span class="fc" id="L10">    public BufferedImageGUI(BufferedImage buffer) {</span>
+<span class="fc" id="L11">        this.buffer = buffer;</span>
+<span class="fc" id="L12">    }</span>
+
+    @Override
+    public int getWidth() {
+<span class="nc" id="L16">        return buffer.getWidth();</span>
+    }
+
+    @Override
+    public int getHeight() {
+<span class="nc" id="L21">        return buffer.getHeight();</span>
+    }
+
+    @Override
+    public void drawPixel(int x, int y, TextColor.RGB color) {
+<span class="nc bnc" id="L26" title="All 8 branches missed.">        if (x &gt;= 0 &amp;&amp; x &lt; buffer.getWidth() &amp;&amp; y &gt;= 0 &amp;&amp; y &lt; buffer.getHeight()) {</span>
+<span class="nc" id="L27">            buffer.setRGB(x, y, new Color(color.getRed(), color.getGreen(), color.getBlue()).getRGB());</span>
+        }
+<span class="nc" id="L29">    }</span>
+
+    @Override
+    public void drawRectangle(int x, int y, int width, int height, TextColor.RGB color) {
+<span class="nc" id="L33">        Color awtColor = new Color(color.getRed(), color.getGreen(), color.getBlue());</span>
+<span class="nc" id="L34">        java.awt.Graphics2D g = buffer.createGraphics();</span>
+<span class="nc" id="L35">        g.setColor(awtColor);</span>
+<span class="nc" id="L36">        g.fillRect(x, y, width, height);</span>
+<span class="nc" id="L37">        g.dispose();</span>
+<span class="nc" id="L38">    }</span>
+
+    @Override
+    public void cls() {
+<span class="nc" id="L42">        java.awt.Graphics2D g = buffer.createGraphics();</span>
+<span class="nc" id="L43">        g.setColor(new Color(0, 0, 0, 0)); // Transparent or black background</span>
+<span class="nc" id="L44">        g.fillRect(0, 0, buffer.getWidth(), buffer.getHeight());</span>
+<span class="nc" id="L45">        g.dispose();</span>
+<span class="nc" id="L46">    }</span>
+
+    @Override
+    public void flush() {
+        // No-op for a static buffer
+<span class="nc" id="L51">    }</span>
+
+    @Override
+    public void close() {
+        // No-op for a static buffer
+<span class="nc" id="L56">    }</span>
+
+    // Unused methods in this context
+    @Override
+    public ACTION getACTION() {
+<span class="nc" id="L61">        throw new UnsupportedOperationException(&quot;Not supported for BufferedImageGUI&quot;);</span>
+    }
+
+    @Override
+    public GUI getGUI() {
+<span class="nc" id="L66">        throw new UnsupportedOperationException(&quot;Not supported for BufferedImageGUI&quot;);</span>
+    }
+
+    @Override
+    public int getFPS() {
+<span class="nc" id="L71">        throw new UnsupportedOperationException(&quot;Not supported for BufferedImageGUI&quot;);</span>
+    }
+
+    @Override
+    public void setFPS(int fps) {
+<span class="nc" id="L76">        throw new UnsupportedOperationException(&quot;Not supported for BufferedImageGUI&quot;);</span>
+    }
+
+    @Override
+    public void drawHitBox(int x, int y, int width, int height, TextColor.RGB color) {
+<span class="nc" id="L81">        throw new UnsupportedOperationException(&quot;Not implemented for BufferedImageGUI&quot;);</span>
+    }
+
+    @Override
+    public void drawText(int x, int y, TextColor.RGB color, String Text) {
+<span class="fc" id="L86">        java.awt.Graphics2D g = buffer.createGraphics();</span>
+<span class="fc" id="L87">        g.setColor(new Color(color.getRed(), color.getGreen(), color.getBlue()));</span>
+<span class="fc" id="L88">        g.drawString(Text, x, y);</span>
+<span class="fc" id="L89">        g.dispose();</span>
+<span class="fc" id="L90">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

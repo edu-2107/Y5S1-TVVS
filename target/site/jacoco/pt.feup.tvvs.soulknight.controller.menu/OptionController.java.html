@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>OptionController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Soul Knight</a> &gt; <a href="index.source.html" class="el_package">pt.feup.tvvs.soulknight.controller.menu</a> &gt; <span class="el_source">OptionController.java</span></div><h1>OptionController.java</h1><pre class="source lang-java linenums">package pt.feup.tvvs.soulknight.controller.menu;
+
+import pt.feup.tvvs.soulknight.Game;
+import pt.feup.tvvs.soulknight.controller.Controller;
+import pt.feup.tvvs.soulknight.gui.GUI;
+import pt.feup.tvvs.soulknight.gui.RescalableGUI;
+import pt.feup.tvvs.soulknight.model.game.elements.knight.Knight;
+import pt.feup.tvvs.soulknight.model.game.scene.SceneLoader;
+import pt.feup.tvvs.soulknight.model.menu.MainMenu;
+import pt.feup.tvvs.soulknight.model.menu.Menu;
+import pt.feup.tvvs.soulknight.model.menu.SettingsMenu;
+import pt.feup.tvvs.soulknight.state.GameState;
+import pt.feup.tvvs.soulknight.state.MainMenuState;
+import pt.feup.tvvs.soulknight.state.SettingsMenuState;
+
+import java.awt.*;
+import java.io.IOException;
+import java.net.URISyntaxException;
+
+public class OptionController extends Controller&lt;Menu&gt; {
+<span class="fc" id="L21">    private static final RescalableGUI.ResolutionScale[] resolutions = RescalableGUI.ResolutionScale.values();</span>
+
+    public OptionController(Menu menu) {
+<span class="fc" id="L24">        super(menu);</span>
+<span class="fc" id="L25">    }</span>
+
+    @Override
+    public void move(Game game, GUI.ACTION action, long frameCount) throws IOException, URISyntaxException, FontFormatException {
+<span class="nc bnc" id="L29" title="All 6 branches missed.">        switch (getModel().getCurrentOption().getType()) {</span>
+            case START_GAME:
+<span class="nc bnc" id="L31" title="All 2 branches missed.">                if (action == GUI.ACTION.SELECT) {</span>
+<span class="nc" id="L32">                    game.setState(new GameState(</span>
+                            new SceneLoader(0)
+<span class="nc" id="L34">                                    .createScene(new Knight(0, 0, 50, 10, 1)),</span>
+<span class="nc" id="L35">                            game.getSpriteLoader()</span>
+                    ));
+                }
+                break;
+            case SETTINGS:
+<span class="nc bnc" id="L40" title="All 2 branches missed.">                if (action == GUI.ACTION.SELECT)</span>
+<span class="nc" id="L41">                    game.setState(new SettingsMenuState(new SettingsMenu(), game.getSpriteLoader()));</span>
+                break;
+            case EXIT:
+<span class="nc bnc" id="L44" title="All 2 branches missed.">                if (action == GUI.ACTION.SELECT)</span>
+<span class="nc" id="L45">                    game.setState(null);</span>
+                break;
+            case RESOLUTION:
+<span class="nc bnc" id="L48" title="All 2 branches missed.">                if (action == GUI.ACTION.RIGHT) {</span>
+<span class="nc" id="L49">                    int index = getResolutionIndex(game.getResolution());</span>
+<span class="nc bnc" id="L50" title="All 2 branches missed.">                    if (index &lt; resolutions.length - 1) {</span>
+<span class="nc" id="L51">                        RescalableGUI.ResolutionScale newResolution = resolutions[index + 1];</span>
+<span class="nc" id="L52">                        game.setResolution(newResolution);</span>
+                    }
+<span class="nc bnc" id="L54" title="All 2 branches missed.">                } else if (action == GUI.ACTION.LEFT) {</span>
+<span class="nc" id="L55">                    int index = getResolutionIndex(game.getResolution());</span>
+<span class="nc bnc" id="L56" title="All 2 branches missed.">                    if (index &gt; -1) {</span>
+<span class="nc bnc" id="L57" title="All 2 branches missed.">                        RescalableGUI.ResolutionScale newResolution = index != 0 ? resolutions[index - 1] : null;</span>
+<span class="nc" id="L58">                        game.setResolution(newResolution);</span>
+                    }
+<span class="nc" id="L60">                }</span>
+                break;
+            case TO_MAIN_MENU:
+<span class="nc bnc" id="L63" title="All 2 branches missed.">                if (action == GUI.ACTION.SELECT)</span>
+<span class="nc" id="L64">                    game.setState(new MainMenuState(new MainMenu(), game.getSpriteLoader()));</span>
+        }
+<span class="nc" id="L66">    }</span>
+
+    private Integer getResolutionIndex(RescalableGUI.ResolutionScale resolution) {
+<span class="nc bnc" id="L69" title="All 2 branches missed.">        for (int i = 0; i &lt; resolutions.length; i++) {</span>
+<span class="nc bnc" id="L70" title="All 2 branches missed.">            if (resolutions[i] == resolution)</span>
+<span class="nc" id="L71">                return i;</span>
+        }
+<span class="nc" id="L73">        return -1;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

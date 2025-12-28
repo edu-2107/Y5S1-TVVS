@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MenuViewer.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Soul Knight</a> &gt; <a href="index.source.html" class="el_package">pt.feup.tvvs.soulknight.view.states</a> &gt; <span class="el_source">MenuViewer.java</span></div><h1>MenuViewer.java</h1><pre class="source lang-java linenums">package pt.feup.tvvs.soulknight.view.states;
+
+import pt.feup.tvvs.soulknight.gui.GUI;
+import pt.feup.tvvs.soulknight.gui.RescalableGUI;
+import pt.feup.tvvs.soulknight.model.menu.*;
+import pt.feup.tvvs.soulknight.model.menu.*;
+import pt.feup.tvvs.soulknight.view.menu.LogoViewer;
+import pt.feup.tvvs.soulknight.view.menu.OptionViewer;
+import pt.feup.tvvs.soulknight.view.menu.ParticleViewer;
+import pt.feup.tvvs.soulknight.view.sprites.ViewerProvider;
+import com.googlecode.lanterna.TextColor;
+
+import java.io.IOException;
+import java.util.List;
+
+public class MenuViewer&lt;T extends Menu&gt; extends ScreenViewer&lt;T&gt;{
+
+    private final ParticleViewer particleViewer;
+<span class="fc" id="L19">    static final TextColor.RGB unselectedColor = new TextColor.RGB(26, 62, 108);</span>
+<span class="fc" id="L20">    static final TextColor.RGB selectedColor = new TextColor.RGB(219, 219, 48);</span>
+    private final OptionViewer optionViewer;
+    private final LogoViewer logoViewer;
+
+
+    public MenuViewer(T model, ViewerProvider viewerProvider) throws IOException {
+<span class="fc" id="L26">        super(model);</span>
+<span class="fc" id="L27">        this.optionViewer = viewerProvider.getEntryViewer();</span>
+<span class="fc" id="L28">        this.particleViewer = new ParticleViewer();</span>
+<span class="fc" id="L29">        this.logoViewer = viewerProvider.getLogoViewer();</span>
+<span class="fc" id="L30">    }</span>
+
+    @Override
+    public void draw(GUI gui, long time) throws IOException {
+<span class="nc" id="L34">        gui.cls();</span>
+<span class="nc bnc" id="L35" title="All 2 branches missed.">        if (getModel() instanceof MainMenu) {</span>
+<span class="nc" id="L36">            drawRetroDynamicBackground(gui, time, true); // Gray gradient</span>
+<span class="nc bnc" id="L37" title="All 2 branches missed.">        } else if (getModel() instanceof SettingsMenu) {</span>
+<span class="nc" id="L38">            drawRetroDynamicBackground(gui, time, false); // Slightly colorful gradient</span>
+        }
+<span class="nc" id="L40">        logoViewer.draw(gui, 90, 30);</span>
+<span class="nc" id="L41">        drawParticles(gui, getModel().getParticles(), particleViewer, time);</span>
+<span class="nc" id="L42">        this.drawOptions((RescalableGUI) gui, getModel().getOptions(), optionViewer, time);</span>
+<span class="nc" id="L43">        gui.flush();</span>
+<span class="nc" id="L44">    }</span>
+
+    void drawParticles(GUI gui, List&lt;Particle&gt; particles, ParticleViewer viewer, long time) throws IOException {
+<span class="nc bnc" id="L47" title="All 2 branches missed.">        for (Particle particle : particles) {</span>
+<span class="nc" id="L48">            viewer.draw(particle, gui, time, 0, 0);</span>
+<span class="nc" id="L49">        }</span>
+<span class="nc" id="L50">    }</span>
+
+    void drawOptions(RescalableGUI gui, List&lt;Option&gt; options, OptionViewer viewer, long time) throws IOException {
+<span class="nc" id="L53">        int animationDuration = 20; // Number of ticks for the animation</span>
+<span class="nc" id="L54">        int maxOffsetX = 40; // Maximum horizontal movement (how far right to start the animation)</span>
+
+        // Calculate the start time for drawing to begin (when the first option reaches its initial position)
+<span class="nc" id="L57">        int firstOptionStartTime = 0;</span>
+
+        // Calculate the time when each option should start sliding (based on its index)
+<span class="nc bnc" id="L60" title="All 2 branches missed.">        for (int idx = 0; idx &lt; options.size(); idx++) {</span>
+<span class="nc" id="L61">            Option option = options.get(idx);</span>
+
+            // Determine the start time for the first option to begin drawing
+<span class="nc" id="L64">            int optionStartTime = idx * animationDuration;  // Each option starts after the previous one finishes</span>
+<span class="nc" id="L65">            firstOptionStartTime = optionStartTime;</span>
+
+            // Wait until the first option reaches its initial position
+<span class="nc bnc" id="L68" title="All 2 branches missed.">            if (time &lt; firstOptionStartTime) {</span>
+<span class="nc" id="L69">                continue; // Skip drawing until the first option reaches its start time</span>
+            }
+
+            // Calculate the new x position for the animation (moving from right to left)
+<span class="nc" id="L73">            int startPositionX = (int) option.getPosition().x(); // Initial x position</span>
+<span class="nc" id="L74">            int currentPositionX = startPositionX;</span>
+
+<span class="nc bnc" id="L76" title="All 4 branches missed.">            if (time &gt;= optionStartTime &amp;&amp; time &lt; optionStartTime + animationDuration) {</span>
+                // Calculate the movement for the animation: gradually decrease x position
+<span class="nc" id="L78">                int movementOffset = (int) (maxOffsetX * (1 - (time - optionStartTime) / (float) animationDuration)); // Moves from right to left</span>
+<span class="nc" id="L79">                currentPositionX += movementOffset;</span>
+            }
+
+            // Update the option's position with the new x value
+<span class="nc" id="L83">            Option updatedOption = new Option(currentPositionX, (int) option.getPosition().y(), option.getType());</span>
+
+            // Determine if the option is selected
+<span class="nc" id="L86">            boolean isSelected = getModel().isSelected(idx);</span>
+            // Apply blink effect for the selected option
+<span class="nc bnc" id="L88" title="All 4 branches missed.">            if (isSelected &amp;&amp; time &gt;= 80) {</span>
+<span class="nc bnc" id="L89" title="All 2 branches missed.">                boolean isVisible = (time / 8) % 2 == 0; // Toggle visibility every 10 ticks</span>
+<span class="nc bnc" id="L90" title="All 2 branches missed.">                if (getModel().getInGame()) {</span>
+<span class="nc bnc" id="L91" title="All 2 branches missed.">                    isVisible = (time / 4) % 2 == 0;</span>
+                }
+<span class="nc bnc" id="L93" title="All 2 branches missed.">                if (isVisible) {</span>
+<span class="nc" id="L94">                    viewer.draw(updatedOption, gui, selectedColor); // Draw when visible</span>
+                }
+<span class="nc" id="L96">            }</span>
+<span class="nc bnc" id="L97" title="All 2 branches missed.">            else if (time &lt; 80) {</span>
+<span class="nc" id="L98">                viewer.draw(updatedOption, gui, unselectedColor);</span>
+            }
+            else {
+                // Draw normally for unselected or non-blinking options
+<span class="nc bnc" id="L102" title="All 2 branches missed.">                viewer.draw(updatedOption, gui, isSelected ? selectedColor : unselectedColor);</span>
+            }
+
+        }
+<span class="nc" id="L106">    }</span>
+
+    void drawRetroDynamicBackground(GUI gui, long time, boolean isGrayGradient) throws IOException {
+<span class="nc" id="L109">        int screenWidth = 184;</span>
+<span class="nc" id="L110">        int screenHeight = 112;</span>
+<span class="nc" id="L111">        double changeRate = 0.05;</span>
+
+        // Generate a retro gradient background
+<span class="nc bnc" id="L114" title="All 2 branches missed.">        for (int w = 0; w &lt; screenWidth; w++) {</span>
+            int red, green, blue;
+
+<span class="nc bnc" id="L117" title="All 2 branches missed.">            if (isGrayGradient) {</span>
+<span class="nc" id="L118">                int gray = (int) (128 + 127 * Math.sin((double) w / screenWidth * 2 * Math.PI + time * changeRate));</span>
+<span class="nc" id="L119">                red = green = blue = gray; // Use grayscale values</span>
+<span class="nc" id="L120">            } else {</span>
+<span class="nc" id="L121">                red = (int) (128 + 127 * Math.sin((double) w / screenWidth * 2 * Math.PI + time * changeRate));</span>
+<span class="nc" id="L122">                green = (int) (128 + 127 * Math.sin((double) w / screenWidth * 2 * Math.PI + time * changeRate + Math.PI / 3)); // Slightly reduced green</span>
+<span class="nc" id="L123">                blue = (int) (128 + 127 * Math.sin((double) w / screenWidth * 2 * Math.PI + time * changeRate + 2 * Math.PI / 3)); // Slightly reduced blue</span>
+            }
+
+<span class="nc" id="L126">            TextColor.RGB gradientColor = new TextColor.RGB(red, green, blue);</span>
+
+<span class="nc bnc" id="L128" title="All 2 branches missed.">            for (int h = 0; h &lt; screenHeight; h++) {</span>
+<span class="nc" id="L129">                gui.drawPixel(w, h, gradientColor);</span>
+            }
+        }
+
+        // Add a retro-style border
+<span class="nc" id="L134">        TextColor.RGB borderColor = new TextColor.RGB(40, 25, 25);</span>
+<span class="nc bnc" id="L135" title="All 2 branches missed.">        for (int w = 0; w &lt; screenWidth; w++) {</span>
+<span class="nc" id="L136">            gui.drawPixel(w, 0, borderColor);</span>
+<span class="nc" id="L137">            gui.drawPixel(w, screenHeight - 1, borderColor);</span>
+        }
+<span class="nc bnc" id="L139" title="All 2 branches missed.">        for (int h = 1; h &lt; screenHeight - 1; h++) {</span>
+<span class="nc" id="L140">            gui.drawPixel(0, h, borderColor);</span>
+<span class="nc" id="L141">            gui.drawPixel(screenWidth - 1, h, borderColor);</span>
+        }
+<span class="nc" id="L143">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

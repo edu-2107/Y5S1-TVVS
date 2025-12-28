@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>OptionViewer.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Soul Knight</a> &gt; <a href="index.source.html" class="el_package">pt.feup.tvvs.soulknight.view.menu</a> &gt; <span class="el_source">OptionViewer.java</span></div><h1>OptionViewer.java</h1><pre class="source lang-java linenums">package pt.feup.tvvs.soulknight.view.menu;
+
+import pt.feup.tvvs.soulknight.gui.RescalableGUI;
+import pt.feup.tvvs.soulknight.model.menu.Option;
+import pt.feup.tvvs.soulknight.view.text.TextViewer;
+import com.googlecode.lanterna.TextColor;
+
+public class OptionViewer {
+    private final TextViewer textViewer;
+
+<span class="fc" id="L11">    public OptionViewer(TextViewer textViewer) {</span>
+<span class="fc" id="L12">        this.textViewer = textViewer;</span>
+<span class="fc" id="L13">    }</span>
+
+    public void draw(Option model, RescalableGUI gui, TextColor color) {
+<span class="nc" id="L16">        String OptionText = null;</span>
+<span class="nc bnc" id="L17" title="All 6 branches missed.">        switch (model.getType()) {</span>
+            case START_GAME:
+<span class="nc" id="L19">                OptionText = &quot;Start&quot;;</span>
+<span class="nc" id="L20">                break;</span>
+            case SETTINGS:
+<span class="nc" id="L22">                OptionText = &quot;Settings&quot;;</span>
+<span class="nc" id="L23">                break;</span>
+            case EXIT:
+<span class="nc" id="L25">                OptionText = &quot;Exit&quot;;</span>
+<span class="nc" id="L26">                break;</span>
+            case RESOLUTION:
+<span class="nc" id="L28">                OptionText = getResolutionLabel(gui);</span>
+<span class="nc" id="L29">                break;</span>
+            case TO_MAIN_MENU:
+<span class="nc" id="L31">                OptionText = &quot;Go Back&quot;;</span>
+                break;
+        }
+<span class="nc" id="L34">        textViewer.draw(OptionText, (int) model.getPosition().x(), (int) model.getPosition().y(), (TextColor.RGB) color, gui);</span>
+<span class="nc" id="L35">    }</span>
+
+    private String getResolutionLabel(RescalableGUI gui) {
+<span class="nc" id="L38">        final RescalableGUI.ResolutionScale[] resolutions = RescalableGUI.ResolutionScale.values();</span>
+<span class="nc bnc" id="L39" title="All 2 branches missed.">        if (gui.getResolutionScale() == null)</span>
+<span class="nc" id="L40">            return &quot;Resolution:   Automatic &gt;&quot;;</span>
+
+<span class="nc" id="L42">        return String.format(</span>
+                &quot;Resolution: &lt; %dX%d %c &quot;,
+<span class="nc" id="L44">                gui.getResolutionScale().getWidth(),</span>
+<span class="nc" id="L45">                gui.getResolutionScale().getHeight(),</span>
+<span class="nc bnc" id="L46" title="All 2 branches missed.">                resolutions[resolutions.length - 1] == gui.getResolutionScale() ? ' ' : '&gt;'</span>
+        );
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

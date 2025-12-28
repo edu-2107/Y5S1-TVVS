@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GhostMonster.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Soul Knight</a> &gt; <a href="index.source.html" class="el_package">pt.feup.tvvs.soulknight.model.game.elements.enemies</a> &gt; <span class="el_source">GhostMonster.java</span></div><h1>GhostMonster.java</h1><pre class="source lang-java linenums">package pt.feup.tvvs.soulknight.model.game.elements.enemies;
+
+import pt.feup.tvvs.soulknight.model.dataStructs.Position;
+import pt.feup.tvvs.soulknight.model.dataStructs.Vector;
+import pt.feup.tvvs.soulknight.model.game.scene.Scene;
+
+import static java.lang.Math.max;
+
+import java.util.Random;
+
+public class GhostMonster extends Enemies {
+
+    private double amplitude;      // Controls the height of the wave
+    private double frequency;      // Controls how fast the wave oscillates
+    private double horizontalSpeed; // Fixed horizontal speed
+    private double elapsedTime;          // Time tracker for the wave movement
+    private final int screenWidth;       // Width of the game screen
+    private final int screenHeight;      // Height of the game screen
+
+    private final char symbol;
+
+    public GhostMonster(int x, int y, int HP, Scene scene, int damage, Position size, char symbol) {
+<span class="fc" id="L23">        super(x, y, HP, scene, damage, size);</span>
+<span class="fc" id="L24">        this.symbol = symbol;</span>
+<span class="fc" id="L25">        Random random = new Random();</span>
+
+        // Randomize amplitude (height of sine wave) and frequency
+<span class="fc" id="L28">        this.amplitude = 1.5 + random.nextDouble(); // 1.5 to 2.5</span>
+<span class="fc" id="L29">        this.frequency = 0.05 + (random.nextDouble() * 0.05); // 0.05 to 0.1 (wave speed)</span>
+<span class="fc" id="L30">        this.horizontalSpeed = 1.25 + (0.75 * random.nextDouble()); // Speed: 1.25 to 2</span>
+<span class="fc" id="L31">        this.elapsedTime = 0.0;</span>
+
+        // Set screen boundaries (replace with your scene dimensions)
+<span class="fc" id="L34">        this.screenWidth = scene.getWidth();</span>
+<span class="fc" id="L35">        this.screenHeight = scene.getHeight();</span>
+
+        // Set initial velocity
+<span class="fc" id="L38">        setVelocity(new Vector(horizontalSpeed, 0));</span>
+<span class="fc" id="L39">    }</span>
+
+    @Override
+    public char getChar() {
+<span class="nc" id="L43">        return symbol;</span>
+    }
+
+<span class="nc" id="L46">    public void setAmplitude(int amplitude) {this.amplitude = amplitude;}</span>
+<span class="nc" id="L47">    public void setFrequency(double freq) {this.frequency = freq;}</span>
+<span class="nc" id="L48">    public void setHorizontalSpeed(int hspeed) {this.horizontalSpeed = hspeed;}</span>
+
+
+
+    @Override
+    public Position updatePosition() {
+        // Increment time for sine wave calculations
+<span class="nc" id="L55">        elapsedTime += 1;</span>
+
+        // Horizontal movement
+<span class="nc" id="L58">        double newX = getPosition().x() + horizontalSpeed;</span>
+
+        // Vertical movement: sine wave function
+<span class="nc" id="L61">        double newY = getPosition().y() + amplitude * Math.sin(frequency * elapsedTime);</span>
+
+        // Screen wrapping: If the enemy moves off the screen, wrap around
+<span class="nc bnc" id="L64" title="All 2 branches missed.">        if (newX &gt; screenWidth) newX = 0; // Wrap from right to left</span>
+<span class="nc bnc" id="L65" title="All 2 branches missed.">        if (newX &lt; 0) newX = screenWidth; // Wrap from left to right</span>
+<span class="nc bnc" id="L66" title="All 2 branches missed.">        if (newY &gt; screenHeight) newY = 0; // Wrap from bottom to top</span>
+<span class="nc bnc" id="L67" title="All 2 branches missed.">        if (newY &lt; 0) newY = screenHeight; // Wrap from top to bottom</span>
+
+<span class="nc" id="L69">        return new Position(newX, newY);</span>
+    }
+
+    @Override
+    public Position moveMonster() {
+<span class="nc" id="L74">        Position newPosition = updatePosition();</span>
+<span class="nc" id="L75">        setPosition(newPosition);</span>
+<span class="nc" id="L76">        return newPosition;</span>
+    }
+
+    @Override
+    protected Vector applyCollisions(Vector velocity) {
+        // Disable collision logic for wave-like movement
+<span class="nc" id="L82">        return velocity;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

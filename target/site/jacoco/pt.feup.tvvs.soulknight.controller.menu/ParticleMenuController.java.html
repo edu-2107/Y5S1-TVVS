@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ParticleMenuController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Soul Knight</a> &gt; <a href="index.source.html" class="el_package">pt.feup.tvvs.soulknight.controller.menu</a> &gt; <span class="el_source">ParticleMenuController.java</span></div><h1>ParticleMenuController.java</h1><pre class="source lang-java linenums">package pt.feup.tvvs.soulknight.controller.menu;
+
+import pt.feup.tvvs.soulknight.Game;
+import pt.feup.tvvs.soulknight.controller.Controller;
+import pt.feup.tvvs.soulknight.gui.GUI;
+import pt.feup.tvvs.soulknight.model.dataStructs.Position;
+import pt.feup.tvvs.soulknight.model.menu.Menu;
+import pt.feup.tvvs.soulknight.model.menu.Particle;
+import pt.feup.tvvs.soulknight.state.particle.*;
+import com.googlecode.lanterna.TextColor;
+import pt.feup.tvvs.soulknight.state.particle.*;
+
+import java.io.IOException;
+import java.util.Random;
+
+public class ParticleMenuController extends Controller&lt;Menu&gt; {
+<span class="fc" id="L17">    private double windAngle = 0; // Current wind direction in radians</span>
+<span class="fc" id="L18">    private double windSpeed = 2; // Current wind speed</span>
+<span class="fc" id="L19">    private final int screenWidth = 220;</span>
+<span class="fc" id="L20">    private final int screenHeight = 110;</span>
+<span class="fc" id="L21">    private final Random random = new Random();</span>
+
+    // Colors for the gradient
+<span class="fc" id="L24">    TextColor.RGB currentStartColor = randomColor();</span>
+<span class="fc" id="L25">    TextColor.RGB currentEndColor = randomColor();</span>
+<span class="fc" id="L26">    TextColor.RGB nextStartColor = randomColor();</span>
+<span class="fc" id="L27">    TextColor.RGB nextEndColor = randomColor();</span>
+<span class="fc" id="L28">    private int transitionStartTick = -1; // Tick when the transition begins</span>
+
+    public ParticleMenuController(Menu menu) {
+<span class="fc" id="L31">        super(menu);</span>
+<span class="fc" id="L32">    }</span>
+
+    public double getWindAngle() {
+<span class="nc" id="L35">        return windAngle;</span>
+    }
+
+    public double getWindSpeed() {
+<span class="nc" id="L39">        return windSpeed;</span>
+    }
+
+    public Position wrapPosition(int x, int y) {
+<span class="fc bfc" id="L43" title="All 2 branches covered.">        if (x &lt; 0) x = screenWidth - 1;</span>
+<span class="fc bfc" id="L44" title="All 2 branches covered.">        else if (x &gt;= screenWidth) x = 1;</span>
+<span class="fc bfc" id="L45" title="All 2 branches covered.">        if (y &lt; 0) y = screenHeight - 1;</span>
+<span class="fc bfc" id="L46" title="All 2 branches covered.">        else if (y &gt;= screenHeight) y = 1;</span>
+<span class="fc" id="L47">        return new Position(x, y);</span>
+    }
+
+    @Override
+    public void move(Game game, GUI.ACTION action, long time) throws IOException {
+<span class="nc" id="L52">        int modeDuration = 50; // Number of ticks before switching mode</span>
+<span class="nc" id="L53">        int mode = (int) ((time / modeDuration) % 5); // Cycle through 4 modes</span>
+
+<span class="nc bnc" id="L55" title="All 2 branches missed.">        for (Particle particle : getModel().getParticles()) {</span>
+            // Update particle state based on the current mode
+            ParticleState state;
+<span class="nc bnc" id="L58" title="All 6 branches missed.">            switch (mode) {</span>
+                case 0:
+<span class="nc" id="L60">                    state = new RandomState();      // Random mode</span>
+<span class="nc" id="L61">                    break;</span>
+                case 1:
+<span class="nc" id="L63">                    state = new WindyState();       // Windy mode</span>
+<span class="nc" id="L64">                    break;</span>
+                case 2:
+<span class="nc" id="L66">                    state = new CalmState();        // Calm mode</span>
+<span class="nc" id="L67">                    break;</span>
+                case 3:
+<span class="nc" id="L69">                    state = new DispersingState();  // Dispersing mode</span>
+<span class="nc" id="L70">                    break;</span>
+                case 4:
+<span class="nc" id="L72">                    state = new ZicoState();</span>
+<span class="nc" id="L73">                    break;</span>
+                default:
+<span class="nc" id="L75">                    throw new IllegalStateException(&quot;Unexpected mode: &quot; + mode);</span>
+            }
+<span class="nc" id="L77">            particle.setState(state);</span>
+
+            // Delegate movement logic to the particle's state
+<span class="nc" id="L80">            Position newPosition = particle.getState().move(particle, time, this);</span>
+<span class="nc" id="L81">            particle.setPosition(newPosition);</span>
+
+
+<span class="nc" id="L84">        }</span>
+<span class="nc" id="L85">        updateGradients(time);</span>
+
+<span class="nc" id="L87">    }</span>
+
+    void updateGradients(long time) {
+        // Trigger gradient change periodically
+        // Change gradient every 500 ticks
+<span class="nc" id="L92">        int gradientChangeInterval = 500;</span>
+<span class="nc bnc" id="L93" title="All 2 branches missed.">        if (time % gradientChangeInterval == 0) {</span>
+<span class="nc" id="L94">            transitionStartTick = (int) time; // Start the gradient transition</span>
+<span class="nc" id="L95">            nextStartColor = randomColor();</span>
+<span class="nc" id="L96">            nextEndColor = randomColor();</span>
+        }
+
+        // Smoothly interpolate the gradient during the transition period
+        // Number of frames for smooth transition
+<span class="nc" id="L101">        int gradientTransitionFrames = 100;</span>
+<span class="nc bnc" id="L102" title="All 4 branches missed.">        if (transitionStartTick &gt;= 0 &amp;&amp; time &lt; transitionStartTick + gradientTransitionFrames) {</span>
+<span class="nc" id="L103">            float transitionFactor = (float) (time - transitionStartTick) / gradientTransitionFrames;</span>
+<span class="nc" id="L104">            currentStartColor = interpolateColor(currentStartColor, nextStartColor, transitionFactor);</span>
+<span class="nc" id="L105">            currentEndColor = interpolateColor(currentEndColor, nextEndColor, transitionFactor);</span>
+<span class="nc bnc" id="L106" title="All 4 branches missed.">        } else if (transitionStartTick &gt;= 0 &amp;&amp; time &gt;= transitionStartTick + gradientTransitionFrames) {</span>
+            // Finalize the transition
+<span class="nc" id="L108">            currentStartColor = nextStartColor;</span>
+<span class="nc" id="L109">            currentEndColor = nextEndColor;</span>
+<span class="nc" id="L110">            transitionStartTick = -1; // Reset transition</span>
+        }
+<span class="nc" id="L112">    }</span>
+
+    // Interpolates between two colors based on a factor (0.0 to 1.0)
+    TextColor.RGB interpolateColor(TextColor.RGB start, TextColor.RGB end, float factor) {
+<span class="nc" id="L116">        int r = (int) (start.getRed() + factor * (end.getRed() - start.getRed()));</span>
+<span class="nc" id="L117">        int g = (int) (start.getGreen() + factor * (end.getGreen() - start.getGreen()));</span>
+<span class="nc" id="L118">        int b = (int) (start.getBlue() + factor * (end.getBlue() - start.getBlue()));</span>
+<span class="nc" id="L119">        return new TextColor.RGB(r, g, b);</span>
+    }
+
+    // Generates a random RGB color
+    TextColor.RGB randomColor() {
+<span class="fc" id="L124">        int r = random.nextInt(256);</span>
+<span class="fc" id="L125">        int g = random.nextInt(256);</span>
+<span class="fc" id="L126">        int b = random.nextInt(256);</span>
+<span class="fc" id="L127">        return new TextColor.RGB(r, g, b);</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

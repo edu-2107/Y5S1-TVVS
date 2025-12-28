@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SettingsMenu.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Soul Knight</a> &gt; <a href="index.source.html" class="el_package">pt.feup.tvvs.soulknight.model.menu</a> &gt; <span class="el_source">SettingsMenu.java</span></div><h1>SettingsMenu.java</h1><pre class="source lang-java linenums">package pt.feup.tvvs.soulknight.model.menu;
+
+import pt.feup.tvvs.soulknight.model.dataStructs.Position;
+import pt.feup.tvvs.soulknight.state.particle.RandomState;
+import com.googlecode.lanterna.TextColor;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+<span class="nc" id="L11">public class SettingsMenu extends Menu{</span>
+<span class="nc" id="L12">    private final int size = 100;</span>
+    @Override
+    protected List&lt;Option&gt; createEntries() {
+<span class="nc" id="L15">        Option resolution = new Option(30, 30, Option.Type.RESOLUTION);</span>
+<span class="nc" id="L16">        Option exit = new Option(30, 40, Option.Type.TO_MAIN_MENU);</span>
+<span class="nc" id="L17">        return List.of(resolution, exit);</span>
+    }
+
+    @Override
+    public List&lt;Particle&gt; createParticles() {
+<span class="nc" id="L22">        List&lt;Particle&gt; particles = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L23">        Random random = new Random();</span>
+<span class="nc" id="L24">        int width = 160; // Assuming screen width is 160</span>
+<span class="nc" id="L25">        int height = 90; // Assuming screen height is 90</span>
+
+<span class="nc bnc" id="L27" title="All 2 branches missed.">        for (int i = 0; i &lt; size; i++) {</span>
+<span class="nc" id="L28">            int x = random.nextInt(width);</span>
+<span class="nc" id="L29">            int y = random.nextInt(height);</span>
+
+            // Calculate green intensity based on the x position, limiting the maximum value for calmer colors
+<span class="nc" id="L32">            int greenIntensity = (int) ((x / (float) width) * 150); // Softer green intensity [0, 150]</span>
+
+            // Introduce a subtle blue tint for calmness
+<span class="nc" id="L35">            int blueIntensity = 100 + (int) ((y / (float) height) * 50); // Shades of blue [100, 150]</span>
+
+            // Create particle with a subdued green-blue tone
+<span class="nc" id="L38">            Particle new_particle = new Particle(</span>
+                    new Position(x, y),
+                    new RandomState(),
+                    new TextColor.RGB(0, greenIntensity, blueIntensity) // Muted green-blue tones
+            );
+
+<span class="nc" id="L44">            particles.add(new_particle);</span>
+        }
+<span class="nc" id="L46">        return particles;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

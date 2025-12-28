@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TreeViewer.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Soul Knight</a> &gt; <a href="index.source.html" class="el_package">pt.feup.tvvs.soulknight.view.elements.tree</a> &gt; <span class="el_source">TreeViewer.java</span></div><h1>TreeViewer.java</h1><pre class="source lang-java linenums">package pt.feup.tvvs.soulknight.view.elements.tree;
+
+import pt.feup.tvvs.soulknight.gui.GUI;
+import pt.feup.tvvs.soulknight.model.game.elements.Tree;
+import pt.feup.tvvs.soulknight.view.elements.ElementViewer;
+import pt.feup.tvvs.soulknight.view.sprites.Sprite;
+import pt.feup.tvvs.soulknight.view.sprites.SpriteLoader;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
+public class TreeViewer implements ElementViewer&lt;Tree&gt; {
+    private final Map&lt;Character, Sprite&gt; treeMap;
+
+<span class="fc" id="L16">    public TreeViewer(SpriteLoader spriteLoader) throws IOException {</span>
+<span class="fc" id="L17">        treeMap = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L18">        treeMap.put('t', spriteLoader.get(&quot;sprites/Ambient/SmallTree.png&quot;));</span>
+<span class="fc" id="L19">        treeMap.put('T', spriteLoader.get(&quot;sprites/Ambient/MediumTree.png&quot;));</span>
+<span class="fc" id="L20">    }</span>
+
+    @Override
+    public void draw(Tree model, GUI gui, long time, int offsetX, int offsetY) throws IOException {
+<span class="nc" id="L24">        Sprite sprite = treeMap.get(model.getChar());</span>
+<span class="nc" id="L25">        sprite.draw(gui, (int) model.getPosition().x(), (int) model.getPosition().y());</span>
+<span class="nc" id="L26">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

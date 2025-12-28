@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Game.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Soul Knight</a> &gt; <a href="index.source.html" class="el_package">pt.feup.tvvs.soulknight</a> &gt; <span class="el_source">Game.java</span></div><h1>Game.java</h1><pre class="source lang-java linenums">package pt.feup.tvvs.soulknight;
+
+
+import pt.feup.tvvs.soulknight.gui.*;
+import pt.feup.tvvs.soulknight.gui.LanternaGUI;
+import pt.feup.tvvs.soulknight.gui.LanternaScreenGenerator;
+import pt.feup.tvvs.soulknight.gui.RescalableGUI;
+import pt.feup.tvvs.soulknight.gui.ScreenGenerator;
+import pt.feup.tvvs.soulknight.model.menu.MainMenu;
+import pt.feup.tvvs.soulknight.sound.MenuSoundPlayer;
+import pt.feup.tvvs.soulknight.sound.SoundLoader;
+import pt.feup.tvvs.soulknight.state.MainMenuState;
+import pt.feup.tvvs.soulknight.state.State;
+import pt.feup.tvvs.soulknight.view.sprites.GameSpriteLoader;
+import pt.feup.tvvs.soulknight.view.sprites.SpriteLoader;
+import com.googlecode.lanterna.TerminalSize;
+import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
+
+import javax.sound.sampled.AudioSystem;
+import java.awt.*;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.util.Objects;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+public class Game {
+    public static final int PIXEL_WIDTH = 230;
+    public static final int PIXEL_HEIGHT = 130;
+    private final MenuSoundPlayer menuSoundPlayer;
+    private final SpriteLoader spriteLoader;
+
+<span class="nc" id="L33">    private long fpsLastUpdate = System.currentTimeMillis();</span>
+<span class="nc" id="L34">    private int frames = 0;</span>
+<span class="nc" id="L35">    private int currentFps = 0;</span>
+
+    private final LanternaGUI gui;
+    private State&lt;?&gt; state;
+
+<span class="nc" id="L40">    private Game() throws Exception {</span>
+<span class="nc" id="L41">        ScreenGenerator screenCreator = new LanternaScreenGenerator(</span>
+                new DefaultTerminalFactory(),
+                new TerminalSize(PIXEL_WIDTH, PIXEL_HEIGHT),
+<span class="nc" id="L44">                GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds()</span>
+        );
+<span class="nc" id="L46">        this.gui = new LanternaGUI(screenCreator, &quot;Soul Knight&quot;);</span>
+<span class="nc" id="L47">        this.menuSoundPlayer = new MenuSoundPlayer(new SoundLoader().loadSound(AudioSystem</span>
+<span class="nc" id="L48">                .getAudioInputStream(Objects.requireNonNull(getClass().getClassLoader().getResource(&quot;sound/demo.wav&quot;))), AudioSystem.getClip()));</span>
+<span class="nc" id="L49">        this.spriteLoader = new GameSpriteLoader();</span>
+<span class="nc" id="L50">        this.state = new MainMenuState(new MainMenu(), spriteLoader);</span>
+<span class="nc" id="L51">    }</span>
+
+    public static void main(String[] args) {
+<span class="nc" id="L54">        Logger logger = Logger.getLogger(Game.class.getName());</span>
+        try {
+<span class="nc" id="L56">            new Game().start();</span>
+<span class="nc" id="L57">        } catch (Exception e) {</span>
+<span class="nc" id="L58">            logger.log(Level.INFO, &quot;An error occurred while running Game.start()&quot;, e);</span>
+<span class="nc" id="L59">        }</span>
+<span class="nc" id="L60">    }</span>
+
+    public void setState(State&lt;?&gt; state) {
+<span class="nc" id="L63">        this.state = state;</span>
+<span class="nc" id="L64">    }</span>
+
+    public RescalableGUI.ResolutionScale getResolution() {
+<span class="nc" id="L67">        return gui.getResolutionScale();</span>
+    }
+
+    public void setResolution(RescalableGUI.ResolutionScale resolution)
+            throws IOException, URISyntaxException, FontFormatException {
+<span class="nc" id="L72">        gui.setResolutionScale(resolution);</span>
+<span class="nc" id="L73">    }</span>
+
+    public int getNumberOfLevels() {
+<span class="nc" id="L76">        return 4;</span>
+    }
+    public SpriteLoader getSpriteLoader() {
+<span class="nc" id="L79">        return spriteLoader;</span>
+    }
+
+    private void start() throws IOException, InterruptedException, URISyntaxException, FontFormatException {
+<span class="nc" id="L83">        int FPS = 30;</span>
+<span class="nc" id="L84">        int frameTime = 1000 / FPS;</span>
+<span class="nc" id="L85">        int tick = 0;</span>
+
+<span class="nc" id="L87">        Thread.sleep(100);</span>
+<span class="nc" id="L88">        menuSoundPlayer.start();</span>
+<span class="nc bnc" id="L89" title="All 2 branches missed.">        while (this.state != null) {    // Game loop</span>
+<span class="nc" id="L90">            long startTime = System.currentTimeMillis();</span>
+
+<span class="nc bnc" id="L92" title="All 2 branches missed.">            if (tick == 0) {</span>
+<span class="nc" id="L93">                Thread.sleep(100);</span>
+            }
+
+<span class="nc" id="L96">            state.move(this, gui, tick);</span>
+
+            // Update the FPS counter
+<span class="nc" id="L99">            frames++;</span>
+<span class="nc" id="L100">            long currentTime = System.currentTimeMillis();</span>
+<span class="nc bnc" id="L101" title="All 2 branches missed.">            if (currentTime - fpsLastUpdate &gt;= 1000) {</span>
+<span class="nc" id="L102">                currentFps = frames;</span>
+<span class="nc" id="L103">                frames = 0;</span>
+<span class="nc" id="L104">                fpsLastUpdate = currentTime;</span>
+            }
+
+<span class="nc" id="L107">            gui.setFPS(currentFps);</span>
+
+<span class="nc" id="L109">            long elapsedTime = System.currentTimeMillis() - startTime;</span>
+<span class="nc" id="L110">            long sleepTime = frameTime - elapsedTime;</span>
+
+<span class="nc bnc" id="L112" title="All 2 branches missed.">            if (sleepTime &gt; 0) Thread.sleep(sleepTime);</span>
+<span class="nc" id="L113">            tick++;</span>
+<span class="nc" id="L114">        }</span>
+
+<span class="nc" id="L116">        gui.close();</span>
+<span class="nc" id="L117">    }</span>
+
+
+    public Object getGUI() {
+<span class="nc" id="L121">        return this.gui;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

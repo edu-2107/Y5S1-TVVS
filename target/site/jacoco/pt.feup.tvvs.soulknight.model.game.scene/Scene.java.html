@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Scene.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Soul Knight</a> &gt; <a href="index.source.html" class="el_package">pt.feup.tvvs.soulknight.model.game.scene</a> &gt; <span class="el_source">Scene.java</span></div><h1>Scene.java</h1><pre class="source lang-java linenums">package pt.feup.tvvs.soulknight.model.game.scene;
+
+import pt.feup.tvvs.soulknight.model.dataStructs.Position;
+import pt.feup.tvvs.soulknight.model.game.elements.collectables.Collectables;
+import pt.feup.tvvs.soulknight.model.game.elements.Element;
+import pt.feup.tvvs.soulknight.model.game.elements.knight.Knight;
+import pt.feup.tvvs.soulknight.model.game.elements.particle.Particle;
+import pt.feup.tvvs.soulknight.model.game.elements.Spike;
+import pt.feup.tvvs.soulknight.model.game.elements.Tree;
+import pt.feup.tvvs.soulknight.model.game.elements.enemies.Enemies;
+import pt.feup.tvvs.soulknight.model.game.elements.rocks.Rock;
+import pt.feup.tvvs.soulknight.model.game.elements.tile.Tile;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Scene {
+    private final int width;
+    private final int height;
+    private final int sceneID;
+
+    private Element[][] map;
+    private Tile[][] tiles;
+    private Spike[][] spikes;
+    private Tree[][] trees;
+
+    private Collectables[][] orbs;
+
+    private Rock[][] rocks;
+
+    private List&lt;Enemies&gt; monsters;
+
+<span class="fc" id="L33">    private double gravity = 0.25;</span>
+
+    private Knight player;
+    private List&lt;Particle&gt; particles;
+    private List&lt;Particle&gt; doubleJumpParticles;
+    private List&lt;Particle&gt; jumpParticles;
+    private List&lt;Particle&gt; respawnParticles;
+    private List&lt;Particle&gt; dashParticles;
+    private Position EndPosition;
+    private Position startPosition;
+
+<span class="fc" id="L44">    public Scene(int width, int height, int sceneID) {</span>
+<span class="fc" id="L45">        this.width = width;</span>
+<span class="fc" id="L46">        this.height = height;</span>
+<span class="fc" id="L47">        this.sceneID = sceneID;</span>
+
+<span class="fc" id="L49">        this.doubleJumpParticles = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L50">        this.jumpParticles = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L51">        this.particles = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L52">        this.respawnParticles = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L53">        this.dashParticles = new ArrayList&lt;&gt;();</span>
+
+<span class="fc" id="L55">        this.map = new Element[height][width];</span>
+<span class="fc" id="L56">        this.tiles = new Tile[height][width];</span>
+<span class="fc" id="L57">    }</span>
+
+    public int getWidth() {
+<span class="fc" id="L60">        return width;</span>
+    }
+
+    public int getHeight() {
+<span class="fc" id="L64">        return height;</span>
+    }
+
+    public Knight getPlayer() {
+<span class="fc" id="L68">        return player;</span>
+    }
+
+    public void setPlayer(Knight player) {
+<span class="fc" id="L72">        this.player = player;</span>
+<span class="fc" id="L73">    }</span>
+
+    public int getSceneID() {
+<span class="fc" id="L76">        return sceneID;</span>
+    }
+
+<span class="fc" id="L79">    public void setMap(Element[][] map) {this.map = map;}</span>
+
+    public Tile[][] getTiles() {
+<span class="fc" id="L82">        return tiles;</span>
+    }
+
+    public void setTiles(Tile[][] tiles) {
+<span class="fc" id="L86">        this.tiles = tiles;</span>
+<span class="fc" id="L87">    }</span>
+
+    public Spike[][] getSpikes() {
+<span class="fc" id="L90">        return spikes;</span>
+    }
+
+    public void setSpikes(Spike[][] spikes) {
+<span class="fc" id="L94">        this.spikes = spikes;</span>
+<span class="fc" id="L95">    }</span>
+
+    public void setTrees(Tree[][] trees) {
+<span class="fc" id="L98">        this.trees = trees;</span>
+<span class="fc" id="L99">    }</span>
+
+    public Tree[][] getTrees() {
+<span class="fc" id="L102">        return trees;</span>
+    }
+
+<span class="fc" id="L105">    public void setRocks(Rock[][] rocks) {this.rocks = rocks;}</span>
+<span class="fc" id="L106">    public Rock[][] getRocks() {return rocks;}</span>
+
+    public Collectables[][] getOrbs() {
+<span class="fc" id="L109">        return orbs;</span>
+    }
+
+    public void setOrbs(Collectables[][] orbs) {
+<span class="fc" id="L113">        this.orbs = orbs;</span>
+<span class="fc" id="L114">    }</span>
+
+<span class="fc" id="L116">    public List&lt;Enemies&gt; getMonsters() {return monsters;}</span>
+
+<span class="fc" id="L118">    public void setMonsters(List&lt;Enemies&gt; monsters) {this.monsters = monsters;}</span>
+
+    public List&lt;Particle&gt; getParticles() {
+<span class="fc" id="L121">        return particles;</span>
+    }
+
+    public void setParticles(List&lt;Particle&gt; particles) {
+<span class="fc" id="L125">        this.particles = particles;</span>
+<span class="fc" id="L126">    }</span>
+
+    public double getGravity() {
+<span class="fc" id="L129">        return gravity;</span>
+    }
+
+    public void setEndPosition(Position EndPosition) {
+<span class="fc" id="L133">        this.EndPosition = EndPosition;</span>
+<span class="fc" id="L134">    }</span>
+
+    private boolean isOutSideScene(double x1, double x2, double y1, double y2) {
+<span class="fc bfc" id="L137" title="All 8 branches covered.">        return x1 &lt; 0 || x2 &gt;= this.width || y1 &lt; 0 || y2 &gt;= this.height;</span>
+    }
+
+    private boolean checkCollision(double x1, double x2, double y1, double y2, Element[][] layer) {
+<span class="fc bfc" id="L141" title="All 2 branches covered.">        if (isOutSideScene(x1, x2, y1, y2))</span>
+<span class="fc" id="L142">            return true;</span>
+
+<span class="fc bfc" id="L144" title="All 2 branches covered.">        for (int tileY: List.of(((int)y1 / Tile.SIZE), ((int)y2 / Tile.SIZE))) {</span>
+<span class="fc bfc" id="L145" title="All 2 branches covered.">            for (int tileX: List.of((int)x1 / Tile.SIZE, (int)x2 / Tile.SIZE)) {</span>
+<span class="fc bfc" id="L146" title="All 2 branches covered.">                if (layer[tileY][tileX] != null) {</span>
+<span class="fc" id="L147">                    return true;</span>
+                }
+<span class="fc" id="L149">            }</span>
+<span class="fc" id="L150">        }</span>
+<span class="fc" id="L151">        return false;</span>
+    }
+
+    public boolean collidesLeft(Position position, Position size) {
+<span class="fc" id="L155">        double x = position.x(), y = position.y();</span>
+<span class="fc" id="L156">        return checkCollision(x, x + 1, y, y + size.y() - 1, map);</span>
+    }
+
+    public boolean collidesRight(Position position, Position size) {
+<span class="fc" id="L160">        double x = position.x(), y = position.y();</span>
+<span class="fc" id="L161">        return checkCollision(x + size.x() - 1, x + size.x() - 1, y, y + size.y() - 1, map);</span>
+    }
+
+    public boolean collidesUp(Position position, Position size) {
+<span class="fc" id="L165">        double x = position.x(), y = position.y();</span>
+<span class="fc" id="L166">        return checkCollision(x, x + size.x() - 1, y, y + 1, map);</span>
+    }
+
+    public boolean collidesDown(Position position, Position size) {
+<span class="fc" id="L170">        double x = position.x(), y = position.y();</span>
+<span class="fc" id="L171">        return checkCollision(x, x + size.x() - 1, y + size.y() - 2, y + size.y() - 1, map);</span>
+    }
+
+    public List&lt;Particle&gt; getDoubleJumpParticles() {
+<span class="fc" id="L175">        return doubleJumpParticles;</span>
+    }
+
+    public void setDoubleJumpParticles(List&lt;Particle&gt; jumpParticles) {
+<span class="fc" id="L179">        this.doubleJumpParticles = jumpParticles;</span>
+<span class="fc" id="L180">    }</span>
+
+    public List&lt;Particle&gt; getJumpParticles() {
+<span class="fc" id="L183">        return jumpParticles;</span>
+    }
+
+    public void setJumpParticles(List&lt;Particle&gt; jumpParticles) {
+<span class="fc" id="L187">        this.jumpParticles = jumpParticles;</span>
+<span class="fc" id="L188">    }</span>
+
+    public List&lt;Particle&gt; getDashParticles() {
+<span class="fc" id="L191">        return dashParticles;</span>
+    }
+
+    public void setDashParticles(List&lt;Particle&gt; dashParticles) {
+<span class="fc" id="L195">        this.dashParticles = dashParticles;</span>
+<span class="fc" id="L196">    }</span>
+
+    public void collectOrbs(Collectables[][] orbs){
+<span class="fc" id="L199">        double x = getPlayer().getPosition().x();</span>
+<span class="fc" id="L200">        double y = getPlayer().getPosition().y();</span>
+<span class="fc" id="L201">        double width = player.getWidth(), height = player.getHeight();</span>
+
+<span class="fc bfc" id="L203" title="All 2 branches covered.">        for (int tileY: List.of((int)y / Tile.SIZE, (int)(y + height - 1) / Tile.SIZE)) {</span>
+<span class="fc bfc" id="L204" title="All 2 branches covered.">            for (int tileX: List.of((int)x / Tile.SIZE, (int)(x + width - 1) / Tile.SIZE)) {</span>
+<span class="fc bfc" id="L205" title="All 2 branches covered.">                if (orbs[tileY][tileX] != null) {</span>
+<span class="fc" id="L206">                    orbs[tileY][tileX].benefit(getPlayer());</span>
+<span class="fc" id="L207">                    orbs[tileY][tileX] = null;</span>
+<span class="fc" id="L208">                    getPlayer().addOrbs();</span>
+                }
+<span class="fc" id="L210">            }</span>
+<span class="fc" id="L211">        }</span>
+<span class="fc" id="L212">    }</span>
+
+    public void collideMonsters(List&lt;Enemies&gt; enemies) {
+        // Loop through the list of enemies
+<span class="fc bfc" id="L216" title="All 2 branches covered.">        for (Enemies enemy : enemies) {</span>
+<span class="fc bfc" id="L217" title="All 2 branches covered.">            if (checkCollision(getPlayer(), enemy)) {</span>
+<span class="fc" id="L218">                getPlayer().PlayerHit(enemy.getDamage());</span>
+            }
+<span class="fc" id="L220">        }</span>
+<span class="fc" id="L221">    }</span>
+
+    public boolean collideSpike() {
+<span class="fc" id="L224">        final int spikeHeightDiff = Tile.SIZE - Spike.SPIKE_HEIGHT;</span>
+<span class="fc" id="L225">        double x = player.getPosition().x(), y = player.getPosition().y();</span>
+<span class="fc" id="L226">        return checkCollision(x, x + player.getWidth() - 1, y, y + player.getHeight() - 1 - spikeHeightDiff, spikes);</span>
+    }
+
+    /**
+     * Helper method to check if the player collides with an enemy.
+     */
+    boolean checkCollision(Knight player, Enemies enemy) {
+<span class="fc" id="L233">        double playerX = player.getPosition().x();</span>
+<span class="fc" id="L234">        double playerY = player.getPosition().y();</span>
+<span class="fc" id="L235">        double playerWidth = player.getWidth();</span>
+<span class="fc" id="L236">        double playerHeight = player.getHeight();</span>
+
+<span class="fc" id="L238">        double enemyX = enemy.getPosition().x();</span>
+<span class="fc" id="L239">        double enemyY = enemy.getPosition().y();</span>
+<span class="fc" id="L240">        double enemyWidth = enemy.getSize().x(); // Assuming Enemies has a getSize() method</span>
+<span class="fc" id="L241">        double enemyHeight = enemy.getSize().y();</span>
+
+        // Check for collision (simple AABB collision)
+<span class="fc bfc" id="L244" title="All 8 branches covered.">        return playerX &lt; enemyX + enemyWidth &amp;&amp;</span>
+                playerX + playerWidth &gt; enemyX &amp;&amp;
+                playerY &lt; enemyY + enemyHeight &amp;&amp;
+                playerY + playerHeight &gt; enemyY;
+    }
+
+
+    public boolean isAtEndPosition() {
+<span class="fc" id="L252">        double x1 = player.getPosition().x();</span>
+<span class="fc bfc" id="L253" title="All 2 branches covered.">        return x1 &gt;= EndPosition.x();</span>
+    }
+
+    public List&lt;Particle&gt; getRespawnParticles() {
+<span class="fc" id="L257">        return respawnParticles;</span>
+    }
+
+    public void setRespawnParticles(List&lt;Particle&gt; respawnParticles) {
+<span class="fc" id="L261">        this.respawnParticles = respawnParticles;</span>
+<span class="fc" id="L262">    }</span>
+
+    public Position getStartPosition() {
+<span class="fc" id="L265">        return startPosition;</span>
+    }
+
+    public void setStartPosition(Position startPosition) {
+<span class="fc" id="L269">        this.startPosition = startPosition;</span>
+<span class="fc" id="L270">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

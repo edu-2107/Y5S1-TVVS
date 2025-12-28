@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MonsterFactory.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Soul Knight</a> &gt; <a href="index.source.html" class="el_package">pt.feup.tvvs.soulknight.model.game.elements.enemies</a> &gt; <span class="el_source">MonsterFactory.java</span></div><h1>MonsterFactory.java</h1><pre class="source lang-java linenums">package pt.feup.tvvs.soulknight.model.game.elements.enemies;
+
+
+import pt.feup.tvvs.soulknight.model.dataStructs.Position;
+import pt.feup.tvvs.soulknight.model.game.scene.Scene;
+
+<span class="nc" id="L7">public class MonsterFactory {</span>
+    public static final char SWORD_MONSTER = 'E';
+    public static final char GHOST_MONSTER = 'm';
+    public static final char PURPLE_MONSTER = 'l';
+
+    public static Enemies createMonster(int x, int y, Scene scene, char type) {
+<span class="pc bpc" id="L13" title="1 of 4 branches missed.">        switch (type) {</span>
+            case SWORD_MONSTER:
+<span class="fc" id="L15">                return new SwordMonster(x, y, 10, scene, 20, new Position(8, 8), SWORD_MONSTER);</span>
+            case GHOST_MONSTER:
+<span class="fc" id="L17">                return new GhostMonster(x, y, 1, scene, 10, new Position(2, 2), GHOST_MONSTER);</span>
+            case PURPLE_MONSTER:
+<span class="nc" id="L19">                return new PurpleMonster(x, y, 25, scene, 5, new Position(8, 9), PURPLE_MONSTER);</span>
+            default:
+<span class="fc" id="L21">                return null;</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

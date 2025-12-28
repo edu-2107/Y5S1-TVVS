@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ParticleViewer.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Soul Knight</a> &gt; <a href="index.source.html" class="el_package">pt.feup.tvvs.soulknight.view.menu</a> &gt; <span class="el_source">ParticleViewer.java</span></div><h1>ParticleViewer.java</h1><pre class="source lang-java linenums">package pt.feup.tvvs.soulknight.view.menu;
+
+import pt.feup.tvvs.soulknight.gui.GUI;
+import pt.feup.tvvs.soulknight.model.menu.Particle;
+import pt.feup.tvvs.soulknight.view.elements.ElementViewer;
+
+import java.io.IOException;
+
+<span class="fc" id="L9">public class ParticleViewer implements ElementViewer&lt;Particle&gt; {</span>
+    @Override
+    public void draw(Particle model, GUI gui, long time, int offsetX, int offsetY) throws IOException {
+<span class="nc" id="L12">        gui.drawPixel((int)model.getPosition().x(), (int)model.getPosition().y(), model.getColor());</span>
+<span class="nc" id="L13">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

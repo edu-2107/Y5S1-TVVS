@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Enemies.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Soul Knight</a> &gt; <a href="index.source.html" class="el_package">pt.feup.tvvs.soulknight.model.game.elements.enemies</a> &gt; <span class="el_source">Enemies.java</span></div><h1>Enemies.java</h1><pre class="source lang-java linenums">package pt.feup.tvvs.soulknight.model.game.elements.enemies;
+
+import pt.feup.tvvs.soulknight.model.dataStructs.Position;
+import pt.feup.tvvs.soulknight.model.dataStructs.Vector;
+import pt.feup.tvvs.soulknight.model.game.elements.Element;
+import pt.feup.tvvs.soulknight.model.game.scene.Scene;
+
+public abstract class Enemies extends Element {
+    private Scene scene;
+    private int damage;
+    private Vector velocity;
+
+    private Position size;
+
+    public Enemies(int x, int y,int HP, Scene scene, int damage, Position size) {
+<span class="fc" id="L16">        super(x,y);</span>
+<span class="fc" id="L17">        this.scene = scene;</span>
+<span class="fc" id="L18">        this.damage = damage;</span>
+<span class="fc" id="L19">        this.velocity = new Vector(1.5,1.5);</span>
+<span class="fc" id="L20">        this.size = size;</span>
+<span class="fc" id="L21">    }</span>
+
+    public abstract char getChar();
+
+    public void setVelocity(Vector velocity) {
+<span class="fc" id="L26">        this.velocity = velocity;</span>
+<span class="fc" id="L27">    }</span>
+
+    public Scene getScene() {
+<span class="nc" id="L30">        return scene;</span>
+    }
+
+    public int getDamage() {
+<span class="nc" id="L34">        return damage;</span>
+    }
+
+    public Vector getVelocity() {
+<span class="nc" id="L38">        return velocity;</span>
+    }
+
+    public abstract Position updatePosition();
+
+    protected abstract Vector applyCollisions(Vector velocity);
+
+    public abstract Position moveMonster();
+    public Position getSize() {
+<span class="nc" id="L47">        return size;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

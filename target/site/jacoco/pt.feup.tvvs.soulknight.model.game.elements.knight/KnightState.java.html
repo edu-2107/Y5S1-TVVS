@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>KnightState.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Soul Knight</a> &gt; <a href="index.source.html" class="el_package">pt.feup.tvvs.soulknight.model.game.elements.knight</a> &gt; <span class="el_source">KnightState.java</span></div><h1>KnightState.java</h1><pre class="source lang-java linenums">package pt.feup.tvvs.soulknight.model.game.elements.knight;
+
+import pt.feup.tvvs.soulknight.model.dataStructs.Position;
+import pt.feup.tvvs.soulknight.model.dataStructs.Vector;
+
+import java.io.IOException;
+
+import static java.lang.Math.max;
+
+public abstract class KnightState {
+    private final Knight knight;
+<span class="fc" id="L12">    private long particlesTimer = 100;</span>
+
+
+<span class="fc" id="L15">    public KnightState(Knight knight){</span>
+<span class="fc" id="L16">        this.knight = knight;</span>
+<span class="fc" id="L17">    }</span>
+
+    public Knight getKnight() {
+<span class="fc" id="L20">        return knight;</span>
+    }
+
+    public Vector moveKnightLeft() {
+<span class="fc" id="L24">        Vector newVelocity = new Vector(</span>
+<span class="fc" id="L25">                knight.getVelocity().x() - knight.getAcceleration(),</span>
+<span class="fc" id="L26">                knight.getVelocity().y()</span>
+        );
+<span class="fc" id="L28">        return updateVelocity(newVelocity);</span>
+    }
+
+    public Vector moveKnightRight() {
+<span class="fc" id="L32">        Vector newVelocity = new Vector(</span>
+<span class="fc" id="L33">                knight.getVelocity().x() + knight.getAcceleration(),</span>
+<span class="fc" id="L34">                knight.getVelocity().y()</span>
+        );
+
+<span class="fc" id="L37">        return updateVelocity(newVelocity);</span>
+    }
+
+    protected Vector limitVelocity(Vector velocity) {
+<span class="fc" id="L41">        double vx = Math.min(knight.getMaxVelocity().x(), Math.max(-knight.getMaxVelocity().x(), velocity.x()));</span>
+<span class="fc" id="L42">        double vy = Math.min(knight.getMaxVelocity().y(), velocity.y());</span>
+<span class="fc bfc" id="L43" title="All 2 branches covered.">        if (Math.abs(vx) &lt; 0.2)</span>
+<span class="fc" id="L44">            vx = 0;</span>
+<span class="fc" id="L45">        return new Vector(vx, vy);</span>
+    }
+
+    protected Vector applyCollisions(Vector velocity) {
+<span class="fc" id="L49">        double x = knight.getPosition().x(), y = knight.getPosition().y();</span>
+<span class="fc" id="L50">        double vx = velocity.x(), vy = velocity.y();</span>
+<span class="fc" id="L51">        Position knightSize = new Position(knight.getWidth(), knight.getHeight());</span>
+
+<span class="pc bpc" id="L53" title="3 of 4 branches missed.">        while (vy &gt; 0 &amp;&amp; knight.getScene().collidesDown(new Position(x, y + vy), knightSize))</span>
+<span class="nc" id="L54">            vy = Math.max(vy - 1, 0);</span>
+
+<span class="pc bpc" id="L56" title="2 of 4 branches missed.">        while (vy &lt; 0 &amp;&amp; knight.getScene().collidesUp(new Position(x, y + vy), knightSize))</span>
+<span class="nc" id="L57">            vy = Math.min(vy + 1, 0);</span>
+
+<span class="pc bpc" id="L59" title="3 of 4 branches missed.">        while (vx &lt; 0 &amp;&amp; knight.getScene().collidesLeft(new Position(x + vx, y + vy), knightSize))</span>
+<span class="nc" id="L60">            vx = Math.min(vx + 1, 0);</span>
+
+<span class="pc bpc" id="L62" title="3 of 4 branches missed.">        while (vx &gt; 0 &amp;&amp; knight.getScene().collidesRight(new Position(x + vx, y + vy), knightSize))</span>
+<span class="nc" id="L63">            vx = max(vx - 1, 0);</span>
+
+<span class="fc" id="L65">        return new Vector(vx, vy);</span>
+    }
+
+    protected KnightState getNextGroundState() {
+<span class="fc bfc" id="L69" title="All 2 branches covered.">        if (Math.abs(getKnight().getVelocity().x()) &gt;= RunningState.MIN_VELOCITY)</span>
+<span class="fc" id="L70">            return new RunningState(getKnight());</span>
+<span class="fc bfc" id="L71" title="All 2 branches covered.">        if (Math.abs(getKnight().getVelocity().x()) &gt;= WalkingState.MIN_VELOCITY)</span>
+<span class="fc" id="L72">            return new WalkingState(getKnight());</span>
+<span class="fc" id="L73">        return new IdleState(getKnight());</span>
+    }
+
+    protected KnightState getNextOnAirState() {
+<span class="fc bfc" id="L77" title="All 2 branches covered.">        if (getKnight().getVelocity().y() &lt; 0)</span>
+<span class="fc" id="L78">            return new JumpState(getKnight());</span>
+<span class="fc" id="L79">        return new FallingState(getKnight());</span>
+    }
+
+    public void tickParticles(){
+<span class="fc" id="L83">        particlesTimer--;</span>
+<span class="fc" id="L84">    }</span>
+
+    public long getParticlesTimer() {
+<span class="fc" id="L87">        return particlesTimer;</span>
+    }
+
+    public void resetParticlesTimer() {
+<span class="fc" id="L91">        particlesTimer = 100;</span>
+<span class="fc" id="L92">    }</span>
+
+    public abstract Vector jump();
+    public abstract Vector dash();
+    //public abstract Vector attack();
+    public abstract Vector updateVelocity(Vector newVelocity);
+    public abstract KnightState getNextState() throws IOException;
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

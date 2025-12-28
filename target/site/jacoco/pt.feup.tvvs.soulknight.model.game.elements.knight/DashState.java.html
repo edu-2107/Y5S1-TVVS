@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DashState.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Soul Knight</a> &gt; <a href="index.source.html" class="el_package">pt.feup.tvvs.soulknight.model.game.elements.knight</a> &gt; <span class="el_source">DashState.java</span></div><h1>DashState.java</h1><pre class="source lang-java linenums">package pt.feup.tvvs.soulknight.model.game.elements.knight;
+
+import pt.feup.tvvs.soulknight.model.dataStructs.Vector;
+
+import static pt.feup.tvvs.soulknight.model.game.elements.knight.RunningState.MIN_VELOCITY;
+
+public class DashState extends KnightState{
+
+
+    public DashState(Knight knight) {
+<span class="fc" id="L11">        super(knight);</span>
+<span class="fc" id="L12">    }</span>
+
+    @Override
+    public Vector jump() {
+<span class="nc" id="L16">        return updateVelocity(getKnight().getVelocity());</span>
+    }
+
+    @Override
+    public Vector dash() {
+<span class="nc" id="L21">        return updateVelocity(getKnight().getVelocity());</span>
+    }
+
+    @Override
+    public Vector updateVelocity(Vector velocity) {
+<span class="nc" id="L26">        tickParticles();</span>
+<span class="nc" id="L27">        Vector newVelocity = new Vector(</span>
+<span class="nc" id="L28">                velocity.x() * getKnight().getAcceleration(),</span>
+<span class="nc" id="L29">                velocity.y() + getKnight().getScene().getGravity()</span>
+        );
+<span class="nc" id="L31">        return applyCollisions(newVelocity);</span>
+    }
+    @Override
+    public KnightState getNextState() {
+<span class="fc bfc" id="L35" title="All 2 branches covered.">        if (getKnight().getScene().collideSpike())</span>
+<span class="fc" id="L36">            return new RespawnState(getKnight(), 10);</span>
+<span class="pc bpc" id="L37" title="1 of 2 branches missed.">        if (getParticlesTimer() == 0)</span>
+        {
+<span class="nc" id="L39">            getKnight().getScene().setRespawnParticles(getKnight().createRespawnParticles(0));</span>
+<span class="nc" id="L40">            resetParticlesTimer();</span>
+        }
+<span class="pc bpc" id="L42" title="1 of 2 branches missed.">        if (Math.abs(getKnight().getVelocity().x()) &lt; MIN_VELOCITY)</span>
+<span class="fc" id="L43">            return new AfterDashState(getKnight());</span>
+<span class="nc" id="L44">        return this;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

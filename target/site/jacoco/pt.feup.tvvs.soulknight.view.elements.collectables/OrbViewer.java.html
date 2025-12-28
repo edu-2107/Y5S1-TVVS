@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>OrbViewer.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Soul Knight</a> &gt; <a href="index.source.html" class="el_package">pt.feup.tvvs.soulknight.view.elements.collectables</a> &gt; <span class="el_source">OrbViewer.java</span></div><h1>OrbViewer.java</h1><pre class="source lang-java linenums">package pt.feup.tvvs.soulknight.view.elements.collectables;
+
+import pt.feup.tvvs.soulknight.gui.GUI;
+import pt.feup.tvvs.soulknight.model.game.elements.collectables.Collectables;
+import pt.feup.tvvs.soulknight.view.sprites.Sprite;
+import pt.feup.tvvs.soulknight.view.sprites.SpriteLoader;
+import pt.feup.tvvs.soulknight.view.elements.ElementViewer;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
+public class OrbViewer implements ElementViewer&lt;Collectables&gt; {
+    private final Map&lt;Character, Sprite&gt; orbMap;
+
+<span class="fc" id="L16">    public OrbViewer(SpriteLoader spriteLoader) throws IOException {</span>
+<span class="fc" id="L17">        orbMap = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L18">        orbMap.put('h', spriteLoader.get(&quot;sprites/collectables/health.png&quot;));</span>
+<span class="fc" id="L19">        orbMap.put('e', spriteLoader.get(&quot;sprites/collectables/energy.png&quot;));</span>
+<span class="fc" id="L20">        orbMap.put('s', spriteLoader.get(&quot;sprites/collectables/speed.png&quot;));</span>
+<span class="fc" id="L21">    }</span>
+
+    @Override
+    public void draw(Collectables model, GUI gui, long time, int offsetX, int offsetY) throws IOException {
+<span class="nc" id="L25">        Sprite sprite = orbMap.get(model.getChar());</span>
+<span class="nc bnc" id="L26" title="All 2 branches missed.">        if (sprite == null) {</span>
+<span class="nc" id="L27">            throw new IllegalArgumentException(&quot;No sprite for character: &quot; + model.getChar());</span>
+        }
+<span class="nc" id="L29">        sprite.draw(gui, (int) model.getPosition().x(), (int) model.getPosition().y());</span>
+<span class="nc" id="L30">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

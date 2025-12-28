@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GameTextViewer.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Soul Knight</a> &gt; <a href="index.source.html" class="el_package">pt.feup.tvvs.soulknight.view.text</a> &gt; <span class="el_source">GameTextViewer.java</span></div><h1>GameTextViewer.java</h1><pre class="source lang-java linenums">package pt.feup.tvvs.soulknight.view.text;
+
+import pt.feup.tvvs.soulknight.gui.GUI;
+import com.googlecode.lanterna.TextColor;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.*;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
+import java.util.Map;
+
+public class GameTextViewer implements TextViewer {
+    private static final int charWidth = 3;
+    private static final int charHeight = 5;
+    private static final int spacing = 1;
+
+    private final BufferedImage fontImage;
+    private final Map&lt;Character, CharPosition&gt; charMap;
+
+    public static class CharPosition {
+        private final int row;
+
+        private final int col;
+
+<span class="fc" id="L27">        public CharPosition(int row, int col) {</span>
+<span class="fc" id="L28">            this.row = row;</span>
+<span class="fc" id="L29">            this.col = col;</span>
+<span class="fc" id="L30">        }</span>
+
+        public int row() {
+<span class="nc" id="L33">            return this.row;</span>
+        }
+
+        public int col() {
+<span class="nc" id="L37">            return this.col;</span>
+        }
+    }
+
+<span class="fc" id="L41">    public GameTextViewer() throws IOException {</span>
+<span class="fc" id="L42">        URL fontImageResource = getClass().getClassLoader().getResource(&quot;fonts/font.png&quot;);</span>
+<span class="pc bpc" id="L43" title="1 of 2 branches missed.">        if (fontImageResource == null) {</span>
+<span class="nc" id="L44">            throw new FileNotFoundException(&quot;Font image file not found in resources!&quot;);</span>
+        }
+<span class="fc" id="L46">        this.fontImage = ImageIO.read(fontImageResource);</span>
+
+<span class="fc" id="L48">        URL fontMapResource = getClass().getClassLoader().getResource(&quot;fonts/font-map.txt&quot;);</span>
+<span class="pc bpc" id="L49" title="1 of 2 branches missed.">        if (fontMapResource == null) {</span>
+<span class="nc" id="L50">            throw new FileNotFoundException(&quot;Font map file not found in resources!&quot;);</span>
+        }
+
+<span class="fc" id="L53">        this.charMap = parseCharMap(fontMapResource);</span>
+<span class="fc" id="L54">    }</span>
+
+    private Map&lt;Character, CharPosition&gt; parseCharMap(URL resource) throws IOException {
+<span class="fc" id="L57">        Map&lt;Character, CharPosition&gt; charMap = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L58">        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(resource.openStream(), StandardCharsets.UTF_8))) {</span>
+<span class="fc" id="L59">            int y = 0;</span>
+<span class="fc bfc" id="L60" title="All 2 branches covered.">            for (String line; (line = bufferedReader.readLine()) != null; y++) {</span>
+<span class="fc bfc" id="L61" title="All 2 branches covered.">                for (int x = 0; x &lt; line.length(); x++) {</span>
+<span class="fc" id="L62">                    charMap.put(line.charAt(x), new CharPosition(x, y));</span>
+                }
+            }
+        }
+<span class="fc" id="L66">        return charMap;</span>
+    }
+
+
+    @Override
+    public void draw(char character, double x, double y, TextColor foregroundColor, GUI gui) {
+<span class="nc bnc" id="L72" title="All 2 branches missed.">        if (charMap.containsKey(character)) {</span>
+<span class="nc" id="L73">            CharPosition charPosition = charMap.get(character);</span>
+<span class="nc" id="L74">            drawKnownChar(charPosition, x, y, foregroundColor, gui);</span>
+<span class="nc" id="L75">        } else {</span>
+<span class="nc" id="L76">            drawUnknownChar(x, y, (TextColor.RGB) foregroundColor, gui);</span>
+        }
+<span class="nc" id="L78">    }</span>
+
+    private void drawKnownChar(CharPosition position, double x, double y, TextColor foregroundColor, GUI gui) {
+<span class="nc" id="L81">        final int COLOR_WHITE = 0xFFFFFFFF;</span>
+<span class="nc" id="L82">        int imgX = position.row() * (charWidth + 1);</span>
+<span class="nc" id="L83">        int imgY = position.col() * (charHeight + 1);</span>
+<span class="nc bnc" id="L84" title="All 2 branches missed.">        for (int dy = 0; dy &lt; charHeight; dy++) {</span>
+<span class="nc bnc" id="L85" title="All 2 branches missed.">            for (int dx = 0; dx &lt; charWidth; dx++) {</span>
+<span class="nc bnc" id="L86" title="All 2 branches missed.">                if (fontImage.getRGB(imgX + dx, imgY + dy) != COLOR_WHITE)</span>
+<span class="nc" id="L87">                    gui.drawPixel((int) (x + dx), (int) (y + dy), (TextColor.RGB) foregroundColor);</span>
+            }
+        }
+<span class="nc" id="L90">    }</span>
+
+    private void drawUnknownChar(double x, double y, TextColor.RGB foregroundColor, GUI gui) {
+<span class="nc" id="L93">        gui.drawRectangle((int) x, (int) y, charWidth, charHeight, foregroundColor);</span>
+<span class="nc" id="L94">    }</span>
+    @Override
+    public void draw(String string, double x, double y, TextColor foregroundColor, GUI gui) {
+<span class="nc bnc" id="L97" title="All 2 branches missed.">        for (int i = 0; i &lt; string.length(); i++) {</span>
+<span class="nc" id="L98">            int xOffset = i * (charWidth + spacing);</span>
+<span class="nc" id="L99">            draw(string.charAt(i), x + xOffset, y, foregroundColor, gui);</span>
+        }
+<span class="nc" id="L101">    }</span>
+
+    public static int getCharHeight() {
+<span class="nc" id="L104">        return charHeight;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

@@ -234,7 +234,7 @@
           </dependency>
         </dependencies>
         <configuration>
-          <!--argLine>${surefireArgLine}</argLine-->
+          <argLine>@{argLine}</argLine>
           <trimStackTrace>false</trimStackTrace>
           <includes>
             <include>**/Test*.java, **/*Test.java, **/*Tests.java, **/*TestCase.java, **/RegressionTest*.java</include>

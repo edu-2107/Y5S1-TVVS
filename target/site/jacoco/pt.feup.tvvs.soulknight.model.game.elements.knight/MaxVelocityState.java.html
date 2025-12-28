@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MaxVelocityState.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Soul Knight</a> &gt; <a href="index.source.html" class="el_package">pt.feup.tvvs.soulknight.model.game.elements.knight</a> &gt; <span class="el_source">MaxVelocityState.java</span></div><h1>MaxVelocityState.java</h1><pre class="source lang-java linenums">package pt.feup.tvvs.soulknight.model.game.elements.knight;
+
+import pt.feup.tvvs.soulknight.model.dataStructs.Vector;
+
+public class MaxVelocityState extends KnightState {
+
+    public MaxVelocityState(Knight knight) {
+<span class="fc" id="L8">        super(knight);</span>
+<span class="fc" id="L9">    }</span>
+
+    @Override
+    public Vector jump() {
+<span class="nc" id="L13">        getKnight().setJumpCounter(getKnight().getJumpCounter() + 1);</span>
+<span class="nc" id="L14">        Vector newVelocity = new Vector(</span>
+<span class="nc" id="L15">                getKnight().getVelocity().x(),</span>
+<span class="nc" id="L16">                getKnight().getVelocity().y() - getKnight().getJumpBoost()</span>
+        );
+<span class="nc" id="L18">        getKnight().getScene().setJumpParticles(getKnight().createParticlesJump(10));</span>
+
+<span class="nc" id="L20">        return updateVelocity(newVelocity);</span>
+    }
+
+    @Override
+    public Vector dash() {
+<span class="nc" id="L25">        Vector newVelocity = new Vector(</span>
+<span class="nc bnc" id="L26" title="All 2 branches missed.">                getKnight().getVelocity().x() + (getKnight().isFacingRight() ? getKnight().getDashBoost():</span>
+<span class="nc" id="L27">                        -getKnight().getDashBoost()),</span>
+<span class="nc" id="L28">                getKnight().getVelocity().y()</span>
+        );
+<span class="nc" id="L30">        getKnight().getScene().setDashParticles(getKnight().createDashParticles(10));</span>
+<span class="nc" id="L31">        return applyCollisions(newVelocity);</span>
+    }
+    @Override
+    public Vector updateVelocity(Vector velocity) {
+<span class="nc" id="L35">        tickParticles();</span>
+<span class="nc" id="L36">        Vector newVelocity = new Vector(</span>
+<span class="nc" id="L37">                velocity.x() * getKnight().getAcceleration(),</span>
+<span class="nc" id="L38">                velocity.y()</span>
+        );
+<span class="nc" id="L40">        return limitVelocity(applyCollisions(newVelocity));</span>
+    }
+
+    @Override
+    public KnightState getNextState() {
+<span class="pc bpc" id="L45" title="1 of 2 branches missed.">        if (getKnight().getScene().collideSpike())</span>
+<span class="nc" id="L46">            return new RespawnState(getKnight(), 10);</span>
+<span class="pc bpc" id="L47" title="1 of 2 branches missed.">        if (getParticlesTimer() == 0)</span>
+        {
+<span class="nc" id="L49">            getKnight().getScene().setRespawnParticles(getKnight().createRespawnParticles(0));</span>
+<span class="nc" id="L50">            resetParticlesTimer();</span>
+        }
+<span class="pc bpc" id="L52" title="1 of 2 branches missed.">        if (!getKnight().isOnGround())</span>
+<span class="nc" id="L53">            return getNextOnAirState();</span>
+<span class="fc" id="L54">        getKnight().setJumpCounter(0);</span>
+<span class="pc bpc" id="L55" title="1 of 2 branches missed.">        if (getKnight().isOverMaxXVelocity())</span>
+<span class="nc" id="L56">            return new DashState(getKnight());</span>
+<span class="pc bpc" id="L57" title="1 of 2 branches missed.">        if (Math.abs(getKnight().getVelocity().x()) &lt; RunningState.MAX_VELOCITY)</span>
+<span class="fc" id="L58">            return new RunningState(getKnight());</span>
+<span class="nc" id="L59">        return this;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

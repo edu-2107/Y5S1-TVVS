@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RespawnState.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Soul Knight</a> &gt; <a href="index.source.html" class="el_package">pt.feup.tvvs.soulknight.model.game.elements.knight</a> &gt; <span class="el_source">RespawnState.java</span></div><h1>RespawnState.java</h1><pre class="source lang-java linenums">package pt.feup.tvvs.soulknight.model.game.elements.knight;
+
+
+import pt.feup.tvvs.soulknight.model.dataStructs.Vector;
+import pt.feup.tvvs.soulknight.model.game.scene.Scene;
+import pt.feup.tvvs.soulknight.model.game.scene.SceneLoader;
+
+import java.io.IOException;
+
+public class RespawnState extends KnightState {
+
+    private long deathTimer;
+    private int cntRespawnPart;
+
+    public RespawnState(Knight knight, long deathTimer) {
+<span class="fc" id="L16">        super(knight);</span>
+<span class="fc" id="L17">        this.deathTimer = deathTimer;</span>
+<span class="fc" id="L18">        this.cntRespawnPart =0;</span>
+        //knight.getScene().setRespawnParticles(getKnight().createRespawnParticles(450));
+<span class="fc" id="L20">    }</span>
+
+    @Override
+    public Vector jump() {
+<span class="fc" id="L24">        return updateVelocity(getKnight().getVelocity());</span>
+    }
+
+    @Override
+    public Vector dash() {
+<span class="fc" id="L29">        return updateVelocity(getKnight().getVelocity());</span>
+    }
+
+    @Override
+    public Vector updateVelocity(Vector newVelocity) {
+<span class="fc" id="L34">        deathTimer--;</span>
+<span class="fc" id="L35">        tickParticles();</span>
+<span class="fc" id="L36">        return new Vector(0, 0);</span>
+    }
+
+    @Override
+    public KnightState getNextState() throws IOException {
+<span class="fc" id="L41">        Scene scene = getKnight().getScene();</span>
+
+<span class="pc bpc" id="L43" title="1 of 2 branches missed.">        if (deathTimer &lt;= 0) {</span>
+<span class="nc" id="L44">            SceneLoader sceneLoader = new SceneLoader(scene.getSceneID());</span>
+<span class="nc" id="L45">            getKnight().increaseDeaths();</span>
+<span class="nc" id="L46">            sceneLoader.setOrbs(scene);</span>
+<span class="nc" id="L47">            getKnight().setOrbs(scene.getSceneID()*3);</span>
+<span class="nc" id="L48">            getKnight().setHP(50);</span>
+<span class="nc" id="L49">            getKnight().setPosition(scene.getStartPosition());</span>
+<span class="nc" id="L50">            getKnight().setGotHit(false);           //if player dies to damage then he resets the boolean to receive damage</span>
+<span class="nc" id="L51">            return new FallingState(getKnight());</span>
+        }
+<span class="pc bpc" id="L53" title="1 of 2 branches missed.">        if(cntRespawnPart==0){ //this is done exclusively for testing purposes</span>
+<span class="fc" id="L54">            cntRespawnPart++;</span>
+<span class="fc" id="L55">            getKnight().getScene().setRespawnParticles(getKnight().createRespawnParticles(450));</span>
+        }
+<span class="fc" id="L57">        return this;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

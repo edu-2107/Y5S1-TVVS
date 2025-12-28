@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ParticleController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Soul Knight</a> &gt; <a href="index.source.html" class="el_package">pt.feup.tvvs.soulknight.controller.game</a> &gt; <span class="el_source">ParticleController.java</span></div><h1>ParticleController.java</h1><pre class="source lang-java linenums">package pt.feup.tvvs.soulknight.controller.game;
+
+import pt.feup.tvvs.soulknight.Game;
+import pt.feup.tvvs.soulknight.controller.Controller;
+import pt.feup.tvvs.soulknight.gui.GUI;
+import pt.feup.tvvs.soulknight.model.game.elements.particle.Particle;
+import pt.feup.tvvs.soulknight.model.game.scene.Scene;
+
+import java.io.IOException;
+
+public class ParticleController extends Controller&lt;Scene&gt;{
+
+    public ParticleController(Scene scene) {
+<span class="nc" id="L14">        super(scene);</span>
+<span class="nc" id="L15">    }</span>
+
+    @Override
+    public void move(Game game, GUI.ACTION action, long time) throws IOException {
+<span class="nc bnc" id="L19" title="All 2 branches missed.">        for(Particle particle: getModel().getParticles()){</span>
+<span class="nc" id="L20">            particle.setScene(getModel());</span>
+<span class="nc" id="L21">            particle.setPosition(particle.moveParticle(getModel(), time));</span>
+
+<span class="nc" id="L23">        }</span>
+<span class="nc bnc" id="L24" title="All 2 branches missed.">        for(Particle particle: getModel().getDoubleJumpParticles()){</span>
+<span class="nc" id="L25">            particle.setScene(getModel());</span>
+<span class="nc" id="L26">            particle.setPosition(particle.moveParticle(getModel(), time));</span>
+
+<span class="nc" id="L28">        }</span>
+<span class="nc bnc" id="L29" title="All 2 branches missed.">        for(Particle particle: getModel().getJumpParticles()){</span>
+<span class="nc" id="L30">            particle.setScene(getModel());</span>
+<span class="nc" id="L31">            particle.setPosition(particle.moveParticle(getModel(), time));</span>
+<span class="nc" id="L32">        }</span>
+<span class="nc bnc" id="L33" title="All 2 branches missed.">        for(Particle particle: getModel().getRespawnParticles()){</span>
+<span class="nc" id="L34">            particle.setScene(getModel());</span>
+<span class="nc" id="L35">            particle.setPosition(particle.moveParticle(getModel(), time));</span>
+<span class="nc" id="L36">        }</span>
+<span class="nc bnc" id="L37" title="All 2 branches missed.">        for(Particle particle: getModel().getDashParticles()){</span>
+<span class="nc" id="L38">            particle.setScene(getModel());</span>
+<span class="nc" id="L39">            particle.setPosition(particle.moveParticle(getModel(), time));</span>
+<span class="nc" id="L40">        }</span>
+
+<span class="nc" id="L42">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

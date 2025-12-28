@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SceneController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Soul Knight</a> &gt; <a href="index.source.html" class="el_package">pt.feup.tvvs.soulknight.controller.game</a> &gt; <span class="el_source">SceneController.java</span></div><h1>SceneController.java</h1><pre class="source lang-java linenums">package pt.feup.tvvs.soulknight.controller.game;
+
+import pt.feup.tvvs.soulknight.Game;
+import pt.feup.tvvs.soulknight.controller.Controller;
+import pt.feup.tvvs.soulknight.gui.GUI;
+import pt.feup.tvvs.soulknight.model.credits.Credits;
+import pt.feup.tvvs.soulknight.model.game.elements.knight.Knight;
+import pt.feup.tvvs.soulknight.model.game.scene.Scene;
+import pt.feup.tvvs.soulknight.model.game.scene.SceneLoader;
+import pt.feup.tvvs.soulknight.model.menu.MainMenu;
+import pt.feup.tvvs.soulknight.state.CreditsState;
+import pt.feup.tvvs.soulknight.state.GameState;
+import pt.feup.tvvs.soulknight.state.MainMenuState;
+
+import java.io.IOException;
+
+public class SceneController extends Controller&lt;Scene&gt; {
+    private final PlayerController playerController;
+    private final ParticleController particleController;
+    private final EnemieController enemieController;
+
+    public SceneController(Scene scene, PlayerController playerController,
+                           ParticleController particleController, EnemieController enemieController) {
+<span class="nc" id="L24">        super(scene);</span>
+<span class="nc" id="L25">        this.playerController = playerController;</span>
+<span class="nc" id="L26">        this.particleController = particleController;</span>
+<span class="nc" id="L27">        this.enemieController = enemieController;</span>
+<span class="nc" id="L28">    }</span>
+
+    @Override
+    public void move(Game game, GUI.ACTION action, long time) throws IOException {
+<span class="nc" id="L32">        Knight knight = getModel().getPlayer();</span>
+<span class="nc bnc" id="L33" title="All 2 branches missed.">        if (action == GUI.ACTION.QUIT)</span>
+<span class="nc" id="L34">            game.setState(new MainMenuState(new MainMenu(), game.getSpriteLoader()));</span>
+        else {
+
+<span class="nc" id="L37">            playerController.move(game, action, time);</span>
+
+<span class="nc bnc" id="L39" title="All 4 branches missed.">            if (getModel().isAtEndPosition() &amp;&amp; knight.getOrbs() == 3 * (getModel().getSceneID() + 1)) {</span>
+<span class="nc bnc" id="L40" title="All 2 branches missed.">                if (getModel().getSceneID() + 1 &gt;= game.getNumberOfLevels()) {</span>
+<span class="nc" id="L41">                    Credits credits = new Credits(getModel().getPlayer());</span>
+<span class="nc" id="L42">                    game.setState(new CreditsState(credits, game.getSpriteLoader()));</span>
+<span class="nc" id="L43">                } else {</span>
+<span class="nc" id="L44">                    SceneLoader sceneLoader = new SceneLoader((getModel().getSceneID() + 1));</span>
+<span class="nc" id="L45">                    Scene newScene = sceneLoader.createScene(knight);</span>
+<span class="nc" id="L46">                    game.setState(new GameState(newScene, game.getSpriteLoader()));</span>
+<span class="nc" id="L47">                }</span>
+            }
+            else{
+<span class="nc" id="L50">                getModel().collectOrbs(getModel().getOrbs());</span>
+
+<span class="nc" id="L52">                getModel().collideMonsters(getModel().getMonsters());</span>
+
+<span class="nc" id="L54">                particleController.move(game, action,time);</span>
+<span class="nc" id="L55">                enemieController.move(game,action,time);</span>
+            }
+        }
+<span class="nc" id="L58">    }</span>
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>
