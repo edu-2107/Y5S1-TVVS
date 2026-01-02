@@ -36,145 +36,145 @@ public class GameViewer extends ScreenViewer&lt;Scene&gt; {
     private final RockViewer rockViewer;
     final MonsterViewer monsterViewer;
 
-<span class="nc" id="L39">    private static final Logger LOGGER = Logger.getLogger(GameViewer.class.getName());</span>
+<span class="fc" id="L39">    private static final Logger LOGGER = Logger.getLogger(GameViewer.class.getName());</span>
 
     public GameViewer(Scene model, ViewerProvider viewerProvider) throws IOException {
 
-<span class="nc" id="L43">        super(model);</span>
+<span class="fc" id="L43">        super(model);</span>
 
-<span class="nc" id="L45">        this.textViewer = new GameTextViewer();</span>
+<span class="fc" id="L45">        this.textViewer = new GameTextViewer();</span>
 
-<span class="nc" id="L47">        this.particleViewer = viewerProvider.getParticleViewer();</span>
+<span class="fc" id="L47">        this.particleViewer = viewerProvider.getParticleViewer();</span>
 
-<span class="nc" id="L49">        this.knightViewer = viewerProvider.getPlayerViewer();</span>
+<span class="fc" id="L49">        this.knightViewer = viewerProvider.getPlayerViewer();</span>
 
-<span class="nc" id="L51">        this.tileViewer = viewerProvider.getTileViewer();</span>
+<span class="fc" id="L51">        this.tileViewer = viewerProvider.getTileViewer();</span>
 
-<span class="nc" id="L53">        this.spikeViewer = viewerProvider.getSpikeViewer();</span>
+<span class="fc" id="L53">        this.spikeViewer = viewerProvider.getSpikeViewer();</span>
 
-<span class="nc" id="L55">        this.treeViewer = viewerProvider.getTreeViewer();</span>
+<span class="fc" id="L55">        this.treeViewer = viewerProvider.getTreeViewer();</span>
 
-<span class="nc" id="L57">        this.orbViewer = viewerProvider.getOrbViewer();</span>
+<span class="fc" id="L57">        this.orbViewer = viewerProvider.getOrbViewer();</span>
 
-<span class="nc" id="L59">        this.rockViewer = viewerProvider.getRockViewer();</span>
+<span class="fc" id="L59">        this.rockViewer = viewerProvider.getRockViewer();</span>
 
-<span class="nc" id="L61">        this.monsterViewer = viewerProvider.getMonsterViewer();</span>
+<span class="fc" id="L61">        this.monsterViewer = viewerProvider.getMonsterViewer();</span>
 
-<span class="nc" id="L63">    }</span>
+<span class="fc" id="L63">    }</span>
 
     @Override
     public void draw(GUI gui, long time) throws IOException {
-<span class="nc" id="L67">        gui.cls();</span>
+<span class="fc" id="L67">        gui.cls();</span>
 
-<span class="nc" id="L69">        dynamicGradientBackground(gui, time);</span>
+<span class="fc" id="L69">        dynamicGradientBackground(gui, time);</span>
 
-<span class="nc" id="L71">        drawElements(gui, getModel().getParticles(), this.particleViewer, time);</span>
-<span class="nc" id="L72">        drawElements(gui, getModel().getDoubleJumpParticles(), this.particleViewer, time);</span>
-<span class="nc" id="L73">        drawElements(gui, getModel().getJumpParticles(), this.particleViewer, time);</span>
-<span class="nc" id="L74">        drawElements(gui, getModel().getRespawnParticles(), this.particleViewer, time);</span>
-<span class="nc" id="L75">        drawElements(gui, getModel().getDashParticles(), this.particleViewer, time);</span>
+<span class="fc" id="L71">        drawElements(gui, getModel().getParticles(), this.particleViewer, time);</span>
+<span class="fc" id="L72">        drawElements(gui, getModel().getDoubleJumpParticles(), this.particleViewer, time);</span>
+<span class="fc" id="L73">        drawElements(gui, getModel().getJumpParticles(), this.particleViewer, time);</span>
+<span class="fc" id="L74">        drawElements(gui, getModel().getRespawnParticles(), this.particleViewer, time);</span>
+<span class="fc" id="L75">        drawElements(gui, getModel().getDashParticles(), this.particleViewer, time);</span>
 
-<span class="nc" id="L77">        drawElements(gui, getModel().getSpikes(), this.spikeViewer, 0);</span>
-<span class="nc" id="L78">        drawElements(gui, getModel().getTiles(), this.tileViewer, 0);</span>
-<span class="nc" id="L79">        drawElements(gui, getModel().getTrees(), this.treeViewer, 0);</span>
-<span class="nc" id="L80">        drawElements(gui, getModel().getOrbs(), this.orbViewer, 0);</span>
-<span class="nc" id="L81">        drawElements(gui, getModel().getRocks(), this.rockViewer, 0);</span>
+<span class="fc" id="L77">        drawElements(gui, getModel().getSpikes(), this.spikeViewer, 0);</span>
+<span class="fc" id="L78">        drawElements(gui, getModel().getTiles(), this.tileViewer, 0);</span>
+<span class="fc" id="L79">        drawElements(gui, getModel().getTrees(), this.treeViewer, 0);</span>
+<span class="fc" id="L80">        drawElements(gui, getModel().getOrbs(), this.orbViewer, 0);</span>
+<span class="fc" id="L81">        drawElements(gui, getModel().getRocks(), this.rockViewer, 0);</span>
 
-<span class="nc" id="L83">        drawElement(gui, this.knightViewer, getModel().getPlayer(), time);</span>
-<span class="nc" id="L84">        drawElements(gui, getModel().getMonsters(), this.monsterViewer, time);</span>
+<span class="fc" id="L83">        drawElement(gui, this.knightViewer, getModel().getPlayer(), time);</span>
+<span class="fc" id="L84">        drawElements(gui, getModel().getMonsters(), this.monsterViewer, time);</span>
 
-<span class="nc" id="L86">        PlayerStatsViewer.drawPlayerStats(gui, time, getModel(), this.textViewer);</span>
+<span class="fc" id="L86">        PlayerStatsViewer.drawPlayerStats(gui, time, getModel(), this.textViewer);</span>
 
-<span class="nc" id="L88">        gui.flush();</span>
-<span class="nc" id="L89">    }</span>
+<span class="fc" id="L88">        gui.flush();</span>
+<span class="fc" id="L89">    }</span>
 
     &lt;T extends Element&gt; void drawElements(GUI gui, List&lt;T&gt; elements, ElementViewer&lt;T&gt; viewer, long time) throws IOException {
-<span class="nc" id="L92">        elements</span>
-<span class="nc" id="L93">                .forEach(element -&gt; {</span>
+<span class="fc" id="L92">        elements</span>
+<span class="fc" id="L93">                .forEach(element -&gt; {</span>
                     try {
-<span class="nc" id="L95">                        drawElement(gui, viewer, element, time);</span>
-<span class="nc" id="L96">                    } catch (IOException e) {</span>
+<span class="fc" id="L95">                        drawElement(gui, viewer, element, time);</span>
+<span class="fc" id="L96">                    } catch (IOException e) {</span>
                         // Log the exception at a WARNING level
-<span class="nc" id="L98">                        LOGGER.log(Level.WARNING, &quot;Failed to draw element: {0}&quot;, e.getMessage());</span>
-<span class="nc" id="L99">                        LOGGER.log(Level.FINE, &quot;Stack Trace: &quot;, e);</span>
-<span class="nc" id="L100">                    }</span>
-<span class="nc" id="L101">                });</span>
-<span class="nc" id="L102">    }</span>
+<span class="fc" id="L98">                        LOGGER.log(Level.WARNING, &quot;Failed to draw element: {0}&quot;, e.getMessage());</span>
+<span class="fc" id="L99">                        LOGGER.log(Level.FINE, &quot;Stack Trace: &quot;, e);</span>
+<span class="fc" id="L100">                    }</span>
+<span class="fc" id="L101">                });</span>
+<span class="fc" id="L102">    }</span>
 
     &lt;T extends Element&gt; void drawElement(GUI gui, ElementViewer&lt;T&gt; viewer, T element, long time) throws IOException {
-<span class="nc" id="L105">        int adjustedX = (int) element.getPosition().x();</span>
-<span class="nc" id="L106">        int adjustedY = (int) element.getPosition().y();</span>
-<span class="nc" id="L107">        viewer.draw(element, gui, time, adjustedX, adjustedY);</span>
-<span class="nc" id="L108">    }</span>
+<span class="fc" id="L105">        int adjustedX = (int) element.getPosition().x();</span>
+<span class="fc" id="L106">        int adjustedY = (int) element.getPosition().y();</span>
+<span class="fc" id="L107">        viewer.draw(element, gui, time, adjustedX, adjustedY);</span>
+<span class="fc" id="L108">    }</span>
 
     private &lt;T extends Element&gt; void drawElements(GUI gui, T[][] elements, ElementViewer&lt;T&gt; viewer, long frameCount) throws IOException {
-<span class="nc bnc" id="L111" title="All 2 branches missed.">        for (T[] elementLine : elements) {</span>
-<span class="nc bnc" id="L112" title="All 2 branches missed.">            for (T element : elementLine) {</span>
-<span class="nc bnc" id="L113" title="All 2 branches missed.">                if (element != null)</span>
-<span class="nc" id="L114">                    drawElement(gui, viewer, element, frameCount);</span>
+<span class="fc bfc" id="L111" title="All 2 branches covered.">        for (T[] elementLine : elements) {</span>
+<span class="fc bfc" id="L112" title="All 2 branches covered.">            for (T element : elementLine) {</span>
+<span class="fc bfc" id="L113" title="All 2 branches covered.">                if (element != null)</span>
+<span class="fc" id="L114">                    drawElement(gui, viewer, element, frameCount);</span>
             }
         }
-<span class="nc" id="L117">    }</span>
+<span class="fc" id="L117">    }</span>
 
     void dynamicGradientBackground(GUI gui, long time) {
-<span class="nc" id="L120">        int width = 240; // getModel().getWidth();</span>
-<span class="nc" id="L121">        int height = 120; // getModel().getHeight();</span>
+<span class="fc" id="L120">        int width = 240; // getModel().getWidth();</span>
+<span class="fc" id="L121">        int height = 120; // getModel().getHeight();</span>
 
-<span class="nc" id="L123">        double changeRate = 0.04;</span>
+<span class="fc" id="L123">        double changeRate = 0.04;</span>
         // Calculate dynamic colors based on time, with a grayscale tone
-<span class="nc" id="L125">        int baseRed1 = (int) (64 + 63 * Math.sin(time * changeRate)); // Shifted to darker gray</span>
-<span class="nc" id="L126">        int baseGreen1 = (int) (64 + 63 * Math.sin(time * changeRate + Math.PI / 3));</span>
-<span class="nc" id="L127">        int baseBlue1 = (int) (64 + 63 * Math.sin(time * changeRate + 2 * Math.PI / 3));</span>
+<span class="fc" id="L125">        int baseRed1 = (int) (64 + 63 * Math.sin(time * changeRate)); // Shifted to darker gray</span>
+<span class="fc" id="L126">        int baseGreen1 = (int) (64 + 63 * Math.sin(time * changeRate + Math.PI / 3));</span>
+<span class="fc" id="L127">        int baseBlue1 = (int) (64 + 63 * Math.sin(time * changeRate + 2 * Math.PI / 3));</span>
 
-<span class="nc" id="L129">        int baseRed2 = (int) (64 + 63 * Math.sin(time * changeRate + Math.PI));</span>
-<span class="nc" id="L130">        int baseGreen2 = (int) (64 + 63 * Math.sin(time * changeRate + Math.PI + Math.PI / 3));</span>
-<span class="nc" id="L131">        int baseBlue2 = (int) (64 + 63 * Math.sin(time * changeRate + Math.PI + 2 * Math.PI / 3));</span>
+<span class="fc" id="L129">        int baseRed2 = (int) (64 + 63 * Math.sin(time * changeRate + Math.PI));</span>
+<span class="fc" id="L130">        int baseGreen2 = (int) (64 + 63 * Math.sin(time * changeRate + Math.PI + Math.PI / 3));</span>
+<span class="fc" id="L131">        int baseBlue2 = (int) (64 + 63 * Math.sin(time * changeRate + Math.PI + 2 * Math.PI / 3));</span>
 
-<span class="nc" id="L133">        TextColor.RGB color1 = new TextColor.RGB(baseRed1, baseGreen1, baseBlue1);</span>
-<span class="nc" id="L134">        TextColor.RGB color2 = new TextColor.RGB(baseRed2, baseGreen2, baseBlue2);</span>
+<span class="fc" id="L133">        TextColor.RGB color1 = new TextColor.RGB(baseRed1, baseGreen1, baseBlue1);</span>
+<span class="fc" id="L134">        TextColor.RGB color2 = new TextColor.RGB(baseRed2, baseGreen2, baseBlue2);</span>
 
-<span class="nc bnc" id="L136" title="All 2 branches missed.">        boolean flashActive = (time % 800 &lt; 20); // Flash active for 20 ticks every 800 ticks</span>
-<span class="nc bnc" id="L137" title="All 4 branches missed.">        boolean afterEffectActive = (time % 800 &gt;= 20 &amp;&amp; time % 800 &lt; 60); // Aftereffect active for 40 ticks</span>
-<span class="nc bnc" id="L138" title="All 2 branches missed.">        double afterEffectFactor = afterEffectActive ? (1.0 - (time % 800 - 20) / 40.0) : 0.0;</span>
+<span class="fc bfc" id="L136" title="All 2 branches covered.">        boolean flashActive = (time % 800 &lt; 20); // Flash active for 20 ticks every 800 ticks</span>
+<span class="fc bfc" id="L137" title="All 4 branches covered.">        boolean afterEffectActive = (time % 800 &gt;= 20 &amp;&amp; time % 800 &lt; 60); // Aftereffect active for 40 ticks</span>
+<span class="fc bfc" id="L138" title="All 2 branches covered.">        double afterEffectFactor = afterEffectActive ? (1.0 - (time % 800 - 20) / 40.0) : 0.0;</span>
 
-<span class="nc bnc" id="L140" title="All 2 branches missed.">        for (int w = 0; w &lt; width; w++) {</span>
-<span class="nc bnc" id="L141" title="All 2 branches missed.">            for (int h = 0; h &lt; height; h++) {</span>
-<span class="nc bnc" id="L142" title="All 2 branches missed.">                if (flashActive) {</span>
+<span class="fc bfc" id="L140" title="All 2 branches covered.">        for (int w = 0; w &lt; width; w++) {</span>
+<span class="fc bfc" id="L141" title="All 2 branches covered.">            for (int h = 0; h &lt; height; h++) {</span>
+<span class="fc bfc" id="L142" title="All 2 branches covered.">                if (flashActive) {</span>
                     // During the flash, draw a bright white color
-<span class="nc" id="L144">                    gui.drawPixel(w, h, new TextColor.RGB(255, 255, 255));</span>
-<span class="nc bnc" id="L145" title="All 2 branches missed.">                } else if (afterEffectActive) {</span>
+<span class="fc" id="L144">                    gui.drawPixel(w, h, new TextColor.RGB(255, 255, 255));</span>
+<span class="fc bfc" id="L145" title="All 2 branches covered.">                } else if (afterEffectActive) {</span>
                     // Aftereffect: add a subtle light glow on top of the gradient
-<span class="nc" id="L147">                    double interpolationX = (double) w / (width - 1);</span>
-<span class="nc" id="L148">                    double interpolationY = (double) h / (height - 1);</span>
+<span class="fc" id="L147">                    double interpolationX = (double) w / (width - 1);</span>
+<span class="fc" id="L148">                    double interpolationY = (double) h / (height - 1);</span>
 
-<span class="nc" id="L150">                    int red = (int) ((1 - interpolationX) * color1.getRed() + interpolationX * color2.getRed());</span>
-<span class="nc" id="L151">                    int green = (int) ((1 - interpolationY) * color1.getGreen() + interpolationY * color2.getGreen());</span>
-<span class="nc" id="L152">                    int blue = (int) ((1 - interpolationX) * color1.getBlue() + interpolationX * color2.getBlue());</span>
+<span class="fc" id="L150">                    int red = (int) ((1 - interpolationX) * color1.getRed() + interpolationX * color2.getRed());</span>
+<span class="fc" id="L151">                    int green = (int) ((1 - interpolationY) * color1.getGreen() + interpolationY * color2.getGreen());</span>
+<span class="fc" id="L152">                    int blue = (int) ((1 - interpolationX) * color1.getBlue() + interpolationX * color2.getBlue());</span>
 
                     // Blend gradient with a light glow effect
-<span class="nc" id="L155">                    red = (int) (red + afterEffectFactor * (255 - red));</span>
-<span class="nc" id="L156">                    green = (int) (green + afterEffectFactor * (255 - green));</span>
-<span class="nc" id="L157">                    blue = (int) (blue + afterEffectFactor * (255 - blue));</span>
+<span class="fc" id="L155">                    red = (int) (red + afterEffectFactor * (255 - red));</span>
+<span class="fc" id="L156">                    green = (int) (green + afterEffectFactor * (255 - green));</span>
+<span class="fc" id="L157">                    blue = (int) (blue + afterEffectFactor * (255 - blue));</span>
 
-<span class="nc" id="L159">                    gui.drawPixel(w, h, new TextColor.RGB(red, green, blue));</span>
-<span class="nc" id="L160">                } else {</span>
+<span class="fc" id="L159">                    gui.drawPixel(w, h, new TextColor.RGB(red, green, blue));</span>
+<span class="fc" id="L160">                } else {</span>
                     // Normal gradient background with darker tone
-<span class="nc" id="L162">                    double interpolationX = (double) w / (width - 1);</span>
-<span class="nc" id="L163">                    double interpolationY = (double) h / (height - 1);</span>
+<span class="fc" id="L162">                    double interpolationX = (double) w / (width - 1);</span>
+<span class="fc" id="L163">                    double interpolationY = (double) h / (height - 1);</span>
 
-<span class="nc" id="L165">                    int red = (int) ((1 - interpolationX) * color1.getRed() + interpolationX * color2.getRed());</span>
-<span class="nc" id="L166">                    int green = (int) ((1 - interpolationY) * color1.getGreen() + interpolationY * color2.getGreen());</span>
-<span class="nc" id="L167">                    int blue = (int) ((1 - interpolationX) * color1.getBlue() + interpolationX * color2.getBlue());</span>
+<span class="fc" id="L165">                    int red = (int) ((1 - interpolationX) * color1.getRed() + interpolationX * color2.getRed());</span>
+<span class="fc" id="L166">                    int green = (int) ((1 - interpolationY) * color1.getGreen() + interpolationY * color2.getGreen());</span>
+<span class="fc" id="L167">                    int blue = (int) ((1 - interpolationX) * color1.getBlue() + interpolationX * color2.getBlue());</span>
 
                     // Apply an additional gray-scale reduction
-<span class="nc" id="L170">                    red = (int) (red * 0.6); // Reduce to 60% of original</span>
-<span class="nc" id="L171">                    green = (int) (green * 0.6);</span>
-<span class="nc" id="L172">                    blue = (int) (blue * 0.6);</span>
+<span class="fc" id="L170">                    red = (int) (red * 0.6); // Reduce to 60% of original</span>
+<span class="fc" id="L171">                    green = (int) (green * 0.6);</span>
+<span class="fc" id="L172">                    blue = (int) (blue * 0.6);</span>
 
-<span class="nc" id="L174">                    gui.drawPixel(w, h, new TextColor.RGB(red, green, blue));</span>
+<span class="fc" id="L174">                    gui.drawPixel(w, h, new TextColor.RGB(red, green, blue));</span>
                 }
             }
         }
-<span class="nc" id="L178">    }</span>
+<span class="fc" id="L178">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

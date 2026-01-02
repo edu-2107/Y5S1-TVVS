@@ -10,21 +10,21 @@ import java.io.IOException;
 <span class="nc" id="L10">public class PlayerStatsViewer{</span>
     public static void drawPlayerStats(GUI gui, long time, Scene scene, TextViewer textViewer) throws IOException {
         // Fetch the player details
-<span class="nc" id="L13">        var player = scene.getPlayer();</span>
+<span class="fc" id="L13">        var player = scene.getPlayer();</span>
 
-<span class="nc" id="L15">        String hp = &quot;hp &quot; + player.getHP();</span>
+<span class="fc" id="L15">        String hp = &quot;hp &quot; + player.getHP();</span>
 
-<span class="nc" id="L17">        String fps = &quot;fps &quot; + gui.getFPS();</span>
+<span class="fc" id="L17">        String fps = &quot;fps &quot; + gui.getFPS();</span>
 
-<span class="nc" id="L19">        String orbs = &quot;Orbs &quot; + player.getOrbs();</span>
+<span class="fc" id="L19">        String orbs = &quot;Orbs &quot; + player.getOrbs();</span>
 
         // Define a common color for all text
-<span class="nc" id="L22">        TextColor.RGB color = new TextColor.RGB(0, 225, 75);</span>
+<span class="fc" id="L22">        TextColor.RGB color = new TextColor.RGB(0, 225, 75);</span>
 
-<span class="nc" id="L24">        textViewer.draw(hp, 4, 8, color, gui);</span>
-<span class="nc" id="L25">        textViewer.draw(fps, 4, 16, color, gui);</span>
-<span class="nc" id="L26">        textViewer.draw(orbs, 160, 8, color, gui);</span>
+<span class="fc" id="L24">        textViewer.draw(hp, 4, 8, color, gui);</span>
+<span class="fc" id="L25">        textViewer.draw(fps, 4, 16, color, gui);</span>
+<span class="fc" id="L26">        textViewer.draw(orbs, 160, 8, color, gui);</span>
 
-<span class="nc" id="L28">    }</span>
+<span class="fc" id="L28">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>
