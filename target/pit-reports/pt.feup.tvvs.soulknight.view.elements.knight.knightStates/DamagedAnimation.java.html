@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>DamagedAnimation.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3a42610_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3a42610_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package pt.feup.tvvs.soulknight.view.elements.knight.knightStates;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3a42610_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3a42610_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3a42610_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3a42610_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import pt.feup.tvvs.soulknight.model.game.elements.knight.DamagedState;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3a42610_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3a42610_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import pt.feup.tvvs.soulknight.model.dataStructs.PairList;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3a42610_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3a42610_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import pt.feup.tvvs.soulknight.view.sprites.Sprite;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3a42610_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3a42610_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3a42610_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3a42610_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.io.IOException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3a42610_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3a42610_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.ArrayList;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3a42610_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3a42610_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.List;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3a42610_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3a42610_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3a42610_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3a42610_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class DamagedAnimation extends StateAnimation{</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3a42610_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3a42610_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public DamagedAnimation(Class state, int frames) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3a42610_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3a42610_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        super(state, frames);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3a42610_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3a42610_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3a42610_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3a42610_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3a42610_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3a42610_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3a42610_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3a42610_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void loadAnimation(String path) throws IOException {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3a42610_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3a42610_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        List&#60;Sprite&#62; DamagedRight = new ArrayList&#60;&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3a42610_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3a42610_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        List&#60;Sprite&#62; DamagedLeft = new ArrayList&#60;&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3a42610_20'/>
+20
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3a42610_20'>2</a>
+<span>
+
+1. loadAnimation : changed conditional boundary &rarr; SURVIVED<br/>
+
+2. loadAnimation : negated conditional &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        for (int i = 1; i &#60;= 2; i++) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3a42610_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3a42610_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            DamagedRight.add(new Sprite(path + &#34;/damaged/movement/falling/damaged-falling-&#34;+i + &#34;.png&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3a42610_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3a42610_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            DamagedLeft.add(new Sprite(path + &#34;/damaged/movement/falling/damaged-falling-&#34;+i+&#34;-reversed.png&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3a42610_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3a42610_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3a42610_24'/>
+24
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3a42610_24'>1</a>
+<span>
+
+1. loadAnimation : removed call to pt/feup/tvvs/soulknight/view/elements/knight/knightStates/DamagedAnimation::setState &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        setState(DamagedState.class);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3a42610_25'/>
+25
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3a42610_25'>1</a>
+<span>
+
+1. loadAnimation : removed call to pt/feup/tvvs/soulknight/view/elements/knight/knightStates/DamagedAnimation::setAnimation &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        setAnimation(new PairList&#60;&#62;(DamagedRight, DamagedLeft));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3a42610_26'/>
+26
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3a42610_26'>1</a>
+<span>
+
+1. loadAnimation : removed call to pt/feup/tvvs/soulknight/view/elements/knight/knightStates/DamagedAnimation::setFrames &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        setFrames(4);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3a42610_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3a42610_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3a42610_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3a42610_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3a42610_20'>20</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3a42610_20'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadAnimation<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.elements.knight.knightStates.DamagedAnimation,-method=loadAnimation,-methodDesc=(Ljava/lang/String;)V],-indexes=[21],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.elements.knight.knightStates.DamagedAnimation,-method=loadAnimation,-methodDesc=(Ljava/lang/String;)V],-indexes=[21],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.elements.knight.knightStates.DamagedAnimation,-method=loadAnimation,-methodDesc=(Ljava/lang/String;)V],-indexes=[21],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.soulknight.CreditsControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.CreditsControllerWhiteBoxTests]/[method:move_whenQuit_setsMainMenuState()]</li> 
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>loadAnimation<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.elements.knight.knightStates.DamagedAnimation,-method=loadAnimation,-methodDesc=(Ljava/lang/String;)V],-indexes=[21],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.elements.knight.knightStates.DamagedAnimation,-method=loadAnimation,-methodDesc=(Ljava/lang/String;)V],-indexes=[21],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.elements.knight.knightStates.DamagedAnimation,-method=loadAnimation,-methodDesc=(Ljava/lang/String;)V],-indexes=[21],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.soulknight.CreditsControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.CreditsControllerWhiteBoxTests]/[method:move_whenQuit_setsMainMenuState()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3a42610_24'>24</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3a42610_24'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadAnimation<br/><b>Killed by : </b>none</span></span> removed call to pt/feup/tvvs/soulknight/view/elements/knight/knightStates/DamagedAnimation::setState &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.elements.knight.knightStates.DamagedAnimation,-method=loadAnimation,-methodDesc=(Ljava/lang/String;)V],-indexes=[53],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.elements.knight.knightStates.DamagedAnimation,-method=loadAnimation,-methodDesc=(Ljava/lang/String;)V],-indexes=[53],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.elements.knight.knightStates.DamagedAnimation,-method=loadAnimation,-methodDesc=(Ljava/lang/String;)V],-indexes=[53],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.soulknight.CreditsControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.CreditsControllerWhiteBoxTests]/[method:move_whenQuit_setsMainMenuState()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3a42610_25'>25</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3a42610_25'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadAnimation<br/><b>Killed by : </b>none</span></span> removed call to pt/feup/tvvs/soulknight/view/elements/knight/knightStates/DamagedAnimation::setAnimation &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.elements.knight.knightStates.DamagedAnimation,-method=loadAnimation,-methodDesc=(Ljava/lang/String;)V],-indexes=[62],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.elements.knight.knightStates.DamagedAnimation,-method=loadAnimation,-methodDesc=(Ljava/lang/String;)V],-indexes=[62],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.elements.knight.knightStates.DamagedAnimation,-method=loadAnimation,-methodDesc=(Ljava/lang/String;)V],-indexes=[62],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.soulknight.CreditsControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.CreditsControllerWhiteBoxTests]/[method:move_whenQuit_setsMainMenuState()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3a42610_26'>26</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3a42610_26'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadAnimation<br/><b>Killed by : </b>none</span></span> removed call to pt/feup/tvvs/soulknight/view/elements/knight/knightStates/DamagedAnimation::setFrames &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.elements.knight.knightStates.DamagedAnimation,-method=loadAnimation,-methodDesc=(Ljava/lang/String;)V],-indexes=[67],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.elements.knight.knightStates.DamagedAnimation,-method=loadAnimation,-methodDesc=(Ljava/lang/String;)V],-indexes=[67],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.elements.knight.knightStates.DamagedAnimation,-method=loadAnimation,-methodDesc=(Ljava/lang/String;)V],-indexes=[67],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.soulknight.CreditsControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.CreditsControllerWhiteBoxTests]/[method:move_whenQuit_setsMainMenuState()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>pt.feup.tvvs.soulknight.CreditsControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.CreditsControllerWhiteBoxTests]/[method:move_whenQuit_setsMainMenuState()] (1215 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.20.3
+
+</body>
+</html>

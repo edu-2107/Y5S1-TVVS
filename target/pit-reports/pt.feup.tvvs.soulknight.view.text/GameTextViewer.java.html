@@ -1,0 +1,2125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>GameTextViewer.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package pt.feup.tvvs.soulknight.view.text;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import pt.feup.tvvs.soulknight.gui.GUI;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.googlecode.lanterna.TextColor;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import javax.imageio.ImageIO;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.awt.image.BufferedImage;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.io.*;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.net.URL;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.nio.charset.StandardCharsets;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.HashMap;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Map;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class GameTextViewer implements TextViewer {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private static final int charWidth = 3;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private static final int charHeight = 5;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private static final int spacing = 1;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final BufferedImage fontImage;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final Map&#60;Character, CharPosition&#62; charMap;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static class CharPosition {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        private final int row;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        private final int col;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        public CharPosition(int row, int col) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            this.row = row;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            this.col = col;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        public int row() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_33'/>
+33
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_33'>1</a>
+<span>
+
+1. row : replaced int return with 0 for pt/feup/tvvs/soulknight/view/text/GameTextViewer$CharPosition::row &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            return this.row;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        public int col() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_37'/>
+37
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_37'>1</a>
+<span>
+
+1. col : replaced int return with 0 for pt/feup/tvvs/soulknight/view/text/GameTextViewer$CharPosition::col &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            return this.col;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    public GameTextViewer() throws IOException {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        URL fontImageResource = getClass().getClassLoader().getResource(&#34;fonts/font.png&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_43'/>
+43
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_43'>1</a>
+<span>
+
+1. &#60;init&#62; : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (fontImageResource == null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_44'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            throw new FileNotFoundException(&#34;Font image file not found in resources!&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.fontImage = ImageIO.read(fontImageResource);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_48'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        URL fontMapResource = getClass().getClassLoader().getResource(&#34;fonts/font-map.txt&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_49'/>
+49
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_49'>1</a>
+<span>
+
+1. &#60;init&#62; : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (fontMapResource == null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            throw new FileNotFoundException(&#34;Font map file not found in resources!&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_53'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.charMap = parseCharMap(fontMapResource);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_54'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_55'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_56'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private Map&#60;Character, CharPosition&#62; parseCharMap(URL resource) throws IOException {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_57'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        Map&#60;Character, CharPosition&#62; charMap = new HashMap&#60;&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_58'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(resource.openStream(), StandardCharsets.UTF_8))) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_59'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            int y = 0;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_60'/>
+60
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_60'>2</a>
+<span>
+
+1. parseCharMap : negated conditional &rarr; SURVIVED<br/>
+
+2. parseCharMap : Changed increment from 1 to -1 &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            for (String line; (line = bufferedReader.readLine()) != null; y++) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_61'/>
+61
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_61'>2</a>
+<span>
+
+1. parseCharMap : negated conditional &rarr; SURVIVED<br/>
+
+2. parseCharMap : changed conditional boundary &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                for (int x = 0; x &#60; line.length(); x++) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_62'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                    charMap.put(line.charAt(x), new CharPosition(x, y));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_63'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_64'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_65'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_66'/>
+66
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_66'>1</a>
+<span>
+
+1. parseCharMap : replaced return value with Collections.emptyMap for pt/feup/tvvs/soulknight/view/text/GameTextViewer::parseCharMap &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        return charMap;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_67'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_68'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_69'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_70'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_71'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void draw(char character, double x, double y, TextColor foregroundColor, GUI gui) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_72'/>
+72
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_72'>1</a>
+<span>
+
+1. draw : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (charMap.containsKey(character)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_73'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            CharPosition charPosition = charMap.get(character);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_74'/>
+74
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_74'>1</a>
+<span>
+
+1. draw : removed call to pt/feup/tvvs/soulknight/view/text/GameTextViewer::drawKnownChar &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            drawKnownChar(charPosition, x, y, foregroundColor, gui);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_75'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        } else {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_76'/>
+76
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_76'>1</a>
+<span>
+
+1. draw : removed call to pt/feup/tvvs/soulknight/view/text/GameTextViewer::drawUnknownChar &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            drawUnknownChar(x, y, (TextColor.RGB) foregroundColor, gui);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_77'/>
+77
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_77'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_78'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_79'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_80'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private void drawKnownChar(CharPosition position, double x, double y, TextColor foregroundColor, GUI gui) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_81'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        final int COLOR_WHITE = 0xFFFFFFFF;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_82'/>
+82
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_82'>1</a>
+<span>
+
+1. drawKnownChar : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        int imgX = position.row() * (charWidth + 1);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_83'/>
+83
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_83'>1</a>
+<span>
+
+1. drawKnownChar : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        int imgY = position.col() * (charHeight + 1);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_84'/>
+84
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_84'>2</a>
+<span>
+
+1. drawKnownChar : negated conditional &rarr; SURVIVED<br/>
+
+2. drawKnownChar : changed conditional boundary &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        for (int dy = 0; dy &#60; charHeight; dy++) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_85'/>
+85
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_85'>2</a>
+<span>
+
+1. drawKnownChar : changed conditional boundary &rarr; SURVIVED<br/>
+
+2. drawKnownChar : negated conditional &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            for (int dx = 0; dx &#60; charWidth; dx++) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_86'/>
+86
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_86'>3</a>
+<span>
+
+1. drawKnownChar : negated conditional &rarr; SURVIVED<br/>
+
+2. drawKnownChar : Replaced integer addition with subtraction &rarr; KILLED<br/>
+
+3. drawKnownChar : Replaced integer addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                if (fontImage.getRGB(imgX + dx, imgY + dy) != COLOR_WHITE)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_87'/>
+87
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_87'>3</a>
+<span>
+
+1. drawKnownChar : Replaced double addition with subtraction &rarr; SURVIVED<br/>
+
+2. drawKnownChar : Replaced double addition with subtraction &rarr; SURVIVED<br/>
+
+3. drawKnownChar : removed call to pt/feup/tvvs/soulknight/gui/GUI::drawPixel &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                    gui.drawPixel((int) (x + dx), (int) (y + dy), (TextColor.RGB) foregroundColor);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_88'/>
+88
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_88'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_89'/>
+89
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_89'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_90'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_91'/>
+91
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_91'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_92'/>
+92
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_92'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private void drawUnknownChar(double x, double y, TextColor.RGB foregroundColor, GUI gui) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_93'/>
+93
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_93'>1</a>
+<span>
+
+1. drawUnknownChar : removed call to pt/feup/tvvs/soulknight/gui/GUI::drawRectangle &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        gui.drawRectangle((int) x, (int) y, charWidth, charHeight, foregroundColor);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_94'/>
+94
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_94'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_95'/>
+95
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_95'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_96'/>
+96
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_96'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void draw(String string, double x, double y, TextColor foregroundColor, GUI gui) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_97'/>
+97
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_97'>2</a>
+<span>
+
+1. draw : negated conditional &rarr; SURVIVED<br/>
+
+2. draw : changed conditional boundary &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        for (int i = 0; i &#60; string.length(); i++) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_98'/>
+98
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_98'>1</a>
+<span>
+
+1. draw : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            int xOffset = i * (charWidth + spacing);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_99'/>
+99
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_99'>2</a>
+<span>
+
+1. draw : removed call to pt/feup/tvvs/soulknight/view/text/GameTextViewer::draw &rarr; SURVIVED<br/>
+
+2. draw : Replaced double addition with subtraction &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            draw(string.charAt(i), x + xOffset, y, foregroundColor, gui);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_100'/>
+100
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_100'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_101'/>
+101
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_101'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_102'/>
+102
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_102'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_103'/>
+103
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_103'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static int getCharHeight() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_104'/>
+104
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_104'>1</a>
+<span>
+
+1. getCharHeight : replaced int return with 0 for pt/feup/tvvs/soulknight/view/text/GameTextViewer::getCharHeight &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        return charHeight;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_105'/>
+105
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_105'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_106'/>
+106
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_106'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@37d43b9b_107'/>
+107
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_107'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@37d43b9b_33'>33</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_33'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>row<br/><b>Killed by : </b>none</span></span> replaced int return with 0 for pt/feup/tvvs/soulknight/view/text/GameTextViewer$CharPosition::row &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer$CharPosition,-method=row,-methodDesc=()I],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer$CharPosition,-method=row,-methodDesc=()I],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer$CharPosition,-method=row,-methodDesc=()I],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_afterEffectActive_coversAfterEffectBranch()]</li> <li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_flashActive_coversIOExceptionCatch_andArrayNullBranch()]</li> <li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_normalGradient_coversNormalElseBranch()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@37d43b9b_37'>37</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_37'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>col<br/><b>Killed by : </b>none</span></span> replaced int return with 0 for pt/feup/tvvs/soulknight/view/text/GameTextViewer$CharPosition::col &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer$CharPosition,-method=col,-methodDesc=()I],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer$CharPosition,-method=col,-methodDesc=()I],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer$CharPosition,-method=col,-methodDesc=()I],-indexes=[5],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_afterEffectActive_coversAfterEffectBranch()]</li> <li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_flashActive_coversIOExceptionCatch_andArrayNullBranch()]</li> <li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_normalGradient_coversNormalElseBranch()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@37d43b9b_43'>43</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_43'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_afterEffectActive_coversAfterEffectBranch()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@37d43b9b_49'>49</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_49'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_afterEffectActive_coversAfterEffectBranch()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@37d43b9b_60'>60</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_60'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>parseCharMap<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=parseCharMap,-methodDesc=(Ljava/net/URL;)Ljava/util/Map;],-indexes=[31],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=parseCharMap,-methodDesc=(Ljava/net/URL;)Ljava/util/Map;],-indexes=[31],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=parseCharMap,-methodDesc=(Ljava/net/URL;)Ljava/util/Map;],-indexes=[31],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_afterEffectActive_coversAfterEffectBranch()]</li> <li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_flashActive_coversIOExceptionCatch_andArrayNullBranch()]</li> <li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_normalGradient_coversNormalElseBranch()]</li> <li>pt.feup.tvvs.soulknight.CreditsControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.CreditsControllerWhiteBoxTests]/[method:move_whenQuit_setsMainMenuState()]</li> 
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>parseCharMap<br/><b>Killed by : </b>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_afterEffectActive_coversAfterEffectBranch()]</span></span> Changed increment from 1 to -1 &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@37d43b9b_61'>61</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_61'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>parseCharMap<br/><b>Killed by : </b>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_afterEffectActive_coversAfterEffectBranch()]</span></span> changed conditional boundary &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>parseCharMap<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=parseCharMap,-methodDesc=(Ljava/net/URL;)Ljava/util/Map;],-indexes=[41],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=parseCharMap,-methodDesc=(Ljava/net/URL;)Ljava/util/Map;],-indexes=[41],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=parseCharMap,-methodDesc=(Ljava/net/URL;)Ljava/util/Map;],-indexes=[41],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_afterEffectActive_coversAfterEffectBranch()]</li> <li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_flashActive_coversIOExceptionCatch_andArrayNullBranch()]</li> <li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_normalGradient_coversNormalElseBranch()]</li> <li>pt.feup.tvvs.soulknight.CreditsControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.CreditsControllerWhiteBoxTests]/[method:move_whenQuit_setsMainMenuState()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@37d43b9b_66'>66</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_66'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>parseCharMap<br/><b>Killed by : </b>none</span></span> replaced return value with Collections.emptyMap for pt/feup/tvvs/soulknight/view/text/GameTextViewer::parseCharMap &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=parseCharMap,-methodDesc=(Ljava/net/URL;)Ljava/util/Map;],-indexes=[94],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=parseCharMap,-methodDesc=(Ljava/net/URL;)Ljava/util/Map;],-indexes=[94],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=parseCharMap,-methodDesc=(Ljava/net/URL;)Ljava/util/Map;],-indexes=[94],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_afterEffectActive_coversAfterEffectBranch()]</li> <li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_flashActive_coversIOExceptionCatch_andArrayNullBranch()]</li> <li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_normalGradient_coversNormalElseBranch()]</li> <li>pt.feup.tvvs.soulknight.CreditsControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.CreditsControllerWhiteBoxTests]/[method:move_whenQuit_setsMainMenuState()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@37d43b9b_72'>72</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_72'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>draw<br/><b>Killed by : </b>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_afterEffectActive_coversAfterEffectBranch()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@37d43b9b_74'>74</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_74'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>draw<br/><b>Killed by : </b>none</span></span> removed call to pt/feup/tvvs/soulknight/view/text/GameTextViewer::drawKnownChar &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=draw,-methodDesc=(CDDLcom/googlecode/lanterna/TextColor;Lpt/feup/tvvs/soulknight/gui/GUI;)V],-indexes=[26],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=draw,-methodDesc=(CDDLcom/googlecode/lanterna/TextColor;Lpt/feup/tvvs/soulknight/gui/GUI;)V],-indexes=[26],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=draw,-methodDesc=(CDDLcom/googlecode/lanterna/TextColor;Lpt/feup/tvvs/soulknight/gui/GUI;)V],-indexes=[26],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_afterEffectActive_coversAfterEffectBranch()]</li> <li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_flashActive_coversIOExceptionCatch_andArrayNullBranch()]</li> <li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_normalGradient_coversNormalElseBranch()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@37d43b9b_76'>76</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_76'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>draw<br/><b>Killed by : </b>none</span></span> removed call to pt/feup/tvvs/soulknight/view/text/GameTextViewer::drawUnknownChar &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=draw,-methodDesc=(CDDLcom/googlecode/lanterna/TextColor;Lpt/feup/tvvs/soulknight/gui/GUI;)V],-indexes=[39],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=draw,-methodDesc=(CDDLcom/googlecode/lanterna/TextColor;Lpt/feup/tvvs/soulknight/gui/GUI;)V],-indexes=[39],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=draw,-methodDesc=(CDDLcom/googlecode/lanterna/TextColor;Lpt/feup/tvvs/soulknight/gui/GUI;)V],-indexes=[39],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_afterEffectActive_coversAfterEffectBranch()]</li> <li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_flashActive_coversIOExceptionCatch_andArrayNullBranch()]</li> <li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_normalGradient_coversNormalElseBranch()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@37d43b9b_82'>82</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_82'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>drawKnownChar<br/><b>Killed by : </b>none</span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=drawKnownChar,-methodDesc=(Lpt/feup/tvvs/soulknight/view/text/GameTextViewer$CharPosition;DDLcom/googlecode/lanterna/TextColor;Lpt/feup/tvvs/soulknight/gui/GUI;)V],-indexes=[10],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=drawKnownChar,-methodDesc=(Lpt/feup/tvvs/soulknight/view/text/GameTextViewer$CharPosition;DDLcom/googlecode/lanterna/TextColor;Lpt/feup/tvvs/soulknight/gui/GUI;)V],-indexes=[10],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=drawKnownChar,-methodDesc=(Lpt/feup/tvvs/soulknight/view/text/GameTextViewer$CharPosition;DDLcom/googlecode/lanterna/TextColor;Lpt/feup/tvvs/soulknight/gui/GUI;)V],-indexes=[10],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_afterEffectActive_coversAfterEffectBranch()]</li> <li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_flashActive_coversIOExceptionCatch_andArrayNullBranch()]</li> <li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_normalGradient_coversNormalElseBranch()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@37d43b9b_83'>83</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_83'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>drawKnownChar<br/><b>Killed by : </b>none</span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=drawKnownChar,-methodDesc=(Lpt/feup/tvvs/soulknight/view/text/GameTextViewer$CharPosition;DDLcom/googlecode/lanterna/TextColor;Lpt/feup/tvvs/soulknight/gui/GUI;)V],-indexes=[17],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=drawKnownChar,-methodDesc=(Lpt/feup/tvvs/soulknight/view/text/GameTextViewer$CharPosition;DDLcom/googlecode/lanterna/TextColor;Lpt/feup/tvvs/soulknight/gui/GUI;)V],-indexes=[17],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=drawKnownChar,-methodDesc=(Lpt/feup/tvvs/soulknight/view/text/GameTextViewer$CharPosition;DDLcom/googlecode/lanterna/TextColor;Lpt/feup/tvvs/soulknight/gui/GUI;)V],-indexes=[17],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_afterEffectActive_coversAfterEffectBranch()]</li> <li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_flashActive_coversIOExceptionCatch_andArrayNullBranch()]</li> <li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_normalGradient_coversNormalElseBranch()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@37d43b9b_84'>84</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_84'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>drawKnownChar<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=drawKnownChar,-methodDesc=(Lpt/feup/tvvs/soulknight/view/text/GameTextViewer$CharPosition;DDLcom/googlecode/lanterna/TextColor;Lpt/feup/tvvs/soulknight/gui/GUI;)V],-indexes=[27],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=drawKnownChar,-methodDesc=(Lpt/feup/tvvs/soulknight/view/text/GameTextViewer$CharPosition;DDLcom/googlecode/lanterna/TextColor;Lpt/feup/tvvs/soulknight/gui/GUI;)V],-indexes=[27],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=drawKnownChar,-methodDesc=(Lpt/feup/tvvs/soulknight/view/text/GameTextViewer$CharPosition;DDLcom/googlecode/lanterna/TextColor;Lpt/feup/tvvs/soulknight/gui/GUI;)V],-indexes=[27],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_afterEffectActive_coversAfterEffectBranch()]</li> <li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_flashActive_coversIOExceptionCatch_andArrayNullBranch()]</li> <li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_normalGradient_coversNormalElseBranch()]</li> 
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>drawKnownChar<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=drawKnownChar,-methodDesc=(Lpt/feup/tvvs/soulknight/view/text/GameTextViewer$CharPosition;DDLcom/googlecode/lanterna/TextColor;Lpt/feup/tvvs/soulknight/gui/GUI;)V],-indexes=[27],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=drawKnownChar,-methodDesc=(Lpt/feup/tvvs/soulknight/view/text/GameTextViewer$CharPosition;DDLcom/googlecode/lanterna/TextColor;Lpt/feup/tvvs/soulknight/gui/GUI;)V],-indexes=[27],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=drawKnownChar,-methodDesc=(Lpt/feup/tvvs/soulknight/view/text/GameTextViewer$CharPosition;DDLcom/googlecode/lanterna/TextColor;Lpt/feup/tvvs/soulknight/gui/GUI;)V],-indexes=[27],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_afterEffectActive_coversAfterEffectBranch()]</li> <li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_flashActive_coversIOExceptionCatch_andArrayNullBranch()]</li> <li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_normalGradient_coversNormalElseBranch()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@37d43b9b_85'>85</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_85'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>drawKnownChar<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=drawKnownChar,-methodDesc=(Lpt/feup/tvvs/soulknight/view/text/GameTextViewer$CharPosition;DDLcom/googlecode/lanterna/TextColor;Lpt/feup/tvvs/soulknight/gui/GUI;)V],-indexes=[36],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=drawKnownChar,-methodDesc=(Lpt/feup/tvvs/soulknight/view/text/GameTextViewer$CharPosition;DDLcom/googlecode/lanterna/TextColor;Lpt/feup/tvvs/soulknight/gui/GUI;)V],-indexes=[36],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=drawKnownChar,-methodDesc=(Lpt/feup/tvvs/soulknight/view/text/GameTextViewer$CharPosition;DDLcom/googlecode/lanterna/TextColor;Lpt/feup/tvvs/soulknight/gui/GUI;)V],-indexes=[36],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_afterEffectActive_coversAfterEffectBranch()]</li> <li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_flashActive_coversIOExceptionCatch_andArrayNullBranch()]</li> <li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_normalGradient_coversNormalElseBranch()]</li> 
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>drawKnownChar<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=drawKnownChar,-methodDesc=(Lpt/feup/tvvs/soulknight/view/text/GameTextViewer$CharPosition;DDLcom/googlecode/lanterna/TextColor;Lpt/feup/tvvs/soulknight/gui/GUI;)V],-indexes=[36],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=drawKnownChar,-methodDesc=(Lpt/feup/tvvs/soulknight/view/text/GameTextViewer$CharPosition;DDLcom/googlecode/lanterna/TextColor;Lpt/feup/tvvs/soulknight/gui/GUI;)V],-indexes=[36],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=drawKnownChar,-methodDesc=(Lpt/feup/tvvs/soulknight/view/text/GameTextViewer$CharPosition;DDLcom/googlecode/lanterna/TextColor;Lpt/feup/tvvs/soulknight/gui/GUI;)V],-indexes=[36],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_afterEffectActive_coversAfterEffectBranch()]</li> <li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_flashActive_coversIOExceptionCatch_andArrayNullBranch()]</li> <li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_normalGradient_coversNormalElseBranch()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@37d43b9b_86'>86</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_86'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>drawKnownChar<br/><b>Killed by : </b>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_afterEffectActive_coversAfterEffectBranch()]</span></span> Replaced integer addition with subtraction &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>drawKnownChar<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=drawKnownChar,-methodDesc=(Lpt/feup/tvvs/soulknight/view/text/GameTextViewer$CharPosition;DDLcom/googlecode/lanterna/TextColor;Lpt/feup/tvvs/soulknight/gui/GUI;)V],-indexes=[49],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=drawKnownChar,-methodDesc=(Lpt/feup/tvvs/soulknight/view/text/GameTextViewer$CharPosition;DDLcom/googlecode/lanterna/TextColor;Lpt/feup/tvvs/soulknight/gui/GUI;)V],-indexes=[49],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=drawKnownChar,-methodDesc=(Lpt/feup/tvvs/soulknight/view/text/GameTextViewer$CharPosition;DDLcom/googlecode/lanterna/TextColor;Lpt/feup/tvvs/soulknight/gui/GUI;)V],-indexes=[49],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_afterEffectActive_coversAfterEffectBranch()]</li> <li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_flashActive_coversIOExceptionCatch_andArrayNullBranch()]</li> <li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_normalGradient_coversNormalElseBranch()]</li> 
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>drawKnownChar<br/><b>Killed by : </b>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_afterEffectActive_coversAfterEffectBranch()]</span></span> Replaced integer addition with subtraction &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@37d43b9b_87'>87</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_87'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>drawKnownChar<br/><b>Killed by : </b>none</span></span> Replaced double addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=drawKnownChar,-methodDesc=(Lpt/feup/tvvs/soulknight/view/text/GameTextViewer$CharPosition;DDLcom/googlecode/lanterna/TextColor;Lpt/feup/tvvs/soulknight/gui/GUI;)V],-indexes=[61],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=drawKnownChar,-methodDesc=(Lpt/feup/tvvs/soulknight/view/text/GameTextViewer$CharPosition;DDLcom/googlecode/lanterna/TextColor;Lpt/feup/tvvs/soulknight/gui/GUI;)V],-indexes=[61],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=drawKnownChar,-methodDesc=(Lpt/feup/tvvs/soulknight/view/text/GameTextViewer$CharPosition;DDLcom/googlecode/lanterna/TextColor;Lpt/feup/tvvs/soulknight/gui/GUI;)V],-indexes=[61],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_afterEffectActive_coversAfterEffectBranch()]</li> <li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_flashActive_coversIOExceptionCatch_andArrayNullBranch()]</li> <li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_normalGradient_coversNormalElseBranch()]</li> 
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>drawKnownChar<br/><b>Killed by : </b>none</span></span> Replaced double addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=drawKnownChar,-methodDesc=(Lpt/feup/tvvs/soulknight/view/text/GameTextViewer$CharPosition;DDLcom/googlecode/lanterna/TextColor;Lpt/feup/tvvs/soulknight/gui/GUI;)V],-indexes=[56],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=drawKnownChar,-methodDesc=(Lpt/feup/tvvs/soulknight/view/text/GameTextViewer$CharPosition;DDLcom/googlecode/lanterna/TextColor;Lpt/feup/tvvs/soulknight/gui/GUI;)V],-indexes=[56],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=drawKnownChar,-methodDesc=(Lpt/feup/tvvs/soulknight/view/text/GameTextViewer$CharPosition;DDLcom/googlecode/lanterna/TextColor;Lpt/feup/tvvs/soulknight/gui/GUI;)V],-indexes=[56],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_afterEffectActive_coversAfterEffectBranch()]</li> <li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_flashActive_coversIOExceptionCatch_andArrayNullBranch()]</li> <li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_normalGradient_coversNormalElseBranch()]</li> 
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>drawKnownChar<br/><b>Killed by : </b>none</span></span> removed call to pt/feup/tvvs/soulknight/gui/GUI::drawPixel &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=drawKnownChar,-methodDesc=(Lpt/feup/tvvs/soulknight/view/text/GameTextViewer$CharPosition;DDLcom/googlecode/lanterna/TextColor;Lpt/feup/tvvs/soulknight/gui/GUI;)V],-indexes=[65],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=drawKnownChar,-methodDesc=(Lpt/feup/tvvs/soulknight/view/text/GameTextViewer$CharPosition;DDLcom/googlecode/lanterna/TextColor;Lpt/feup/tvvs/soulknight/gui/GUI;)V],-indexes=[65],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=drawKnownChar,-methodDesc=(Lpt/feup/tvvs/soulknight/view/text/GameTextViewer$CharPosition;DDLcom/googlecode/lanterna/TextColor;Lpt/feup/tvvs/soulknight/gui/GUI;)V],-indexes=[65],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_afterEffectActive_coversAfterEffectBranch()]</li> <li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_flashActive_coversIOExceptionCatch_andArrayNullBranch()]</li> <li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_normalGradient_coversNormalElseBranch()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@37d43b9b_93'>93</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_93'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>drawUnknownChar<br/><b>Killed by : </b>none</span></span> removed call to pt/feup/tvvs/soulknight/gui/GUI::drawRectangle &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=drawUnknownChar,-methodDesc=(DDLcom/googlecode/lanterna/TextColor$RGB;Lpt/feup/tvvs/soulknight/gui/GUI;)V],-indexes=[11],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=drawUnknownChar,-methodDesc=(DDLcom/googlecode/lanterna/TextColor$RGB;Lpt/feup/tvvs/soulknight/gui/GUI;)V],-indexes=[11],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=drawUnknownChar,-methodDesc=(DDLcom/googlecode/lanterna/TextColor$RGB;Lpt/feup/tvvs/soulknight/gui/GUI;)V],-indexes=[11],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_afterEffectActive_coversAfterEffectBranch()]</li> <li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_flashActive_coversIOExceptionCatch_andArrayNullBranch()]</li> <li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_normalGradient_coversNormalElseBranch()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@37d43b9b_97'>97</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_97'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>draw<br/><b>Killed by : </b>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_afterEffectActive_coversAfterEffectBranch()]</span></span> changed conditional boundary &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>draw<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=draw,-methodDesc=(Ljava/lang/String;DDLcom/googlecode/lanterna/TextColor;Lpt/feup/tvvs/soulknight/gui/GUI;)V],-indexes=[10],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=draw,-methodDesc=(Ljava/lang/String;DDLcom/googlecode/lanterna/TextColor;Lpt/feup/tvvs/soulknight/gui/GUI;)V],-indexes=[10],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=draw,-methodDesc=(Ljava/lang/String;DDLcom/googlecode/lanterna/TextColor;Lpt/feup/tvvs/soulknight/gui/GUI;)V],-indexes=[10],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_afterEffectActive_coversAfterEffectBranch()]</li> <li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_flashActive_coversIOExceptionCatch_andArrayNullBranch()]</li> <li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_normalGradient_coversNormalElseBranch()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@37d43b9b_98'>98</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_98'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>draw<br/><b>Killed by : </b>none</span></span> Replaced integer multiplication with division &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=draw,-methodDesc=(Ljava/lang/String;DDLcom/googlecode/lanterna/TextColor;Lpt/feup/tvvs/soulknight/gui/GUI;)V],-indexes=[15],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=draw,-methodDesc=(Ljava/lang/String;DDLcom/googlecode/lanterna/TextColor;Lpt/feup/tvvs/soulknight/gui/GUI;)V],-indexes=[15],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=draw,-methodDesc=(Ljava/lang/String;DDLcom/googlecode/lanterna/TextColor;Lpt/feup/tvvs/soulknight/gui/GUI;)V],-indexes=[15],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_afterEffectActive_coversAfterEffectBranch()]</li> <li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_flashActive_coversIOExceptionCatch_andArrayNullBranch()]</li> <li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_normalGradient_coversNormalElseBranch()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@37d43b9b_99'>99</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_99'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>draw<br/><b>Killed by : </b>none</span></span> removed call to pt/feup/tvvs/soulknight/view/text/GameTextViewer::draw &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=draw,-methodDesc=(Ljava/lang/String;DDLcom/googlecode/lanterna/TextColor;Lpt/feup/tvvs/soulknight/gui/GUI;)V],-indexes=[30],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=draw,-methodDesc=(Ljava/lang/String;DDLcom/googlecode/lanterna/TextColor;Lpt/feup/tvvs/soulknight/gui/GUI;)V],-indexes=[30],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=draw,-methodDesc=(Ljava/lang/String;DDLcom/googlecode/lanterna/TextColor;Lpt/feup/tvvs/soulknight/gui/GUI;)V],-indexes=[30],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_afterEffectActive_coversAfterEffectBranch()]</li> <li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_flashActive_coversIOExceptionCatch_andArrayNullBranch()]</li> <li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_normalGradient_coversNormalElseBranch()]</li> 
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>draw<br/><b>Killed by : </b>none</span></span> Replaced double addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=draw,-methodDesc=(Ljava/lang/String;DDLcom/googlecode/lanterna/TextColor;Lpt/feup/tvvs/soulknight/gui/GUI;)V],-indexes=[26],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=draw,-methodDesc=(Ljava/lang/String;DDLcom/googlecode/lanterna/TextColor;Lpt/feup/tvvs/soulknight/gui/GUI;)V],-indexes=[26],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=draw,-methodDesc=(Ljava/lang/String;DDLcom/googlecode/lanterna/TextColor;Lpt/feup/tvvs/soulknight/gui/GUI;)V],-indexes=[26],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_afterEffectActive_coversAfterEffectBranch()]</li> <li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_flashActive_coversIOExceptionCatch_andArrayNullBranch()]</li> <li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_normalGradient_coversNormalElseBranch()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@37d43b9b_104'>104</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@37d43b9b_104'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getCharHeight<br/><b>Killed by : </b>none</span></span> replaced int return with 0 for pt/feup/tvvs/soulknight/view/text/GameTextViewer::getCharHeight &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=getCharHeight,-methodDesc=()I],-indexes=[4],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=getCharHeight,-methodDesc=()I],-indexes=[4],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.view.text.GameTextViewer,-method=getCharHeight,-methodDesc=()I],-indexes=[4],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.soulknight.CreditsViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.CreditsViewerWhiteBoxTests]/[method:drawMessages_and_drawNames_withElements_coverLoopBranches()]</li> <li>pt.feup.tvvs.soulknight.CreditsViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.CreditsViewerWhiteBoxTests]/[method:drawMessages_and_drawNames_withEmptyArrays_coverSkipBranches()]</li> <li>pt.feup.tvvs.soulknight.CreditsViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.CreditsViewerWhiteBoxTests]/[method:draw_callsAllSubMethods()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_afterEffectActive_coversAfterEffectBranch()] (266 ms)</li><li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_flashActive_coversIOExceptionCatch_andArrayNullBranch()] (449 ms)</li><li>pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.GameViewerWhiteBoxTests]/[method:draw_normalGradient_coversNormalElseBranch()] (683 ms)</li><li>pt.feup.tvvs.soulknight.CreditsControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.CreditsControllerWhiteBoxTests]/[method:move_whenQuit_setsMainMenuState()] (1215 ms)</li><li>pt.feup.tvvs.soulknight.CreditsViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.CreditsViewerWhiteBoxTests]/[method:drawMessages_and_drawNames_withElements_coverLoopBranches()] (2 ms)</li><li>pt.feup.tvvs.soulknight.CreditsViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.CreditsViewerWhiteBoxTests]/[method:drawMessages_and_drawNames_withEmptyArrays_coverSkipBranches()] (4 ms)</li><li>pt.feup.tvvs.soulknight.CreditsViewerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.CreditsViewerWhiteBoxTests]/[method:draw_callsAllSubMethods()] (130 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.20.3
+
+</body>
+</html>

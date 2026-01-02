@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>OrbFactory.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e83badc_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e83badc_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package pt.feup.tvvs.soulknight.model.game.elements.collectables;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e83badc_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e83badc_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e83badc_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e83badc_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>public class OrbFactory {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e83badc_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e83badc_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static final char ENERGY_ORB = &#39;e&#39;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e83badc_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e83badc_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static final char SPEED_ORB = &#39;s&#39;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e83badc_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e83badc_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static final char HEALTH_ORB = &#39;h&#39;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e83badc_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e83badc_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e83badc_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e83badc_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static Collectables createOrb(char type, int x, int y) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e83badc_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e83badc_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        switch (type) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e83badc_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e83badc_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case ENERGY_ORB:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e83badc_11'/>
+11
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e83badc_11'>1</a>
+<span>
+
+1. createOrb : replaced return value with null for pt/feup/tvvs/soulknight/model/game/elements/collectables/OrbFactory::createOrb &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                return new EnergyOrb(x, y, 10, ENERGY_ORB);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e83badc_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e83badc_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case SPEED_ORB:</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e83badc_13'/>
+13
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e83badc_13'>1</a>
+<span>
+
+1. createOrb : replaced return value with null for pt/feup/tvvs/soulknight/model/game/elements/collectables/OrbFactory::createOrb &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                return new SpeedOrb(x, y, 1.1, SPEED_ORB);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e83badc_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e83badc_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case HEALTH_ORB:</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e83badc_15'/>
+15
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e83badc_15'>1</a>
+<span>
+
+1. createOrb : replaced return value with null for pt/feup/tvvs/soulknight/model/game/elements/collectables/OrbFactory::createOrb &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                return new HealthOrb(x, y, 25, HEALTH_ORB);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e83badc_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e83badc_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            default:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e83badc_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e83badc_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                return null;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e83badc_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e83badc_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e83badc_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e83badc_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e83badc_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e83badc_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5e83badc_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5e83badc_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5e83badc_11'>11</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5e83badc_11'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>createOrb<br/><b>Killed by : </b>none</span></span> replaced return value with null for pt/feup/tvvs/soulknight/model/game/elements/collectables/OrbFactory::createOrb &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.model.game.elements.collectables.OrbFactory,-method=createOrb,-methodDesc=(CII)Lpt/feup/tvvs/soulknight/model/game/elements/collectables/Collectables;],-indexes=[15],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.model.game.elements.collectables.OrbFactory,-method=createOrb,-methodDesc=(CII)Lpt/feup/tvvs/soulknight/model/game/elements/collectables/Collectables;],-indexes=[15],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.model.game.elements.collectables.OrbFactory,-method=createOrb,-methodDesc=(CII)Lpt/feup/tvvs/soulknight/model/game/elements/collectables/Collectables;],-indexes=[15],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.soulknight.SceneLoaderWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.SceneLoaderWhiteBoxTests]/[method:createScene_realLevelFile_exercisesMonsterFactoryBranchNaturally()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5e83badc_13'>13</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5e83badc_13'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>createOrb<br/><b>Killed by : </b>none</span></span> replaced return value with null for pt/feup/tvvs/soulknight/model/game/elements/collectables/OrbFactory::createOrb &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5e83badc_15'>15</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5e83badc_15'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>createOrb<br/><b>Killed by : </b>none</span></span> replaced return value with null for pt/feup/tvvs/soulknight/model/game/elements/collectables/OrbFactory::createOrb &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>pt.feup.tvvs.soulknight.SceneLoaderWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.SceneLoaderWhiteBoxTests]/[method:createScene_realLevelFile_exercisesMonsterFactoryBranchNaturally()] (6 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.20.3
+
+</body>
+</html>

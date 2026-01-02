@@ -1,0 +1,2024 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>KnightState.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package pt.feup.tvvs.soulknight.model.game.elements.knight;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import pt.feup.tvvs.soulknight.model.dataStructs.Position;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import pt.feup.tvvs.soulknight.model.dataStructs.Vector;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.io.IOException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import static java.lang.Math.max;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public abstract class KnightState {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final Knight knight;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    private long particlesTimer = 100;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    public KnightState(Knight knight){</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.knight = knight;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Knight getKnight() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_20'/>
+20
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_20'>1</a>
+<span>
+
+1. getKnight : replaced return value with null for pt/feup/tvvs/soulknight/model/game/elements/knight/KnightState::getKnight &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return knight;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Vector moveKnightLeft() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        Vector newVelocity = new Vector(</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_25'/>
+25
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_25'>1</a>
+<span>
+
+1. moveKnightLeft : Replaced double subtraction with addition &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                knight.getVelocity().x() - knight.getAcceleration(),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                knight.getVelocity().y()</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        );</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_28'/>
+28
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_28'>1</a>
+<span>
+
+1. moveKnightLeft : replaced return value with null for pt/feup/tvvs/soulknight/model/game/elements/knight/KnightState::moveKnightLeft &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return updateVelocity(newVelocity);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Vector moveKnightRight() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        Vector newVelocity = new Vector(</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_33'/>
+33
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_33'>1</a>
+<span>
+
+1. moveKnightRight : Replaced double addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                knight.getVelocity().x() + knight.getAcceleration(),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                knight.getVelocity().y()</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        );</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_37'/>
+37
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_37'>1</a>
+<span>
+
+1. moveKnightRight : replaced return value with null for pt/feup/tvvs/soulknight/model/game/elements/knight/KnightState::moveKnightRight &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return updateVelocity(newVelocity);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    protected Vector limitVelocity(Vector velocity) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_41'/>
+41
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_41'>1</a>
+<span>
+
+1. limitVelocity : removed negation &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        double vx = Math.min(knight.getMaxVelocity().x(), Math.max(-knight.getMaxVelocity().x(), velocity.x()));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        double vy = Math.min(knight.getMaxVelocity().y(), velocity.y());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_43'/>
+43
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_43'>2</a>
+<span>
+
+1. limitVelocity : changed conditional boundary &rarr; SURVIVED<br/>
+
+2. limitVelocity : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        if (Math.abs(vx) &#60; 0.2)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_44'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            vx = 0;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_45'/>
+45
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_45'>1</a>
+<span>
+
+1. limitVelocity : replaced return value with null for pt/feup/tvvs/soulknight/model/game/elements/knight/KnightState::limitVelocity &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return new Vector(vx, vy);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_48'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    protected Vector applyCollisions(Vector velocity) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        double x = knight.getPosition().x(), y = knight.getPosition().y();</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        double vx = velocity.x(), vy = velocity.y();</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        Position knightSize = new Position(knight.getWidth(), knight.getHeight());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_53'/>
+53
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_53'>4</a>
+<span>
+
+1. applyCollisions : Replaced double addition with subtraction &rarr; NO_COVERAGE<br/>
+
+2. applyCollisions : negated conditional &rarr; NO_COVERAGE<br/>
+
+3. applyCollisions : changed conditional boundary &rarr; NO_COVERAGE<br/>
+
+4. applyCollisions : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        while (vy &#62; 0 &#38;&#38; knight.getScene().collidesDown(new Position(x, y + vy), knightSize))</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_54'/>
+54
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_54'>1</a>
+<span>
+
+1. applyCollisions : Replaced double subtraction with addition &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            vy = Math.max(vy - 1, 0);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_55'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_56'/>
+56
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_56'>4</a>
+<span>
+
+1. applyCollisions : Replaced double addition with subtraction &rarr; NO_COVERAGE<br/>
+
+2. applyCollisions : negated conditional &rarr; NO_COVERAGE<br/>
+
+3. applyCollisions : changed conditional boundary &rarr; NO_COVERAGE<br/>
+
+4. applyCollisions : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        while (vy &#60; 0 &#38;&#38; knight.getScene().collidesUp(new Position(x, y + vy), knightSize))</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_57'/>
+57
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_57'>1</a>
+<span>
+
+1. applyCollisions : Replaced double addition with subtraction &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            vy = Math.min(vy + 1, 0);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_58'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_59'/>
+59
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_59'>5</a>
+<span>
+
+1. applyCollisions : Replaced double addition with subtraction &rarr; NO_COVERAGE<br/>
+
+2. applyCollisions : negated conditional &rarr; NO_COVERAGE<br/>
+
+3. applyCollisions : changed conditional boundary &rarr; NO_COVERAGE<br/>
+
+4. applyCollisions : Replaced double addition with subtraction &rarr; NO_COVERAGE<br/>
+
+5. applyCollisions : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        while (vx &#60; 0 &#38;&#38; knight.getScene().collidesLeft(new Position(x + vx, y + vy), knightSize))</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_60'/>
+60
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_60'>1</a>
+<span>
+
+1. applyCollisions : Replaced double addition with subtraction &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            vx = Math.min(vx + 1, 0);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_61'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_62'/>
+62
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_62'>5</a>
+<span>
+
+1. applyCollisions : Replaced double addition with subtraction &rarr; NO_COVERAGE<br/>
+
+2. applyCollisions : negated conditional &rarr; NO_COVERAGE<br/>
+
+3. applyCollisions : changed conditional boundary &rarr; NO_COVERAGE<br/>
+
+4. applyCollisions : Replaced double addition with subtraction &rarr; NO_COVERAGE<br/>
+
+5. applyCollisions : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        while (vx &#62; 0 &#38;&#38; knight.getScene().collidesRight(new Position(x + vx, y + vy), knightSize))</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_63'/>
+63
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_63'>1</a>
+<span>
+
+1. applyCollisions : Replaced double subtraction with addition &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            vx = max(vx - 1, 0);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_64'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_65'/>
+65
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_65'>1</a>
+<span>
+
+1. applyCollisions : replaced return value with null for pt/feup/tvvs/soulknight/model/game/elements/knight/KnightState::applyCollisions &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return new Vector(vx, vy);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_66'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_67'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_68'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    protected KnightState getNextGroundState() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_69'/>
+69
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_69'>2</a>
+<span>
+
+1. getNextGroundState : changed conditional boundary &rarr; SURVIVED<br/>
+
+2. getNextGroundState : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        if (Math.abs(getKnight().getVelocity().x()) &#62;= RunningState.MIN_VELOCITY)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_70'/>
+70
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_70'>1</a>
+<span>
+
+1. getNextGroundState : replaced return value with null for pt/feup/tvvs/soulknight/model/game/elements/knight/KnightState::getNextGroundState &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return new RunningState(getKnight());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_71'/>
+71
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_71'>2</a>
+<span>
+
+1. getNextGroundState : changed conditional boundary &rarr; SURVIVED<br/>
+
+2. getNextGroundState : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        if (Math.abs(getKnight().getVelocity().x()) &#62;= WalkingState.MIN_VELOCITY)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_72'/>
+72
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_72'>1</a>
+<span>
+
+1. getNextGroundState : replaced return value with null for pt/feup/tvvs/soulknight/model/game/elements/knight/KnightState::getNextGroundState &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return new WalkingState(getKnight());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_73'/>
+73
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_73'>1</a>
+<span>
+
+1. getNextGroundState : replaced return value with null for pt/feup/tvvs/soulknight/model/game/elements/knight/KnightState::getNextGroundState &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return new IdleState(getKnight());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_74'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_75'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_76'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    protected KnightState getNextOnAirState() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_77'/>
+77
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_77'>2</a>
+<span>
+
+1. getNextOnAirState : changed conditional boundary &rarr; SURVIVED<br/>
+
+2. getNextOnAirState : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        if (getKnight().getVelocity().y() &#60; 0)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_78'/>
+78
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_78'>1</a>
+<span>
+
+1. getNextOnAirState : replaced return value with null for pt/feup/tvvs/soulknight/model/game/elements/knight/KnightState::getNextOnAirState &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return new JumpState(getKnight());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_79'/>
+79
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_79'>1</a>
+<span>
+
+1. getNextOnAirState : replaced return value with null for pt/feup/tvvs/soulknight/model/game/elements/knight/KnightState::getNextOnAirState &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return new FallingState(getKnight());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_80'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_81'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_82'/>
+82
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_82'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void tickParticles(){</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_83'/>
+83
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_83'>1</a>
+<span>
+
+1. tickParticles : Replaced long subtraction with addition &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        particlesTimer--;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_84'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_85'/>
+85
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_85'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_86'/>
+86
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_86'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public long getParticlesTimer() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_87'/>
+87
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_87'>1</a>
+<span>
+
+1. getParticlesTimer : replaced long return with 0 for pt/feup/tvvs/soulknight/model/game/elements/knight/KnightState::getParticlesTimer &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return particlesTimer;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_88'/>
+88
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_88'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_89'/>
+89
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_89'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_90'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void resetParticlesTimer() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_91'/>
+91
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_91'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        particlesTimer = 100;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_92'/>
+92
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_92'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_93'/>
+93
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_93'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_94'/>
+94
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_94'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public abstract Vector jump();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_95'/>
+95
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_95'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public abstract Vector dash();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_96'/>
+96
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_96'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    //public abstract Vector attack();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_97'/>
+97
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_97'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public abstract Vector updateVelocity(Vector newVelocity);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_98'/>
+98
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_98'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public abstract KnightState getNextState() throws IOException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d776eb_99'/>
+99
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_99'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d776eb_20'>20</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_20'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getKnight<br/><b>Killed by : </b>pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests]/[method:getNextOnAirStateReturnsFallingStateWhenVerticalVelocityIsNonNegative()]</span></span> replaced return value with null for pt/feup/tvvs/soulknight/model/game/elements/knight/KnightState::getKnight &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d776eb_25'>25</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_25'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>moveKnightLeft<br/><b>Killed by : </b>pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests]/[method:moveKnightLeftDecreasesVelocityXByAcceleration()]</span></span> Replaced double subtraction with addition &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d776eb_28'>28</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_28'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>moveKnightLeft<br/><b>Killed by : </b>pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests]/[method:moveKnightLeftDecreasesVelocityXByAcceleration()]</span></span> replaced return value with null for pt/feup/tvvs/soulknight/model/game/elements/knight/KnightState::moveKnightLeft &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d776eb_33'>33</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_33'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>moveKnightRight<br/><b>Killed by : </b>pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests]/[method:moveKnightRightIncreasesVelocityXByAcceleration()]</span></span> Replaced double addition with subtraction &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d776eb_37'>37</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_37'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>moveKnightRight<br/><b>Killed by : </b>pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests]/[method:moveKnightRightIncreasesVelocityXByAcceleration()]</span></span> replaced return value with null for pt/feup/tvvs/soulknight/model/game/elements/knight/KnightState::moveKnightRight &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d776eb_41'>41</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_41'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>limitVelocity<br/><b>Killed by : </b>pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests]/[method:limitVelocityClampsXBelowMinusMaxVelocity()]</span></span> removed negation &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d776eb_43'>43</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_43'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>limitVelocity<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.model.game.elements.knight.KnightState,-method=limitVelocity,-methodDesc=(Lpt/feup/tvvs/soulknight/model/dataStructs/Vector;)Lpt/feup/tvvs/soulknight/model/dataStructs/Vector;],-indexes=[33],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.model.game.elements.knight.KnightState,-method=limitVelocity,-methodDesc=(Lpt/feup/tvvs/soulknight/model/dataStructs/Vector;)Lpt/feup/tvvs/soulknight/model/dataStructs/Vector;],-indexes=[33],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.model.game.elements.knight.KnightState,-method=limitVelocity,-methodDesc=(Lpt/feup/tvvs/soulknight/model/dataStructs/Vector;)Lpt/feup/tvvs/soulknight/model/dataStructs/Vector;],-indexes=[33],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests]/[method:limitVelocityClampsXBelowMinusMaxVelocity()]</li> <li>pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests]/[method:limitVelocitySetsVerySmallXComponentToZero()]</li> <li>pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests]/[method:limitVelocityClampsXAboveMaxVelocity()]</li> <li>pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests]/[method:limitVelocityClampsYAboveMaxVelocityY()]</li> <li>pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests]/[method:moveKnightLeftDecreasesVelocityXByAcceleration()]</li> <li>pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests]/[method:moveKnightRightIncreasesVelocityXByAcceleration()]</li> 
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>limitVelocity<br/><b>Killed by : </b>pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests]/[method:limitVelocityClampsXBelowMinusMaxVelocity()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d776eb_45'>45</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_45'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>limitVelocity<br/><b>Killed by : </b>pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests]/[method:limitVelocityClampsXBelowMinusMaxVelocity()]</span></span> replaced return value with null for pt/feup/tvvs/soulknight/model/game/elements/knight/KnightState::limitVelocity &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d776eb_53'>53</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_53'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>applyCollisions<br/><b>Killed by : </b>none</span></span> Replaced double addition with subtraction &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>applyCollisions<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>applyCollisions<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>applyCollisions<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d776eb_54'>54</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_54'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>applyCollisions<br/><b>Killed by : </b>none</span></span> Replaced double subtraction with addition &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d776eb_56'>56</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_56'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>applyCollisions<br/><b>Killed by : </b>none</span></span> Replaced double addition with subtraction &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>applyCollisions<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>applyCollisions<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>applyCollisions<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d776eb_57'>57</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_57'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>applyCollisions<br/><b>Killed by : </b>none</span></span> Replaced double addition with subtraction &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d776eb_59'>59</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_59'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>applyCollisions<br/><b>Killed by : </b>none</span></span> Replaced double addition with subtraction &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>applyCollisions<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>applyCollisions<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>applyCollisions<br/><b>Killed by : </b>none</span></span> Replaced double addition with subtraction &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>applyCollisions<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d776eb_60'>60</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_60'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>applyCollisions<br/><b>Killed by : </b>none</span></span> Replaced double addition with subtraction &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d776eb_62'>62</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_62'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>applyCollisions<br/><b>Killed by : </b>none</span></span> Replaced double addition with subtraction &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>applyCollisions<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>applyCollisions<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>applyCollisions<br/><b>Killed by : </b>none</span></span> Replaced double addition with subtraction &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>applyCollisions<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d776eb_63'>63</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_63'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>applyCollisions<br/><b>Killed by : </b>none</span></span> Replaced double subtraction with addition &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d776eb_65'>65</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_65'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>applyCollisions<br/><b>Killed by : </b>none</span></span> replaced return value with null for pt/feup/tvvs/soulknight/model/game/elements/knight/KnightState::applyCollisions &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d776eb_69'>69</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_69'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getNextGroundState<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.model.game.elements.knight.KnightState,-method=getNextGroundState,-methodDesc=()Lpt/feup/tvvs/soulknight/model/game/elements/knight/KnightState;],-indexes=[10],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.model.game.elements.knight.KnightState,-method=getNextGroundState,-methodDesc=()Lpt/feup/tvvs/soulknight/model/game/elements/knight/KnightState;],-indexes=[10],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.model.game.elements.knight.KnightState,-method=getNextGroundState,-methodDesc=()Lpt/feup/tvvs/soulknight/model/game/elements/knight/KnightState;],-indexes=[10],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests]/[method:getNextGroundStateReturnsIdleWhenVelocityIsVeryLow()]</li> <li>pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests]/[method:getNextGroundStateReturnsRunningWhenVelocityAboveRunningMin()]</li> <li>pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests]/[method:getNextGroundStateReturnsWalkingWhenVelocityAboveWalkingMinButBelowRunningMin()]</li> 
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getNextGroundState<br/><b>Killed by : </b>pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests]/[method:getNextGroundStateReturnsIdleWhenVelocityIsVeryLow()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d776eb_70'>70</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_70'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getNextGroundState<br/><b>Killed by : </b>pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests]/[method:getNextGroundStateReturnsRunningWhenVelocityAboveRunningMin()]</span></span> replaced return value with null for pt/feup/tvvs/soulknight/model/game/elements/knight/KnightState::getNextGroundState &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d776eb_71'>71</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_71'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getNextGroundState<br/><b>Killed by : </b>pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests]/[method:getNextGroundStateReturnsIdleWhenVelocityIsVeryLow()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getNextGroundState<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.model.game.elements.knight.KnightState,-method=getNextGroundState,-methodDesc=()Lpt/feup/tvvs/soulknight/model/game/elements/knight/KnightState;],-indexes=[29],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.model.game.elements.knight.KnightState,-method=getNextGroundState,-methodDesc=()Lpt/feup/tvvs/soulknight/model/game/elements/knight/KnightState;],-indexes=[29],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.model.game.elements.knight.KnightState,-method=getNextGroundState,-methodDesc=()Lpt/feup/tvvs/soulknight/model/game/elements/knight/KnightState;],-indexes=[29],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests]/[method:getNextGroundStateReturnsIdleWhenVelocityIsVeryLow()]</li> <li>pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests]/[method:getNextGroundStateReturnsWalkingWhenVelocityAboveWalkingMinButBelowRunningMin()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d776eb_72'>72</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_72'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getNextGroundState<br/><b>Killed by : </b>pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests]/[method:getNextGroundStateReturnsWalkingWhenVelocityAboveWalkingMinButBelowRunningMin()]</span></span> replaced return value with null for pt/feup/tvvs/soulknight/model/game/elements/knight/KnightState::getNextGroundState &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d776eb_73'>73</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_73'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getNextGroundState<br/><b>Killed by : </b>pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests]/[method:getNextGroundStateReturnsIdleWhenVelocityIsVeryLow()]</span></span> replaced return value with null for pt/feup/tvvs/soulknight/model/game/elements/knight/KnightState::getNextGroundState &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d776eb_77'>77</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_77'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getNextOnAirState<br/><b>Killed by : </b>pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests]/[method:getNextOnAirStateReturnsFallingStateWhenVerticalVelocityIsNonNegative()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getNextOnAirState<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.model.game.elements.knight.KnightState,-method=getNextOnAirState,-methodDesc=()Lpt/feup/tvvs/soulknight/model/game/elements/knight/KnightState;],-indexes=[9],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.model.game.elements.knight.KnightState,-method=getNextOnAirState,-methodDesc=()Lpt/feup/tvvs/soulknight/model/game/elements/knight/KnightState;],-indexes=[9],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.model.game.elements.knight.KnightState,-method=getNextOnAirState,-methodDesc=()Lpt/feup/tvvs/soulknight/model/game/elements/knight/KnightState;],-indexes=[9],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests]/[method:getNextOnAirStateReturnsFallingStateWhenVerticalVelocityIsNonNegative()]</li> <li>pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests]/[method:getNextOnAirStateReturnsJumpStateWhenVerticalVelocityIsNegative()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d776eb_78'>78</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_78'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getNextOnAirState<br/><b>Killed by : </b>pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests]/[method:getNextOnAirStateReturnsJumpStateWhenVerticalVelocityIsNegative()]</span></span> replaced return value with null for pt/feup/tvvs/soulknight/model/game/elements/knight/KnightState::getNextOnAirState &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d776eb_79'>79</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_79'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getNextOnAirState<br/><b>Killed by : </b>pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests]/[method:getNextOnAirStateReturnsFallingStateWhenVerticalVelocityIsNonNegative()]</span></span> replaced return value with null for pt/feup/tvvs/soulknight/model/game/elements/knight/KnightState::getNextOnAirState &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d776eb_83'>83</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_83'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>tickParticles<br/><b>Killed by : </b>pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests]/[method:tickParticlesDecrementsParticlesTimer()]</span></span> Replaced long subtraction with addition &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d776eb_87'>87</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d776eb_87'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getParticlesTimer<br/><b>Killed by : </b>pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests]/[method:resetParticlesTimerResetsValueTo100()]</span></span> replaced long return with 0 for pt/feup/tvvs/soulknight/model/game/elements/knight/KnightState::getParticlesTimer &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests]/[method:limitVelocityClampsXBelowMinusMaxVelocity()] (0 ms)</li><li>pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests]/[method:limitVelocitySetsVerySmallXComponentToZero()] (0 ms)</li><li>pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests]/[method:limitVelocityClampsXAboveMaxVelocity()] (0 ms)</li><li>pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests]/[method:limitVelocityClampsYAboveMaxVelocityY()] (0 ms)</li><li>pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests]/[method:moveKnightLeftDecreasesVelocityXByAcceleration()] (0 ms)</li><li>pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests]/[method:moveKnightRightIncreasesVelocityXByAcceleration()] (0 ms)</li><li>pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests]/[method:getNextGroundStateReturnsIdleWhenVelocityIsVeryLow()] (0 ms)</li><li>pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests]/[method:getNextGroundStateReturnsRunningWhenVelocityAboveRunningMin()] (0 ms)</li><li>pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests]/[method:getNextGroundStateReturnsWalkingWhenVelocityAboveWalkingMinButBelowRunningMin()] (1 ms)</li><li>pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests]/[method:getNextOnAirStateReturnsJumpStateWhenVerticalVelocityIsNegative()] (0 ms)</li><li>pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests]/[method:resetParticlesTimerResetsValueTo100()] (0 ms)</li><li>pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests]/[method:tickParticlesDecrementsParticlesTimer()] (0 ms)</li><li>pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.KnightStateWhiteBoxTests]/[method:getNextOnAirStateReturnsFallingStateWhenVerticalVelocityIsNonNegative()] (0 ms)</li><li>pt.feup.tvvs.soulknight.KnightWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.KnightWhiteBoxTests]/[method:playerHitSetsGotHitToTrue()] (0 ms)</li><li>pt.feup.tvvs.soulknight.KnightWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.KnightWhiteBoxTests]/[method:playerHitWithPositiveHpReducesHpByDamage()] (0 ms)</li><li>pt.feup.tvvs.soulknight.KnightWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.KnightWhiteBoxTests]/[method:playerHitWithZeroHpSetsHpToOneBeforeApplyingDamage()] (0 ms)</li><li>pt.feup.tvvs.soulknight.KnightWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.KnightWhiteBoxTests]/[method:playerHitChangesStateToDamagedState()] (0 ms)</li><li>pt.feup.tvvs.soulknight.KnightMutationTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.KnightMutationTests]/[method:playerHitWhenHpZeroSetsHpToOneBeforeApplyingDamage()] (3 ms)</li><li>pt.feup.tvvs.soulknight.KnightMutationTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.KnightMutationTests]/[method:playerHitReducesHpAndSetsDamagedState()] (4 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.20.3
+
+</body>
+</html>

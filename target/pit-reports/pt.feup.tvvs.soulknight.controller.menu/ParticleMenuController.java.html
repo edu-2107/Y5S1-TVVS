@@ -1,0 +1,2378 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>ParticleMenuController.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package pt.feup.tvvs.soulknight.controller.menu;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import pt.feup.tvvs.soulknight.Game;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import pt.feup.tvvs.soulknight.controller.Controller;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import pt.feup.tvvs.soulknight.gui.GUI;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import pt.feup.tvvs.soulknight.model.dataStructs.Position;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import pt.feup.tvvs.soulknight.model.menu.Menu;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import pt.feup.tvvs.soulknight.model.menu.Particle;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import pt.feup.tvvs.soulknight.state.particle.*;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.googlecode.lanterna.TextColor;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import pt.feup.tvvs.soulknight.state.particle.*;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.io.IOException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Random;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class ParticleMenuController extends Controller&#60;Menu&#62; {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    private double windAngle = 0; // Current wind direction in radians</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    private double windSpeed = 2; // Current wind speed</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    private final int screenWidth = 220;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    private final int screenHeight = 110;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    private final Random random = new Random();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    // Colors for the gradient</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    TextColor.RGB currentStartColor = randomColor();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    TextColor.RGB currentEndColor = randomColor();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    TextColor.RGB nextStartColor = randomColor();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    TextColor.RGB nextEndColor = randomColor();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    private int transitionStartTick = -1; // Tick when the transition begins</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public ParticleMenuController(Menu menu) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        super(menu);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public double getWindAngle() {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_35'/>
+35
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_35'>1</a>
+<span>
+
+1. getWindAngle : replaced double return with 0.0d for pt/feup/tvvs/soulknight/controller/menu/ParticleMenuController::getWindAngle &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return windAngle;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public double getWindSpeed() {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_39'/>
+39
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_39'>1</a>
+<span>
+
+1. getWindSpeed : replaced double return with 0.0d for pt/feup/tvvs/soulknight/controller/menu/ParticleMenuController::getWindSpeed &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return windSpeed;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Position wrapPosition(int x, int y) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_43'/>
+43
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_43'>2</a>
+<span>
+
+1. wrapPosition : negated conditional &rarr; KILLED<br/>
+
+2. wrapPosition : changed conditional boundary &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (x &#60; 0) x = screenWidth - 1;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_44'/>
+44
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_44'>2</a>
+<span>
+
+1. wrapPosition : changed conditional boundary &rarr; KILLED<br/>
+
+2. wrapPosition : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        else if (x &#62;= screenWidth) x = 1;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_45'/>
+45
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_45'>2</a>
+<span>
+
+1. wrapPosition : changed conditional boundary &rarr; KILLED<br/>
+
+2. wrapPosition : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (y &#60; 0) y = screenHeight - 1;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_46'/>
+46
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_46'>2</a>
+<span>
+
+1. wrapPosition : negated conditional &rarr; KILLED<br/>
+
+2. wrapPosition : changed conditional boundary &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        else if (y &#62;= screenHeight) y = 1;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_47'/>
+47
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_47'>1</a>
+<span>
+
+1. wrapPosition : replaced return value with null for pt/feup/tvvs/soulknight/controller/menu/ParticleMenuController::wrapPosition &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return new Position(x, y);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_48'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void move(Game game, GUI.ACTION action, long time) throws IOException {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        int modeDuration = 50; // Number of ticks before switching mode</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_53'/>
+53
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_53'>2</a>
+<span>
+
+1. move : Replaced long modulus with multiplication &rarr; NO_COVERAGE<br/>
+
+2. move : Replaced long division with multiplication &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        int mode = (int) ((time / modeDuration) % 5); // Cycle through 4 modes</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_54'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_55'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        for (Particle particle : getModel().getParticles()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_56'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            // Update particle state based on the current mode</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_57'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            ParticleState state;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_58'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            switch (mode) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_59'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                case 0:</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_60'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>                    state = new RandomState();      // Random mode</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_61'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>                    break;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_62'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                case 1:</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_63'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>                    state = new WindyState();       // Windy mode</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_64'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>                    break;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_65'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                case 2:</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_66'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>                    state = new CalmState();        // Calm mode</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_67'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>                    break;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_68'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                case 3:</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_69'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>                    state = new DispersingState();  // Dispersing mode</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_70'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>                    break;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_71'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                case 4:</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_72'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>                    state = new ZicoState();</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_73'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>                    break;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_74'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                default:</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_75'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>                    throw new IllegalStateException(&#34;Unexpected mode: &#34; + mode);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_76'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_77'/>
+77
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_77'>1</a>
+<span>
+
+1. move : removed call to pt/feup/tvvs/soulknight/model/menu/Particle::setState &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            particle.setState(state);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_78'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_79'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            // Delegate movement logic to the particle&#39;s state</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_80'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            Position newPosition = particle.getState().move(particle, time, this);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_81'/>
+81
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_81'>1</a>
+<span>
+
+1. move : removed call to pt/feup/tvvs/soulknight/model/menu/Particle::setPosition &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            particle.setPosition(newPosition);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_82'/>
+82
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_82'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_83'/>
+83
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_83'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_84'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_85'/>
+85
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_85'>1</a>
+<span>
+
+1. move : removed call to pt/feup/tvvs/soulknight/controller/menu/ParticleMenuController::updateGradients &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        updateGradients(time);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_86'/>
+86
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_86'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_87'/>
+87
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_87'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_88'/>
+88
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_88'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_89'/>
+89
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_89'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    void updateGradients(long time) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_90'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        // Trigger gradient change periodically</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_91'/>
+91
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_91'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        // Change gradient every 500 ticks</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_92'/>
+92
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_92'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        int gradientChangeInterval = 500;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_93'/>
+93
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_93'>2</a>
+<span>
+
+1. updateGradients : negated conditional &rarr; NO_COVERAGE<br/>
+
+2. updateGradients : Replaced long modulus with multiplication &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        if (time % gradientChangeInterval == 0) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_94'/>
+94
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_94'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            transitionStartTick = (int) time; // Start the gradient transition</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_95'/>
+95
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_95'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            nextStartColor = randomColor();</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_96'/>
+96
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_96'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            nextEndColor = randomColor();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_97'/>
+97
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_97'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_98'/>
+98
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_98'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_99'/>
+99
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_99'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        // Smoothly interpolate the gradient during the transition period</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_100'/>
+100
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_100'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        // Number of frames for smooth transition</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_101'/>
+101
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_101'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        int gradientTransitionFrames = 100;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_102'/>
+102
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_102'>5</a>
+<span>
+
+1. updateGradients : negated conditional &rarr; NO_COVERAGE<br/>
+
+2. updateGradients : changed conditional boundary &rarr; NO_COVERAGE<br/>
+
+3. updateGradients : negated conditional &rarr; NO_COVERAGE<br/>
+
+4. updateGradients : changed conditional boundary &rarr; NO_COVERAGE<br/>
+
+5. updateGradients : Replaced integer addition with subtraction &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        if (transitionStartTick &#62;= 0 &#38;&#38; time &#60; transitionStartTick + gradientTransitionFrames) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_103'/>
+103
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_103'>2</a>
+<span>
+
+1. updateGradients : Replaced float division with multiplication &rarr; NO_COVERAGE<br/>
+
+2. updateGradients : Replaced long subtraction with addition &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            float transitionFactor = (float) (time - transitionStartTick) / gradientTransitionFrames;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_104'/>
+104
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_104'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            currentStartColor = interpolateColor(currentStartColor, nextStartColor, transitionFactor);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_105'/>
+105
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_105'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            currentEndColor = interpolateColor(currentEndColor, nextEndColor, transitionFactor);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_106'/>
+106
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_106'>5</a>
+<span>
+
+1. updateGradients : changed conditional boundary &rarr; NO_COVERAGE<br/>
+
+2. updateGradients : changed conditional boundary &rarr; NO_COVERAGE<br/>
+
+3. updateGradients : negated conditional &rarr; NO_COVERAGE<br/>
+
+4. updateGradients : Replaced integer addition with subtraction &rarr; NO_COVERAGE<br/>
+
+5. updateGradients : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        } else if (transitionStartTick &#62;= 0 &#38;&#38; time &#62;= transitionStartTick + gradientTransitionFrames) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_107'/>
+107
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_107'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            // Finalize the transition</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_108'/>
+108
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_108'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            currentStartColor = nextStartColor;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_109'/>
+109
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_109'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            currentEndColor = nextEndColor;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_110'/>
+110
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_110'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            transitionStartTick = -1; // Reset transition</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_111'/>
+111
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_111'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_112'/>
+112
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_112'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_113'/>
+113
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_113'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_114'/>
+114
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_114'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    // Interpolates between two colors based on a factor (0.0 to 1.0)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_115'/>
+115
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_115'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    TextColor.RGB interpolateColor(TextColor.RGB start, TextColor.RGB end, float factor) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_116'/>
+116
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_116'>3</a>
+<span>
+
+1. interpolateColor : Replaced float addition with subtraction &rarr; NO_COVERAGE<br/>
+
+2. interpolateColor : Replaced float multiplication with division &rarr; NO_COVERAGE<br/>
+
+3. interpolateColor : Replaced integer subtraction with addition &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        int r = (int) (start.getRed() + factor * (end.getRed() - start.getRed()));</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_117'/>
+117
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_117'>3</a>
+<span>
+
+1. interpolateColor : Replaced float addition with subtraction &rarr; NO_COVERAGE<br/>
+
+2. interpolateColor : Replaced float multiplication with division &rarr; NO_COVERAGE<br/>
+
+3. interpolateColor : Replaced integer subtraction with addition &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        int g = (int) (start.getGreen() + factor * (end.getGreen() - start.getGreen()));</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_118'/>
+118
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_118'>3</a>
+<span>
+
+1. interpolateColor : Replaced float multiplication with division &rarr; NO_COVERAGE<br/>
+
+2. interpolateColor : Replaced integer subtraction with addition &rarr; NO_COVERAGE<br/>
+
+3. interpolateColor : Replaced float addition with subtraction &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        int b = (int) (start.getBlue() + factor * (end.getBlue() - start.getBlue()));</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_119'/>
+119
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_119'>1</a>
+<span>
+
+1. interpolateColor : replaced return value with null for pt/feup/tvvs/soulknight/controller/menu/ParticleMenuController::interpolateColor &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return new TextColor.RGB(r, g, b);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_120'/>
+120
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_120'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_121'/>
+121
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_121'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_122'/>
+122
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_122'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    // Generates a random RGB color</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_123'/>
+123
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_123'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    TextColor.RGB randomColor() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_124'/>
+124
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_124'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        int r = random.nextInt(256);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_125'/>
+125
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_125'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        int g = random.nextInt(256);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_126'/>
+126
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_126'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        int b = random.nextInt(256);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_127'/>
+127
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_127'>1</a>
+<span>
+
+1. randomColor : replaced return value with null for pt/feup/tvvs/soulknight/controller/menu/ParticleMenuController::randomColor &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        return new TextColor.RGB(r, g, b);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_128'/>
+128
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_128'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_129'/>
+129
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_129'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7d3a9061_130'/>
+130
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_130'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7d3a9061_35'>35</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_35'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getWindAngle<br/><b>Killed by : </b>none</span></span> replaced double return with 0.0d for pt/feup/tvvs/soulknight/controller/menu/ParticleMenuController::getWindAngle &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7d3a9061_39'>39</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_39'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getWindSpeed<br/><b>Killed by : </b>none</span></span> replaced double return with 0.0d for pt/feup/tvvs/soulknight/controller/menu/ParticleMenuController::getWindSpeed &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7d3a9061_43'>43</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_43'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>wrapPosition<br/><b>Killed by : </b>pt.feup.tvvs.soulknight.BlackBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.BlackBoxTests]/[method:wrapPositionWrapsBothCoordinatesWhenBothOutOfBoundsCase2()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>wrapPosition<br/><b>Killed by : </b>pt.feup.tvvs.soulknight.BlackBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.BlackBoxTests]/[method:wrapPositionXAtLowerBoundZeroStaysZero()]</span></span> changed conditional boundary &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7d3a9061_44'>44</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_44'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>wrapPosition<br/><b>Killed by : </b>pt.feup.tvvs.soulknight.BlackBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.BlackBoxTests]/[method:wrapPositionXAtUpperBoundWrapsToOne()]</span></span> changed conditional boundary &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>wrapPosition<br/><b>Killed by : </b>pt.feup.tvvs.soulknight.BlackBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.BlackBoxTests]/[method:wrapPositionWrapsBothCoordinatesWhenBothOutOfBoundsCase2()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7d3a9061_45'>45</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_45'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>wrapPosition<br/><b>Killed by : </b>pt.feup.tvvs.soulknight.BlackBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.BlackBoxTests]/[method:wrapPositionYAtLowerBoundZeroStaysZero()]</span></span> changed conditional boundary &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>wrapPosition<br/><b>Killed by : </b>pt.feup.tvvs.soulknight.BlackBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.BlackBoxTests]/[method:wrapPositionWrapsBothCoordinatesWhenBothOutOfBoundsCase2()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7d3a9061_46'>46</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_46'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>wrapPosition<br/><b>Killed by : </b>pt.feup.tvvs.soulknight.BlackBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.BlackBoxTests]/[method:wrapPositionKeepsXInsideBoundsWhenXIsValid()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>wrapPosition<br/><b>Killed by : </b>pt.feup.tvvs.soulknight.BlackBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.BlackBoxTests]/[method:wrapPositionYAtUpperBoundWrapsToOne()]</span></span> changed conditional boundary &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7d3a9061_47'>47</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_47'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>wrapPosition<br/><b>Killed by : </b>pt.feup.tvvs.soulknight.BlackBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.BlackBoxTests]/[method:wrapPositionWrapsBothCoordinatesWhenBothOutOfBoundsCase2()]</span></span> replaced return value with null for pt/feup/tvvs/soulknight/controller/menu/ParticleMenuController::wrapPosition &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7d3a9061_53'>53</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_53'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>move<br/><b>Killed by : </b>none</span></span> Replaced long modulus with multiplication &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>move<br/><b>Killed by : </b>none</span></span> Replaced long division with multiplication &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7d3a9061_77'>77</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_77'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>move<br/><b>Killed by : </b>none</span></span> removed call to pt/feup/tvvs/soulknight/model/menu/Particle::setState &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7d3a9061_81'>81</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_81'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>move<br/><b>Killed by : </b>none</span></span> removed call to pt/feup/tvvs/soulknight/model/menu/Particle::setPosition &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7d3a9061_85'>85</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_85'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>move<br/><b>Killed by : </b>none</span></span> removed call to pt/feup/tvvs/soulknight/controller/menu/ParticleMenuController::updateGradients &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7d3a9061_93'>93</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_93'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>updateGradients<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>updateGradients<br/><b>Killed by : </b>none</span></span> Replaced long modulus with multiplication &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7d3a9061_102'>102</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_102'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>updateGradients<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>updateGradients<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>updateGradients<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>updateGradients<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>updateGradients<br/><b>Killed by : </b>none</span></span> Replaced integer addition with subtraction &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7d3a9061_103'>103</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_103'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>updateGradients<br/><b>Killed by : </b>none</span></span> Replaced float division with multiplication &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>updateGradients<br/><b>Killed by : </b>none</span></span> Replaced long subtraction with addition &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7d3a9061_106'>106</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_106'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>updateGradients<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>updateGradients<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>updateGradients<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>updateGradients<br/><b>Killed by : </b>none</span></span> Replaced integer addition with subtraction &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>updateGradients<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7d3a9061_116'>116</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_116'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>interpolateColor<br/><b>Killed by : </b>none</span></span> Replaced float addition with subtraction &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>interpolateColor<br/><b>Killed by : </b>none</span></span> Replaced float multiplication with division &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>interpolateColor<br/><b>Killed by : </b>none</span></span> Replaced integer subtraction with addition &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7d3a9061_117'>117</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_117'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>interpolateColor<br/><b>Killed by : </b>none</span></span> Replaced float addition with subtraction &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>interpolateColor<br/><b>Killed by : </b>none</span></span> Replaced float multiplication with division &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>interpolateColor<br/><b>Killed by : </b>none</span></span> Replaced integer subtraction with addition &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7d3a9061_118'>118</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_118'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>interpolateColor<br/><b>Killed by : </b>none</span></span> Replaced float multiplication with division &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>interpolateColor<br/><b>Killed by : </b>none</span></span> Replaced integer subtraction with addition &rarr; NO_COVERAGE</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>interpolateColor<br/><b>Killed by : </b>none</span></span> Replaced float addition with subtraction &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7d3a9061_119'>119</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_119'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>interpolateColor<br/><b>Killed by : </b>none</span></span> replaced return value with null for pt/feup/tvvs/soulknight/controller/menu/ParticleMenuController::interpolateColor &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7d3a9061_127'>127</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7d3a9061_127'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>randomColor<br/><b>Killed by : </b>none</span></span> replaced return value with null for pt/feup/tvvs/soulknight/controller/menu/ParticleMenuController::randomColor &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.controller.menu.ParticleMenuController,-method=randomColor,-methodDesc=()Lcom/googlecode/lanterna/TextColor$RGB;],-indexes=[30],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.controller.menu.ParticleMenuController,-method=randomColor,-methodDesc=()Lcom/googlecode/lanterna/TextColor$RGB;],-indexes=[30],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.controller.menu.ParticleMenuController,-method=randomColor,-methodDesc=()Lcom/googlecode/lanterna/TextColor$RGB;],-indexes=[30],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.soulknight.BlackBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.BlackBoxTests]/[method:drawTextWithNullColorThrowsNullPointerException()]</li> <li>pt.feup.tvvs.soulknight.BlackBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.BlackBoxTests]/[method:wrapPositionXAtLowerBoundZeroStaysZero()]</li> <li>pt.feup.tvvs.soulknight.BlackBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.BlackBoxTests]/[method:wrapPositionWrapsBothCoordinatesWhenBothOutOfBoundsCase1()]</li> <li>pt.feup.tvvs.soulknight.BlackBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.BlackBoxTests]/[method:wrapPositionXAtUpperBoundWrapsToOne()]</li> <li>pt.feup.tvvs.soulknight.BlackBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.BlackBoxTests]/[method:wrapPositionXJustBelowLowerBoundWrapsToMaxMinusOne()]</li> <li>pt.feup.tvvs.soulknight.BlackBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.BlackBoxTests]/[method:wrapPositionWrapsBothCoordinatesWhenBothOutOfBoundsCase2()]</li> <li>pt.feup.tvvs.soulknight.BlackBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.BlackBoxTests]/[method:wrapPositionKeepsXInsideBoundsWhenXIsValid()]</li> <li>pt.feup.tvvs.soulknight.BlackBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.BlackBoxTests]/[method:wrapPositionYJustBelowLowerBoundWrapsToMaxMinusOne()]</li> <li>pt.feup.tvvs.soulknight.BlackBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.BlackBoxTests]/[method:wrapPositionYAtLowerBoundZeroStaysZero()]</li> <li>pt.feup.tvvs.soulknight.BlackBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.BlackBoxTests]/[method:wrapPositionXJustAboveLowerBoundOneStaysOne()]</li> <li>pt.feup.tvvs.soulknight.BlackBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.BlackBoxTests]/[method:drawTextWithNullTextThrowsNullPointerException()]</li> <li>pt.feup.tvvs.soulknight.BlackBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.BlackBoxTests]/[method:drawTextWithCoordinatesFarOutsideImageDoesNotModifyBuffer()]</li> <li>pt.feup.tvvs.soulknight.BlackBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.BlackBoxTests]/[method:drawTextWithValidArgumentModifiesBuffer()]</li> <li>pt.feup.tvvs.soulknight.BlackBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.BlackBoxTests]/[method:wrapPositionYAtUpperBoundWrapsToOne()]</li> <li>pt.feup.tvvs.soulknight.BlackBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.BlackBoxTests]/[method:drawTextWithEmptyStringDoesNotModifyBuffer()]</li> <li>pt.feup.tvvs.soulknight.CreditsControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.CreditsControllerWhiteBoxTests]/[method:move_whenQuit_setsMainMenuState()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>pt.feup.tvvs.soulknight.BlackBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.BlackBoxTests]/[method:wrapPositionWrapsBothCoordinatesWhenBothOutOfBoundsCase2()] (0 ms)</li><li>pt.feup.tvvs.soulknight.BlackBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.BlackBoxTests]/[method:wrapPositionKeepsXInsideBoundsWhenXIsValid()] (0 ms)</li><li>pt.feup.tvvs.soulknight.BlackBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.BlackBoxTests]/[method:wrapPositionXAtLowerBoundZeroStaysZero()] (0 ms)</li><li>pt.feup.tvvs.soulknight.BlackBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.BlackBoxTests]/[method:wrapPositionYJustBelowLowerBoundWrapsToMaxMinusOne()] (0 ms)</li><li>pt.feup.tvvs.soulknight.BlackBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.BlackBoxTests]/[method:wrapPositionYAtLowerBoundZeroStaysZero()] (0 ms)</li><li>pt.feup.tvvs.soulknight.BlackBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.BlackBoxTests]/[method:wrapPositionXJustAboveLowerBoundOneStaysOne()] (0 ms)</li><li>pt.feup.tvvs.soulknight.BlackBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.BlackBoxTests]/[method:wrapPositionWrapsBothCoordinatesWhenBothOutOfBoundsCase1()] (0 ms)</li><li>pt.feup.tvvs.soulknight.BlackBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.BlackBoxTests]/[method:wrapPositionXAtUpperBoundWrapsToOne()] (0 ms)</li><li>pt.feup.tvvs.soulknight.BlackBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.BlackBoxTests]/[method:wrapPositionXJustBelowLowerBoundWrapsToMaxMinusOne()] (0 ms)</li><li>pt.feup.tvvs.soulknight.BlackBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.BlackBoxTests]/[method:wrapPositionYAtUpperBoundWrapsToOne()] (19 ms)</li><li>pt.feup.tvvs.soulknight.BlackBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.BlackBoxTests]/[method:drawTextWithNullColorThrowsNullPointerException()] (0 ms)</li><li>pt.feup.tvvs.soulknight.BlackBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.BlackBoxTests]/[method:drawTextWithNullTextThrowsNullPointerException()] (1 ms)</li><li>pt.feup.tvvs.soulknight.BlackBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.BlackBoxTests]/[method:drawTextWithCoordinatesFarOutsideImageDoesNotModifyBuffer()] (1 ms)</li><li>pt.feup.tvvs.soulknight.BlackBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.BlackBoxTests]/[method:drawTextWithValidArgumentModifiesBuffer()] (1 ms)</li><li>pt.feup.tvvs.soulknight.BlackBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.BlackBoxTests]/[method:drawTextWithEmptyStringDoesNotModifyBuffer()] (74 ms)</li><li>pt.feup.tvvs.soulknight.CreditsControllerWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.CreditsControllerWhiteBoxTests]/[method:move_whenQuit_setsMainMenuState()] (1215 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.20.3
+
+</body>
+</html>

@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>MonsterFactory.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5672920_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5672920_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package pt.feup.tvvs.soulknight.model.game.elements.enemies;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5672920_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5672920_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5672920_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5672920_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5672920_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5672920_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import pt.feup.tvvs.soulknight.model.dataStructs.Position;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5672920_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5672920_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import pt.feup.tvvs.soulknight.model.game.scene.Scene;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5672920_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5672920_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5672920_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5672920_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>public class MonsterFactory {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5672920_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5672920_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static final char SWORD_MONSTER = &#39;E&#39;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5672920_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5672920_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static final char GHOST_MONSTER = &#39;m&#39;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5672920_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5672920_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static final char PURPLE_MONSTER = &#39;l&#39;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5672920_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5672920_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5672920_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5672920_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static Enemies createMonster(int x, int y, Scene scene, char type) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5672920_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5672920_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        switch (type) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5672920_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5672920_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case SWORD_MONSTER:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5672920_15'/>
+15
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5672920_15'>1</a>
+<span>
+
+1. createMonster : replaced return value with null for pt/feup/tvvs/soulknight/model/game/elements/enemies/MonsterFactory::createMonster &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                return new SwordMonster(x, y, 10, scene, 20, new Position(8, 8), SWORD_MONSTER);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5672920_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5672920_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case GHOST_MONSTER:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5672920_17'/>
+17
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5672920_17'>1</a>
+<span>
+
+1. createMonster : replaced return value with null for pt/feup/tvvs/soulknight/model/game/elements/enemies/MonsterFactory::createMonster &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                return new GhostMonster(x, y, 1, scene, 10, new Position(2, 2), GHOST_MONSTER);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5672920_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5672920_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case PURPLE_MONSTER:</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5672920_19'/>
+19
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5672920_19'>1</a>
+<span>
+
+1. createMonster : replaced return value with null for pt/feup/tvvs/soulknight/model/game/elements/enemies/MonsterFactory::createMonster &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                return new PurpleMonster(x, y, 25, scene, 5, new Position(8, 9), PURPLE_MONSTER);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5672920_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5672920_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            default:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5672920_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5672920_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                return null;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5672920_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5672920_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5672920_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5672920_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5672920_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5672920_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5672920_15'>15</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5672920_15'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>createMonster<br/><b>Killed by : </b>none</span></span> replaced return value with null for pt/feup/tvvs/soulknight/model/game/elements/enemies/MonsterFactory::createMonster &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.model.game.elements.enemies.MonsterFactory,-method=createMonster,-methodDesc=(IILpt/feup/tvvs/soulknight/model/game/scene/Scene;C)Lpt/feup/tvvs/soulknight/model/game/elements/enemies/Enemies;],-indexes=[22],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.model.game.elements.enemies.MonsterFactory,-method=createMonster,-methodDesc=(IILpt/feup/tvvs/soulknight/model/game/scene/Scene;C)Lpt/feup/tvvs/soulknight/model/game/elements/enemies/Enemies;],-indexes=[22],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.model.game.elements.enemies.MonsterFactory,-method=createMonster,-methodDesc=(IILpt/feup/tvvs/soulknight/model/game/scene/Scene;C)Lpt/feup/tvvs/soulknight/model/game/elements/enemies/Enemies;],-indexes=[22],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.soulknight.SceneLoaderWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.SceneLoaderWhiteBoxTests]/[method:createScene_realLevelFile_exercisesMonsterFactoryBranchNaturally()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5672920_17'>17</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5672920_17'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>createMonster<br/><b>Killed by : </b>none</span></span> replaced return value with null for pt/feup/tvvs/soulknight/model/game/elements/enemies/MonsterFactory::createMonster &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.model.game.elements.enemies.MonsterFactory,-method=createMonster,-methodDesc=(IILpt/feup/tvvs/soulknight/model/game/scene/Scene;C)Lpt/feup/tvvs/soulknight/model/game/elements/enemies/Enemies;],-indexes=[40],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.model.game.elements.enemies.MonsterFactory,-method=createMonster,-methodDesc=(IILpt/feup/tvvs/soulknight/model/game/scene/Scene;C)Lpt/feup/tvvs/soulknight/model/game/elements/enemies/Enemies;],-indexes=[40],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=pt.feup.tvvs.soulknight.model.game.elements.enemies.MonsterFactory,-method=createMonster,-methodDesc=(IILpt/feup/tvvs/soulknight/model/game/scene/Scene;C)Lpt/feup/tvvs/soulknight/model/game/elements/enemies/Enemies;],-indexes=[40],-mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>pt.feup.tvvs.soulknight.SceneLoaderWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.SceneLoaderWhiteBoxTests]/[method:createScene_realLevelFile_exercisesMonsterFactoryBranchNaturally()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5672920_19'>19</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5672920_19'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>createMonster<br/><b>Killed by : </b>none</span></span> replaced return value with null for pt/feup/tvvs/soulknight/model/game/elements/enemies/MonsterFactory::createMonster &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>pt.feup.tvvs.soulknight.SceneLoaderWhiteBoxTests.[engine:junit-jupiter]/[class:pt.feup.tvvs.soulknight.SceneLoaderWhiteBoxTests]/[method:createScene_realLevelFile_exercisesMonsterFactoryBranchNaturally()] (6 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.20.3
+
+</body>
+</html>

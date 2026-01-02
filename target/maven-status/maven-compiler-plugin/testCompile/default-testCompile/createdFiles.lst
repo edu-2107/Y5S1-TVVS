@@ -1,11 +1,15 @@
+pt\feup\tvvs\soulknight\FallingStateWhiteBoxTests.class
 pt\feup\tvvs\soulknight\PBTests.class
 pt\feup\tvvs\soulknight\KnightStateWhiteBoxTests.class
+pt\feup\tvvs\soulknight\MenuViewerMutationTests.class
 pt\feup\tvvs\soulknight\KnightStateWhiteBoxTests$TestKnightState.class
 pt\feup\tvvs\soulknight\CreditsControllerWhiteBoxTests.class
+pt\feup\tvvs\soulknight\KnightMutationTests$1.class
 pt\feup\tvvs\soulknight\KnightWhiteBoxTests$TestKnightState.class
 pt\feup\tvvs\soulknight\KnightWhiteBoxTests.class
 pt\feup\tvvs\soulknight\BlackBoxTests.class
 pt\feup\tvvs\soulknight\GameViewerWhiteBoxTests.class
+pt\feup\tvvs\soulknight\KnightMutationTests.class
 pt\feup\tvvs\soulknight\SceneLoaderWhiteBoxTests$ExposedSceneLoader.class
 pt\feup\tvvs\soulknight\MenuViewerWhiteBoxTests.class
 pt\feup\tvvs\soulknight\SceneLoaderWhiteBoxTests.class
