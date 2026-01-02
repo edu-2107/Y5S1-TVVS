@@ -21,27 +21,27 @@ public class RainParticle extends Particle {
 
     @Override
     public Position moveParticle(Scene scene, long time) {
-<span class="nc" id="L24">        Position currentPos = getPosition();</span>
-<span class="nc bnc" id="L25" title="All 2 branches missed.">        if (currentPos == null) {</span>
-<span class="nc" id="L26">            throw new IllegalStateException(&quot;Particle position is null&quot;);</span>
+<span class="fc" id="L24">        Position currentPos = getPosition();</span>
+<span class="fc bfc" id="L25" title="All 2 branches covered.">        if (currentPos == null) {</span>
+<span class="fc" id="L26">            throw new IllegalStateException(&quot;Particle position is null&quot;);</span>
         }
 
         // Handle wind simulation
-<span class="nc" id="L30">        int windEffect = (int) (Math.random() * 3) - 1; // Wind effect range: -1 to 1</span>
-<span class="nc" id="L31">        int new_x = (int) getPosition().x() + 2 + windEffect;  // Adds wind effect to horizontal movement</span>
-<span class="nc" id="L32">        int new_y = (int) getPosition().y() + 2;  // Vertical movement remains constant</span>
+<span class="fc" id="L30">        int windEffect = (int) (Math.random() * 3) - 1; // Wind effect range: -1 to 1</span>
+<span class="fc" id="L31">        int new_x = (int) getPosition().x() + 2 + windEffect;  // Adds wind effect to horizontal movement</span>
+<span class="fc" id="L32">        int new_y = (int) getPosition().y() + 2;  // Vertical movement remains constant</span>
 
         // Handle boundary conditions for x and y
-<span class="nc bnc" id="L35" title="All 2 branches missed.">        if (new_x &lt; 0) {</span>
-<span class="nc" id="L36">            new_x = scene.getWidth() - 1;</span>
-<span class="nc bnc" id="L37" title="All 2 branches missed.">        } else if (new_x &gt;= scene.getWidth()) {</span>
-<span class="nc" id="L38">            new_x = 1;</span>
+<span class="fc bfc" id="L35" title="All 2 branches covered.">        if (new_x &lt; 0) {</span>
+<span class="fc" id="L36">            new_x = scene.getWidth() - 1;</span>
+<span class="fc bfc" id="L37" title="All 2 branches covered.">        } else if (new_x &gt;= scene.getWidth()) {</span>
+<span class="fc" id="L38">            new_x = 1;</span>
         }
 
-<span class="nc bnc" id="L41" title="All 2 branches missed.">        if (new_y &gt;= scene.getHeight()) {</span>
-<span class="nc" id="L42">            new_y = 0;  // Particle reaches bottom and is &quot;destroyed&quot; (restarts from top)</span>
+<span class="fc bfc" id="L41" title="All 2 branches covered.">        if (new_y &gt;= scene.getHeight()) {</span>
+<span class="fc" id="L42">            new_y = 0;  // Particle reaches bottom and is &quot;destroyed&quot; (restarts from top)</span>
         }
-<span class="nc" id="L44">        return new Position(new_x, new_y);</span>
+<span class="fc" id="L44">        return new Position(new_x, new_y);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

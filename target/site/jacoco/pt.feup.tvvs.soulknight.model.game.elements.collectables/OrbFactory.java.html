@@ -6,13 +6,13 @@
     public static final char HEALTH_ORB = 'h';
 
     public static Collectables createOrb(char type, int x, int y) {
-<span class="pc bpc" id="L9" title="2 of 4 branches missed.">        switch (type) {</span>
+<span class="fc bfc" id="L9" title="All 4 branches covered.">        switch (type) {</span>
             case ENERGY_ORB:
 <span class="fc" id="L11">                return new EnergyOrb(x, y, 10, ENERGY_ORB);</span>
             case SPEED_ORB:
-<span class="nc" id="L13">                return new SpeedOrb(x, y, 1.1, SPEED_ORB);</span>
+<span class="fc" id="L13">                return new SpeedOrb(x, y, 1.1, SPEED_ORB);</span>
             case HEALTH_ORB:
-<span class="nc" id="L15">                return new HealthOrb(x, y, 25, HEALTH_ORB);</span>
+<span class="fc" id="L15">                return new HealthOrb(x, y, 25, HEALTH_ORB);</span>
             default:
 <span class="fc" id="L17">                return null;</span>
         }

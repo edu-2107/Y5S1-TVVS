@@ -11,34 +11,34 @@ import java.io.IOException;
 public class ParticleController extends Controller&lt;Scene&gt;{
 
     public ParticleController(Scene scene) {
-<span class="nc" id="L14">        super(scene);</span>
-<span class="nc" id="L15">    }</span>
+<span class="fc" id="L14">        super(scene);</span>
+<span class="fc" id="L15">    }</span>
 
     @Override
     public void move(Game game, GUI.ACTION action, long time) throws IOException {
-<span class="nc bnc" id="L19" title="All 2 branches missed.">        for(Particle particle: getModel().getParticles()){</span>
-<span class="nc" id="L20">            particle.setScene(getModel());</span>
-<span class="nc" id="L21">            particle.setPosition(particle.moveParticle(getModel(), time));</span>
+<span class="fc bfc" id="L19" title="All 2 branches covered.">        for(Particle particle: getModel().getParticles()){</span>
+<span class="fc" id="L20">            particle.setScene(getModel());</span>
+<span class="fc" id="L21">            particle.setPosition(particle.moveParticle(getModel(), time));</span>
 
-<span class="nc" id="L23">        }</span>
-<span class="nc bnc" id="L24" title="All 2 branches missed.">        for(Particle particle: getModel().getDoubleJumpParticles()){</span>
-<span class="nc" id="L25">            particle.setScene(getModel());</span>
-<span class="nc" id="L26">            particle.setPosition(particle.moveParticle(getModel(), time));</span>
+<span class="fc" id="L23">        }</span>
+<span class="fc bfc" id="L24" title="All 2 branches covered.">        for(Particle particle: getModel().getDoubleJumpParticles()){</span>
+<span class="fc" id="L25">            particle.setScene(getModel());</span>
+<span class="fc" id="L26">            particle.setPosition(particle.moveParticle(getModel(), time));</span>
 
-<span class="nc" id="L28">        }</span>
-<span class="nc bnc" id="L29" title="All 2 branches missed.">        for(Particle particle: getModel().getJumpParticles()){</span>
-<span class="nc" id="L30">            particle.setScene(getModel());</span>
-<span class="nc" id="L31">            particle.setPosition(particle.moveParticle(getModel(), time));</span>
-<span class="nc" id="L32">        }</span>
-<span class="nc bnc" id="L33" title="All 2 branches missed.">        for(Particle particle: getModel().getRespawnParticles()){</span>
-<span class="nc" id="L34">            particle.setScene(getModel());</span>
-<span class="nc" id="L35">            particle.setPosition(particle.moveParticle(getModel(), time));</span>
-<span class="nc" id="L36">        }</span>
-<span class="nc bnc" id="L37" title="All 2 branches missed.">        for(Particle particle: getModel().getDashParticles()){</span>
-<span class="nc" id="L38">            particle.setScene(getModel());</span>
-<span class="nc" id="L39">            particle.setPosition(particle.moveParticle(getModel(), time));</span>
-<span class="nc" id="L40">        }</span>
+<span class="fc" id="L28">        }</span>
+<span class="fc bfc" id="L29" title="All 2 branches covered.">        for(Particle particle: getModel().getJumpParticles()){</span>
+<span class="fc" id="L30">            particle.setScene(getModel());</span>
+<span class="fc" id="L31">            particle.setPosition(particle.moveParticle(getModel(), time));</span>
+<span class="fc" id="L32">        }</span>
+<span class="fc bfc" id="L33" title="All 2 branches covered.">        for(Particle particle: getModel().getRespawnParticles()){</span>
+<span class="fc" id="L34">            particle.setScene(getModel());</span>
+<span class="fc" id="L35">            particle.setPosition(particle.moveParticle(getModel(), time));</span>
+<span class="fc" id="L36">        }</span>
+<span class="fc bfc" id="L37" title="All 2 branches covered.">        for(Particle particle: getModel().getDashParticles()){</span>
+<span class="fc" id="L38">            particle.setScene(getModel());</span>
+<span class="fc" id="L39">            particle.setPosition(particle.moveParticle(getModel(), time));</span>
+<span class="fc" id="L40">        }</span>
 
-<span class="nc" id="L42">    }</span>
+<span class="fc" id="L42">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

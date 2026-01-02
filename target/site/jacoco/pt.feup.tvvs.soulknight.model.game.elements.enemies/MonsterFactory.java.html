@@ -10,13 +10,13 @@ import pt.feup.tvvs.soulknight.model.game.scene.Scene;
     public static final char PURPLE_MONSTER = 'l';
 
     public static Enemies createMonster(int x, int y, Scene scene, char type) {
-<span class="pc bpc" id="L13" title="1 of 4 branches missed.">        switch (type) {</span>
+<span class="fc bfc" id="L13" title="All 4 branches covered.">        switch (type) {</span>
             case SWORD_MONSTER:
 <span class="fc" id="L15">                return new SwordMonster(x, y, 10, scene, 20, new Position(8, 8), SWORD_MONSTER);</span>
             case GHOST_MONSTER:
 <span class="fc" id="L17">                return new GhostMonster(x, y, 1, scene, 10, new Position(2, 2), GHOST_MONSTER);</span>
             case PURPLE_MONSTER:
-<span class="nc" id="L19">                return new PurpleMonster(x, y, 25, scene, 5, new Position(8, 9), PURPLE_MONSTER);</span>
+<span class="fc" id="L19">                return new PurpleMonster(x, y, 25, scene, 5, new Position(8, 9), PURPLE_MONSTER);</span>
             default:
 <span class="fc" id="L21">                return null;</span>
         }

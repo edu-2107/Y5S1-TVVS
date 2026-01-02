@@ -1,0 +1,178 @@
+-------------------------------------------------------------------------------
+Test set: pt.feup.tvvs.soulknight.OptionControllerWhiteBoxTests
+-------------------------------------------------------------------------------
+Tests run: 12, Failures: 0, Errors: 12, Skipped: 0, Time elapsed: 0.079 s <<< FAILURE! -- in pt.feup.tvvs.soulknight.OptionControllerWhiteBoxTests
+pt.feup.tvvs.soulknight.OptionControllerWhiteBoxTests.move_toMainMenu_select_setsMainMenuState -- Time elapsed: 0.042 s <<< ERROR!
+java.lang.ClassCastException: class java.lang.Object cannot be cast to class pt.feup.tvvs.soulknight.view.sprites.Sprite (java.lang.Object is in module java.base of loader 'bootstrap'; pt.feup.tvvs.soulknight.view.sprites.Sprite is in unnamed module of loader 'app')
+	at pt.feup.tvvs.soulknight.OptionControllerWhiteBoxTests.setUp(OptionControllerWhiteBoxTests.java:45)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+pt.feup.tvvs.soulknight.OptionControllerWhiteBoxTests.move_resolution_right_atLast_doesNothing -- Time elapsed: 0.012 s <<< ERROR!
+org.mockito.exceptions.misusing.UnfinishedStubbingException: 
+
+Unfinished stubbing detected here:
+-> at pt.feup.tvvs.soulknight.OptionControllerWhiteBoxTests.setUp(OptionControllerWhiteBoxTests.java:45)
+
+E.g. thenReturn() may be missing.
+Examples of correct stubbing:
+    when(mock.isOk()).thenReturn(true);
+    when(mock.isOk()).thenThrow(exception);
+    doThrow(exception).when(mock).someVoidMethod();
+Hints:
+ 1. missing thenReturn()
+ 2. you are trying to stub a final method, which is not supported
+ 3. you are stubbing the behaviour of another mock inside before 'thenReturn' instruction is completed, possibly on another thread
+
+	at pt.feup.tvvs.soulknight.Game.getSpriteLoader(Game.java:79)
+	at pt.feup.tvvs.soulknight.OptionControllerWhiteBoxTests.setUp(OptionControllerWhiteBoxTests.java:42)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+pt.feup.tvvs.soulknight.OptionControllerWhiteBoxTests.move_resolution_left_indexZero_setsNullResolution -- Time elapsed: 0.003 s <<< ERROR!
+java.lang.ClassCastException: class java.lang.Object cannot be cast to class pt.feup.tvvs.soulknight.view.sprites.Sprite (java.lang.Object is in module java.base of loader 'bootstrap'; pt.feup.tvvs.soulknight.view.sprites.Sprite is in unnamed module of loader 'app')
+	at pt.feup.tvvs.soulknight.OptionControllerWhiteBoxTests.setUp(OptionControllerWhiteBoxTests.java:45)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+pt.feup.tvvs.soulknight.OptionControllerWhiteBoxTests.move_exit_select_setsNullState -- Time elapsed: 0.002 s <<< ERROR!
+org.mockito.exceptions.misusing.UnfinishedStubbingException: 
+
+Unfinished stubbing detected here:
+-> at pt.feup.tvvs.soulknight.OptionControllerWhiteBoxTests.setUp(OptionControllerWhiteBoxTests.java:45)
+
+E.g. thenReturn() may be missing.
+Examples of correct stubbing:
+    when(mock.isOk()).thenReturn(true);
+    when(mock.isOk()).thenThrow(exception);
+    doThrow(exception).when(mock).someVoidMethod();
+Hints:
+ 1. missing thenReturn()
+ 2. you are trying to stub a final method, which is not supported
+ 3. you are stubbing the behaviour of another mock inside before 'thenReturn' instruction is completed, possibly on another thread
+
+	at pt.feup.tvvs.soulknight.Game.getSpriteLoader(Game.java:79)
+	at pt.feup.tvvs.soulknight.OptionControllerWhiteBoxTests.setUp(OptionControllerWhiteBoxTests.java:42)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+pt.feup.tvvs.soulknight.OptionControllerWhiteBoxTests.move_resolution_left_indexMinusOne_doesNothing -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.ClassCastException: class java.lang.Object cannot be cast to class pt.feup.tvvs.soulknight.view.sprites.Sprite (java.lang.Object is in module java.base of loader 'bootstrap'; pt.feup.tvvs.soulknight.view.sprites.Sprite is in unnamed module of loader 'app')
+	at pt.feup.tvvs.soulknight.OptionControllerWhiteBoxTests.setUp(OptionControllerWhiteBoxTests.java:45)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+pt.feup.tvvs.soulknight.OptionControllerWhiteBoxTests.move_startGame_select_setsGameState -- Time elapsed: 0.001 s <<< ERROR!
+org.mockito.exceptions.misusing.UnfinishedStubbingException: 
+
+Unfinished stubbing detected here:
+-> at pt.feup.tvvs.soulknight.OptionControllerWhiteBoxTests.setUp(OptionControllerWhiteBoxTests.java:45)
+
+E.g. thenReturn() may be missing.
+Examples of correct stubbing:
+    when(mock.isOk()).thenReturn(true);
+    when(mock.isOk()).thenThrow(exception);
+    doThrow(exception).when(mock).someVoidMethod();
+Hints:
+ 1. missing thenReturn()
+ 2. you are trying to stub a final method, which is not supported
+ 3. you are stubbing the behaviour of another mock inside before 'thenReturn' instruction is completed, possibly on another thread
+
+	at pt.feup.tvvs.soulknight.Game.getSpriteLoader(Game.java:79)
+	at pt.feup.tvvs.soulknight.OptionControllerWhiteBoxTests.setUp(OptionControllerWhiteBoxTests.java:42)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+pt.feup.tvvs.soulknight.OptionControllerWhiteBoxTests.move_startGame_notSelect_doesNothing -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.ClassCastException: class java.lang.Object cannot be cast to class pt.feup.tvvs.soulknight.view.sprites.Sprite (java.lang.Object is in module java.base of loader 'bootstrap'; pt.feup.tvvs.soulknight.view.sprites.Sprite is in unnamed module of loader 'app')
+	at pt.feup.tvvs.soulknight.OptionControllerWhiteBoxTests.setUp(OptionControllerWhiteBoxTests.java:45)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+pt.feup.tvvs.soulknight.OptionControllerWhiteBoxTests.move_resolution_right_inRange_setsNextResolution -- Time elapsed: 0.001 s <<< ERROR!
+org.mockito.exceptions.misusing.UnfinishedStubbingException: 
+
+Unfinished stubbing detected here:
+-> at pt.feup.tvvs.soulknight.OptionControllerWhiteBoxTests.setUp(OptionControllerWhiteBoxTests.java:45)
+
+E.g. thenReturn() may be missing.
+Examples of correct stubbing:
+    when(mock.isOk()).thenReturn(true);
+    when(mock.isOk()).thenThrow(exception);
+    doThrow(exception).when(mock).someVoidMethod();
+Hints:
+ 1. missing thenReturn()
+ 2. you are trying to stub a final method, which is not supported
+ 3. you are stubbing the behaviour of another mock inside before 'thenReturn' instruction is completed, possibly on another thread
+
+	at pt.feup.tvvs.soulknight.Game.getSpriteLoader(Game.java:79)
+	at pt.feup.tvvs.soulknight.OptionControllerWhiteBoxTests.setUp(OptionControllerWhiteBoxTests.java:42)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+pt.feup.tvvs.soulknight.OptionControllerWhiteBoxTests.move_settings_select_setsSettingsMenuState -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.ClassCastException: class java.lang.Object cannot be cast to class pt.feup.tvvs.soulknight.view.sprites.Sprite (java.lang.Object is in module java.base of loader 'bootstrap'; pt.feup.tvvs.soulknight.view.sprites.Sprite is in unnamed module of loader 'app')
+	at pt.feup.tvvs.soulknight.OptionControllerWhiteBoxTests.setUp(OptionControllerWhiteBoxTests.java:45)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+pt.feup.tvvs.soulknight.OptionControllerWhiteBoxTests.move_settings_notSelect_doesNothing -- Time elapsed: 0.001 s <<< ERROR!
+org.mockito.exceptions.misusing.UnfinishedStubbingException: 
+
+Unfinished stubbing detected here:
+-> at pt.feup.tvvs.soulknight.OptionControllerWhiteBoxTests.setUp(OptionControllerWhiteBoxTests.java:45)
+
+E.g. thenReturn() may be missing.
+Examples of correct stubbing:
+    when(mock.isOk()).thenReturn(true);
+    when(mock.isOk()).thenThrow(exception);
+    doThrow(exception).when(mock).someVoidMethod();
+Hints:
+ 1. missing thenReturn()
+ 2. you are trying to stub a final method, which is not supported
+ 3. you are stubbing the behaviour of another mock inside before 'thenReturn' instruction is completed, possibly on another thread
+
+	at pt.feup.tvvs.soulknight.Game.getSpriteLoader(Game.java:79)
+	at pt.feup.tvvs.soulknight.OptionControllerWhiteBoxTests.setUp(OptionControllerWhiteBoxTests.java:42)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+pt.feup.tvvs.soulknight.OptionControllerWhiteBoxTests.move_resolution_left_indexGreaterThanZero_setsPreviousResolution -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.ClassCastException: class java.lang.Object cannot be cast to class pt.feup.tvvs.soulknight.view.sprites.Sprite (java.lang.Object is in module java.base of loader 'bootstrap'; pt.feup.tvvs.soulknight.view.sprites.Sprite is in unnamed module of loader 'app')
+	at pt.feup.tvvs.soulknight.OptionControllerWhiteBoxTests.setUp(OptionControllerWhiteBoxTests.java:45)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+pt.feup.tvvs.soulknight.OptionControllerWhiteBoxTests.move_toMainMenu_notSelect_doesNothing -- Time elapsed: 0.001 s <<< ERROR!
+org.mockito.exceptions.misusing.UnfinishedStubbingException: 
+
+Unfinished stubbing detected here:
+-> at pt.feup.tvvs.soulknight.OptionControllerWhiteBoxTests.setUp(OptionControllerWhiteBoxTests.java:45)
+
+E.g. thenReturn() may be missing.
+Examples of correct stubbing:
+    when(mock.isOk()).thenReturn(true);
+    when(mock.isOk()).thenThrow(exception);
+    doThrow(exception).when(mock).someVoidMethod();
+Hints:
+ 1. missing thenReturn()
+ 2. you are trying to stub a final method, which is not supported
+ 3. you are stubbing the behaviour of another mock inside before 'thenReturn' instruction is completed, possibly on another thread
+
+	at pt.feup.tvvs.soulknight.Game.getSpriteLoader(Game.java:79)
+	at pt.feup.tvvs.soulknight.OptionControllerWhiteBoxTests.setUp(OptionControllerWhiteBoxTests.java:42)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+

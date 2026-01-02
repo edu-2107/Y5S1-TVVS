@@ -1,0 +1,48 @@
+-------------------------------------------------------------------------------
+Test set: pt.feup.tvvs.soulknight.SceneControllerWhiteBoxTests
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.078 s <<< FAILURE! -- in pt.feup.tvvs.soulknight.SceneControllerWhiteBoxTests
+pt.feup.tvvs.soulknight.SceneControllerWhiteBoxTests.move_whenAtEnd_andEnoughOrbs_andNotLastLevel_setsGameState_nextScene -- Time elapsed: 0.066 s <<< ERROR!
+org.mockito.exceptions.base.MockitoException: 
+
+Cannot mock/spy class [[Lpt.feup.tvvs.soulknight.model.game.elements.collectables.Collectables;
+Mockito cannot mock/spy because :
+ - VM does not support modification of given type
+	at pt.feup.tvvs.soulknight.SceneControllerWhiteBoxTests.setUp(SceneControllerWhiteBoxTests.java:65)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+pt.feup.tvvs.soulknight.SceneControllerWhiteBoxTests.move_whenAtEnd_andEnoughOrbs_andLastLevel_setsCreditsState -- Time elapsed: 0.002 s <<< ERROR!
+org.mockito.exceptions.base.MockitoException: 
+
+Cannot mock/spy class [[Lpt.feup.tvvs.soulknight.model.game.elements.collectables.Collectables;
+Mockito cannot mock/spy because :
+ - VM does not support modification of given type
+	at pt.feup.tvvs.soulknight.SceneControllerWhiteBoxTests.setUp(SceneControllerWhiteBoxTests.java:65)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+pt.feup.tvvs.soulknight.SceneControllerWhiteBoxTests.move_whenQuit_setsMainMenuState -- Time elapsed: 0.001 s <<< ERROR!
+org.mockito.exceptions.base.MockitoException: 
+
+Cannot mock/spy class [[Lpt.feup.tvvs.soulknight.model.game.elements.collectables.Collectables;
+Mockito cannot mock/spy because :
+ - VM does not support modification of given type
+	at pt.feup.tvvs.soulknight.SceneControllerWhiteBoxTests.setUp(SceneControllerWhiteBoxTests.java:65)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+pt.feup.tvvs.soulknight.SceneControllerWhiteBoxTests.move_whenNotAtEnd_orNotEnoughOrbs_runsNormalFlow_collects_collides_andMovesControllers -- Time elapsed: 0.002 s <<< ERROR!
+org.mockito.exceptions.base.MockitoException: 
+
+Cannot mock/spy class [[Lpt.feup.tvvs.soulknight.model.game.elements.collectables.Collectables;
+Mockito cannot mock/spy because :
+ - VM does not support modification of given type
+	at pt.feup.tvvs.soulknight.SceneControllerWhiteBoxTests.setUp(SceneControllerWhiteBoxTests.java:65)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+

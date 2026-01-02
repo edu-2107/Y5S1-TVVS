@@ -12,43 +12,43 @@ import java.io.IOException;
 
 public class PlayerController extends Controller&lt;Scene&gt; {
     public PlayerController(Scene scene) {
-<span class="nc" id="L15">        super(scene);</span>
-<span class="nc" id="L16">    }</span>
+<span class="fc" id="L15">        super(scene);</span>
+<span class="fc" id="L16">    }</span>
 
     @Override
     public void move(Game game, GUI.ACTION action, long time) throws IOException {
-<span class="nc" id="L20">        Knight knight = getModel().getPlayer();</span>
+<span class="fc" id="L20">        Knight knight = getModel().getPlayer();</span>
 
-<span class="nc bnc" id="L22" title="All 6 branches missed.">        switch (action) {</span>
+<span class="fc bfc" id="L22" title="All 6 branches covered.">        switch (action) {</span>
             case LEFT:
-<span class="nc" id="L24">                knight.setVelocity(knight.moveLeft());</span>
-<span class="nc" id="L25">                knight.setFacingRight(false);</span>
-<span class="nc" id="L26">                break;</span>
+<span class="fc" id="L24">                knight.setVelocity(knight.moveLeft());</span>
+<span class="fc" id="L25">                knight.setFacingRight(false);</span>
+<span class="fc" id="L26">                break;</span>
             case RIGHT:
-<span class="nc" id="L28">                knight.setVelocity(knight.moveRight());</span>
-<span class="nc" id="L29">                knight.setFacingRight(true);</span>
-<span class="nc" id="L30">                break;</span>
+<span class="fc" id="L28">                knight.setVelocity(knight.moveRight());</span>
+<span class="fc" id="L29">                knight.setFacingRight(true);</span>
+<span class="fc" id="L30">                break;</span>
             case JUMP:
-<span class="nc" id="L32">                knight.setVelocity(knight.jump());</span>
-<span class="nc" id="L33">                break;</span>
+<span class="fc" id="L32">                knight.setVelocity(knight.jump());</span>
+<span class="fc" id="L33">                break;</span>
             case DASH:
-<span class="nc" id="L35">                knight.setVelocity(knight.dash());</span>
-<span class="nc" id="L36">                break;</span>
+<span class="fc" id="L35">                knight.setVelocity(knight.dash());</span>
+<span class="fc" id="L36">                break;</span>
             case KILL:
-<span class="nc" id="L38">                knight.setState(new RespawnState(knight, 30));</span>
-<span class="nc" id="L39">                break;</span>
+<span class="fc" id="L38">                knight.setState(new RespawnState(knight, 30));</span>
+<span class="fc" id="L39">                break;</span>
             default:
-<span class="nc" id="L41">                knight.setVelocity(knight.updateVelocity());</span>
+<span class="fc" id="L41">                knight.setVelocity(knight.updateVelocity());</span>
         }
 
-<span class="nc" id="L44">        knight.setPosition(knight.updatePosition());</span>
-<span class="nc" id="L45">        knight.setScene(getModel());</span>
-<span class="nc" id="L46">        knight.setState(knight.getNextState());</span>
+<span class="fc" id="L44">        knight.setPosition(knight.updatePosition());</span>
+<span class="fc" id="L45">        knight.setScene(getModel());</span>
+<span class="fc" id="L46">        knight.setState(knight.getNextState());</span>
 
-<span class="nc bnc" id="L48" title="All 2 branches missed.">        if (knight.getState() == null) {</span>
-<span class="nc" id="L49">            knight.setState(new IdleState(knight));</span>
+<span class="fc bfc" id="L48" title="All 2 branches covered.">        if (knight.getState() == null) {</span>
+<span class="fc" id="L49">            knight.setState(new IdleState(knight));</span>
         }
-<span class="nc" id="L51">    }</span>
+<span class="fc" id="L51">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

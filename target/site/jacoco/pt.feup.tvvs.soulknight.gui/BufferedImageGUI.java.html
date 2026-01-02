@@ -13,72 +13,72 @@ public class BufferedImageGUI implements GUI {
 
     @Override
     public int getWidth() {
-<span class="nc" id="L16">        return buffer.getWidth();</span>
+<span class="fc" id="L16">        return buffer.getWidth();</span>
     }
 
     @Override
     public int getHeight() {
-<span class="nc" id="L21">        return buffer.getHeight();</span>
+<span class="fc" id="L21">        return buffer.getHeight();</span>
     }
 
     @Override
     public void drawPixel(int x, int y, TextColor.RGB color) {
-<span class="nc bnc" id="L26" title="All 8 branches missed.">        if (x &gt;= 0 &amp;&amp; x &lt; buffer.getWidth() &amp;&amp; y &gt;= 0 &amp;&amp; y &lt; buffer.getHeight()) {</span>
-<span class="nc" id="L27">            buffer.setRGB(x, y, new Color(color.getRed(), color.getGreen(), color.getBlue()).getRGB());</span>
+<span class="fc bfc" id="L26" title="All 8 branches covered.">        if (x &gt;= 0 &amp;&amp; x &lt; buffer.getWidth() &amp;&amp; y &gt;= 0 &amp;&amp; y &lt; buffer.getHeight()) {</span>
+<span class="fc" id="L27">            buffer.setRGB(x, y, new Color(color.getRed(), color.getGreen(), color.getBlue()).getRGB());</span>
         }
-<span class="nc" id="L29">    }</span>
+<span class="fc" id="L29">    }</span>
 
     @Override
     public void drawRectangle(int x, int y, int width, int height, TextColor.RGB color) {
-<span class="nc" id="L33">        Color awtColor = new Color(color.getRed(), color.getGreen(), color.getBlue());</span>
-<span class="nc" id="L34">        java.awt.Graphics2D g = buffer.createGraphics();</span>
-<span class="nc" id="L35">        g.setColor(awtColor);</span>
-<span class="nc" id="L36">        g.fillRect(x, y, width, height);</span>
-<span class="nc" id="L37">        g.dispose();</span>
-<span class="nc" id="L38">    }</span>
+<span class="fc" id="L33">        Color awtColor = new Color(color.getRed(), color.getGreen(), color.getBlue());</span>
+<span class="fc" id="L34">        java.awt.Graphics2D g = buffer.createGraphics();</span>
+<span class="fc" id="L35">        g.setColor(awtColor);</span>
+<span class="fc" id="L36">        g.fillRect(x, y, width, height);</span>
+<span class="fc" id="L37">        g.dispose();</span>
+<span class="fc" id="L38">    }</span>
 
     @Override
     public void cls() {
-<span class="nc" id="L42">        java.awt.Graphics2D g = buffer.createGraphics();</span>
-<span class="nc" id="L43">        g.setColor(new Color(0, 0, 0, 0)); // Transparent or black background</span>
-<span class="nc" id="L44">        g.fillRect(0, 0, buffer.getWidth(), buffer.getHeight());</span>
-<span class="nc" id="L45">        g.dispose();</span>
-<span class="nc" id="L46">    }</span>
+<span class="fc" id="L42">        java.awt.Graphics2D g = buffer.createGraphics();</span>
+<span class="fc" id="L43">        g.setColor(new Color(0, 0, 0, 0)); // Transparent or black background</span>
+<span class="fc" id="L44">        g.fillRect(0, 0, buffer.getWidth(), buffer.getHeight());</span>
+<span class="fc" id="L45">        g.dispose();</span>
+<span class="fc" id="L46">    }</span>
 
     @Override
     public void flush() {
         // No-op for a static buffer
-<span class="nc" id="L51">    }</span>
+<span class="fc" id="L51">    }</span>
 
     @Override
     public void close() {
         // No-op for a static buffer
-<span class="nc" id="L56">    }</span>
+<span class="fc" id="L56">    }</span>
 
     // Unused methods in this context
     @Override
     public ACTION getACTION() {
-<span class="nc" id="L61">        throw new UnsupportedOperationException(&quot;Not supported for BufferedImageGUI&quot;);</span>
+<span class="fc" id="L61">        throw new UnsupportedOperationException(&quot;Not supported for BufferedImageGUI&quot;);</span>
     }
 
     @Override
     public GUI getGUI() {
-<span class="nc" id="L66">        throw new UnsupportedOperationException(&quot;Not supported for BufferedImageGUI&quot;);</span>
+<span class="fc" id="L66">        throw new UnsupportedOperationException(&quot;Not supported for BufferedImageGUI&quot;);</span>
     }
 
     @Override
     public int getFPS() {
-<span class="nc" id="L71">        throw new UnsupportedOperationException(&quot;Not supported for BufferedImageGUI&quot;);</span>
+<span class="fc" id="L71">        throw new UnsupportedOperationException(&quot;Not supported for BufferedImageGUI&quot;);</span>
     }
 
     @Override
     public void setFPS(int fps) {
-<span class="nc" id="L76">        throw new UnsupportedOperationException(&quot;Not supported for BufferedImageGUI&quot;);</span>
+<span class="fc" id="L76">        throw new UnsupportedOperationException(&quot;Not supported for BufferedImageGUI&quot;);</span>
     }
 
     @Override
     public void drawHitBox(int x, int y, int width, int height, TextColor.RGB color) {
-<span class="nc" id="L81">        throw new UnsupportedOperationException(&quot;Not implemented for BufferedImageGUI&quot;);</span>
+<span class="fc" id="L81">        throw new UnsupportedOperationException(&quot;Not implemented for BufferedImageGUI&quot;);</span>
     }
 
     @Override
