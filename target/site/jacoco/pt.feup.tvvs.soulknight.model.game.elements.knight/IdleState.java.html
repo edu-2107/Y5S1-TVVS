@@ -21,13 +21,13 @@ public class IdleState extends KnightState {
 
     @Override
     public Vector dash() {
-<span class="nc" id="L24">        Vector newVelocity = new Vector(</span>
-<span class="nc bnc" id="L25" title="All 2 branches missed.">                (getKnight().isFacingRight() ? getKnight().getDashBoost():</span>
-<span class="nc" id="L26">                        -getKnight().getDashBoost()),</span>
-<span class="nc" id="L27">                getKnight().getVelocity().y()</span>
+<span class="fc" id="L24">        Vector newVelocity = new Vector(</span>
+<span class="fc bfc" id="L25" title="All 2 branches covered.">                (getKnight().isFacingRight() ? getKnight().getDashBoost():</span>
+<span class="fc" id="L26">                        -getKnight().getDashBoost()),</span>
+<span class="fc" id="L27">                getKnight().getVelocity().y()</span>
         );
-<span class="nc" id="L29">        getKnight().getScene().setDashParticles(getKnight().createDashParticles(10));</span>
-<span class="nc" id="L30">        return applyCollisions(newVelocity);</span>
+<span class="fc" id="L29">        getKnight().getScene().setDashParticles(getKnight().createDashParticles(10));</span>
+<span class="fc" id="L30">        return applyCollisions(newVelocity);</span>
     }
 
     @Override
@@ -43,20 +43,20 @@ public class IdleState extends KnightState {
 
     @Override
     public KnightState getNextState() {
-<span class="pc bpc" id="L46" title="1 of 2 branches missed.">        if (getKnight().getScene().collideSpike())</span>
-<span class="nc" id="L47">            return new RespawnState(getKnight(), 10);</span>
-<span class="pc bpc" id="L48" title="1 of 2 branches missed.">        if (getParticlesTimer() == 0)</span>
+<span class="fc bfc" id="L46" title="All 2 branches covered.">        if (getKnight().getScene().collideSpike())</span>
+<span class="fc" id="L47">            return new RespawnState(getKnight(), 10);</span>
+<span class="fc bfc" id="L48" title="All 2 branches covered.">        if (getParticlesTimer() == 0)</span>
         {
-<span class="nc" id="L50">            getKnight().getScene().setRespawnParticles(getKnight().createRespawnParticles(0));</span>
-<span class="nc" id="L51">            resetParticlesTimer();</span>
+<span class="fc" id="L50">            getKnight().getScene().setRespawnParticles(getKnight().createRespawnParticles(0));</span>
+<span class="fc" id="L51">            resetParticlesTimer();</span>
         }
-<span class="pc bpc" id="L53" title="1 of 2 branches missed.">        if (!getKnight().isOnGround())</span>
-<span class="nc" id="L54">            return getNextOnAirState();</span>
+<span class="fc bfc" id="L53" title="All 2 branches covered.">        if (!getKnight().isOnGround())</span>
+<span class="fc" id="L54">            return getNextOnAirState();</span>
 <span class="fc" id="L55">        getKnight().setJumpCounter(0);</span>
-<span class="pc bpc" id="L56" title="1 of 2 branches missed.">        if (getKnight().isOverMaxXVelocity())</span>
-<span class="nc" id="L57">            return new DashState(getKnight());</span>
-<span class="pc bpc" id="L58" title="1 of 2 branches missed.">        if (Math.abs(getKnight().getVelocity().x()) &gt;= WalkingState.MIN_VELOCITY)</span>
-<span class="nc" id="L59">            return new WalkingState(getKnight());</span>
+<span class="fc bfc" id="L56" title="All 2 branches covered.">        if (getKnight().isOverMaxXVelocity())</span>
+<span class="fc" id="L57">            return new DashState(getKnight());</span>
+<span class="fc bfc" id="L58" title="All 2 branches covered.">        if (Math.abs(getKnight().getVelocity().x()) &gt;= WalkingState.MIN_VELOCITY)</span>
+<span class="fc" id="L59">            return new WalkingState(getKnight());</span>
 <span class="fc" id="L60">        return this;</span>
     }
 }

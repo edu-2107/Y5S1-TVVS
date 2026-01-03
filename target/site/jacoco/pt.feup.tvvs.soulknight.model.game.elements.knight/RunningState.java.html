@@ -13,54 +13,54 @@ public class RunningState extends KnightState{
 
     @Override
     public Vector jump() {
-<span class="nc" id="L16">        getKnight().setJumpCounter(getKnight().getJumpCounter() + 1);</span>
-<span class="nc" id="L17">        Vector newVelocity = new Vector(</span>
-<span class="nc" id="L18">                getKnight().getVelocity().x(),</span>
-<span class="nc" id="L19">                getKnight().getVelocity().y() - getKnight().getJumpBoost()</span>
+<span class="fc" id="L16">        getKnight().setJumpCounter(getKnight().getJumpCounter() + 1);</span>
+<span class="fc" id="L17">        Vector newVelocity = new Vector(</span>
+<span class="fc" id="L18">                getKnight().getVelocity().x(),</span>
+<span class="fc" id="L19">                getKnight().getVelocity().y() - getKnight().getJumpBoost()</span>
         );
-<span class="nc" id="L21">        getKnight().getScene().setJumpParticles(getKnight().createParticlesJump(10));</span>
+<span class="fc" id="L21">        getKnight().getScene().setJumpParticles(getKnight().createParticlesJump(10));</span>
 
-<span class="nc" id="L23">        return updateVelocity(newVelocity);</span>
+<span class="fc" id="L23">        return updateVelocity(newVelocity);</span>
     }
     @Override
     public Vector dash() {
-<span class="nc" id="L27">        Vector newVelocity = new Vector(</span>
-<span class="nc bnc" id="L28" title="All 2 branches missed.">                 (getKnight().isFacingRight() ? getKnight().getDashBoost():</span>
-<span class="nc" id="L29">                        -getKnight().getDashBoost()),</span>
-<span class="nc" id="L30">                getKnight().getVelocity().y()</span>
+<span class="fc" id="L27">        Vector newVelocity = new Vector(</span>
+<span class="fc bfc" id="L28" title="All 2 branches covered.">                 (getKnight().isFacingRight() ? getKnight().getDashBoost():</span>
+<span class="fc" id="L29">                        -getKnight().getDashBoost()),</span>
+<span class="fc" id="L30">                getKnight().getVelocity().y()</span>
         );
-<span class="nc" id="L32">        getKnight().getScene().setDashParticles(getKnight().createDashParticles(10));</span>
-<span class="nc" id="L33">        return applyCollisions(newVelocity);</span>
+<span class="fc" id="L32">        getKnight().getScene().setDashParticles(getKnight().createDashParticles(10));</span>
+<span class="fc" id="L33">        return applyCollisions(newVelocity);</span>
     }
     @Override
     public Vector updateVelocity(Vector velocity) {
-<span class="nc" id="L37">        tickParticles();</span>
-<span class="nc" id="L38">        Vector newVelocity = new Vector(</span>
-<span class="nc" id="L39">                velocity.x() * getKnight().getAcceleration(),</span>
-<span class="nc" id="L40">                velocity.y()</span>
+<span class="fc" id="L37">        tickParticles();</span>
+<span class="fc" id="L38">        Vector newVelocity = new Vector(</span>
+<span class="fc" id="L39">                velocity.x() * getKnight().getAcceleration(),</span>
+<span class="fc" id="L40">                velocity.y()</span>
         );
-<span class="nc" id="L42">        return limitVelocity(applyCollisions(newVelocity));</span>
+<span class="fc" id="L42">        return limitVelocity(applyCollisions(newVelocity));</span>
     }
 
     @Override
     public KnightState getNextState() {
-<span class="pc bpc" id="L47" title="1 of 2 branches missed.">        if (getKnight().getScene().collideSpike())</span>
-<span class="nc" id="L48">            return new RespawnState(getKnight(), 10);</span>
-<span class="pc bpc" id="L49" title="1 of 2 branches missed.">        if (getParticlesTimer() == 0)</span>
+<span class="fc bfc" id="L47" title="All 2 branches covered.">        if (getKnight().getScene().collideSpike())</span>
+<span class="fc" id="L48">            return new RespawnState(getKnight(), 10);</span>
+<span class="fc bfc" id="L49" title="All 2 branches covered.">        if (getParticlesTimer() == 0)</span>
         {
-<span class="nc" id="L51">            getKnight().getScene().setRespawnParticles(getKnight().createRespawnParticles(0));</span>
-<span class="nc" id="L52">            resetParticlesTimer();</span>
+<span class="fc" id="L51">            getKnight().getScene().setRespawnParticles(getKnight().createRespawnParticles(0));</span>
+<span class="fc" id="L52">            resetParticlesTimer();</span>
         }
-<span class="pc bpc" id="L54" title="1 of 2 branches missed.">        if (!getKnight().isOnGround())</span>
-<span class="nc" id="L55">            return getNextOnAirState();</span>
+<span class="fc bfc" id="L54" title="All 2 branches covered.">        if (!getKnight().isOnGround())</span>
+<span class="fc" id="L55">            return getNextOnAirState();</span>
 <span class="fc" id="L56">        getKnight().setJumpCounter(0);</span>
-<span class="pc bpc" id="L57" title="1 of 2 branches missed.">        if (getKnight().isOverMaxXVelocity())</span>
-<span class="nc" id="L58">            return new DashState(getKnight());</span>
+<span class="fc bfc" id="L57" title="All 2 branches covered.">        if (getKnight().isOverMaxXVelocity())</span>
+<span class="fc" id="L58">            return new DashState(getKnight());</span>
 <span class="fc bfc" id="L59" title="All 2 branches covered.">        if (Math.abs(getKnight().getVelocity().x()) &gt;= RunningState.MAX_VELOCITY)</span>
 <span class="fc" id="L60">            return new MaxVelocityState(getKnight());</span>
-<span class="pc bpc" id="L61" title="1 of 2 branches missed.">        if (Math.abs(getKnight().getVelocity().x()) &lt; RunningState.MIN_VELOCITY)</span>
+<span class="fc bfc" id="L61" title="All 2 branches covered.">        if (Math.abs(getKnight().getVelocity().x()) &lt; RunningState.MIN_VELOCITY)</span>
 <span class="fc" id="L62">            return new WalkingState(getKnight());</span>
-<span class="nc" id="L63">        return this;</span>
+<span class="fc" id="L63">        return this;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

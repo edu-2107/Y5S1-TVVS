@@ -5,11 +5,13 @@ D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknig
 D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknight\DamagedStateWhiteBoxTests.java
 D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknight\FallingStateWhiteBoxTests.java
 D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknight\GameViewerWhiteBoxTests.java
+D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknight\IdleStateWhiteBoxTests.java
 D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknight\JumpStateWhiteBoxTests.java
 D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknight\KnightMutationTests.java
 D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknight\KnightStateWhiteBoxTests.java
 D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknight\KnightWhiteBoxTests.java
 D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknight\LanternaGUIWhiteBoxTests.java
+D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknight\MaxVelocityStateWhiteBoxTests.java
 D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknight\MenuViewerMutationTests.java
 D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknight\MenuViewerWhiteBoxTests.java
 D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknight\ParticleControllerWhiteBoxTests.java
@@ -17,6 +19,7 @@ D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknig
 D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknight\PlayerControllerWhiteBoxTests.java
 D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknight\RainParticleWhiteBoxTests.java
 D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknight\RespawnParticleWhiteBoxTests.java
+D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknight\RunningStateWhiteBoxTests.java
 D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknight\SceneLoaderWhiteBoxTests.java
 D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknight\SceneWhiteBoxTests.java
 D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknight\WalkingStateWhiteBoxTests.java
