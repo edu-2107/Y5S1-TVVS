@@ -12,17 +12,17 @@ import java.io.IOException;
 
 public class CreditsState extends State&lt;Credits&gt;{
     public CreditsState(Credits model, SpriteLoader spriteLoader) throws IOException {
-<span class="nc" id="L15">        super(model, spriteLoader);</span>
-<span class="nc" id="L16">    }</span>
+<span class="fc" id="L15">        super(model, spriteLoader);</span>
+<span class="fc" id="L16">    }</span>
 
     @Override
     protected ScreenViewer&lt;Credits&gt; createScreenViewer(ViewerProvider viewerProvider) {
-<span class="nc" id="L20">        return new CreditsViewer(getModel(), viewerProvider);</span>
+<span class="fc" id="L20">        return new CreditsViewer(getModel(), viewerProvider);</span>
     }
 
     @Override
     protected Controller&lt;Credits&gt; createController() {
-<span class="nc" id="L25">        return new CreditsController(getModel());</span>
+<span class="fc" id="L25">        return new CreditsController(getModel());</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

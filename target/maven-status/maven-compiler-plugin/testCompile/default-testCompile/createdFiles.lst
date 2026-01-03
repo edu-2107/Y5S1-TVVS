@@ -1,5 +1,6 @@
 pt\feup\tvvs\soulknight\gui\BufferedImageGUIWhiteBoxTests.class
 pt\feup\tvvs\soulknight\RespawnParticleWhiteBoxTests.class
+pt\feup\tvvs\soulknight\MonsterViewerWhiteBoxTests.class
 pt\feup\tvvs\soulknight\DamagedStateWhiteBoxTests.class
 pt\feup\tvvs\soulknight\KnightStateWhiteBoxTests.class
 pt\feup\tvvs\soulknight\RunningStateWhiteBoxTests.class
@@ -32,7 +33,9 @@ pt\feup\tvvs\soulknight\ParticleControllerWhiteBoxTests.class
 pt\feup\tvvs\soulknight\GameViewerWhiteBoxTests.class
 pt\feup\tvvs\soulknight\SceneLoaderWhiteBoxTests$ExposedSceneLoader.class
 pt\feup\tvvs\soulknight\SceneLoaderWhiteBoxTests.class
+pt\feup\tvvs\soulknight\SpriteWhiteBoxTests.class
 pt\feup\tvvs\soulknight\SceneWhiteBoxTests.class
+pt\feup\tvvs\soulknight\OptionViewerWhiteBoxTests.class
 pt\feup\tvvs\soulknight\RainParticleWhiteBoxTests.class
 pt\feup\tvvs\soulknight\JumpStateWhiteBoxTests$TestableJumpState.class
 pt\feup\tvvs\soulknight\PurpleMonsterWhiteBoxTests$TestablePurpleMonster.class
@@ -43,5 +46,6 @@ pt\feup\tvvs\soulknight\PurpleMonsterWhiteBoxTests.class
 pt\feup\tvvs\soulknight\LanternaGUIWhiteBoxTests.class
 pt\feup\tvvs\soulknight\RespawnParticleWhiteBoxTests$TestableRespawnParticle.class
 pt\feup\tvvs\soulknight\BlackBoxTests.class
+pt\feup\tvvs\soulknight\SceneControllerWhiteBoxTests.class
 pt\feup\tvvs\soulknight\CreditsViewerWhiteBoxTests.class
 pt\feup\tvvs\soulknight\MaxVelocityStateWhiteBoxTests$TestableMaxVelocityState.class

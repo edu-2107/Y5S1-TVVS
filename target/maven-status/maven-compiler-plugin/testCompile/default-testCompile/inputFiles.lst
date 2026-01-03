@@ -16,6 +16,8 @@ D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknig
 D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknight\MaxVelocityStateWhiteBoxTests.java
 D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknight\MenuViewerMutationTests.java
 D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknight\MenuViewerWhiteBoxTests.java
+D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknight\MonsterViewerWhiteBoxTests.java
+D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknight\OptionViewerWhiteBoxTests.java
 D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknight\ParticleControllerWhiteBoxTests.java
 D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknight\ParticleMenuControllerWhiteBoxTests.java
 D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknight\PBTests.java
@@ -24,7 +26,9 @@ D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknig
 D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknight\RainParticleWhiteBoxTests.java
 D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknight\RespawnParticleWhiteBoxTests.java
 D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknight\RunningStateWhiteBoxTests.java
+D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknight\SceneControllerWhiteBoxTests.java
 D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknight\SceneLoaderWhiteBoxTests.java
 D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknight\SceneWhiteBoxTests.java
+D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknight\SpriteWhiteBoxTests.java
 D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknight\SwordMonsterWhiteBoxTests.java
 D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknight\WalkingStateWhiteBoxTests.java

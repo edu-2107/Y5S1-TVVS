@@ -15,18 +15,18 @@ import java.io.IOException;
 
 public class GameState extends State&lt;Scene&gt; {
     public GameState(Scene model, SpriteLoader spriteLoader) throws IOException {
-<span class="nc" id="L18">        super(model, spriteLoader);</span>
-<span class="nc" id="L19">    }</span>
+<span class="fc" id="L18">        super(model, spriteLoader);</span>
+<span class="fc" id="L19">    }</span>
 
     @Override
     protected Controller&lt;Scene&gt; createController() {
-<span class="nc" id="L23">        return new SceneController(getModel(), new PlayerController(getModel()),</span>
-<span class="nc" id="L24">                new ParticleController(getModel()), new EnemieController(getModel()));</span>
+<span class="fc" id="L23">        return new SceneController(getModel(), new PlayerController(getModel()),</span>
+<span class="fc" id="L24">                new ParticleController(getModel()), new EnemieController(getModel()));</span>
     }
 
     @Override
     protected ScreenViewer&lt;Scene&gt; createScreenViewer(ViewerProvider viewerProvider) throws IOException {
-<span class="nc" id="L29">        return new GameViewer(getModel(), viewerProvider);</span>
+<span class="fc" id="L29">        return new GameViewer(getModel(), viewerProvider);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

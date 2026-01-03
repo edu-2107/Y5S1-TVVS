@@ -12,24 +12,24 @@ public class Credits {
     private final int seconds;
     private final int minutes;
 
-<span class="nc" id="L15">    public Credits(Knight player) {</span>
-<span class="nc" id="L16">        this.score =  player.getEnergy() - player.getNumberOfDeaths();</span>
-<span class="nc" id="L17">        this.deaths = player.getNumberOfDeaths();</span>
-<span class="nc" id="L18">        long duration = System.currentTimeMillis() - player.getBirthTime();</span>
-<span class="nc" id="L19">        this.seconds = (int) ((duration / 1000) % 60);</span>
-<span class="nc" id="L20">        this.minutes = (int) ((duration / 1000) / 60);</span>
+<span class="fc" id="L15">    public Credits(Knight player) {</span>
+<span class="fc" id="L16">        this.score =  player.getEnergy() - player.getNumberOfDeaths();</span>
+<span class="fc" id="L17">        this.deaths = player.getNumberOfDeaths();</span>
+<span class="fc" id="L18">        long duration = System.currentTimeMillis() - player.getBirthTime();</span>
+<span class="fc" id="L19">        this.seconds = (int) ((duration / 1000) % 60);</span>
+<span class="fc" id="L20">        this.minutes = (int) ((duration / 1000) / 60);</span>
 
-<span class="nc" id="L22">        String[] messages = new String[1];</span>
-<span class="nc" id="L23">        messages[0] = &quot;Game Over!&quot;;</span>
-<span class="nc" id="L24">        this.messages = messages;</span>
+<span class="fc" id="L22">        String[] messages = new String[1];</span>
+<span class="fc" id="L23">        messages[0] = &quot;Game Over!&quot;;</span>
+<span class="fc" id="L24">        this.messages = messages;</span>
 
-<span class="nc" id="L26">        String[] names = new String[4];</span>
-<span class="nc" id="L27">        names[0] = &quot;Made By:&quot;;</span>
-<span class="nc" id="L28">        names[1] = &quot;Andre Freitas&quot;;</span>
-<span class="nc" id="L29">        names[2] = &quot;Joao Furtado&quot;;</span>
-<span class="nc" id="L30">        names[3] = &quot;Joao Santos&quot;;</span>
-<span class="nc" id="L31">        this.names = names;</span>
-<span class="nc" id="L32">    }</span>
+<span class="fc" id="L26">        String[] names = new String[4];</span>
+<span class="fc" id="L27">        names[0] = &quot;Made By:&quot;;</span>
+<span class="fc" id="L28">        names[1] = &quot;Andre Freitas&quot;;</span>
+<span class="fc" id="L29">        names[2] = &quot;Joao Furtado&quot;;</span>
+<span class="fc" id="L30">        names[3] = &quot;Joao Santos&quot;;</span>
+<span class="fc" id="L31">        this.names = names;</span>
+<span class="fc" id="L32">    }</span>
 
     public void setScore(int score) {
 <span class="nc" id="L35">        this.score = score;</span>
