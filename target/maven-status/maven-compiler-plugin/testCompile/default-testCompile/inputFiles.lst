@@ -2,6 +2,7 @@ D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknig
 D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknight\BufferedImageGUIWhiteBoxTests.java
 D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknight\CreditsControllerWhiteBoxTests.java
 D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknight\CreditsViewerWhiteBoxTests.java
+D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknight\DamagedStateWhiteBoxTests.java
 D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknight\FallingStateWhiteBoxTests.java
 D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknight\GameViewerWhiteBoxTests.java
 D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknight\JumpStateWhiteBoxTests.java
@@ -18,3 +19,4 @@ D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknig
 D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknight\RespawnParticleWhiteBoxTests.java
 D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknight\SceneLoaderWhiteBoxTests.java
 D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknight\SceneWhiteBoxTests.java
+D:\UNIVERSIDADE\5thYear\TVVS\01-HollowKnight\src\test\java\pt\feup\tvvs\soulknight\WalkingStateWhiteBoxTests.java

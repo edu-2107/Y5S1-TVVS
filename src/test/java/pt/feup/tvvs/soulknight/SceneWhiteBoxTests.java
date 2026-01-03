@@ -19,7 +19,6 @@ import static org.mockito.Mockito.*;
 class SceneWhiteBoxTests {
 
     private Scene newSmallScene() {
-        // Keep it small but valid for Tile.SIZE indexing
         int w = Tile.SIZE * 4; // pixel width
         int h = Tile.SIZE * 4; // pixel height
         return new Scene(w, h, 7);

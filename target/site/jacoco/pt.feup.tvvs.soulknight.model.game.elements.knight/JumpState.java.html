@@ -10,7 +10,7 @@ public class JumpState extends KnightState {
 
     @Override
     public Vector jump() {
-<span class="pc bpc" id="L13" title="1 of 2 branches missed.">        if (getKnight().getJumpCounter() &lt; 2) {</span>
+<span class="fc bfc" id="L13" title="All 2 branches covered.">        if (getKnight().getJumpCounter() &lt; 2) {</span>
 <span class="fc" id="L14">            getKnight().setJumpCounter(getKnight().getJumpCounter() + 1);</span>
 <span class="fc" id="L15">            Vector newVelocity = new Vector(</span>
 <span class="fc" id="L16">                    getKnight().getVelocity().x(),</span>
@@ -22,31 +22,31 @@ public class JumpState extends KnightState {
 <span class="fc" id="L22">            return updateVelocity(newVelocity);</span>
         }
 
-<span class="nc" id="L25">        return updateVelocity(getKnight().getVelocity());</span>
+<span class="fc" id="L25">        return updateVelocity(getKnight().getVelocity());</span>
     }
     @Override
     public Vector dash() {
 
-<span class="nc" id="L30">        Vector newVelocity = new Vector(</span>
-<span class="nc bnc" id="L31" title="All 2 branches missed.">                  (getKnight().isFacingRight() ? getKnight().getDashBoost():</span>
-<span class="nc" id="L32">                        -getKnight().getDashBoost()),</span>
-<span class="nc" id="L33">                getKnight().getVelocity().y()</span>
+<span class="fc" id="L30">        Vector newVelocity = new Vector(</span>
+<span class="fc bfc" id="L31" title="All 2 branches covered.">                  (getKnight().isFacingRight() ? getKnight().getDashBoost():</span>
+<span class="fc" id="L32">                        -getKnight().getDashBoost()),</span>
+<span class="fc" id="L33">                getKnight().getVelocity().y()</span>
         );
-<span class="nc" id="L35">        getKnight().getScene().setDashParticles(getKnight().createDashParticles(10));</span>
-<span class="nc" id="L36">        return applyCollisions(newVelocity);</span>
+<span class="fc" id="L35">        getKnight().getScene().setDashParticles(getKnight().createDashParticles(10));</span>
+<span class="fc" id="L36">        return applyCollisions(newVelocity);</span>
     }
 
     @Override
     public Vector updateVelocity(Vector newvelocity) {
 <span class="fc" id="L41">        tickParticles();</span>
-<span class="pc bpc" id="L42" title="3 of 4 branches missed.">        if (getKnight().getVelocity().y() &lt; 0 &amp;&amp; getKnight().getVelocity().y() &gt;= -0.5) {</span>
+<span class="fc bfc" id="L42" title="All 4 branches covered.">        if (getKnight().getVelocity().y() &lt; 0 &amp;&amp; getKnight().getVelocity().y() &gt;= -0.5) {</span>
 
-<span class="nc" id="L44">            Vector velocity = new Vector(</span>
-<span class="nc" id="L45">                    newvelocity.x() * getKnight().getAcceleration(),</span>
-<span class="nc" id="L46">                    newvelocity.y() + getKnight().getScene().getGravity() * 0.5</span>
+<span class="fc" id="L44">            Vector velocity = new Vector(</span>
+<span class="fc" id="L45">                    newvelocity.x() * getKnight().getAcceleration(),</span>
+<span class="fc" id="L46">                    newvelocity.y() + getKnight().getScene().getGravity() * 0.5</span>
             );
 
-<span class="nc" id="L49">            return limitVelocity(velocity);</span>
+<span class="fc" id="L49">            return limitVelocity(velocity);</span>
 
         }
 
@@ -59,19 +59,19 @@ public class JumpState extends KnightState {
 
     @Override
     public KnightState getNextState() {
-<span class="nc bnc" id="L62" title="All 2 branches missed.">        if (getKnight().getScene().collideSpike())</span>
-<span class="nc" id="L63">            return new RespawnState(getKnight(), 10);</span>
-<span class="nc bnc" id="L64" title="All 2 branches missed.">        if (getParticlesTimer() == 0)</span>
+<span class="fc bfc" id="L62" title="All 2 branches covered.">        if (getKnight().getScene().collideSpike())</span>
+<span class="fc" id="L63">            return new RespawnState(getKnight(), 10);</span>
+<span class="fc bfc" id="L64" title="All 2 branches covered.">        if (getParticlesTimer() == 0)</span>
         {
-<span class="nc" id="L66">            getKnight().getScene().setRespawnParticles(getKnight().createRespawnParticles(0));</span>
-<span class="nc" id="L67">            resetParticlesTimer();</span>
+<span class="fc" id="L66">            getKnight().getScene().setRespawnParticles(getKnight().createRespawnParticles(0));</span>
+<span class="fc" id="L67">            resetParticlesTimer();</span>
         }
-<span class="nc bnc" id="L69" title="All 2 branches missed.">        if (getKnight().isOverMaxXVelocity())</span>
-<span class="nc" id="L70">            return new DashState(getKnight());</span>
-<span class="nc bnc" id="L71" title="All 2 branches missed.">        if (getKnight().getVelocity().y() &gt;= 0)</span>
-<span class="nc" id="L72">            return new FallingState(getKnight());</span>
+<span class="fc bfc" id="L69" title="All 2 branches covered.">        if (getKnight().isOverMaxXVelocity())</span>
+<span class="fc" id="L70">            return new DashState(getKnight());</span>
+<span class="fc bfc" id="L71" title="All 2 branches covered.">        if (getKnight().getVelocity().y() &gt;= 0)</span>
+<span class="fc" id="L72">            return new FallingState(getKnight());</span>
 
-<span class="nc" id="L74">        return this;</span>
+<span class="fc" id="L74">        return this;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

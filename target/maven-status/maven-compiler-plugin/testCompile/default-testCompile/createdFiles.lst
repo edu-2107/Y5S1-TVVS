@@ -1,7 +1,11 @@
 pt\feup\tvvs\soulknight\gui\BufferedImageGUIWhiteBoxTests.class
 pt\feup\tvvs\soulknight\RespawnParticleWhiteBoxTests.class
+pt\feup\tvvs\soulknight\DamagedStateWhiteBoxTests.class
 pt\feup\tvvs\soulknight\KnightStateWhiteBoxTests.class
+pt\feup\tvvs\soulknight\WalkingStateWhiteBoxTests$TestableWalkingState.class
 pt\feup\tvvs\soulknight\KnightStateWhiteBoxTests$TestKnightState.class
+pt\feup\tvvs\soulknight\DamagedStateWhiteBoxTests$TestableDamagedState.class
+pt\feup\tvvs\soulknight\WalkingStateWhiteBoxTests.class
 pt\feup\tvvs\soulknight\CreditsControllerWhiteBoxTests.class
 pt\feup\tvvs\soulknight\KnightMutationTests$1.class
 pt\feup\tvvs\soulknight\KnightWhiteBoxTests$TestKnightState.class

@@ -1,20 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: pt.feup.tvvs.soulknight.JumpStateWhiteBoxTests
 -------------------------------------------------------------------------------
-Tests run: 11, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.064 s <<< FAILURE! -- in pt.feup.tvvs.soulknight.JumpStateWhiteBoxTests
-pt.feup.tvvs.soulknight.JumpStateWhiteBoxTests.getNextState_whenParticlesTimerZero_setsRespawnParticles_andResetsTimer_thenReturnsThis -- Time elapsed: 0.032 s <<< FAILURE!
-Wanted but not invoked:
-scene.setRespawnParticles(<any List>);
--> at pt.feup.tvvs.soulknight.model.game.scene.Scene.setRespawnParticles(Scene.java:261)
-
-However, there was exactly 1 interaction with this mock:
-scene.collideSpike();
--> at pt.feup.tvvs.soulknight.model.game.elements.knight.JumpState.getNextState(JumpState.java:62)
-
-
-	at pt.feup.tvvs.soulknight.model.game.scene.Scene.setRespawnParticles(Scene.java:261)
-	at pt.feup.tvvs.soulknight.JumpStateWhiteBoxTests.getNextState_whenParticlesTimerZero_setsRespawnParticles_andResetsTimer_thenReturnsThis(JumpStateWhiteBoxTests.java:195)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s -- in pt.feup.tvvs.soulknight.JumpStateWhiteBoxTests
