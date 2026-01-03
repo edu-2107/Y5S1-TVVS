@@ -94,7 +94,7 @@ Soul Knight,pt.feup.tvvs.soulknight.model.credits,Credits,97,0,0,0,28,0,10,0,10,
 Soul Knight,pt.feup.tvvs.soulknight.view.elements.spike,SpikeViewer,20,35,0,0,3,6,1,1,1,1
 Soul Knight,pt.feup.tvvs.soulknight.view.elements.knight,KnightViewer,56,113,8,2,13,16,6,2,2,1
 Soul Knight,pt.feup.tvvs.soulknight.view.elements.particle,ParticleViewer,52,3,0,0,11,1,1,1,1,1
-Soul Knight,pt.feup.tvvs.soulknight,Game,184,0,8,0,50,0,13,0,9,0
+Soul Knight,pt.feup.tvvs.soulknight,Game,103,81,0,8,26,24,8,5,8,1
 Soul Knight,pt.feup.tvvs.soulknight.view.elements.knight.knightStates,StateAnimation,44,21,4,0,8,10,6,4,4,4
 Soul Knight,pt.feup.tvvs.soulknight.view.elements.knight.knightStates,FallingAnimation,0,52,0,2,0,11,0,3,0,2
 Soul Knight,pt.feup.tvvs.soulknight.view.elements.knight.knightStates,RunningAnimation,0,52,0,2,0,11,0,3,0,2

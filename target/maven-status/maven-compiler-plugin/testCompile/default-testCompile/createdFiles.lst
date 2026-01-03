@@ -17,6 +17,7 @@ pt\feup\tvvs\soulknight\FallingStateWhiteBoxTests.class
 pt\feup\tvvs\soulknight\SwordMonsterWhiteBoxTests.class
 pt\feup\tvvs\soulknight\MenuViewerMutationTests.class
 pt\feup\tvvs\soulknight\KnightStateWhiteBoxTests$CollisionKnightState.class
+pt\feup\tvvs\soulknight\GameWhiteBoxTests.class
 pt\feup\tvvs\soulknight\IdleStateWhiteBoxTests$TestableIdleState.class
 pt\feup\tvvs\soulknight\IdleStateWhiteBoxTests.class
 pt\feup\tvvs\soulknight\FallingStateWhiteBoxTests$TestableFallingState.class
