@@ -5,6 +5,10 @@ import pt.feup.tvvs.soulknight.model.dataStructs.Vector;
 import pt.feup.tvvs.soulknight.model.game.elements.knight.*;
 import pt.feup.tvvs.soulknight.model.game.elements.knight.Knight;
 import pt.feup.tvvs.soulknight.model.dataStructs.Position;
+import pt.feup.tvvs.soulknight.model.game.scene.Scene;
+
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -14,6 +18,22 @@ class KnightStateWhiteBoxTests {
         // x=0, y=0, HP=50, Damage=2.0, Energy=100
         return new Knight(0, 0, 50, 2.0f, 100);
     }
+
+    private static class CollisionKnightState extends KnightState {
+        CollisionKnightState(Knight knight) {
+            super(knight);
+        }
+
+        Vector callApplyCollisions(Vector v) {
+            return super.applyCollisions(v);
+        }
+
+        @Override public Vector jump() { return new Vector(0,0); }
+        @Override public Vector dash() { return new Vector(0,0); }
+        @Override public Vector updateVelocity(Vector newVelocity) { return newVelocity; }
+        @Override public KnightState getNextState() { return this; }
+    }
+
 
     private static class TestKnightState extends KnightState {
 
@@ -225,4 +245,123 @@ class KnightStateWhiteBoxTests {
 
         assertEquals(100, state.getParticlesTimer());
     }
+
+    @Test
+    void applyCollisions_noCollisions_returnsSameVelocity() {
+        Knight knight = mock(Knight.class);
+        Scene scene = mock(Scene.class);
+
+        when(knight.getScene()).thenReturn(scene);
+        when(knight.getPosition()).thenReturn(new Position(0, 0));
+        when(knight.getWidth()).thenReturn((int) 1.0);
+        when(knight.getHeight()).thenReturn((int) 1.0);
+
+        // nenhuma colisão em lado nenhum
+        when(scene.collidesDown(any(), any())).thenReturn(false);
+        when(scene.collidesUp(any(), any())).thenReturn(false);
+        when(scene.collidesLeft(any(), any())).thenReturn(false);
+        when(scene.collidesRight(any(), any())).thenReturn(false);
+
+        CollisionKnightState state = new CollisionKnightState(knight);
+
+        Vector out = state.callApplyCollisions(new Vector(0.0, 0.0));
+        assertEquals(new Vector(0.0, 0.0), out);
+    }
+
+    @Test
+    void applyCollisions_downCollision_reducesPositiveVy_untilNotColliding() {
+        Knight knight = mock(Knight.class);
+        Scene scene = mock(Scene.class);
+
+        when(knight.getScene()).thenReturn(scene);
+        when(knight.getPosition()).thenReturn(new Position(0, 0));
+        when(knight.getWidth()).thenReturn((int) 1.0);
+        when(knight.getHeight()).thenReturn((int) 1.0);
+
+        // vy=3: true (vy->2), true (->1), false (para)
+        when(scene.collidesDown(any(), any())).thenReturn(true, true, false);
+        when(scene.collidesUp(any(), any())).thenReturn(false);
+        when(scene.collidesLeft(any(), any())).thenReturn(false);
+        when(scene.collidesRight(any(), any())).thenReturn(false);
+
+        CollisionKnightState state = new CollisionKnightState(knight);
+
+        Vector out = state.callApplyCollisions(new Vector(0.0, 3.0));
+
+        assertEquals(0.0, out.x(), 1e-9);
+        assertEquals(1.0, out.y(), 1e-9);
+    }
+
+    @Test
+    void applyCollisions_upCollision_increasesNegativeVy_untilNotColliding() {
+        Knight knight = mock(Knight.class);
+        Scene scene = mock(Scene.class);
+
+        when(knight.getScene()).thenReturn(scene);
+        when(knight.getPosition()).thenReturn(new Position(0, 0));
+        when(knight.getWidth()).thenReturn((int) 1.0);
+        when(knight.getHeight()).thenReturn((int) 1.0);
+
+        // vy=-3: true (vy->-2), true (->-1), false (para)
+        when(scene.collidesUp(any(), any())).thenReturn(true, true, false);
+        when(scene.collidesDown(any(), any())).thenReturn(false);
+        when(scene.collidesLeft(any(), any())).thenReturn(false);
+        when(scene.collidesRight(any(), any())).thenReturn(false);
+
+        CollisionKnightState state = new CollisionKnightState(knight);
+
+        Vector out = state.callApplyCollisions(new Vector(0.0, -3.0));
+
+        assertEquals(0.0, out.x(), 1e-9);
+        assertEquals(-1.0, out.y(), 1e-9);
+    }
+
+    @Test
+    void applyCollisions_leftCollision_increasesNegativeVx_untilNotColliding() {
+        Knight knight = mock(Knight.class);
+        Scene scene = mock(Scene.class);
+
+        when(knight.getScene()).thenReturn(scene);
+        when(knight.getPosition()).thenReturn(new Position(0, 0));
+        when(knight.getWidth()).thenReturn((int) 1.0);
+        when(knight.getHeight()).thenReturn((int) 1.0);
+
+        // vx=-3: true (vx->-2), true (->-1), false (para)
+        when(scene.collidesLeft(any(), any())).thenReturn(true, true, false);
+        when(scene.collidesDown(any(), any())).thenReturn(false);
+        when(scene.collidesUp(any(), any())).thenReturn(false);
+        when(scene.collidesRight(any(), any())).thenReturn(false);
+
+        CollisionKnightState state = new CollisionKnightState(knight);
+
+        Vector out = state.callApplyCollisions(new Vector(-3.0, 0.0));
+
+        assertEquals(-1.0, out.x(), 1e-9);
+        assertEquals(0.0, out.y(), 1e-9);
+    }
+
+    @Test
+    void applyCollisions_rightCollision_reducesPositiveVx_untilNotColliding() {
+        Knight knight = mock(Knight.class);
+        Scene scene = mock(Scene.class);
+
+        when(knight.getScene()).thenReturn(scene);
+        when(knight.getPosition()).thenReturn(new Position(0, 0));
+        when(knight.getWidth()).thenReturn((int) 1.0);
+        when(knight.getHeight()).thenReturn((int) 1.0);
+
+        // vx=3: true (vx->2), true (->1), false (para)
+        when(scene.collidesRight(any(), any())).thenReturn(true, true, false);
+        when(scene.collidesDown(any(), any())).thenReturn(false);
+        when(scene.collidesUp(any(), any())).thenReturn(false);
+        when(scene.collidesLeft(any(), any())).thenReturn(false);
+
+        CollisionKnightState state = new CollisionKnightState(knight);
+
+        Vector out = state.callApplyCollisions(new Vector(3.0, 0.0));
+
+        assertEquals(1.0, out.x(), 1e-9);
+        assertEquals(0.0, out.y(), 1e-9);
+    }
+
 }

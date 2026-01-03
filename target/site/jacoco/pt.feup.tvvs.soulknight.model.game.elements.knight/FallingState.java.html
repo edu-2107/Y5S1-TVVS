@@ -61,17 +61,17 @@ public class FallingState extends KnightState{
     public KnightState getNextState() {
 <span class="fc bfc" id="L62" title="All 2 branches covered.">        if (getKnight().getScene().collideSpike())</span>
 <span class="fc" id="L63">            return new RespawnState(getKnight(), 10);</span>
-<span class="pc bpc" id="L64" title="1 of 2 branches missed.">        if (getParticlesTimer() == 0)</span>
+<span class="fc bfc" id="L64" title="All 2 branches covered.">        if (getParticlesTimer() == 0)</span>
         {
-<span class="nc" id="L66">            getKnight().getScene().setRespawnParticles(getKnight().createRespawnParticles(0));</span>
-<span class="nc" id="L67">            resetParticlesTimer();</span>
+<span class="fc" id="L66">            getKnight().getScene().setRespawnParticles(getKnight().createRespawnParticles(0));</span>
+<span class="fc" id="L67">            resetParticlesTimer();</span>
         }
 <span class="fc bfc" id="L69" title="All 2 branches covered.">        if (getKnight().isOverMaxXVelocity())</span>
 <span class="fc" id="L70">            return new DashState(getKnight());</span>
 <span class="fc bfc" id="L71" title="All 2 branches covered.">        if (getKnight().isOnGround())</span>
 <span class="fc" id="L72">            return getNextGroundState();</span>
-<span class="pc bpc" id="L73" title="1 of 2 branches missed.">        if (getKnight().getJumpCounter() == 2)</span>
-<span class="nc" id="L74">            return getNextOnAirState();</span>
+<span class="fc bfc" id="L73" title="All 2 branches covered.">        if (getKnight().getJumpCounter() == 2)</span>
+<span class="fc" id="L74">            return getNextOnAirState();</span>
 <span class="fc" id="L75">        return this;</span>
     }
 

@@ -40,46 +40,46 @@ public class GhostMonster extends Enemies {
 
     @Override
     public char getChar() {
-<span class="nc" id="L43">        return symbol;</span>
+<span class="fc" id="L43">        return symbol;</span>
     }
 
-<span class="nc" id="L46">    public void setAmplitude(int amplitude) {this.amplitude = amplitude;}</span>
-<span class="nc" id="L47">    public void setFrequency(double freq) {this.frequency = freq;}</span>
-<span class="nc" id="L48">    public void setHorizontalSpeed(int hspeed) {this.horizontalSpeed = hspeed;}</span>
+<span class="fc" id="L46">    public void setAmplitude(int amplitude) {this.amplitude = amplitude;}</span>
+<span class="fc" id="L47">    public void setFrequency(double freq) {this.frequency = freq;}</span>
+<span class="fc" id="L48">    public void setHorizontalSpeed(int hspeed) {this.horizontalSpeed = hspeed;}</span>
 
 
 
     @Override
     public Position updatePosition() {
         // Increment time for sine wave calculations
-<span class="nc" id="L55">        elapsedTime += 1;</span>
+<span class="fc" id="L55">        elapsedTime += 1;</span>
 
         // Horizontal movement
-<span class="nc" id="L58">        double newX = getPosition().x() + horizontalSpeed;</span>
+<span class="fc" id="L58">        double newX = getPosition().x() + horizontalSpeed;</span>
 
         // Vertical movement: sine wave function
-<span class="nc" id="L61">        double newY = getPosition().y() + amplitude * Math.sin(frequency * elapsedTime);</span>
+<span class="fc" id="L61">        double newY = getPosition().y() + amplitude * Math.sin(frequency * elapsedTime);</span>
 
         // Screen wrapping: If the enemy moves off the screen, wrap around
-<span class="nc bnc" id="L64" title="All 2 branches missed.">        if (newX &gt; screenWidth) newX = 0; // Wrap from right to left</span>
-<span class="nc bnc" id="L65" title="All 2 branches missed.">        if (newX &lt; 0) newX = screenWidth; // Wrap from left to right</span>
-<span class="nc bnc" id="L66" title="All 2 branches missed.">        if (newY &gt; screenHeight) newY = 0; // Wrap from bottom to top</span>
-<span class="nc bnc" id="L67" title="All 2 branches missed.">        if (newY &lt; 0) newY = screenHeight; // Wrap from top to bottom</span>
+<span class="fc bfc" id="L64" title="All 2 branches covered.">        if (newX &gt; screenWidth) newX = 0; // Wrap from right to left</span>
+<span class="fc bfc" id="L65" title="All 2 branches covered.">        if (newX &lt; 0) newX = screenWidth; // Wrap from left to right</span>
+<span class="fc bfc" id="L66" title="All 2 branches covered.">        if (newY &gt; screenHeight) newY = 0; // Wrap from bottom to top</span>
+<span class="fc bfc" id="L67" title="All 2 branches covered.">        if (newY &lt; 0) newY = screenHeight; // Wrap from top to bottom</span>
 
-<span class="nc" id="L69">        return new Position(newX, newY);</span>
+<span class="fc" id="L69">        return new Position(newX, newY);</span>
     }
 
     @Override
     public Position moveMonster() {
-<span class="nc" id="L74">        Position newPosition = updatePosition();</span>
-<span class="nc" id="L75">        setPosition(newPosition);</span>
-<span class="nc" id="L76">        return newPosition;</span>
+<span class="fc" id="L74">        Position newPosition = updatePosition();</span>
+<span class="fc" id="L75">        setPosition(newPosition);</span>
+<span class="fc" id="L76">        return newPosition;</span>
     }
 
     @Override
     protected Vector applyCollisions(Vector velocity) {
         // Disable collision logic for wave-like movement
-<span class="nc" id="L82">        return velocity;</span>
+<span class="fc" id="L82">        return velocity;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

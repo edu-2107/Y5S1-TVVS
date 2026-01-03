@@ -18,42 +18,42 @@ public class PurpleMonster extends Enemies {
 
     @Override
     public char getChar() {
-<span class="nc" id="L21">        return symbol;</span>
+<span class="fc" id="L21">        return symbol;</span>
     }
 
     @Override
     public Position updatePosition() {
-<span class="nc" id="L26">        Vector resolvedVelocity = applyCollisions(getVelocity());</span>
+<span class="fc" id="L26">        Vector resolvedVelocity = applyCollisions(getVelocity());</span>
 
-<span class="nc" id="L28">        double newX = getPosition().x() + resolvedVelocity.x();</span>
-<span class="nc" id="L29">        double newY = getPosition().y() + resolvedVelocity.y();</span>
+<span class="fc" id="L28">        double newX = getPosition().x() + resolvedVelocity.x();</span>
+<span class="fc" id="L29">        double newY = getPosition().y() + resolvedVelocity.y();</span>
 
 
-<span class="nc" id="L32">        return new Position(newX, newY);</span>
+<span class="fc" id="L32">        return new Position(newX, newY);</span>
     }
 
 
     @Override
     protected Vector applyCollisions(Vector velocity) {
-<span class="nc" id="L38">        double x = getPosition().x(), y = getPosition().y();</span>
-<span class="nc" id="L39">        double vx = velocity.x(), vy = velocity.y();</span>
-<span class="nc" id="L40">        Position knightSize = new Position(10, 9);</span>
+<span class="fc" id="L38">        double x = getPosition().x(), y = getPosition().y();</span>
+<span class="fc" id="L39">        double vx = velocity.x(), vy = velocity.y();</span>
+<span class="fc" id="L40">        Position knightSize = new Position(10, 9);</span>
 
-<span class="nc bnc" id="L42" title="All 4 branches missed.">        if (vx &lt; 0 &amp;&amp; getScene().collidesLeft(new Position(x + vx, y + vy), knightSize)) {</span>
-<span class="nc" id="L43">            vx = Math.min(vx + 1, 0);</span>
-<span class="nc" id="L44">            setVelocity(new Vector(-velocity.x(), 0));</span>
+<span class="fc bfc" id="L42" title="All 4 branches covered.">        if (vx &lt; 0 &amp;&amp; getScene().collidesLeft(new Position(x + vx, y + vy), knightSize)) {</span>
+<span class="fc" id="L43">            vx = Math.min(vx + 1, 0);</span>
+<span class="fc" id="L44">            setVelocity(new Vector(-velocity.x(), 0));</span>
         }
 
-<span class="nc bnc" id="L47" title="All 4 branches missed.">        if (vx &gt; 0 &amp;&amp; getScene().collidesRight(new Position(x + vx, y + vy), knightSize)) {</span>
-<span class="nc" id="L48">            vx = Math.min(vx - 1, 0);</span>
-<span class="nc" id="L49">            setVelocity(new Vector(-velocity.x(), 0));</span>
+<span class="pc bpc" id="L47" title="1 of 4 branches missed.">        if (vx &gt; 0 &amp;&amp; getScene().collidesRight(new Position(x + vx, y + vy), knightSize)) {</span>
+<span class="fc" id="L48">            vx = Math.min(vx - 1, 0);</span>
+<span class="fc" id="L49">            setVelocity(new Vector(-velocity.x(), 0));</span>
         }
-<span class="nc" id="L51">        return new Vector(vx, vy);</span>
+<span class="fc" id="L51">        return new Vector(vx, vy);</span>
     }
 
     @Override
     public Position moveMonster() {
-<span class="nc" id="L56">        return updatePosition();</span>
+<span class="fc" id="L56">        return updatePosition();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>
