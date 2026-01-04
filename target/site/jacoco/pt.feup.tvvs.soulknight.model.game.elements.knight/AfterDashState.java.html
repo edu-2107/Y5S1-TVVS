@@ -5,8 +5,8 @@ import pt.feup.tvvs.soulknight.model.dataStructs.Vector;
 public class AfterDashState extends KnightState{
 
     public AfterDashState(Knight knight) {
-<span class="fc" id="L8">        super(knight);</span>
-<span class="fc" id="L9">    }</span>
+<span class="nc" id="L8">        super(knight);</span>
+<span class="nc" id="L9">    }</span>
 
     @Override
     public Vector jump() {
@@ -28,10 +28,10 @@ public class AfterDashState extends KnightState{
 
     @Override
     public KnightState getNextState() {
-<span class="fc bfc" id="L31" title="All 2 branches covered.">        if (getKnight().getScene().collideSpike())</span>
-<span class="fc" id="L32">            return new RespawnState(getKnight(), 10);</span>
-<span class="pc bpc" id="L33" title="1 of 2 branches missed.">        if (getKnight().isOnGround())</span>
-<span class="fc" id="L34">            return getNextGroundState();</span>
+<span class="nc bnc" id="L31" title="All 2 branches missed.">        if (getKnight().getScene().collideSpike())</span>
+<span class="nc" id="L32">            return new RespawnState(getKnight(), 10);</span>
+<span class="nc bnc" id="L33" title="All 2 branches missed.">        if (getKnight().isOnGround())</span>
+<span class="nc" id="L34">            return getNextGroundState();</span>
 <span class="nc" id="L35">        return this;</span>
 
     }

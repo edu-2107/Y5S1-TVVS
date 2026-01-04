@@ -89,7 +89,7 @@ public class Game {
 <span class="fc bfc" id="L89" title="All 2 branches covered.">        while (this.state != null) {    // Game loop</span>
 <span class="fc" id="L90">            long startTime = System.currentTimeMillis();</span>
 
-<span class="fc bfc" id="L92" title="All 2 branches covered.">            if (tick == 0) {</span>
+<span class="pc bpc" id="L92" title="1 of 2 branches missed.">            if (tick == 0) {</span>
 <span class="fc" id="L93">                Thread.sleep(100);</span>
             }
 
@@ -109,7 +109,7 @@ public class Game {
 <span class="fc" id="L109">            long elapsedTime = System.currentTimeMillis() - startTime;</span>
 <span class="fc" id="L110">            long sleepTime = frameTime - elapsedTime;</span>
 
-<span class="fc bfc" id="L112" title="All 2 branches covered.">            if (sleepTime &gt; 0) Thread.sleep(sleepTime);</span>
+<span class="pc bpc" id="L112" title="1 of 2 branches missed.">            if (sleepTime &gt; 0) Thread.sleep(sleepTime);</span>
 <span class="fc" id="L113">            tick++;</span>
 <span class="fc" id="L114">        }</span>
 

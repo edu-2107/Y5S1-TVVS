@@ -32,15 +32,15 @@ public class DashState extends KnightState{
     }
     @Override
     public KnightState getNextState() {
-<span class="fc bfc" id="L35" title="All 2 branches covered.">        if (getKnight().getScene().collideSpike())</span>
-<span class="fc" id="L36">            return new RespawnState(getKnight(), 10);</span>
-<span class="pc bpc" id="L37" title="1 of 2 branches missed.">        if (getParticlesTimer() == 0)</span>
+<span class="nc bnc" id="L35" title="All 2 branches missed.">        if (getKnight().getScene().collideSpike())</span>
+<span class="nc" id="L36">            return new RespawnState(getKnight(), 10);</span>
+<span class="nc bnc" id="L37" title="All 2 branches missed.">        if (getParticlesTimer() == 0)</span>
         {
 <span class="nc" id="L39">            getKnight().getScene().setRespawnParticles(getKnight().createRespawnParticles(0));</span>
 <span class="nc" id="L40">            resetParticlesTimer();</span>
         }
-<span class="pc bpc" id="L42" title="1 of 2 branches missed.">        if (Math.abs(getKnight().getVelocity().x()) &lt; MIN_VELOCITY)</span>
-<span class="fc" id="L43">            return new AfterDashState(getKnight());</span>
+<span class="nc bnc" id="L42" title="All 2 branches missed.">        if (Math.abs(getKnight().getVelocity().x()) &lt; MIN_VELOCITY)</span>
+<span class="nc" id="L43">            return new AfterDashState(getKnight());</span>
 <span class="nc" id="L44">        return this;</span>
     }
 }

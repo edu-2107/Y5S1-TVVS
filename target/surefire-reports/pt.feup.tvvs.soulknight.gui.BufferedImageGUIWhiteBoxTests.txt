@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: pt.feup.tvvs.soulknight.gui.BufferedImageGUIWhiteBoxTests
--------------------------------------------------------------------------------
-Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.010 s -- in pt.feup.tvvs.soulknight.gui.BufferedImageGUIWhiteBoxTests
