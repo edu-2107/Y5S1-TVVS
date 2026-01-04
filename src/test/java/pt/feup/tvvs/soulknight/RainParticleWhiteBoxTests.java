@@ -28,7 +28,7 @@ class RainParticleWhiteBoxTests {
     }
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         scene = mock(Scene.class);
         when(scene.getWidth()).thenReturn(10);
         when(scene.getHeight()).thenReturn(10);

@@ -178,7 +178,7 @@ class KnightMutationTests {
 
         assertAll(
                 () -> assertEquals(50, k.getHP()),
-                () -> assertTrue(k.getState() instanceof IdleState) // no state change
+                () -> assertInstanceOf(IdleState.class, k.getState()) // no state change
         );
     }
 
@@ -194,7 +194,7 @@ class KnightMutationTests {
         assertAll(
                 () -> assertEquals(-4, k.getHP()),
                 () -> assertTrue(k.isGotHit()),
-                () -> assertTrue(k.getState() instanceof DamagedState)
+                () -> assertInstanceOf(DamagedState.class, k.getState())
         );
     }
 
@@ -209,7 +209,7 @@ class KnightMutationTests {
         assertAll(
                 () -> assertEquals(20, k.getHP()),
                 () -> assertTrue(k.isGotHit()),
-                () -> assertTrue(k.getState() instanceof DamagedState)
+                () -> assertInstanceOf(DamagedState.class, k.getState())
         );
     }
 
@@ -225,7 +225,7 @@ class KnightMutationTests {
 
         assertAll(
                 () -> assertTrue(k.isFacingRight()),
-                () -> assertTrue(k.getState() instanceof FallingState)
+                () -> assertInstanceOf(FallingState.class, k.getState())
         );
     }
 

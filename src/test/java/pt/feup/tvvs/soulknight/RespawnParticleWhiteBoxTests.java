@@ -38,7 +38,7 @@ class RespawnParticleWhiteBoxTests {
     }
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         scene = mock(Scene.class);
 
         when(scene.collidesUp(any(), any())).thenReturn(false);

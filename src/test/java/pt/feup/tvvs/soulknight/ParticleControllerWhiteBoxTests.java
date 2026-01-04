@@ -21,7 +21,7 @@ class ParticleControllerWhiteBoxTests {
     private ParticleController controller;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         scene = mock(Scene.class);
         controller = new ParticleController(scene);
     }

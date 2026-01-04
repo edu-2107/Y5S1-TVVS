@@ -54,7 +54,7 @@ class JumpStateWhiteBoxTests {
     }
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         knight = mock(Knight.class);
         scene = mock(Scene.class);
 

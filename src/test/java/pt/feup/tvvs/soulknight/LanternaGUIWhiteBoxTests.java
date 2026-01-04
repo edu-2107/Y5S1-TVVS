@@ -28,7 +28,7 @@ class LanternaGUIWhiteBoxTests {
     private final Canvas source = new Canvas();
 
     @BeforeEach
-    void setUp() throws Exception {
+    public void setUp() throws Exception {
         screenGenerator = mock(ScreenGenerator.class);
         screen = mock(Screen.class);
         tg = mock(TextGraphics.class);

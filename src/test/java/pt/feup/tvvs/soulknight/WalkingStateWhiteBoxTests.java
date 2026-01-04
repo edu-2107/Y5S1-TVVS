@@ -60,7 +60,7 @@ class WalkingStateWhiteBoxTests {
     }
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         knight = mock(Knight.class);
         scene = mock(Scene.class);
         when(knight.getScene()).thenReturn(scene);

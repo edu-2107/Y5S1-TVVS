@@ -23,7 +23,7 @@ class ParticleMenuControllerWhiteBoxTests {
     private ParticleMenuController controller;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         Menu menu = mock(Menu.class);
         particle = mock(Particle.class);
 
