@@ -88,7 +88,7 @@ class KnightStateWhiteBoxTests {
     // ---------- moveKnightLeft / moveKnightRight ----------
 
     @Test
-    void moveKnightLeftDecreasesVelocityXByAcceleration() {
+    public void moveKnightLeftDecreasesVelocityXByAcceleration() {
         Knight knight = createDefaultKnight();
         knight.setVelocity(new Vector(0.0, 0.0)); // aceleração = 0.75
 
@@ -100,7 +100,7 @@ class KnightStateWhiteBoxTests {
     }
 
     @Test
-    void moveKnightRightIncreasesVelocityXByAcceleration() {
+    public void moveKnightRightIncreasesVelocityXByAcceleration() {
         Knight knight = createDefaultKnight();
         knight.setVelocity(new Vector(0.0, 0.0));
 
@@ -114,7 +114,7 @@ class KnightStateWhiteBoxTests {
     // ---------- limitVelocity ----------
 
     @Test
-    void limitVelocityClampsXAboveMaxVelocity() {
+    public void limitVelocityClampsXAboveMaxVelocity() {
         Knight knight = createDefaultKnight();
         // maxVelocity.x() = 2.0
         TestKnightState state = new TestKnightState(knight);
@@ -125,7 +125,7 @@ class KnightStateWhiteBoxTests {
     }
 
     @Test
-    void limitVelocityClampsXBelowMinusMaxVelocity() {
+    public void limitVelocityClampsXBelowMinusMaxVelocity() {
         Knight knight = createDefaultKnight();
         TestKnightState state = new TestKnightState(knight);
 
@@ -135,7 +135,7 @@ class KnightStateWhiteBoxTests {
     }
 
     @Test
-    void limitVelocityClampsYAboveMaxVelocityY() {
+    public void limitVelocityClampsYAboveMaxVelocityY() {
         Knight knight = createDefaultKnight();
         // maxVelocity.y() = 4.0
         TestKnightState state = new TestKnightState(knight);
@@ -146,7 +146,7 @@ class KnightStateWhiteBoxTests {
     }
 
     @Test
-    void limitVelocitySetsVerySmallXComponentToZero() {
+    public void limitVelocitySetsVerySmallXComponentToZero() {
         Knight knight = createDefaultKnight();
         TestKnightState state = new TestKnightState(knight);
 
@@ -158,7 +158,7 @@ class KnightStateWhiteBoxTests {
     // ---------- getNextGroundState ----------
 
     @Test
-    void getNextGroundStateReturnsIdleWhenVelocityIsVeryLow() {
+    public void getNextGroundStateReturnsIdleWhenVelocityIsVeryLow() {
         Knight knight = createDefaultKnight();
         knight.setVelocity(new Vector(0.0, 0.0));
 
@@ -166,11 +166,11 @@ class KnightStateWhiteBoxTests {
 
         KnightState result = state.callGetNextGroundState();
 
-        assertTrue(result instanceof IdleState);
+        assertInstanceOf(IdleState.class, result);
     }
 
     @Test
-    void getNextGroundStateReturnsWalkingWhenVelocityAboveWalkingMinButBelowRunningMin() {
+    public void getNextGroundStateReturnsWalkingWhenVelocityAboveWalkingMinButBelowRunningMin() {
         Knight knight = createDefaultKnight();
         double mid =
                 (WalkingState.MIN_VELOCITY + RunningState.MIN_VELOCITY) / 2.0;
@@ -180,11 +180,11 @@ class KnightStateWhiteBoxTests {
 
         KnightState result = state.callGetNextGroundState();
 
-        assertTrue(result instanceof WalkingState);
+        assertInstanceOf(WalkingState.class, result);
     }
 
     @Test
-    void getNextGroundStateReturnsRunningWhenVelocityAboveRunningMin() {
+    public void getNextGroundStateReturnsRunningWhenVelocityAboveRunningMin() {
         Knight knight = createDefaultKnight();
         double aboveRunning = RunningState.MIN_VELOCITY + 0.5;
         knight.setVelocity(new Vector(aboveRunning, 0.0));
@@ -193,13 +193,13 @@ class KnightStateWhiteBoxTests {
 
         KnightState result = state.callGetNextGroundState();
 
-        assertTrue(result instanceof RunningState);
+        assertInstanceOf(RunningState.class, result);
     }
 
     // ---------- getNextOnAirState ----------
 
     @Test
-    void getNextOnAirStateReturnsJumpStateWhenVerticalVelocityIsNegative() {
+    public void getNextOnAirStateReturnsJumpStateWhenVerticalVelocityIsNegative() {
         Knight knight = createDefaultKnight();
         knight.setVelocity(new Vector(0.0, -1.0));
 
@@ -207,11 +207,11 @@ class KnightStateWhiteBoxTests {
 
         KnightState result = state.callGetNextOnAirState();
 
-        assertTrue(result instanceof JumpState);
+        assertInstanceOf(JumpState.class, result);
     }
 
     @Test
-    void getNextOnAirStateReturnsFallingStateWhenVerticalVelocityIsNonNegative() {
+    public void getNextOnAirStateReturnsFallingStateWhenVerticalVelocityIsNonNegative() {
         Knight knight = createDefaultKnight();
         knight.setVelocity(new Vector(0.0, 1.0));
 
@@ -219,13 +219,13 @@ class KnightStateWhiteBoxTests {
 
         KnightState result = state.callGetNextOnAirState();
 
-        assertTrue(result instanceof FallingState);
+        assertInstanceOf(FallingState.class, result);
     }
 
     // ---------- particles timer ----------
 
     @Test
-    void tickParticlesDecrementsParticlesTimer() {
+    public void tickParticlesDecrementsParticlesTimer() {
         Knight knight = createDefaultKnight();
         TestKnightState state = new TestKnightState(knight);
 
@@ -236,7 +236,7 @@ class KnightStateWhiteBoxTests {
     }
 
     @Test
-    void resetParticlesTimerResetsValueTo100() {
+    public void resetParticlesTimerResetsValueTo100() {
         Knight knight = createDefaultKnight();
         TestKnightState state = new TestKnightState(knight);
 
@@ -247,7 +247,7 @@ class KnightStateWhiteBoxTests {
     }
 
     @Test
-    void applyCollisions_noCollisions_returnsSameVelocity() {
+    public void applyCollisions_noCollisions_returnsSameVelocity() {
         Knight knight = mock(Knight.class);
         Scene scene = mock(Scene.class);
 
@@ -269,7 +269,7 @@ class KnightStateWhiteBoxTests {
     }
 
     @Test
-    void applyCollisions_downCollision_reducesPositiveVy_untilNotColliding() {
+    public void applyCollisions_downCollision_reducesPositiveVy_untilNotColliding() {
         Knight knight = mock(Knight.class);
         Scene scene = mock(Scene.class);
 
@@ -293,7 +293,7 @@ class KnightStateWhiteBoxTests {
     }
 
     @Test
-    void applyCollisions_upCollision_increasesNegativeVy_untilNotColliding() {
+    public void applyCollisions_upCollision_increasesNegativeVy_untilNotColliding() {
         Knight knight = mock(Knight.class);
         Scene scene = mock(Scene.class);
 
@@ -317,7 +317,7 @@ class KnightStateWhiteBoxTests {
     }
 
     @Test
-    void applyCollisions_leftCollision_increasesNegativeVx_untilNotColliding() {
+    public void applyCollisions_leftCollision_increasesNegativeVx_untilNotColliding() {
         Knight knight = mock(Knight.class);
         Scene scene = mock(Scene.class);
 
@@ -341,7 +341,7 @@ class KnightStateWhiteBoxTests {
     }
 
     @Test
-    void applyCollisions_rightCollision_reducesPositiveVx_untilNotColliding() {
+    public void applyCollisions_rightCollision_reducesPositiveVx_untilNotColliding() {
         Knight knight = mock(Knight.class);
         Scene scene = mock(Scene.class);
 

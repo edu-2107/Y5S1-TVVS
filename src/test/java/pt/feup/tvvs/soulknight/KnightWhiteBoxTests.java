@@ -28,25 +28,25 @@ class KnightWhiteBoxTests {
     // ---------- CONSTRUCTOR / GETTERS ----------
 
     @Test
-    void constructorSetsInitialHp() {
+    public void constructorSetsInitialHp() {
         Knight knight = createDefaultKnight();
         assertEquals(50, knight.getHP());
     }
 
     @Test
-    void constructorSetsInitialDamageMultiplier() {
+    public void constructorSetsInitialDamageMultiplier() {
         Knight knight = createDefaultKnight();
         assertEquals(2.0f, knight.getDamage());
     }
 
     @Test
-    void constructorSetsInitialEnergy() {
+    public void constructorSetsInitialEnergy() {
         Knight knight = createDefaultKnight();
         assertEquals(100, knight.getEnergy());
     }
 
     @Test
-    void constructorOffsetsInitialPosition() {
+    public void constructorOffsetsInitialPosition() {
         Knight knight = createDefaultKnight();
 
         // offSetX = 4, offSetY = 1
@@ -55,19 +55,19 @@ class KnightWhiteBoxTests {
     }
 
     @Test
-    void constructorInitialStateIsIdle() {
+    public void constructorInitialStateIsIdle() {
         Knight knight = createDefaultKnight();
         assertInstanceOf(IdleState.class, knight.getState());
     }
 
     @Test
-    void constructorInitialFacingDirectionIsRight() {
+    public void constructorInitialFacingDirectionIsRight() {
         Knight knight = createDefaultKnight();
         assertTrue(knight.isFacingRight());
     }
 
     @Test
-    void constructorInitialGotHitIsFalse() {
+    public void constructorInitialGotHitIsFalse() {
         Knight knight = createDefaultKnight();
         assertFalse(knight.isGotHit());
     }
@@ -75,7 +75,7 @@ class KnightWhiteBoxTests {
     // ---------- DEATHS / BIRTH TIME ----------
 
     @Test
-    void increaseDeathsIncrementsDeathCounter() {
+    public void increaseDeathsIncrementsDeathCounter() {
         Knight knight = createDefaultKnight();
 
         knight.increaseDeaths();
@@ -84,7 +84,7 @@ class KnightWhiteBoxTests {
     }
 
     @Test
-    void setBirthTimeOverridesInitialBirthTime() {
+    public void setBirthTimeOverridesInitialBirthTime() {
         Knight knight = createDefaultKnight();
 
         long customTime = 123456789L;
@@ -96,7 +96,7 @@ class KnightWhiteBoxTests {
     // ---------- ORBS ----------
 
     @Test
-    void addOrbsIncrementsOrbsByOne() {
+    public void addOrbsIncrementsOrbsByOne() {
         Knight knight = createDefaultKnight();
 
         knight.addOrbs();
@@ -105,7 +105,7 @@ class KnightWhiteBoxTests {
     }
 
     @Test
-    void setOrbsOverridesCurrentValue() {
+    public void setOrbsOverridesCurrentValue() {
         Knight knight = createDefaultKnight();
 
         knight.setOrbs(5);
@@ -116,7 +116,7 @@ class KnightWhiteBoxTests {
     // ---------- VELOCITY / LIMITS ----------
 
     @Test
-    void isOverMaxXVelocityReturnsFalseWhenBelowLimit() {
+    public void isOverMaxXVelocityReturnsFalseWhenBelowLimit() {
         Knight knight = createDefaultKnight();
         knight.setVelocity(new Vector(1.0, 0.0));   // maxVelocity.x() = 2.0
 
@@ -124,7 +124,7 @@ class KnightWhiteBoxTests {
     }
 
     @Test
-    void isOverMaxXVelocityReturnsTrueWhenAboveLimit() {
+    public void isOverMaxXVelocityReturnsTrueWhenAboveLimit() {
         Knight knight = createDefaultKnight();
         knight.setVelocity(new Vector(3.0, 0.0));   // > maxVelocity.x()
 
@@ -134,7 +134,7 @@ class KnightWhiteBoxTests {
     // ---------- RESET VALUES ----------
 
     @Test
-    void resetValuesSetsFacingRightToTrue() {
+    public void resetValuesSetsFacingRightToTrue() {
         Knight knight = createDefaultKnight();
         knight.setFacingRight(false);
 
@@ -144,7 +144,7 @@ class KnightWhiteBoxTests {
     }
 
     @Test
-    void resetValuesChangesStateToFallingState() {
+    public void resetValuesChangesStateToFallingState() {
         Knight knight = createDefaultKnight();
 
         knight.resetValues();
@@ -155,7 +155,7 @@ class KnightWhiteBoxTests {
     // ---------- PLAYER HIT (BRANCHES) ----------
 
     @Test
-    void playerHitDoesNothingWhenAlreadyGotHit() {
+    public void playerHitDoesNothingWhenAlreadyGotHit() {
         Knight knight = createDefaultKnight();
         knight.setGotHit(true);
         knight.setHP(50);
@@ -169,7 +169,7 @@ class KnightWhiteBoxTests {
     }
 
     @Test
-    void playerHitWithPositiveHpReducesHpByDamage() {
+    public void playerHitWithPositiveHpReducesHpByDamage() {
         Knight knight = createDefaultKnight();
         knight.setGotHit(false);
         knight.setHP(50);
@@ -183,7 +183,7 @@ class KnightWhiteBoxTests {
     }
 
     @Test
-    void playerHitWithZeroHpSetsHpToOneBeforeApplyingDamage() {
+    public void playerHitWithZeroHpSetsHpToOneBeforeApplyingDamage() {
         Knight knight = createDefaultKnight();
         knight.setGotHit(false);
         knight.setHP(0);
@@ -198,7 +198,7 @@ class KnightWhiteBoxTests {
     }
 
     @Test
-    void playerHitSetsGotHitToTrue() {
+    public void playerHitSetsGotHitToTrue() {
         Knight knight = createDefaultKnight();
         knight.setGotHit(false);
 
@@ -211,7 +211,7 @@ class KnightWhiteBoxTests {
     }
 
     @Test
-    void playerHitChangesStateToDamagedState() {
+    public void playerHitChangesStateToDamagedState() {
         Knight knight = createDefaultKnight();
 
         Scene scene = mock(Scene.class);
@@ -225,7 +225,7 @@ class KnightWhiteBoxTests {
     // ---------- PARTICLE GENERATION ----------
 
     @Test
-    void createParticlesDoubleJumpReturnsListOfGivenSize() {
+    public void createParticlesDoubleJumpReturnsListOfGivenSize() {
         Knight knight = createDefaultKnight();
 
         List<Particle> particles = knight.createParticlesDoubleJump(15, null);
@@ -234,7 +234,7 @@ class KnightWhiteBoxTests {
     }
 
     @Test
-    void createParticlesJumpReturnsListOfGivenSize() {
+    public void createParticlesJumpReturnsListOfGivenSize() {
         Knight knight = createDefaultKnight();
         knight.setVelocity(new Vector(0.0, 0.0));
 
@@ -244,7 +244,7 @@ class KnightWhiteBoxTests {
     }
 
     @Test
-    void createRespawnParticlesReturnsListOfGivenSize() {
+    public void createRespawnParticlesReturnsListOfGivenSize() {
         Knight knight = createDefaultKnight();
 
         List<Particle> particles = knight.createRespawnParticles(15);
@@ -253,7 +253,7 @@ class KnightWhiteBoxTests {
     }
 
     @Test
-    void createDashParticlesReturnsListOfGivenSize() {
+    public void createDashParticlesReturnsListOfGivenSize() {
         Knight knight = createDefaultKnight();
         knight.setVelocity(new Vector(0.0, 0.0));
 
@@ -265,7 +265,7 @@ class KnightWhiteBoxTests {
     // ---------- DELEGAÇÃO NO STATE (updateVelocity, updatePosition, moves) ----------
 
     @Test
-    void updateVelocityDelegatesToState() {
+    public void updateVelocityDelegatesToState() {
         Knight knight = createDefaultKnight();
         Vector currentVelocity = new Vector(1.0, 2.0);
         knight.setVelocity(currentVelocity);
@@ -281,7 +281,7 @@ class KnightWhiteBoxTests {
     }
 
     @Test
-    void updatePositionUsesStateApplyCollisionsAndUpdatesPosition() {
+    public void updatePositionUsesStateApplyCollisionsAndUpdatesPosition() {
         Knight knight = createDefaultKnight();
 
         Vector resolvedVelocity = new Vector(2.0, -1.0);
@@ -303,7 +303,7 @@ class KnightWhiteBoxTests {
 
 
     @Test
-    void moveLeftDelegatesToState() {
+    public void moveLeftDelegatesToState() {
         Knight knight = createDefaultKnight();
         KnightState state = mock(KnightState.class);
         Vector expected = new Vector(-1.0, 0.0);
@@ -316,7 +316,7 @@ class KnightWhiteBoxTests {
     }
 
     @Test
-    void moveRightDelegatesToState() {
+    public void moveRightDelegatesToState() {
         Knight knight = createDefaultKnight();
         KnightState state = mock(KnightState.class);
         Vector expected = new Vector(1.0, 0.0);
@@ -329,7 +329,7 @@ class KnightWhiteBoxTests {
     }
 
     @Test
-    void jumpDelegatesToState() {
+    public void jumpDelegatesToState() {
         Knight knight = createDefaultKnight();
         KnightState state = mock(KnightState.class);
         Vector expected = new Vector(0.0, -5.0);
@@ -342,7 +342,7 @@ class KnightWhiteBoxTests {
     }
 
     @Test
-    void dashDelegatesToState() {
+    public void dashDelegatesToState() {
         Knight knight = createDefaultKnight();
         KnightState state = mock(KnightState.class);
         Vector expected = new Vector(5.0, 0.0);
@@ -355,7 +355,7 @@ class KnightWhiteBoxTests {
     }
 
     @Test
-    void getNextStateDelegatesToCurrentState() throws Exception {
+    public void getNextStateDelegatesToCurrentState() throws Exception {
         Knight knight = createDefaultKnight();
         KnightState currentState = mock(KnightState.class);
         KnightState nextState = mock(KnightState.class);
@@ -370,7 +370,7 @@ class KnightWhiteBoxTests {
     // ---------- isOnGround (colisão com Scene) ----------
 
     @Test
-    void isOnGroundReturnsTrueWhenSceneCollidesDownIsTrue() {
+    public void isOnGroundReturnsTrueWhenSceneCollidesDownIsTrue() {
         Knight knight = createDefaultKnight();
         Scene scene = mock(Scene.class);
         when(scene.collidesDown(any(Position.class), any(Position.class)))
@@ -383,7 +383,7 @@ class KnightWhiteBoxTests {
     }
 
     @Test
-    void isOnGroundReturnsFalseWhenSceneCollidesDownIsFalse() {
+    public void isOnGroundReturnsFalseWhenSceneCollidesDownIsFalse() {
         Knight knight = createDefaultKnight();
         Scene scene = mock(Scene.class);
         when(scene.collidesDown(any(Position.class), any(Position.class)))
@@ -398,21 +398,21 @@ class KnightWhiteBoxTests {
     // ---------- GETTERS / SETTERS ----------
 
     @Test
-    void getJumpBoostReturnsInitialConfiguredValue() {
+    public void getJumpBoostReturnsInitialConfiguredValue() {
         Knight knight = createDefaultKnight();
 
         assertEquals(Math.PI, knight.getJumpBoost());
     }
 
     @Test
-    void getAccelerationReturnsInitialConfiguredValue() {
+    public void getAccelerationReturnsInitialConfiguredValue() {
         Knight knight = createDefaultKnight();
 
         assertEquals(0.75, knight.getAcceleration());
     }
 
     @Test
-    void getDashBoostReturnsInitialConfiguredValue() {
+    public void getDashBoostReturnsInitialConfiguredValue() {
         Knight knight = createDefaultKnight();
 
         assertEquals(6.0, knight.getDashBoost());
@@ -420,7 +420,7 @@ class KnightWhiteBoxTests {
 
 
     @Test
-    void isFacingRightGetterReflectsSetter() {
+    public void isFacingRightGetterReflectsSetter() {
         Knight knight = createDefaultKnight();
         knight.setFacingRight(false);
 
@@ -428,7 +428,7 @@ class KnightWhiteBoxTests {
     }
 
     @Test
-    void setDamageUpdatesDamageMultiplier() {
+    public void setDamageUpdatesDamageMultiplier() {
         Knight knight = createDefaultKnight();
 
         knight.setDamage(3.5f);
@@ -437,7 +437,7 @@ class KnightWhiteBoxTests {
     }
 
     @Test
-    void setEnergyUpdatesEnergy() {
+    public void setEnergyUpdatesEnergy() {
         Knight knight = createDefaultKnight();
 
         knight.setEnergy(42);
@@ -446,7 +446,7 @@ class KnightWhiteBoxTests {
     }
 
     @Test
-    void setJumpCounterUpdatesJumpCounter() {
+    public void setJumpCounterUpdatesJumpCounter() {
         Knight knight = createDefaultKnight();
 
         knight.setJumpCounter(3);
@@ -455,7 +455,7 @@ class KnightWhiteBoxTests {
     }
 
     @Test
-    void setMaxVelocityUpdatesMaxVelocity() {
+    public void setMaxVelocityUpdatesMaxVelocity() {
         Knight knight = createDefaultKnight();
         Vector newMax = new Vector(10.0, 20.0);
 

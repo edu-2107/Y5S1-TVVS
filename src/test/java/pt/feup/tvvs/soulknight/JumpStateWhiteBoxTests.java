@@ -77,8 +77,7 @@ class JumpStateWhiteBoxTests {
     // ---------------- updateVelocity(Vector) ----------------
 
     @Test
-    void updateVelocity_whenCurrentVyBetweenMinus05And0_usesHalfGravityBranch() {
-        // condição do if: getKnight().getVelocity().y() < 0 && >= -0.5
+    public void updateVelocity_whenCurrentVyBetweenMinus05And0_usesHalfGravityBranch() {
         when(knight.getVelocity()).thenReturn(new Vector(0.0, -0.3));
 
         TestableJumpState state = new TestableJumpState(knight);
@@ -92,7 +91,7 @@ class JumpStateWhiteBoxTests {
     }
 
     @Test
-    void updateVelocity_whenCurrentVyOutsideRange_usesFullGravityElseBranch() {
+    public void updateVelocity_whenCurrentVyOutsideRange_usesFullGravityElseBranch() {
         // falha o if (ex: -0.6 < -0.5)
         when(knight.getVelocity()).thenReturn(new Vector(0.0, -0.6));
 
@@ -109,7 +108,7 @@ class JumpStateWhiteBoxTests {
     // ---------------- dash() ----------------
 
     @Test
-    void dash_facingRight_true_setsDashParticles_andUsesPositiveBoost() {
+    public void dash_facingRight_true_setsDashParticles_andUsesPositiveBoost() {
         when(knight.isFacingRight()).thenReturn(true);
         when(knight.getVelocity()).thenReturn(new Vector(0.0, 1.0));
         when(knight.getDashBoost()).thenReturn(2.0);
@@ -124,7 +123,7 @@ class JumpStateWhiteBoxTests {
     }
 
     @Test
-    void dash_facingRight_false_setsDashParticles_andUsesNegativeBoost() {
+    public void dash_facingRight_false_setsDashParticles_andUsesNegativeBoost() {
         when(knight.isFacingRight()).thenReturn(false);
         when(knight.getVelocity()).thenReturn(new Vector(0.0, 1.0));
         when(knight.getDashBoost()).thenReturn(2.0);
@@ -141,7 +140,7 @@ class JumpStateWhiteBoxTests {
     // ---------------- jump() ----------------
 
     @Test
-    void jump_whenJumpCounterLessThan2_entersIf_setsCounter_setsDoubleJumpParticles() {
+    public void jump_whenJumpCounterLessThan2_entersIf_setsCounter_setsDoubleJumpParticles() {
         // entra no if
         when(knight.getJumpCounter()).thenReturn(1);
         // escolhe current vy -0.3 para também bater no branch de half-gravity do updateVelocity
@@ -162,7 +161,7 @@ class JumpStateWhiteBoxTests {
     }
 
     @Test
-    void jump_whenJumpCounterIs2_skipsIf_doesNotSetCounterOrParticles() {
+    public void jump_whenJumpCounterIs2_skipsIf_doesNotSetCounterOrParticles() {
         when(knight.getJumpCounter()).thenReturn(2);
         when(knight.getVelocity()).thenReturn(new Vector(1.0, -0.6));
 
@@ -182,7 +181,7 @@ class JumpStateWhiteBoxTests {
     // ---------------- getNextState() ----------------
 
     @Test
-    void getNextState_whenCollideSpike_returnsRespawnState() {
+    public void getNextState_whenCollideSpike_returnsRespawnState() {
         when(scene.collideSpike()).thenReturn(true);
 
         TestableJumpState state = new TestableJumpState(knight);
@@ -192,7 +191,7 @@ class JumpStateWhiteBoxTests {
     }
 
     @Test
-    void getNextState_whenParticlesTimerZero_setsRespawnParticles_andResetsTimer_thenReturnsThis() {
+    public void getNextState_whenParticlesTimerZero_setsRespawnParticles_andResetsTimer_thenReturnsThis() {
         when(scene.collideSpike()).thenReturn(false);
         when(knight.isOverMaxXVelocity()).thenReturn(false);
         when(knight.getVelocity()).thenReturn(new Vector(0.0, -0.2)); // y < 0 para não cair em FallingState
@@ -209,7 +208,7 @@ class JumpStateWhiteBoxTests {
     }
 
     @Test
-    void getNextState_whenOverMaxXVelocity_returnsDashState() {
+    public void getNextState_whenOverMaxXVelocity_returnsDashState() {
         when(scene.collideSpike()).thenReturn(false);
         when(knight.isOverMaxXVelocity()).thenReturn(true);
 
@@ -221,7 +220,7 @@ class JumpStateWhiteBoxTests {
     }
 
     @Test
-    void getNextState_whenVyNonNegative_returnsFallingState() {
+    public void getNextState_whenVyNonNegative_returnsFallingState() {
         when(scene.collideSpike()).thenReturn(false);
         when(knight.isOverMaxXVelocity()).thenReturn(false);
         when(knight.getVelocity()).thenReturn(new Vector(0.0, 0.0)); // y >= 0
@@ -234,7 +233,7 @@ class JumpStateWhiteBoxTests {
     }
 
     @Test
-    void getNextState_whenNoConditionsMet_returnsThis() {
+    public void getNextState_whenNoConditionsMet_returnsThis() {
         when(scene.collideSpike()).thenReturn(false);
         when(knight.isOverMaxXVelocity()).thenReturn(false);
         when(knight.getVelocity()).thenReturn(new Vector(0.0, -0.2)); // y < 0

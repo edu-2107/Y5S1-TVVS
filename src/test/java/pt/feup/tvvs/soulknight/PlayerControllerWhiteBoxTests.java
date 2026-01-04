@@ -27,7 +27,7 @@ class PlayerControllerWhiteBoxTests {
     private PlayerController controller;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         scene = mock(Scene.class);
         game = mock(Game.class);
         knight = mock(Knight.class);
@@ -39,7 +39,7 @@ class PlayerControllerWhiteBoxTests {
     }
 
     @Test
-    void move_left_branch_setsVelocity_andFacingLeft_andNoIdleWhenStateNonNull() throws IOException {
+    public void move_left_branch_setsVelocity_andFacingLeft_andNoIdleWhenStateNonNull() throws IOException {
         Vector leftVel = new Vector(-1, 0);
         KnightState next = mock(KnightState.class);
 
@@ -61,7 +61,7 @@ class PlayerControllerWhiteBoxTests {
     }
 
     @Test
-    void move_right_branch_setsVelocity_andFacingRight() throws IOException {
+    public void move_right_branch_setsVelocity_andFacingRight() throws IOException {
         Vector rightVel = new Vector(1, 0);
         KnightState next = mock(KnightState.class);
 
@@ -76,7 +76,7 @@ class PlayerControllerWhiteBoxTests {
     }
 
     @Test
-    void move_jump_branch_setsVelocityFromJump() throws IOException {
+    public void move_jump_branch_setsVelocityFromJump() throws IOException {
         Vector jumpVel = new Vector(0, -2);
         KnightState next = mock(KnightState.class);
 
@@ -90,7 +90,7 @@ class PlayerControllerWhiteBoxTests {
     }
 
     @Test
-    void move_dash_branch_setsVelocityFromDash() throws IOException {
+    public void move_dash_branch_setsVelocityFromDash() throws IOException {
         Vector dashVel = new Vector(3, 0);
         KnightState next = mock(KnightState.class);
 
@@ -104,7 +104,7 @@ class PlayerControllerWhiteBoxTests {
     }
 
     @Test
-    void move_kill_branch_setsRespawnState_thenSetsNextState() throws IOException {
+    public void move_kill_branch_setsRespawnState_thenSetsNextState() throws IOException {
         KnightState next = mock(KnightState.class);
 
         when(knight.getNextState()).thenReturn(next);
@@ -116,7 +116,7 @@ class PlayerControllerWhiteBoxTests {
 
         InOrder inOrder = inOrder(knight);
         inOrder.verify(knight).setState((KnightState) captor.capture()); // RespawnState
-        assertTrue(captor.getValue() instanceof RespawnState);
+        assertInstanceOf(RespawnState.class, captor.getValue());
 
         inOrder.verify(knight).setPosition(new Position(10, 20));
         inOrder.verify(knight).setScene(scene);
@@ -124,7 +124,7 @@ class PlayerControllerWhiteBoxTests {
     }
 
     @Test
-    void move_default_branch_callsUpdateVelocity_andIfStateNull_createsIdleState() throws IOException {
+    public void move_default_branch_callsUpdateVelocity_andIfStateNull_createsIdleState() throws IOException {
         Vector updated = new Vector(0.5, 1.0);
 
         when(knight.updateVelocity()).thenReturn(updated);
@@ -139,6 +139,6 @@ class PlayerControllerWhiteBoxTests {
         verify(knight, times(2)).setState((KnightState) stateCaptor.capture());
 
         assertNull(stateCaptor.getAllValues().get(0));
-        assertTrue(stateCaptor.getAllValues().get(1) instanceof IdleState);
+        assertInstanceOf(IdleState.class, stateCaptor.getAllValues().get(1));
     }
 }

@@ -16,7 +16,7 @@ class OptionViewerWhiteBoxTests {
     private static final TextColor.RGB COLOR = new TextColor.RGB(10, 20, 30);
 
     @Test
-    void draw_startGame_writesStart() {
+    public void draw_startGame_writesStart() {
         TextViewer tv = mock(TextViewer.class);
         OptionViewer viewer = new OptionViewer(tv);
 
@@ -29,7 +29,7 @@ class OptionViewerWhiteBoxTests {
     }
 
     @Test
-    void draw_settings_writesSettings() {
+    public void draw_settings_writesSettings() {
         TextViewer tv = mock(TextViewer.class);
         OptionViewer viewer = new OptionViewer(tv);
 
@@ -42,7 +42,7 @@ class OptionViewerWhiteBoxTests {
     }
 
     @Test
-    void draw_exit_writesExit() {
+    public void draw_exit_writesExit() {
         TextViewer tv = mock(TextViewer.class);
         OptionViewer viewer = new OptionViewer(tv);
 
@@ -55,7 +55,7 @@ class OptionViewerWhiteBoxTests {
     }
 
     @Test
-    void draw_toMainMenu_writesGoBack() {
+    public void draw_toMainMenu_writesGoBack() {
         TextViewer tv = mock(TextViewer.class);
         OptionViewer viewer = new OptionViewer(tv);
 
@@ -68,7 +68,7 @@ class OptionViewerWhiteBoxTests {
     }
 
     @Test
-    void draw_resolution_whenScaleNull_writesAutomaticLabel() {
+    public void draw_resolution_whenScaleNull_writesAutomaticLabel() {
         TextViewer tv = mock(TextViewer.class);
         OptionViewer viewer = new OptionViewer(tv);
 
@@ -82,7 +82,7 @@ class OptionViewerWhiteBoxTests {
     }
 
     @Test
-    void draw_resolution_whenScaleIsLast_endsWithBlank() {
+    public void draw_resolution_whenScaleIsLast_endsWithBlank() {
         TextViewer tv = mock(TextViewer.class);
         OptionViewer viewer = new OptionViewer(tv);
 
@@ -106,7 +106,7 @@ class OptionViewerWhiteBoxTests {
     }
 
     @Test
-    void draw_resolution_whenScaleIsNotLast_forcesArrowGreaterThan_evenIfEnumHasOneValue() {
+    public void draw_resolution_whenScaleIsNotLast_forcesArrowGreaterThan_evenIfEnumHasOneValue() {
         TextViewer tv = mock(TextViewer.class);
         OptionViewer viewer = new OptionViewer(tv);
 

@@ -84,7 +84,7 @@ class IdleStateWhiteBoxTests {
     // -------- jump / dash / updateVelocity --------
 
     @Test
-    void jump_incrementsCounter_setsJumpParticles_andReturnsUpdatedVelocity() {
+    public void jump_incrementsCounter_setsJumpParticles_andReturnsUpdatedVelocity() {
         TestableIdleState state = new TestableIdleState(knight, mock(KnightState.class));
 
         when(knight.getJumpCounter()).thenReturn(1);
@@ -104,7 +104,7 @@ class IdleStateWhiteBoxTests {
     }
 
     @Test
-    void dash_facingRight_true_and_false() {
+    public void dash_facingRight_true_and_false() {
         TestableIdleState state = new TestableIdleState(knight, mock(KnightState.class));
 
         when(knight.getDashBoost()).thenReturn(3.0);
@@ -125,7 +125,7 @@ class IdleStateWhiteBoxTests {
     }
 
     @Test
-    void updateVelocity_appliesAcceleration_onlyOnX() {
+    public void updateVelocity_appliesAcceleration_onlyOnX() {
         TestableIdleState state = new TestableIdleState(knight, mock(KnightState.class));
         when(knight.getAcceleration()).thenReturn(0.5);
 
@@ -137,7 +137,7 @@ class IdleStateWhiteBoxTests {
     // -------- getNextState branches --------
 
     @Test
-    void getNextState_whenCollideSpike_returnsRespawnState() {
+    public void getNextState_whenCollideSpike_returnsRespawnState() {
         when(scene.collideSpike()).thenReturn(true);
 
         TestableIdleState state = new TestableIdleState(knight, mock(KnightState.class));
@@ -147,7 +147,7 @@ class IdleStateWhiteBoxTests {
     }
 
     @Test
-    void getNextState_whenParticlesTimerZero_setsRespawnParticles_andResetsTimer_thenReturnsThis() {
+    public void getNextState_whenParticlesTimerZero_setsRespawnParticles_andResetsTimer_thenReturnsThis() {
         when(scene.collideSpike()).thenReturn(false);
         when(knight.isOnGround()).thenReturn(true);
         when(knight.isOverMaxXVelocity()).thenReturn(false);
@@ -165,7 +165,7 @@ class IdleStateWhiteBoxTests {
     }
 
     @Test
-    void getNextState_whenNotOnGround_returnsNextOnAirState_andDoesNotResetJumpCounter() {
+    public void getNextState_whenNotOnGround_returnsNextOnAirState_andDoesNotResetJumpCounter() {
         KnightState onAir = mock(KnightState.class);
         when(knight.isOnGround()).thenReturn(false);
 
@@ -178,7 +178,7 @@ class IdleStateWhiteBoxTests {
     }
 
     @Test
-    void getNextState_onGround_overMaxXVelocity_returnsDashState() {
+    public void getNextState_onGround_overMaxXVelocity_returnsDashState() {
         when(knight.isOnGround()).thenReturn(true);
         when(knight.isOverMaxXVelocity()).thenReturn(true);
 
@@ -191,7 +191,7 @@ class IdleStateWhiteBoxTests {
     }
 
     @Test
-    void getNextState_onGround_atOrAboveWalkingMin_returnsWalkingState() {
+    public void getNextState_onGround_atOrAboveWalkingMin_returnsWalkingState() {
         when(knight.isOnGround()).thenReturn(true);
         when(knight.isOverMaxXVelocity()).thenReturn(false);
         when(knight.getVelocity()).thenReturn(new Vector(WalkingState.MIN_VELOCITY, 0.0)); // >= MIN
@@ -205,7 +205,7 @@ class IdleStateWhiteBoxTests {
     }
 
     @Test
-    void getNextState_onGround_belowWalkingMin_returnsThis() {
+    public void getNextState_onGround_belowWalkingMin_returnsThis() {
         when(knight.isOnGround()).thenReturn(true);
         when(knight.isOverMaxXVelocity()).thenReturn(false);
         when(knight.getVelocity()).thenReturn(new Vector(WalkingState.MIN_VELOCITY - 0.01, 0.0)); // < MIN

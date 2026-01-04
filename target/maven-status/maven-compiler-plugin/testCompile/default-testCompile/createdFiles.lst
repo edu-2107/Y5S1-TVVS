@@ -1,16 +1,18 @@
-pt\feup\tvvs\soulknight\gui\BufferedImageGUIWhiteBoxTests.class
 pt\feup\tvvs\soulknight\RespawnParticleWhiteBoxTests.class
 pt\feup\tvvs\soulknight\MonsterViewerWhiteBoxTests.class
 pt\feup\tvvs\soulknight\DamagedStateWhiteBoxTests.class
 pt\feup\tvvs\soulknight\KnightStateWhiteBoxTests.class
 pt\feup\tvvs\soulknight\RunningStateWhiteBoxTests.class
 pt\feup\tvvs\soulknight\CreditsControllerWhiteBoxTests.class
+pt\feup\tvvs\soulknight\KnightStateMutationTests.class
 pt\feup\tvvs\soulknight\KnightMutationTests$1.class
+pt\feup\tvvs\soulknight\KnightStateMutationTests$TestableKnightState.class
 pt\feup\tvvs\soulknight\KnightWhiteBoxTests$TestKnightState.class
 pt\feup\tvvs\soulknight\GhostMonsterWhiteBoxTests$1Exposed.class
 pt\feup\tvvs\soulknight\KnightWhiteBoxTests.class
 pt\feup\tvvs\soulknight\RainParticleWhiteBoxTests$NullPosRainParticle.class
 pt\feup\tvvs\soulknight\KnightMutationTests.class
+pt\feup\tvvs\soulknight\SceneMutationTests.class
 pt\feup\tvvs\soulknight\RunningStateWhiteBoxTests$TestableRunningState.class
 pt\feup\tvvs\soulknight\MenuViewerWhiteBoxTests.class
 pt\feup\tvvs\soulknight\JumpStateWhiteBoxTests.class
@@ -28,6 +30,7 @@ pt\feup\tvvs\soulknight\SwordMonsterWhiteBoxTests$TestableSwordMonster.class
 pt\feup\tvvs\soulknight\KnightStateWhiteBoxTests$TestKnightState.class
 pt\feup\tvvs\soulknight\DamagedStateWhiteBoxTests$TestableDamagedState.class
 pt\feup\tvvs\soulknight\WalkingStateWhiteBoxTests.class
+pt\feup\tvvs\soulknight\BufferedImageGUIWhiteBoxTests.class
 pt\feup\tvvs\soulknight\MaxVelocityStateWhiteBoxTests.class
 pt\feup\tvvs\soulknight\ParticleControllerWhiteBoxTests.class
 pt\feup\tvvs\soulknight\GameViewerWhiteBoxTests.class

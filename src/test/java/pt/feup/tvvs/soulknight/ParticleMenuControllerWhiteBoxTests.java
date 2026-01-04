@@ -41,38 +41,38 @@ class ParticleMenuControllerWhiteBoxTests {
 
 
     @Test
-    void move_mode0_setsRandomState() throws Exception {
+    public void move_mode0_setsRandomState() throws Exception {
         controller.move(mock(pt.feup.tvvs.soulknight.Game.class), GUI.ACTION.NULL, 0); // (0/50)%5 = 0
         verify(particle).setState(isA(RandomState.class));
         verify(particle).setPosition(new Position(10, 10));
     }
 
     @Test
-    void move_mode1_setsWindyState() throws Exception {
+    public void move_mode1_setsWindyState() throws Exception {
         controller.move(mock(pt.feup.tvvs.soulknight.Game.class), GUI.ACTION.NULL, 50); // 1
         verify(particle).setState(isA(WindyState.class));
     }
 
     @Test
-    void move_mode2_setsCalmState() throws Exception {
+    public void move_mode2_setsCalmState() throws Exception {
         controller.move(mock(pt.feup.tvvs.soulknight.Game.class), GUI.ACTION.NULL, 100); // 2
         verify(particle).setState(isA(CalmState.class));
     }
 
     @Test
-    void move_mode3_setsDispersingState() throws Exception {
+    public void move_mode3_setsDispersingState() throws Exception {
         controller.move(mock(pt.feup.tvvs.soulknight.Game.class), GUI.ACTION.NULL, 150); // 3
         verify(particle).setState(isA(DispersingState.class));
     }
 
     @Test
-    void move_mode4_setsZicoState() throws Exception {
+    public void move_mode4_setsZicoState() throws Exception {
         controller.move(mock(pt.feup.tvvs.soulknight.Game.class), GUI.ACTION.NULL, 200); // 4
         verify(particle).setState(isA(ZicoState.class));
     }
 
     @Test
-    void move_negativeTime_hitsDefaultBranch_andThrows() {
+    public void move_negativeTime_hitsDefaultBranch_andThrows() {
         // time=-50 => time/modeDuration=-1; -1%5=-1 => default
         assertThrows(IllegalStateException.class, () ->
                 controller.move(mock(pt.feup.tvvs.soulknight.Game.class), GUI.ACTION.NULL, -50)
@@ -80,7 +80,7 @@ class ParticleMenuControllerWhiteBoxTests {
     }
 
     @Test
-    void gradients_timeMultipleOf500_startsTransition_setsTransitionStartTick_andChangesNextColors() throws Exception {
+    public void gradients_timeMultipleOf500_startsTransition_setsTransitionStartTick_andChangesNextColors() throws Exception {
         setPrivate(controller, "transitionStartTick", -1);
 
         TextColor.RGB oldNextStart = (TextColor.RGB) getPrivate(controller, "nextStartColor");
@@ -101,7 +101,7 @@ class ParticleMenuControllerWhiteBoxTests {
     }
 
     @Test
-    void gradients_duringTransition_interpolatesBranch_executes_andKeepsTransitionActive() throws Exception {
+    public void gradients_duringTransition_interpolatesBranch_executes_andKeepsTransitionActive() throws Exception {
         setPrivate(controller, "transitionStartTick", 0);
 
         TextColor.RGB cs = new TextColor.RGB(0, 0, 0);
@@ -126,7 +126,7 @@ class ParticleMenuControllerWhiteBoxTests {
     }
 
     @Test
-    void gradients_afterTransition_finalizesBranch_setsCurrentToNext_andResetsTransitionStartTick() throws Exception {
+    public void gradients_afterTransition_finalizesBranch_setsCurrentToNext_andResetsTransitionStartTick() throws Exception {
         setPrivate(controller, "transitionStartTick", 0);
 
         TextColor.RGB ns = new TextColor.RGB(10, 20, 30);
@@ -150,7 +150,7 @@ class ParticleMenuControllerWhiteBoxTests {
 
 
     @Test
-    void wrapPosition_wrapsWhenOutsideBounds() {
+    public void wrapPosition_wrapsWhenOutsideBounds() {
         Position p = controller.wrapPosition(-5, 999); // x<0 => 219; y>=110 => 1
         assertEquals(219, p.x());
         assertEquals(1, p.y());

@@ -23,7 +23,7 @@ class PurpleMonsterWhiteBoxTests {
     }
 
     @Test
-    void getChar_returnsSymbol() {
+    public void getChar_returnsSymbol() {
         Scene scene = mock(Scene.class);
         TestablePurpleMonster m = new TestablePurpleMonster(
                 0, 0, 10, scene, 1, new Position(1, 1), 'P'
@@ -32,7 +32,7 @@ class PurpleMonsterWhiteBoxTests {
     }
 
     @Test
-    void updatePosition_noCollisions_movesByVelocity() {
+    public void updatePosition_noCollisions_movesByVelocity() {
         Scene scene = mock(Scene.class);
         when(scene.collidesLeft(any(), any())).thenReturn(false);
         when(scene.collidesRight(any(), any())).thenReturn(false);
@@ -47,7 +47,7 @@ class PurpleMonsterWhiteBoxTests {
     }
 
     @Test
-    void moveMonster_delegatesToUpdatePosition() {
+    public void moveMonster_delegatesToUpdatePosition() {
         Scene scene = mock(Scene.class);
         when(scene.collidesLeft(any(), any())).thenReturn(false);
         when(scene.collidesRight(any(), any())).thenReturn(false);
@@ -62,7 +62,7 @@ class PurpleMonsterWhiteBoxTests {
     }
 
     @Test
-    void applyCollisions_whenMovingLeft_andCollidesLeft_reducesVx_andFlipsVelocity() {
+    public void applyCollisions_whenMovingLeft_andCollidesLeft_reducesVx_andFlipsVelocity() {
         Scene scene = mock(Scene.class);
         when(scene.collidesLeft(any(), any())).thenReturn(true);
         when(scene.collidesRight(any(), any())).thenReturn(false);
@@ -83,7 +83,7 @@ class PurpleMonsterWhiteBoxTests {
     }
 
     @Test
-    void applyCollisions_whenMovingRight_andCollidesRight_setsVxTo0_andFlipsVelocity() {
+    public void applyCollisions_whenMovingRight_andCollidesRight_setsVxTo0_andFlipsVelocity() {
         Scene scene = mock(Scene.class);
         when(scene.collidesLeft(any(), any())).thenReturn(false);
         when(scene.collidesRight(any(), any())).thenReturn(true);
@@ -104,7 +104,7 @@ class PurpleMonsterWhiteBoxTests {
     }
 
     @Test
-    void updatePosition_withLeftCollision_usesResolvedVelocity_andAlsoFlipsInternalVelocity() {
+    public void updatePosition_withLeftCollision_usesResolvedVelocity_andAlsoFlipsInternalVelocity() {
         Scene scene = mock(Scene.class);
         when(scene.collidesLeft(any(), any())).thenReturn(true);
         when(scene.collidesRight(any(), any())).thenReturn(false);

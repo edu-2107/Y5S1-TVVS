@@ -84,7 +84,7 @@ class MaxVelocityStateWhiteBoxTests {
     // -------- jump / dash / updateVelocity --------
 
     @Test
-    void jump_incrementsCounter_setsJumpParticles_andReturnsUpdatedVelocity() {
+    public void jump_incrementsCounter_setsJumpParticles_andReturnsUpdatedVelocity() {
         TestableMaxVelocityState state = new TestableMaxVelocityState(knight, mock(KnightState.class));
 
         when(knight.getJumpCounter()).thenReturn(1);
@@ -104,7 +104,7 @@ class MaxVelocityStateWhiteBoxTests {
     }
 
     @Test
-    void dash_facingRight_true_and_false() {
+    public void dash_facingRight_true_and_false() {
         TestableMaxVelocityState state = new TestableMaxVelocityState(knight, mock(KnightState.class));
 
         when(knight.getVelocity()).thenReturn(new Vector(1.0, 5.0));
@@ -125,7 +125,7 @@ class MaxVelocityStateWhiteBoxTests {
     }
 
     @Test
-    void updateVelocity_appliesAcceleration_onlyOnX() {
+    public void updateVelocity_appliesAcceleration_onlyOnX() {
         TestableMaxVelocityState state = new TestableMaxVelocityState(knight, mock(KnightState.class));
         when(knight.getAcceleration()).thenReturn(0.5);
 
@@ -137,7 +137,7 @@ class MaxVelocityStateWhiteBoxTests {
     // -------- getNextState branches --------
 
     @Test
-    void getNextState_whenCollideSpike_returnsRespawnState() {
+    public void getNextState_whenCollideSpike_returnsRespawnState() {
         when(scene.collideSpike()).thenReturn(true);
 
         TestableMaxVelocityState state = new TestableMaxVelocityState(knight, mock(KnightState.class));
@@ -147,7 +147,7 @@ class MaxVelocityStateWhiteBoxTests {
     }
 
     @Test
-    void getNextState_whenParticlesTimerZero_setsRespawnParticles_andResetsTimer_thenReturnsThis() {
+    public void getNextState_whenParticlesTimerZero_setsRespawnParticles_andResetsTimer_thenReturnsThis() {
         when(knight.isOnGround()).thenReturn(true);
         when(knight.isOverMaxXVelocity()).thenReturn(false);
         when(knight.getVelocity()).thenReturn(new Vector(RunningState.MAX_VELOCITY, 0.0));
@@ -164,7 +164,7 @@ class MaxVelocityStateWhiteBoxTests {
     }
 
     @Test
-    void getNextState_whenNotOnGround_returnsNextOnAirState_andDoesNotResetJumpCounter() {
+    public void getNextState_whenNotOnGround_returnsNextOnAirState_andDoesNotResetJumpCounter() {
         KnightState onAir = mock(KnightState.class);
         when(knight.isOnGround()).thenReturn(false);
 
@@ -177,7 +177,7 @@ class MaxVelocityStateWhiteBoxTests {
     }
 
     @Test
-    void getNextState_onGround_overMaxXVelocity_returnsDashState() {
+    public void getNextState_onGround_overMaxXVelocity_returnsDashState() {
         when(knight.isOnGround()).thenReturn(true);
         when(knight.isOverMaxXVelocity()).thenReturn(true);
 
@@ -190,7 +190,7 @@ class MaxVelocityStateWhiteBoxTests {
     }
 
     @Test
-    void getNextState_onGround_belowRunningMax_returnsRunningState() {
+    public void getNextState_onGround_belowRunningMax_returnsRunningState() {
         when(knight.isOnGround()).thenReturn(true);
         when(knight.isOverMaxXVelocity()).thenReturn(false);
         when(knight.getVelocity()).thenReturn(new Vector(RunningState.MAX_VELOCITY - 0.01, 0.0)); // < MAX
@@ -204,7 +204,7 @@ class MaxVelocityStateWhiteBoxTests {
     }
 
     @Test
-    void getNextState_onGround_atOrAboveRunningMax_returnsThis() {
+    public void getNextState_onGround_atOrAboveRunningMax_returnsThis() {
         when(knight.isOnGround()).thenReturn(true);
         when(knight.isOverMaxXVelocity()).thenReturn(false);
         when(knight.getVelocity()).thenReturn(new Vector(RunningState.MAX_VELOCITY, 0.0)); // NOT < MAX => this

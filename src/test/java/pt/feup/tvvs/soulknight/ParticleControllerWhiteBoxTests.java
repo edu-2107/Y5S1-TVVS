@@ -27,7 +27,7 @@ class ParticleControllerWhiteBoxTests {
     }
 
     @Test
-    void move_allListsEmpty_coversSkipBranches() {
+    public void move_allListsEmpty_coversSkipBranches() {
         when(scene.getParticles()).thenReturn(Collections.emptyList());
         when(scene.getDoubleJumpParticles()).thenReturn(Collections.emptyList());
         when(scene.getJumpParticles()).thenReturn(Collections.emptyList());
@@ -45,7 +45,7 @@ class ParticleControllerWhiteBoxTests {
     }
 
     @Test
-    void move_eachListHasOneParticle_coversEnterBranches_andSetsSceneAndPosition() throws IOException {
+    public void move_eachListHasOneParticle_coversEnterBranches_andSetsSceneAndPosition() throws IOException {
         Particle p1 = mock(Particle.class);
         Particle p2 = mock(Particle.class);
         Particle p3 = mock(Particle.class);

@@ -1,17 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: pt.feup.tvvs.soulknight.BufferedImageGUIWhiteBoxTests
 -------------------------------------------------------------------------------
-Tests run: 8, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.042 s <<< FAILURE! -- in pt.feup.tvvs.soulknight.BufferedImageGUIWhiteBoxTests
-pt.feup.tvvs.soulknight.BufferedImageGUIWhiteBoxTests.cls_clearsToTransparent -- Time elapsed: 0.016 s <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <0> but was: <-65536>
-	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
-	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
-	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
-	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
-	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:145)
-	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:531)
-	at pt.feup.tvvs.soulknight.BufferedImageGUIWhiteBoxTests.cls_clearsToTransparent(BufferedImageGUIWhiteBoxTests.java:83)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s -- in pt.feup.tvvs.soulknight.BufferedImageGUIWhiteBoxTests

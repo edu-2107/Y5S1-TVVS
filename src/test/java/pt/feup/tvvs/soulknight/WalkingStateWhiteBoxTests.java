@@ -85,7 +85,7 @@ class WalkingStateWhiteBoxTests {
     // -------- jump / dash / updateVelocity --------
 
     @Test
-    void jump_incrementsCounter_setsJumpParticles_andReturnsNewVelocity() {
+    public void jump_incrementsCounter_setsJumpParticles_andReturnsNewVelocity() {
         TestableWalkingState state = new TestableWalkingState(knight, mock(KnightState.class));
 
         when(knight.getJumpCounter()).thenReturn(1);
@@ -103,7 +103,7 @@ class WalkingStateWhiteBoxTests {
     }
 
     @Test
-    void dash_facingRight_true_and_false() {
+    public void dash_facingRight_true_and_false() {
         TestableWalkingState state = new TestableWalkingState(knight, mock(KnightState.class));
         when(knight.getVelocity()).thenReturn(new Vector(1.0, 5.0));
         when(knight.getDashBoost()).thenReturn(3.0);
@@ -123,7 +123,7 @@ class WalkingStateWhiteBoxTests {
     }
 
     @Test
-    void updateVelocity_appliesAcceleration_onlyOnX() {
+    public void updateVelocity_appliesAcceleration_onlyOnX() {
         TestableWalkingState state = new TestableWalkingState(knight, mock(KnightState.class));
         when(knight.getAcceleration()).thenReturn(0.5);
 
@@ -135,7 +135,7 @@ class WalkingStateWhiteBoxTests {
     // -------- getNextState branches --------
 
     @Test
-    void getNextState_whenCollideSpike_returnsRespawnState() {
+    public void getNextState_whenCollideSpike_returnsRespawnState() {
         when(scene.collideSpike()).thenReturn(true);
 
         TestableWalkingState state = new TestableWalkingState(knight, mock(KnightState.class));
@@ -145,7 +145,7 @@ class WalkingStateWhiteBoxTests {
     }
 
     @Test
-    void getNextState_whenParticlesTimerZero_setsRespawnParticles_andResetsTimer_thenContinues() {
+    public void getNextState_whenParticlesTimerZero_setsRespawnParticles_andResetsTimer_thenContinues() {
         when(scene.collideSpike()).thenReturn(false);
         when(knight.isOnGround()).thenReturn(true);
         when(knight.isOverMaxXVelocity()).thenReturn(false);
@@ -163,7 +163,7 @@ class WalkingStateWhiteBoxTests {
     }
 
     @Test
-    void getNextState_whenNotOnGround_returnsNextOnAirState_andDoesNotResetJumpCounter() {
+    public void getNextState_whenNotOnGround_returnsNextOnAirState_andDoesNotResetJumpCounter() {
         KnightState onAir = mock(KnightState.class);
         when(knight.isOnGround()).thenReturn(false);
 
@@ -176,7 +176,7 @@ class WalkingStateWhiteBoxTests {
     }
 
     @Test
-    void getNextState_onGround_overMaxXVelocity_returnsDashState() {
+    public void getNextState_onGround_overMaxXVelocity_returnsDashState() {
         when(knight.isOnGround()).thenReturn(true);
         when(knight.isOverMaxXVelocity()).thenReturn(true);
 
@@ -189,7 +189,7 @@ class WalkingStateWhiteBoxTests {
     }
 
     @Test
-    void getNextState_onGround_runningVelocity_returnsRunningState() {
+    public void getNextState_onGround_runningVelocity_returnsRunningState() {
         when(knight.isOnGround()).thenReturn(true);
         when(knight.isOverMaxXVelocity()).thenReturn(false);
         when(knight.getVelocity()).thenReturn(new Vector(RunningState.MIN_VELOCITY, 0.0));
@@ -203,7 +203,7 @@ class WalkingStateWhiteBoxTests {
     }
 
     @Test
-    void getNextState_onGround_belowWalkingMin_returnsIdleState() {
+    public void getNextState_onGround_belowWalkingMin_returnsIdleState() {
         when(knight.isOnGround()).thenReturn(true);
         when(knight.isOverMaxXVelocity()).thenReturn(false);
         when(knight.getVelocity()).thenReturn(new Vector(WalkingState.MIN_VELOCITY - 0.01, 0.0));
@@ -217,11 +217,11 @@ class WalkingStateWhiteBoxTests {
     }
 
     @Test
-    void getNextState_onGround_betweenWalkingMinAndRunningMin_returnsThis() {
+    public void getNextState_onGround_betweenWalkingMinAndRunningMin_returnsThis() {
         when(knight.isOnGround()).thenReturn(true);
         when(knight.isOverMaxXVelocity()).thenReturn(false);
 
-        // escolhe vx >= Walking.MIN (0.75) e < Running.MIN
+        // vx >= Walking.MIN (0.75) e < Running.MIN
         double vx = (WalkingState.MIN_VELOCITY + RunningState.MIN_VELOCITY) / 2.0;
         when(knight.getVelocity()).thenReturn(new Vector(vx, 0.0));
 

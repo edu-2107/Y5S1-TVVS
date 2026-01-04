@@ -48,7 +48,7 @@ class RespawnParticleWhiteBoxTests {
     }
 
     @Test
-    void applyCollisions_ceilingCollision_bouncesVy() {
+    public void applyCollisions_ceilingCollision_bouncesVy() {
         TestableRespawnParticle p = new TestableRespawnParticle(0, 0, new Position(0, 0), new TextColor.RGB(255, 255, 255));
         p.setScene(scene);
 
@@ -60,7 +60,7 @@ class RespawnParticleWhiteBoxTests {
     }
 
     @Test
-    void applyCollisions_downwardCollision_whileLoopRuns_andStopsWithSmallVy_setsZero() {
+    public void applyCollisions_downwardCollision_whileLoopRuns_andStopsWithSmallVy_setsZero() {
         TestableRespawnParticle p = new TestableRespawnParticle(0, 0, new Position(0, 0), new TextColor.RGB(255, 255, 255));
         p.setScene(scene);
 
@@ -72,7 +72,7 @@ class RespawnParticleWhiteBoxTests {
     }
 
     @Test
-    void applyCollisions_downwardCollision_whileLoopRuns_thenStopsWithoutForcingZero() {
+    public void applyCollisions_downwardCollision_whileLoopRuns_thenStopsWithoutForcingZero() {
         TestableRespawnParticle p = new TestableRespawnParticle(0, 0, new Position(0, 0), new TextColor.RGB(255, 255, 255));
         p.setScene(scene);
 
@@ -84,7 +84,7 @@ class RespawnParticleWhiteBoxTests {
     }
 
     @Test
-    void applyCollisions_horizontalLeftCollision_setsVxZero() {
+    public void applyCollisions_horizontalLeftCollision_setsVxZero() {
         TestableRespawnParticle p = new TestableRespawnParticle(0, 0, new Position(0, 0), new TextColor.RGB(255, 255, 255));
         p.setScene(scene);
 
@@ -96,7 +96,7 @@ class RespawnParticleWhiteBoxTests {
     }
 
     @Test
-    void applyCollisions_horizontalRightCollision_setsVxZero() {
+    public void applyCollisions_horizontalRightCollision_setsVxZero() {
         TestableRespawnParticle p = new TestableRespawnParticle(0, 0, new Position(0, 0), new TextColor.RGB(255, 255, 255));
         p.setScene(scene);
 
@@ -108,7 +108,7 @@ class RespawnParticleWhiteBoxTests {
     }
 
     @Test
-    void applyCollisions_noHorizontalCollision_keepsVx() {
+    public void applyCollisions_noHorizontalCollision_keepsVx() {
         TestableRespawnParticle p = new TestableRespawnParticle(0, 0, new Position(0, 0), new TextColor.RGB(255, 255, 255));
         p.setScene(scene);
 
@@ -120,7 +120,7 @@ class RespawnParticleWhiteBoxTests {
     }
 
     @Test
-    void moveParticle_firstCall_sticksBranch_setsVyZero_andSecondCall_gravityBranch() {
+    public void moveParticle_firstCall_sticksBranch_setsVyZero_andSecondCall_gravityBranch() {
         TestableRespawnParticle p = new TestableRespawnParticle(0, 0, new Position(0, 0), new TextColor.RGB(255, 255, 255));
         p.setScene(scene);
 
@@ -142,7 +142,7 @@ class RespawnParticleWhiteBoxTests {
     }
 
     @Test
-    void moveParticle_afterStick_gravityThenCeilingCollisionBranch_isCovered() {
+    public void moveParticle_afterStick_gravityThenCeilingCollisionBranch_isCovered() {
         TestableRespawnParticle p = new TestableRespawnParticle(0, 0, new Position(0, 0), new TextColor.RGB(255, 255, 255));
         p.setScene(scene);
 
@@ -157,7 +157,7 @@ class RespawnParticleWhiteBoxTests {
     }
 
     @Test
-    void moveParticle_afterStick_gravityThenDownwardCollisionBranch_isCovered() {
+    public void moveParticle_afterStick_gravityThenDownwardCollisionBranch_isCovered() {
         TestableRespawnParticle p = new TestableRespawnParticle(0, 0, new Position(0, 0), new TextColor.RGB(255, 255, 255));
         p.setScene(scene);
 
@@ -171,7 +171,7 @@ class RespawnParticleWhiteBoxTests {
     }
 
     @Test
-    void applyCollisions_upwardNoCeilingCollision_keepsVyNegative() {
+    public void applyCollisions_upwardNoCeilingCollision_keepsVyNegative() {
         TestableRespawnParticle p = new TestableRespawnParticle(
                 0, 0, new Position(0, 0),
                 new TextColor.RGB(255, 255, 255)
@@ -186,7 +186,7 @@ class RespawnParticleWhiteBoxTests {
     }
 
     @Test
-    void applyCollisions_noRightCollision_withPositiveVx_keepsVx() {
+    public void applyCollisions_noRightCollision_withPositiveVx_keepsVx() {
         TestableRespawnParticle p = new TestableRespawnParticle(
                 0, 0, new Position(0, 0),
                 new TextColor.RGB(255, 255, 255)

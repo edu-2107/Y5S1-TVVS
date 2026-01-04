@@ -89,7 +89,7 @@ class GameViewerWhiteBoxTests {
     }
 
     @Test
-    void draw_flashActive_coversIOExceptionCatch_andArrayNullBranch() throws Exception {
+    public void draw_flashActive_coversIOExceptionCatch_andArrayNullBranch() throws Exception {
         // GUI
         GUI gui = mock(GUI.class);
 
@@ -171,7 +171,7 @@ class GameViewerWhiteBoxTests {
     }
 
     @Test
-    void draw_afterEffectActive_coversAfterEffectBranch() throws Exception {
+    public void draw_afterEffectActive_coversAfterEffectBranch() throws Exception {
         GUI gui = mock(GUI.class);
 
         ParticleViewer particleViewer = mock(ParticleViewer.class);
@@ -213,7 +213,7 @@ class GameViewerWhiteBoxTests {
     }
 
     @Test
-    void draw_normalGradient_coversNormalElseBranch() throws Exception {
+    public void draw_normalGradient_coversNormalElseBranch() throws Exception {
         GUI gui = mock(GUI.class);
 
         ParticleViewer particleViewer = mock(ParticleViewer.class);

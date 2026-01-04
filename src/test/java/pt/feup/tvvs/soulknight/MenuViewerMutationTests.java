@@ -35,7 +35,7 @@ class MenuViewerMutationTests {
     }
 
     @Test
-    void secondOptionIsNotDrawnBeforeItsStartTime_killsContinueMutant() throws Exception {
+    public void secondOptionIsNotDrawnBeforeItsStartTime_killsContinueMutant() throws Exception {
         Option.Type type = Option.Type.START_GAME;
 
         Option o1 = new Option(50, 10, type); // start at t=0
@@ -62,7 +62,7 @@ class MenuViewerMutationTests {
     }
 
     @Test
-    void slidingAnimationChangesXPosition_killsArithmeticMutants() throws Exception {
+    public void slidingAnimationChangesXPosition_killsArithmeticMutants() throws Exception {
         Option o = new Option(50, 10, Option.Type.START_GAME);
 
         Menu menu = mock(Menu.class);
@@ -90,7 +90,7 @@ class MenuViewerMutationTests {
     }
 
     @Test
-    void selectedOptionBlinksAfter80_killsVisibilityMutants() throws Exception {
+    public void selectedOptionBlinksAfter80_killsVisibilityMutants() throws Exception {
         Option o = new Option(50, 10, Option.Type.START_GAME);
 
         Menu menu = mock(Menu.class);

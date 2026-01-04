@@ -13,7 +13,7 @@ class PBTests {
     private static final int MAX_COORD =  1_000;
 
     @Property
-    void movingLeftThenRightReturnsToOriginal(
+    public void movingLeftThenRightReturnsToOriginal(
             @ForAll @IntRange(min = MIN_COORD, max = MAX_COORD) int x,
             @ForAll @IntRange(min = MIN_COORD, max = MAX_COORD) int y
     ) {
@@ -25,7 +25,7 @@ class PBTests {
     }
 
     @Property
-    void movingRightThenLeftReturnsToOriginal(
+    public void movingRightThenLeftReturnsToOriginal(
             @ForAll @IntRange(min = MIN_COORD, max = MAX_COORD) int x,
             @ForAll @IntRange(min = MIN_COORD, max = MAX_COORD) int y
     ) {
@@ -37,7 +37,7 @@ class PBTests {
     }
 
     @Property
-    void movingUpThenDownReturnsToOriginal(
+    public void movingUpThenDownReturnsToOriginal(
             @ForAll @IntRange(min = MIN_COORD, max = MAX_COORD) int x,
             @ForAll @IntRange(min = MIN_COORD, max = MAX_COORD) int y
     ) {
@@ -49,7 +49,7 @@ class PBTests {
     }
 
     @Property
-    void movingDownThenUpReturnsToOriginal(
+    public void movingDownThenUpReturnsToOriginal(
             @ForAll @IntRange(min = MIN_COORD, max = MAX_COORD) int x,
             @ForAll @IntRange(min = MIN_COORD, max = MAX_COORD) int y
     ) {
@@ -61,7 +61,7 @@ class PBTests {
     }
 
     @Property
-    void movingLeftDecreasesXByOneAndKeepsY(
+    public void movingLeftDecreasesXByOneAndKeepsY(
             @ForAll @IntRange(min = MIN_COORD, max = MAX_COORD) int x,
             @ForAll @IntRange(min = MIN_COORD, max = MAX_COORD) int y
     ) {
@@ -73,7 +73,7 @@ class PBTests {
     }
 
     @Property
-    void movingUpDecreasesYByOneAndKeepsX(
+    public void movingUpDecreasesYByOneAndKeepsX(
             @ForAll @IntRange(min = MIN_COORD, max = MAX_COORD) int x,
             @ForAll @IntRange(min = MIN_COORD, max = MAX_COORD) int y
     ) {
@@ -85,7 +85,7 @@ class PBTests {
     }
 
     @Property
-    void movingRightIncreasesXByOneAndKeepsY(
+    public void movingRightIncreasesXByOneAndKeepsY(
             @ForAll @IntRange(min = MIN_COORD, max = MAX_COORD) int x,
             @ForAll @IntRange(min = MIN_COORD, max = MAX_COORD) int y
     ) {
@@ -97,7 +97,7 @@ class PBTests {
     }
 
     @Property
-    void movingDownIncreasesYByOneAndKeepsX(
+    public void movingDownIncreasesYByOneAndKeepsX(
             @ForAll @IntRange(min = MIN_COORD, max = MAX_COORD) int x,
             @ForAll @IntRange(min = MIN_COORD, max = MAX_COORD) int y
     ) {

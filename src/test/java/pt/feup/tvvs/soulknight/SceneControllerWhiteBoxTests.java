@@ -24,7 +24,7 @@ import static org.mockito.Mockito.*;
 class SceneControllerWhiteBoxTests {
 
     @Test
-    void move_whenQuit_setsMainMenuState_andDoesNotCallControllers() throws Exception {
+    public void move_whenQuit_setsMainMenuState_andDoesNotCallControllers() throws Exception {
         Scene scene = mock(Scene.class);
         Knight knight = mock(Knight.class);
         when(scene.getPlayer()).thenReturn(knight);
@@ -53,7 +53,7 @@ class SceneControllerWhiteBoxTests {
     }
 
     @Test
-    void move_whenNotQuit_andNotEndCondition_executesGameplayElseBranch() throws Exception {
+    public void move_whenNotQuit_andNotEndCondition_executesGameplayElseBranch() throws Exception {
         Scene scene = mock(Scene.class);
         Knight knight = mock(Knight.class);
         when(scene.getPlayer()).thenReturn(knight);
@@ -85,7 +85,7 @@ class SceneControllerWhiteBoxTests {
     }
 
     @Test
-    void move_whenEndAndOrbsMatch_andLastLevel_setsCreditsState() throws Exception {
+    public void move_whenEndAndOrbsMatch_andLastLevel_setsCreditsState() throws Exception {
         Scene scene = mock(Scene.class);
         Knight knight = mock(Knight.class);
         when(scene.getPlayer()).thenReturn(knight);
@@ -122,7 +122,7 @@ class SceneControllerWhiteBoxTests {
     }
 
     @Test
-    void move_whenEndAndOrbsMatch_andNotLastLevel_setsGameState_usingMockedSceneLoader() throws Exception {
+    public void move_whenEndAndOrbsMatch_andNotLastLevel_setsGameState_usingMockedSceneLoader() throws Exception {
         Scene scene = mock(Scene.class);
         Knight knight = mock(Knight.class);
         when(scene.getPlayer()).thenReturn(knight);

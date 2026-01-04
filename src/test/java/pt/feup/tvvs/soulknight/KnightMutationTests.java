@@ -29,13 +29,13 @@ class KnightMutationTests {
     // ----------------- Constructor invariants (kill constant/offset mutants) -----------------
 
     @Test
-    void constructorAppliesPositionOffsetExactly() {
+    public void constructorAppliesPositionOffsetExactly() {
         Knight k = new Knight(10, 20, 50, 2.0f, 100);
         assertEquals(new Position(14, 21), k.getPosition()); // offSetX=4 offSetY=1
     }
 
     @Test
-    void constructorInitializesCoreFields() {
+    public void constructorInitializesCoreFields() {
         Knight k = new Knight(0, 0, 12, 3.5f, 77);
         assertAll(
                 () -> assertEquals(12, k.getHP()),
@@ -50,7 +50,7 @@ class KnightMutationTests {
     // ----------------- isOverMaxXVelocity (kill comparator flip mutants) -----------------
 
     @Test
-    void isOverMaxXVelocityFalseAtBoundaryAndTrueAbove() {
+    public void isOverMaxXVelocityFalseAtBoundaryAndTrueAbove() {
         Knight k = knightWithScene();
         k.setVelocity(new Vector(2.0, 0.0));
         assertFalse(k.isOverMaxXVelocity()); // boundary
@@ -62,7 +62,7 @@ class KnightMutationTests {
     // ----------------- updatePosition (kill removed add / sign flip mutants) -----------------
 
     @Test
-    void updatePositionAddsResolvedVelocityToPosition() {
+    public void updatePositionAddsResolvedVelocityToPosition() {
         Knight k = knightWithScene();
 
         // Use a state that overrides applyCollisions deterministically
@@ -85,7 +85,7 @@ class KnightMutationTests {
     // ----------------- getNextState delegates (kill removed call mutants) -----------------
 
     @Test
-    void getNextStateDelegatesToCurrentState() throws Exception {
+    public void getNextStateDelegatesToCurrentState() throws Exception {
         Knight k = knightWithScene();
         KnightState current = mock(KnightState.class);
         KnightState next = mock(KnightState.class);
@@ -100,7 +100,7 @@ class KnightMutationTests {
     // ----------------- movement delegates (kill wrong method called mutants) -----------------
 
     @Test
-    void moveLeftDelegatesToStateAndReturnsItsVector() {
+    public void moveLeftDelegatesToStateAndReturnsItsVector() {
         Knight k = knightWithScene();
         KnightState st = mock(KnightState.class);
         Vector v = new Vector(-1.0, 0.0);
@@ -112,7 +112,7 @@ class KnightMutationTests {
     }
 
     @Test
-    void moveRightDelegatesToStateAndReturnsItsVector() {
+    public void moveRightDelegatesToStateAndReturnsItsVector() {
         Knight k = knightWithScene();
         KnightState st = mock(KnightState.class);
         Vector v = new Vector(1.0, 0.0);
@@ -124,7 +124,7 @@ class KnightMutationTests {
     }
 
     @Test
-    void jumpDelegatesToStateAndReturnsItsVector() {
+    public void jumpDelegatesToStateAndReturnsItsVector() {
         Knight k = knightWithScene();
         KnightState st = mock(KnightState.class);
         Vector v = new Vector(0.0, -5.0);
@@ -136,7 +136,7 @@ class KnightMutationTests {
     }
 
     @Test
-    void dashDelegatesToStateAndReturnsItsVector() {
+    public void dashDelegatesToStateAndReturnsItsVector() {
         Knight k = knightWithScene();
         KnightState st = mock(KnightState.class);
         Vector v = new Vector(6.0, 0.0);
@@ -150,7 +150,7 @@ class KnightMutationTests {
     // ----------------- isOnGround (kill negation mutants) -----------------
 
     @Test
-    void isOnGroundReturnsTrueWhenSceneCollidesDownTrue() {
+    public void isOnGroundReturnsTrueWhenSceneCollidesDownTrue() {
         Knight k = knightWithScene();
         when(k.getScene().collidesDown(any(Position.class), any(Position.class))).thenReturn(true);
 
@@ -158,7 +158,7 @@ class KnightMutationTests {
     }
 
     @Test
-    void isOnGroundReturnsFalseWhenSceneCollidesDownFalse() {
+    public void isOnGroundReturnsFalseWhenSceneCollidesDownFalse() {
         Knight k = knightWithScene();
         when(k.getScene().collidesDown(any(Position.class), any(Position.class))).thenReturn(false);
 
@@ -168,7 +168,7 @@ class KnightMutationTests {
     // ----------------- PlayerHit (kill early-return / boundary mutants) -----------------
 
     @Test
-    void playerHitDoesNothingIfGotHitAlreadyTrue() {
+    public void playerHitDoesNothingIfGotHitAlreadyTrue() {
         Knight k = knightWithScene();
         k.setGotHit(true);
         k.setHP(50);
@@ -183,7 +183,7 @@ class KnightMutationTests {
     }
 
     @Test
-    void playerHitWhenHpZeroSetsHpToOneBeforeApplyingDamage() {
+    public void playerHitWhenHpZeroSetsHpToOneBeforeApplyingDamage() {
         Knight k = knightWithScene();
         k.setGotHit(false);
         k.setHP(0);
@@ -199,7 +199,7 @@ class KnightMutationTests {
     }
 
     @Test
-    void playerHitReducesHpAndSetsDamagedState() {
+    public void playerHitReducesHpAndSetsDamagedState() {
         Knight k = knightWithScene();
         k.setGotHit(false);
         k.setHP(30);
@@ -216,7 +216,7 @@ class KnightMutationTests {
     // ----------------- resetValues (kill wrong constant / removed assignment mutants) -----------------
 
     @Test
-    void resetValuesForcesFacingRightAndFallingState() {
+    public void resetValuesForcesFacingRightAndFallingState() {
         Knight k = knightWithScene();
         k.setFacingRight(false);
         k.setState(new IdleState(k));
@@ -232,7 +232,7 @@ class KnightMutationTests {
     // ----------------- orbs and deaths (kill ++ removed / wrong variable mutants) -----------------
 
     @Test
-    void addOrbsIncrementsExactlyByOne() {
+    public void addOrbsIncrementsExactlyByOne() {
         Knight k = knightWithScene();
         k.setOrbs(7);
 
@@ -242,7 +242,7 @@ class KnightMutationTests {
     }
 
     @Test
-    void increaseDeathsIncrementsExactlyByOne() {
+    public void increaseDeathsIncrementsExactlyByOne() {
         Knight k = knightWithScene();
 
         k.increaseDeaths();

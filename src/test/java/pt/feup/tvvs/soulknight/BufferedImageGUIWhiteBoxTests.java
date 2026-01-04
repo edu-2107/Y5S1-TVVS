@@ -1,37 +1,38 @@
-package pt.feup.tvvs.soulknight.gui;
+package pt.feup.tvvs.soulknight;
 
 import com.googlecode.lanterna.TextColor;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import pt.feup.tvvs.soulknight.gui.BufferedImageGUI;
 
 import java.awt.image.BufferedImage;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class BufferedImageGUIWhiteBoxTests {
+public class BufferedImageGUIWhiteBoxTests {
 
     private BufferedImage buffer;
     private BufferedImageGUI gui;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         // Use ARGB so we can observe alpha values if needed
         buffer = new BufferedImage(10, 10, BufferedImage.TYPE_INT_ARGB);
         gui = new BufferedImageGUI(buffer);
     }
 
     @Test
-    void getWidth_returnsBufferWidthight() {
+    public void getWidth_returnsBufferWidthight() {
         assertEquals(10, gui.getWidth());
     }
 
     @Test
-    void getHeight_returnsBufferHeight() {
+    public void getHeight_returnsBufferHeight() {
         assertEquals(10, gui.getHeight());
     }
 
     @Test
-    void drawPixel_insideBounds_setsRGB() {
+    public void drawPixel_insideBounds_setsRGB() {
         TextColor.RGB c = new TextColor.RGB(255, 0, 0); // red
         gui.drawPixel(3, 4, c);
 
@@ -41,7 +42,7 @@ class BufferedImageGUIWhiteBoxTests {
     }
 
     @Test
-    void drawPixel_outsideBounds_doesNothing() {
+    public void drawPixel_outsideBounds_doesNothing() {
         // Paint a known pixel so we can verify nothing changes
         buffer.setRGB(0, 0, 0xFF00FF00); // green
 
@@ -55,7 +56,7 @@ class BufferedImageGUIWhiteBoxTests {
     }
 
     @Test
-    void drawRectangle_fillsArea() {
+    public void drawRectangle_fillsArea() {
         TextColor.RGB blue = new TextColor.RGB(0, 0, 255);
         gui.drawRectangle(2, 2, 3, 4, blue);
 
@@ -64,7 +65,7 @@ class BufferedImageGUIWhiteBoxTests {
     }
 
     @Test
-    void cls_withTransparentColor_doesNotOverwriteExistingPixels_dueToSrcOver() {
+    public void cls_withTransparentColor_doesNotOverwriteExistingPixels_dueToSrcOver() {
         // Put a red pixel
         buffer.setRGB(1, 1, 0xFFFF0000);
 
@@ -76,17 +77,17 @@ class BufferedImageGUIWhiteBoxTests {
     }
 
     @Test
-    void flush_isNoOp() {
+    public void flush_isNoOp() {
         assertDoesNotThrow(() -> gui.flush());
     }
 
     @Test
-    void close_isNoOp() {
+    public void close_isNoOp() {
         assertDoesNotThrow(() -> gui.close());
     }
 
     @Test
-    void unsupportedMethods_throwUnsupportedOperationException() {
+    public void unsupportedMethods_throwUnsupportedOperationException() {
         assertThrows(UnsupportedOperationException.class, () -> gui.getACTION());
         assertThrows(UnsupportedOperationException.class, () -> gui.getGUI());
         assertThrows(UnsupportedOperationException.class, () -> gui.getFPS());
@@ -95,7 +96,7 @@ class BufferedImageGUIWhiteBoxTests {
     }
 
     @Test
-    void drawText_doesNotThrow() {
+    public void drawText_doesNotThrow() {
         assertDoesNotThrow(() ->
                 gui.drawText(1, 1, new TextColor.RGB(255, 255, 255), "Hi")
         );

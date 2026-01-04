@@ -10,10 +10,10 @@ import pt.feup.tvvs.soulknight.view.sprites.SpriteLoader;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
-class CreditsControllerWhiteBoxTests {
+public class CreditsControllerWhiteBoxTests {
 
     @Test
-    void move_whenQuit_setsMainMenuState() throws Exception {
+    public void move_whenQuit_setsMainMenuState() throws Exception {
         Credits credits = mock(Credits.class);
         CreditsController controller = new CreditsController(credits);
 
@@ -30,7 +30,7 @@ class CreditsControllerWhiteBoxTests {
     }
 
     @Test
-    void move_whenNotQuit_doesNothing() throws Exception {
+    public void move_whenNotQuit_doesNothing() throws Exception {
         Credits credits = mock(Credits.class);
         CreditsController controller = new CreditsController(credits);
 

@@ -96,7 +96,7 @@ class FallingStateWhiteBoxTests {
     // ---------------- jump() ----------------
 
     @Test
-    void jump_whenOutsideRange_returnsUpdateVelocityOfCurrentVelocity() {
+    public void jump_whenOutsideRange_returnsUpdateVelocityOfCurrentVelocity() {
         FallingState fallingState = new FallingState(knight);
 
         when(knight.getVelocity()).thenReturn(new Vector(0, 2)); // y fora do range [0..1]
@@ -111,7 +111,7 @@ class FallingStateWhiteBoxTests {
     }
 
     @Test
-    void jump_whenInRangeAndCanDoubleJump_setsCounterAndParticles() {
+    public void jump_whenInRangeAndCanDoubleJump_setsCounterAndParticles() {
         FallingState fallingState = new FallingState(knight);
 
         when(knight.getVelocity()).thenReturn(new Vector(0, 0.5));
@@ -127,7 +127,7 @@ class FallingStateWhiteBoxTests {
     }
 
     @Test
-    void jump_whenInRangeButJumpCounterIs2_doesNotDoubleJumpBranch() {
+    public void jump_whenInRangeButJumpCounterIs2_doesNotDoubleJumpBranch() {
         FallingState fallingState = new FallingState(knight);
 
         // y dentro do range, mas jumpCounter já é 2 => NÃO entra no inner if
@@ -144,7 +144,7 @@ class FallingStateWhiteBoxTests {
     // ---------------- dash() ----------------
 
     @Test
-    void dash_facingRight_true_and_false() {
+    public void dash_facingRight_true_and_false() {
         FallingState fallingState = new FallingState(knight);
 
         when(knight.getVelocity()).thenReturn(new Vector(1, 0));
@@ -164,7 +164,7 @@ class FallingStateWhiteBoxTests {
     // ---------------- updateVelocity() ----------------
 
     @Test
-    void updateVelocity_coversBothBranches() {
+    public void updateVelocity_coversBothBranches() {
         FallingState fallingState = new FallingState(knight);
 
         when(scene.getGravity()).thenReturn(1.0);
@@ -184,7 +184,7 @@ class FallingStateWhiteBoxTests {
     // ---------------- getNextState() branches ----------------
 
     @Test
-    void getNextState_whenCollideSpike_returnsRespawnState() {
+    public void getNextState_whenCollideSpike_returnsRespawnState() {
         when(scene.collideSpike()).thenReturn(true);
 
         TestableFallingState state = new TestableFallingState(
@@ -196,7 +196,7 @@ class FallingStateWhiteBoxTests {
     }
 
     @Test
-    void getNextState_whenParticlesTimerZero_setsRespawnParticles_andResetsTimer_andContinues() {
+    public void getNextState_whenParticlesTimerZero_setsRespawnParticles_andResetsTimer_andContinues() {
         when(scene.collideSpike()).thenReturn(false);
         when(knight.isOverMaxXVelocity()).thenReturn(false);
         when(knight.isOnGround()).thenReturn(false);
@@ -215,7 +215,7 @@ class FallingStateWhiteBoxTests {
     }
 
     @Test
-    void getNextState_whenOverMaxXVelocity_returnsDashState() {
+    public void getNextState_whenOverMaxXVelocity_returnsDashState() {
         when(scene.collideSpike()).thenReturn(false);
         when(knight.isOverMaxXVelocity()).thenReturn(true);
 
@@ -228,7 +228,7 @@ class FallingStateWhiteBoxTests {
     }
 
     @Test
-    void getNextState_whenOnGround_returnsNextGroundState() {
+    public void getNextState_whenOnGround_returnsNextGroundState() {
         when(scene.collideSpike()).thenReturn(false);
         when(knight.isOverMaxXVelocity()).thenReturn(false);
         when(knight.isOnGround()).thenReturn(true);
@@ -243,7 +243,7 @@ class FallingStateWhiteBoxTests {
     }
 
     @Test
-    void getNextState_whenJumpCounterIs2_returnsNextOnAirState() {
+    public void getNextState_whenJumpCounterIs2_returnsNextOnAirState() {
         when(scene.collideSpike()).thenReturn(false);
         when(knight.isOverMaxXVelocity()).thenReturn(false);
         when(knight.isOnGround()).thenReturn(false);
@@ -259,7 +259,7 @@ class FallingStateWhiteBoxTests {
     }
 
     @Test
-    void getNextState_default_returnsThis() {
+    public void getNextState_default_returnsThis() {
         when(scene.collideSpike()).thenReturn(false);
         when(knight.isOverMaxXVelocity()).thenReturn(false);
         when(knight.isOnGround()).thenReturn(false);

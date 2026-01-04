@@ -35,7 +35,7 @@ class MenuViewerWhiteBoxTests {
     }
 
     @Test
-    void draw_coversMainMenuAndSettingsMenuBackgroundBranches() throws Exception {
+    public void draw_coversMainMenuAndSettingsMenuBackgroundBranches() throws Exception {
         ViewerProvider vp = mock(ViewerProvider.class);
         when(vp.getEntryViewer()).thenReturn(mock(OptionViewer.class));
         when(vp.getLogoViewer()).thenReturn(mock(LogoViewer.class));
@@ -65,7 +65,7 @@ class MenuViewerWhiteBoxTests {
     }
 
     @Test
-    void drawParticles_coversLoopBody() throws Exception {
+    public void drawParticles_coversLoopBody() throws Exception {
         ViewerProvider vp = mock(ViewerProvider.class);
         when(vp.getEntryViewer()).thenReturn(mock(OptionViewer.class));
         when(vp.getLogoViewer()).thenReturn(mock(LogoViewer.class));
@@ -87,7 +87,7 @@ class MenuViewerWhiteBoxTests {
     }
 
     @Test
-    void drawOptions_coversAnimationMovementAndContinueBranch() throws Exception {
+    public void drawOptions_coversAnimationMovementAndContinueBranch() throws Exception {
         ViewerProvider vp = mock(ViewerProvider.class);
         when(vp.getEntryViewer()).thenReturn(mock(OptionViewer.class));
         when(vp.getLogoViewer()).thenReturn(mock(LogoViewer.class));
@@ -114,7 +114,7 @@ class MenuViewerWhiteBoxTests {
     }
 
     @Test
-    void drawOptions_coversBlinkingVisibleAndInvisibleAndInGameToggle() throws Exception {
+    public void drawOptions_coversBlinkingVisibleAndInvisibleAndInGameToggle() throws Exception {
         ViewerProvider vp = mock(ViewerProvider.class);
         when(vp.getEntryViewer()).thenReturn(mock(OptionViewer.class));
         when(vp.getLogoViewer()).thenReturn(mock(LogoViewer.class));
@@ -142,7 +142,7 @@ class MenuViewerWhiteBoxTests {
     }
 
     @Test
-    void drawOptions_coversTimeUnder80BranchAndTimeOver80ElseBranch() throws Exception {
+    public void drawOptions_coversTimeUnder80BranchAndTimeOver80ElseBranch() throws Exception {
         ViewerProvider vp = mock(ViewerProvider.class);
         when(vp.getEntryViewer()).thenReturn(mock(OptionViewer.class));
         when(vp.getLogoViewer()).thenReturn(mock(LogoViewer.class));
@@ -169,7 +169,7 @@ class MenuViewerWhiteBoxTests {
     }
 
     @Test
-    void drawOptions_timeBeforeFirstOptionStart_skipsDrawingFirstOption() throws Exception {
+    public void drawOptions_timeBeforeFirstOptionStart_skipsDrawingFirstOption() throws Exception {
         ViewerProvider vp = mock(ViewerProvider.class);
         when(vp.getEntryViewer()).thenReturn(mock(OptionViewer.class));
         when(vp.getLogoViewer()).thenReturn(mock(LogoViewer.class));
@@ -192,7 +192,7 @@ class MenuViewerWhiteBoxTests {
     }
 
     @Test
-    void drawOptions_blinkingNotInGameInvisible_doesNotDraw() throws Exception {
+    public void drawOptions_blinkingNotInGameInvisible_doesNotDraw() throws Exception {
         ViewerProvider vp = mock(ViewerProvider.class);
         when(vp.getEntryViewer()).thenReturn(mock(OptionViewer.class));
         when(vp.getLogoViewer()).thenReturn(mock(LogoViewer.class));
@@ -215,7 +215,7 @@ class MenuViewerWhiteBoxTests {
     }
 
     @Test
-    void drawOptions_timeAtAndAfterAnimationEnd_doesNotApplyMovementOffset() throws Exception {
+    public void drawOptions_timeAtAndAfterAnimationEnd_doesNotApplyMovementOffset() throws Exception {
         ViewerProvider vp = mock(ViewerProvider.class);
         when(vp.getEntryViewer()).thenReturn(mock(OptionViewer.class));
         when(vp.getLogoViewer()).thenReturn(mock(LogoViewer.class));

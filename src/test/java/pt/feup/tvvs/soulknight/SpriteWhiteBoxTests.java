@@ -48,14 +48,14 @@ class SpriteWhiteBoxTests {
     // ---------------- Constructor branch: resource == null triggers assert ----------------
 
     @Test
-    void constructor_whenResourceMissing_throwsAssertionError() {
+    public void constructor_whenResourceMissing_throwsAssertionError() {
         assertThrows(AssertionError.class, () -> new Sprite("definitely-not-a-real-file.png"));
     }
 
     // ---------------- draw() branches ----------------
 
     @Test
-    void draw_skipsFullyTransparentPixels_andDrawsOpaquePixels_withCorrectColorAndCoords() {
+    public void draw_skipsFullyTransparentPixels_andDrawsOpaquePixels_withCorrectColorAndCoords() {
         BufferedImage img = new BufferedImage(2, 2, BufferedImage.TYPE_INT_ARGB);
 
         int transparent = 0x00000000; // alpha 0
@@ -78,7 +78,7 @@ class SpriteWhiteBoxTests {
     }
 
     @Test
-    void draw_drawsNonTransparentPixel_extractsRGBCorrectly_forAnotherColor() {
+    public void draw_drawsNonTransparentPixel_extractsRGBCorrectly_forAnotherColor() {
         BufferedImage img = new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB);
 
         // alpha 255, RGB = (1,2,3)

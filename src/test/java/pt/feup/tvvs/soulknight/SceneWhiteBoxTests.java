@@ -25,7 +25,7 @@ class SceneWhiteBoxTests {
     }
 
     @Test
-    void gettersAndSetters_basic() {
+    public void gettersAndSetters_basic() {
         Scene scene = newSmallScene();
 
         assertEquals(7, scene.getSceneID());
@@ -48,7 +48,7 @@ class SceneWhiteBoxTests {
     }
 
     @Test
-    void collidesLeft_outsideScene_returnsTrue() {
+    public void collidesLeft_outsideScene_returnsTrue() {
         Scene scene = newSmallScene();
 
         // Map layer exists by default
@@ -57,14 +57,14 @@ class SceneWhiteBoxTests {
     }
 
     @Test
-    void collidesRight_insideEmptyMap_returnsFalse() {
+    public void collidesRight_insideEmptyMap_returnsFalse() {
         Scene scene = newSmallScene();
         // Empty map -> no collision
         assertFalse(scene.collidesRight(new Position(5, 5), new Position(10, 10)));
     }
 
     @Test
-    void collidesDown_withBlockingElement_returnsTrue() {
+    public void collidesDown_withBlockingElement_returnsTrue() {
         Scene scene = newSmallScene();
 
         // Put a non-null Element in the map at the tile cell we will query
@@ -86,7 +86,7 @@ class SceneWhiteBoxTests {
     }
 
     @Test
-    void collidesUp_insideButNoBlock_returnsFalse() {
+    public void collidesUp_insideButNoBlock_returnsFalse() {
         Scene scene = newSmallScene();
 
         Element[][] map = new Element[scene.getHeight()][scene.getWidth()];
@@ -99,7 +99,7 @@ class SceneWhiteBoxTests {
     }
 
     @Test
-    void collectOrbs_collectsAndAlsoNoOpWhenNone() {
+    public void collectOrbs_collectsAndAlsoNoOpWhenNone() {
         Scene scene = newSmallScene();
 
         Knight player = mock(Knight.class);
@@ -141,7 +141,7 @@ class SceneWhiteBoxTests {
     }
 
     @Test
-    void collideMonsters_hitsOnlyWhenColliding() {
+    public void collideMonsters_hitsOnlyWhenColliding() {
         Scene scene = newSmallScene();
 
         Knight player = mock(Knight.class);
@@ -167,7 +167,7 @@ class SceneWhiteBoxTests {
     }
 
     @Test
-    void collideSpike_outsideAndInsideBranches() {
+    public void collideSpike_outsideAndInsideBranches() {
         Scene scene = newSmallScene();
 
         Knight player = mock(Knight.class);
@@ -195,7 +195,7 @@ class SceneWhiteBoxTests {
     }
 
     @Test
-    void collideMonsters_coversAllShortCircuitBranchesOfCheckCollision() {
+    public void collideMonsters_coversAllShortCircuitBranchesOfCheckCollision() {
         Scene scene = newSmallScene();
 
         Knight player = mock(Knight.class);
@@ -246,7 +246,7 @@ class SceneWhiteBoxTests {
         verify(eHit, times(1)).getDamage();
     }
     @Test
-    void isOutsideScene_allOrBranchesCovered_viaPublicCollisions() {
+    public void isOutsideScene_allOrBranchesCovered_viaPublicCollisions() {
         Scene scene = newSmallScene();
 
         // 1) x1 < 0  (left outside)
@@ -267,7 +267,7 @@ class SceneWhiteBoxTests {
     }
 
     @Test
-    void isAtEndPosition_trueAndFalse() {
+    public void isAtEndPosition_trueAndFalse() {
         Scene scene = newSmallScene();
 
         Knight player = mock(Knight.class);
@@ -286,7 +286,7 @@ class SceneWhiteBoxTests {
     }
 
     @Test
-    void particlesLists_settersAndGetters() {
+    public void particlesLists_settersAndGetters() {
         Scene scene = newSmallScene();
 
         assertNotNull(scene.getParticles());

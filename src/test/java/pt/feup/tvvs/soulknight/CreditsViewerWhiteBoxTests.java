@@ -32,7 +32,7 @@ class CreditsViewerWhiteBoxTests {
     }
 
     @Test
-    void drawMessages_and_drawNames_withEmptyArrays_coverSkipBranches() {
+    public void drawMessages_and_drawNames_withEmptyArrays_coverSkipBranches() {
         Credits credits = mock(Credits.class);
         when(credits.getMessages()).thenReturn(new String[]{});
         when(credits.getNames()).thenReturn(new String[]{});
@@ -49,7 +49,7 @@ class CreditsViewerWhiteBoxTests {
     }
 
     @Test
-    void drawMessages_and_drawNames_withElements_coverLoopBranches() {
+    public void drawMessages_and_drawNames_withElements_coverLoopBranches() {
         Credits credits = mock(Credits.class);
         when(credits.getMessages()).thenReturn(new String[]{"Hello", "World"});
         when(credits.getNames()).thenReturn(new String[]{"Edu", "TVVS"});
@@ -66,7 +66,7 @@ class CreditsViewerWhiteBoxTests {
     }
 
     @Test
-    void drawSmoothBackground_timeZero_hitsNormalRGBBranch() {
+    public void drawSmoothBackground_timeZero_hitsNormalRGBBranch() {
         CreditsViewer viewer = createViewer(mock(Credits.class));
         GUI gui = mock(GUI.class);
 
@@ -77,7 +77,7 @@ class CreditsViewerWhiteBoxTests {
     }
 
     @Test
-    void drawSmoothBackground_largePositiveTime_hitsUpperClampBranch() {
+    public void drawSmoothBackground_largePositiveTime_hitsUpperClampBranch() {
         CreditsViewer viewer = createViewer(mock(Credits.class));
         GUI gui = mock(GUI.class);
 
@@ -88,7 +88,7 @@ class CreditsViewerWhiteBoxTests {
     }
 
     @Test
-    void drawSmoothBackground_negativeTime_hitsLowerClampBranch() {
+    public void drawSmoothBackground_negativeTime_hitsLowerClampBranch() {
         CreditsViewer viewer = createViewer(mock(Credits.class));
         GUI gui = mock(GUI.class);
 
@@ -99,7 +99,7 @@ class CreditsViewerWhiteBoxTests {
     }
 
     @Test
-    void draw_callsAllSubMethods() throws Exception {
+    public void draw_callsAllSubMethods() throws Exception {
         Credits credits = mock(Credits.class);
         when(credits.getMessages()).thenReturn(new String[]{"A"});
         when(credits.getNames()).thenReturn(new String[]{"B"});

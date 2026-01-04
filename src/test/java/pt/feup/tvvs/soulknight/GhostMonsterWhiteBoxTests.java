@@ -24,7 +24,7 @@ class GhostMonsterWhiteBoxTests {
     }
 
     @Test
-    void getChar_returnsSymbol() {
+    public void getChar_returnsSymbol() {
         Scene scene = mock(Scene.class);
         when(scene.getWidth()).thenReturn(100);
         when(scene.getHeight()).thenReturn(50);
@@ -34,7 +34,7 @@ class GhostMonsterWhiteBoxTests {
     }
 
     @Test
-    void setters_setAmplitudeFrequencyHorizontalSpeed_coverLines() {
+    public void setters_setAmplitudeFrequencyHorizontalSpeed_coverLines() {
         Scene scene = mock(Scene.class);
         when(scene.getWidth()).thenReturn(100);
         when(scene.getHeight()).thenReturn(50);
@@ -50,7 +50,7 @@ class GhostMonsterWhiteBoxTests {
     }
 
     @Test
-    void applyCollisions_returnsSameVector() {
+    public void applyCollisions_returnsSameVector() {
         Scene scene = mock(Scene.class);
         when(scene.getWidth()).thenReturn(100);
         when(scene.getHeight()).thenReturn(50);
@@ -67,7 +67,7 @@ class GhostMonsterWhiteBoxTests {
     }
 
     @Test
-    void updatePosition_wrapsRightToLeft_whenNewXGreaterThanScreenWidth() {
+    public void updatePosition_wrapsRightToLeft_whenNewXGreaterThanScreenWidth() {
         Scene scene = mock(Scene.class);
         when(scene.getWidth()).thenReturn(100);
         when(scene.getHeight()).thenReturn(50);
@@ -81,7 +81,7 @@ class GhostMonsterWhiteBoxTests {
     }
 
     @Test
-    void updatePosition_wrapsLeftToRight_whenNewXLessThanZero() {
+    public void updatePosition_wrapsLeftToRight_whenNewXLessThanZero() {
         Scene scene = mock(Scene.class);
         when(scene.getWidth()).thenReturn(100);
         when(scene.getHeight()).thenReturn(50);
@@ -95,7 +95,7 @@ class GhostMonsterWhiteBoxTests {
     }
 
     @Test
-    void updatePosition_wrapsBottomToTop_whenNewYGreaterThanScreenHeight() {
+    public void updatePosition_wrapsBottomToTop_whenNewYGreaterThanScreenHeight() {
         Scene scene = mock(Scene.class);
         when(scene.getWidth()).thenReturn(100);
         when(scene.getHeight()).thenReturn(50);
@@ -108,7 +108,7 @@ class GhostMonsterWhiteBoxTests {
     }
 
     @Test
-    void updatePosition_wrapsTopToBottom_whenNewYLessThanZero() {
+    public void updatePosition_wrapsTopToBottom_whenNewYLessThanZero() {
         Scene scene = mock(Scene.class);
         when(scene.getWidth()).thenReturn(100);
         when(scene.getHeight()).thenReturn(50);
@@ -121,7 +121,7 @@ class GhostMonsterWhiteBoxTests {
     }
 
     @Test
-    void updatePosition_normalMovement_noWrapping_changesX_andYUsingSine() {
+    public void updatePosition_normalMovement_noWrapping_changesX_andYUsingSine() {
         Scene scene = mock(Scene.class);
         when(scene.getWidth()).thenReturn(100);
         when(scene.getHeight()).thenReturn(50);
@@ -139,7 +139,7 @@ class GhostMonsterWhiteBoxTests {
     }
 
     @Test
-    void moveMonster_setsPosition_andReturnsSamePosition() {
+    public void moveMonster_setsPosition_andReturnsSamePosition() {
         Scene scene = mock(Scene.class);
         when(scene.getWidth()).thenReturn(100);
         when(scene.getHeight()).thenReturn(50);

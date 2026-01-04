@@ -13,7 +13,7 @@ import com.googlecode.lanterna.TextColor;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class BlackBoxTests {
+public class BlackBoxTests {
 
     private final ParticleMenuController controller = new ParticleMenuController(null);
 
@@ -29,70 +29,70 @@ class BlackBoxTests {
     // ---------- wrapPosition ----------
 
     @Test
-    void wrapPositionKeepsXInsideBoundsWhenXIsValid() {
+    public void wrapPositionKeepsXInsideBoundsWhenXIsValid() {
         Position result = controller.wrapPosition(100, 50);
 
         assertEquals(new Position(100, 50), result);
     }
 
     @Test
-    void wrapPositionXAtLowerBoundZeroStaysZero() {
+    public void wrapPositionXAtLowerBoundZeroStaysZero() {
         Position result = controller.wrapPosition(0, 10);
 
         assertEquals(new Position(0, 10), result);
     }
 
     @Test
-    void wrapPositionXJustAboveLowerBoundOneStaysOne() {
+    public void wrapPositionXJustAboveLowerBoundOneStaysOne() {
         Position result = controller.wrapPosition(1, 10);
 
         assertEquals(new Position(1, 10), result);
     }
 
     @Test
-    void wrapPositionXJustBelowLowerBoundWrapsToMaxMinusOne() {
+    public void wrapPositionXJustBelowLowerBoundWrapsToMaxMinusOne() {
         Position result = controller.wrapPosition(-1, 10);
 
         assertEquals(new Position(219, 10), result);
     }
 
     @Test
-    void wrapPositionXAtUpperBoundWrapsToOne() {
+    public void wrapPositionXAtUpperBoundWrapsToOne() {
         Position result = controller.wrapPosition(220, 10);
 
         assertEquals(new Position(1, 10), result);
     }
 
     @Test
-    void wrapPositionYAtLowerBoundZeroStaysZero() {
+    public void wrapPositionYAtLowerBoundZeroStaysZero() {
         Position result = controller.wrapPosition(10, 0);
 
         assertEquals(new Position(10, 0), result);
     }
 
     @Test
-    void wrapPositionYJustBelowLowerBoundWrapsToMaxMinusOne() {
+    public void wrapPositionYJustBelowLowerBoundWrapsToMaxMinusOne() {
         Position result = controller.wrapPosition(10, -1);
 
         assertEquals(new Position(10, 109), result);
     }
 
     @Test
-    void wrapPositionYAtUpperBoundWrapsToOne() {
+    public void wrapPositionYAtUpperBoundWrapsToOne() {
         Position result = controller.wrapPosition(10, 110);
 
         assertEquals(new Position(10, 1), result);
     }
 
     @Test
-    void wrapPositionWrapsBothCoordinatesWhenBothOutOfBoundsCase1() {
+    public void wrapPositionWrapsBothCoordinatesWhenBothOutOfBoundsCase1() {
         Position result = controller.wrapPosition(-10, 1100);
 
         assertEquals(new Position(219, 1), result);
     }
 
     @Test
-    void wrapPositionWrapsBothCoordinatesWhenBothOutOfBoundsCase2() {
+    public void wrapPositionWrapsBothCoordinatesWhenBothOutOfBoundsCase2() {
         Position result = controller.wrapPosition(300, -1);
 
         assertEquals(new Position(1, 109), result);
@@ -101,7 +101,7 @@ class BlackBoxTests {
     // ---------- drawText ----------
 
     @Test
-    void drawTextWithValidArgumentModifiesBuffer() {
+    public void drawTextWithValidArgumentModifiesBuffer() {
         BufferedImage buffer = createBuffer();
         BufferedImageGUI gui = new BufferedImageGUI(buffer);
         TextColor.RGB color = new TextColor.RGB(255, 0, 0);
@@ -117,7 +117,7 @@ class BlackBoxTests {
     }
 
     @Test
-    void drawTextWithEmptyStringDoesNotModifyBuffer() {
+    public void drawTextWithEmptyStringDoesNotModifyBuffer() {
         BufferedImage buffer = createBuffer();
         BufferedImageGUI gui = new BufferedImageGUI(buffer);
         TextColor.RGB color = new TextColor.RGB(255, 0, 0);
@@ -133,7 +133,7 @@ class BlackBoxTests {
     }
 
     @Test
-    void drawTextWithCoordinatesFarOutsideImageDoesNotModifyBuffer() {
+    public void drawTextWithCoordinatesFarOutsideImageDoesNotModifyBuffer() {
         BufferedImage buffer = createBuffer();
         BufferedImageGUI gui = new BufferedImageGUI(buffer);
         TextColor.RGB color = new TextColor.RGB(0, 255, 0);
@@ -150,7 +150,7 @@ class BlackBoxTests {
     }
 
     @Test
-    void drawTextWithNullTextThrowsNullPointerException() {
+    public void drawTextWithNullTextThrowsNullPointerException() {
         BufferedImage buffer = createBuffer();
         BufferedImageGUI gui = new BufferedImageGUI(buffer);
         TextColor.RGB color = new TextColor.RGB(255, 255, 255);
@@ -160,7 +160,7 @@ class BlackBoxTests {
     }
 
     @Test
-    void drawTextWithNullColorThrowsNullPointerException() {
+    public void drawTextWithNullColorThrowsNullPointerException() {
         BufferedImage buffer = createBuffer();
         BufferedImageGUI gui = new BufferedImageGUI(buffer);
 

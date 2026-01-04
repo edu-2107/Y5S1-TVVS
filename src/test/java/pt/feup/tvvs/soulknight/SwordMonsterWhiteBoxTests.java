@@ -23,14 +23,14 @@ class SwordMonsterWhiteBoxTests {
     }
 
     @Test
-    void getChar_returnsSymbol() {
+    public void getChar_returnsSymbol() {
         Scene scene = mock(Scene.class);
         TestableSwordMonster m = new TestableSwordMonster(0, 0, 10, scene, 1, new Position(1, 1), 'S');
         assertEquals('S', m.getChar());
     }
 
     @Test
-    void updatePosition_noCollisions_movesByVelocity() {
+    public void updatePosition_noCollisions_movesByVelocity() {
         Scene scene = mock(Scene.class);
         when(scene.collidesLeft(any(), any())).thenReturn(false);
         when(scene.collidesRight(any(), any())).thenReturn(false);
@@ -43,7 +43,7 @@ class SwordMonsterWhiteBoxTests {
     }
 
     @Test
-    void moveMonster_delegatesToUpdatePosition() {
+    public void moveMonster_delegatesToUpdatePosition() {
         Scene scene = mock(Scene.class);
         when(scene.collidesLeft(any(), any())).thenReturn(false);
         when(scene.collidesRight(any(), any())).thenReturn(false);
@@ -56,7 +56,7 @@ class SwordMonsterWhiteBoxTests {
     }
 
     @Test
-    void applyCollisions_whenMovingRight_andCollidesRight_setsVxTo0_andFlipsVelocity() {
+    public void applyCollisions_whenMovingRight_andCollidesRight_setsVxTo0_andFlipsVelocity() {
         Scene scene = mock(Scene.class);
         when(scene.collidesRight(any(), any())).thenReturn(true);
         when(scene.collidesLeft(any(), any())).thenReturn(false);
@@ -73,7 +73,7 @@ class SwordMonsterWhiteBoxTests {
     }
 
     @Test
-    void applyCollisions_whenMovingLeft_andCollidesLeft_setsVxTo0_andFlipsVelocity() {
+    public void applyCollisions_whenMovingLeft_andCollidesLeft_setsVxTo0_andFlipsVelocity() {
         Scene scene = mock(Scene.class);
         when(scene.collidesLeft(any(), any())).thenReturn(true);
         when(scene.collidesRight(any(), any())).thenReturn(false);
@@ -90,7 +90,7 @@ class SwordMonsterWhiteBoxTests {
     }
 
     @Test
-    void updatePosition_withRightCollision_usesResolvedVelocity_andAlsoFlipsInternalVelocity() {
+    public void updatePosition_withRightCollision_usesResolvedVelocity_andAlsoFlipsInternalVelocity() {
         Scene scene = mock(Scene.class);
         when(scene.collidesRight(any(), any())).thenReturn(true);
         when(scene.collidesLeft(any(), any())).thenReturn(false);

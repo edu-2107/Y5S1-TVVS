@@ -25,10 +25,6 @@ import static org.mockito.Mockito.*;
 
 class SceneLoaderWhiteBoxTests {
 
-    /**
-     * Exposes protected getWidth/getHeight from SceneLoader (tests are in a different package).
-     * Also allows replacing the content of the private 'lines' list via reflection to force branches.
-     */
     static class ExposedSceneLoader extends SceneLoader {
         ExposedSceneLoader(int id) throws IOException { super(id); }
 
@@ -67,12 +63,12 @@ class SceneLoaderWhiteBoxTests {
     }
 
     @Test
-    void constructor_missingResource_throwsFileNotFound() {
+    public void constructor_missingResource_throwsFileNotFound() {
         assertThrows(FileNotFoundException.class, () -> new SceneLoader(999999));
     }
 
     @Test
-    void getWidthAndHeight_viaSubclassWrapper_andWidthMaxBranch() throws IOException {
+    public void getWidthAndHeight_viaSubclassWrapper_andWidthMaxBranch() throws IOException {
         ExposedSceneLoader loader = new ExposedSceneLoader(1);
 
         // Force width to update and not update across iterations:
@@ -84,7 +80,7 @@ class SceneLoaderWhiteBoxTests {
     }
 
     @Test
-    void createScene_customLines_coversMapWallsSpikesTreesRocksEndAndPlayer() throws IOException {
+    public void createScene_customLines_coversMapWallsSpikesTreesRocksEndAndPlayer() throws IOException {
         ExposedSceneLoader loader = new ExposedSceneLoader(1);
 
         /*
@@ -153,7 +149,7 @@ class SceneLoaderWhiteBoxTests {
     }
 
     @Test
-    void createScene_playerNotFound_throwsIllegalState() throws IOException {
+    public void createScene_playerNotFound_throwsIllegalState() throws IOException {
         ExposedSceneLoader loader = new ExposedSceneLoader(1);
         loader.replaceLines(List.of(
                 "xxxxx",
@@ -166,7 +162,7 @@ class SceneLoaderWhiteBoxTests {
     }
 
     @Test
-    void setOrbs_setsNewMatrix_andCoversMethod() throws IOException {
+    public void setOrbs_setsNewMatrix_andCoversMethod() throws IOException {
         ExposedSceneLoader loader = new ExposedSceneLoader(1);
         loader.replaceLines(List.of(
                 "P....",
@@ -185,7 +181,7 @@ class SceneLoaderWhiteBoxTests {
     }
 
     @Test
-    void createScene_realLevelFile_exercisesMonsterFactoryBranchNaturally() throws IOException {
+    public void createScene_realLevelFile_exercisesMonsterFactoryBranchNaturally() throws IOException {
         // This test deliberately uses the real level1.lvl content (no replaceLines),
         // because those files usually include at least one monster marker and also non-monster chars,
         // covering both branches: (monster != null) and (monster == null).

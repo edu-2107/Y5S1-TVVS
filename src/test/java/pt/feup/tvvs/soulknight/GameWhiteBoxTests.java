@@ -125,10 +125,9 @@ class GameWhiteBoxTests {
         return g;
     }
 
-    // ---------- tests for start(): cover ALL branches ----------
 
     @Test
-    void start_whenStateNull_skipsLoop_andClosesGui() throws Exception {
+    public void start_whenStateNull_skipsLoop_andClosesGui() throws Exception {
         LanternaGUI gui = mock(LanternaGUI.class);
         MenuSoundPlayer sound = mock(MenuSoundPlayer.class);
         SpriteLoader sprites = mock(SpriteLoader.class);
@@ -143,7 +142,7 @@ class GameWhiteBoxTests {
     }
 
     @Test
-    void start_oneIteration_tick0Branch_runsMove_setsFPS_andExitsWhenStateBecomesNull() throws Exception {
+    public void start_oneIteration_tick0Branch_runsMove_setsFPS_andExitsWhenStateBecomesNull() throws Exception {
         LanternaGUI gui = mock(LanternaGUI.class);
         MenuSoundPlayer sound = mock(MenuSoundPlayer.class);
         SpriteLoader sprites = mock(SpriteLoader.class);
@@ -179,7 +178,7 @@ class GameWhiteBoxTests {
     }
 
     @Test
-    void start_fpsUpdateBranch_true_whenFpsLastUpdateOld_updatesCurrentFps_andResetsFrames() throws Exception {
+    public void start_fpsUpdateBranch_true_whenFpsLastUpdateOld_updatesCurrentFps_andResetsFrames() throws Exception {
         LanternaGUI gui = mock(LanternaGUI.class);
         MenuSoundPlayer sound = mock(MenuSoundPlayer.class);
         SpriteLoader sprites = mock(SpriteLoader.class);

@@ -41,7 +41,7 @@ class MonsterViewerWhiteBoxTests {
     }
 
     @Test
-    void draw_whenCharUnknown_throwsIllegalArgumentException() throws Exception {
+    public void draw_whenCharUnknown_throwsIllegalArgumentException() throws Exception {
         MonsterViewer viewer = makeViewerWithMockSprites(
                 mock(Sprite.class), mock(Sprite.class), mock(Sprite.class), mock(Sprite.class)
         );
@@ -53,7 +53,7 @@ class MonsterViewerWhiteBoxTests {
     }
 
     @Test
-    void draw_purpleMonster_l_drawsSpriteWithMinus4Minus1Offsets() throws Exception {
+    public void draw_purpleMonster_l_drawsSpriteWithMinus4Minus1Offsets() throws Exception {
         Sprite minhot = mock(Sprite.class);
         Sprite purple = mock(Sprite.class);
         Sprite sword0 = mock(Sprite.class);
@@ -74,7 +74,7 @@ class MonsterViewerWhiteBoxTests {
     }
 
     @Test
-    void draw_ghostMonster_m_drawsSpriteAndHitBox() throws Exception {
+    public void draw_ghostMonster_m_drawsSpriteAndHitBox() throws Exception {
         Sprite minhot = mock(Sprite.class);
         Sprite purple = mock(Sprite.class);
         Sprite sword0 = mock(Sprite.class);
@@ -96,7 +96,7 @@ class MonsterViewerWhiteBoxTests {
     }
 
     @Test
-    void draw_swordMonster_E_animatesFrame0AtTick0_andFrame1AtTick5() throws Exception {
+    public void draw_swordMonster_E_animatesFrame0AtTick0_andFrame1AtTick5() throws Exception {
         Sprite minhot = mock(Sprite.class);
         Sprite purple = mock(Sprite.class);
         Sprite sword0 = mock(Sprite.class);

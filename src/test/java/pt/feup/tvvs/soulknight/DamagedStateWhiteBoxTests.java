@@ -82,14 +82,14 @@ class DamagedStateWhiteBoxTests {
     }
 
     @Test
-    void constructor_setsRespawnParticles() {
+    public void constructor_setsRespawnParticles() {
         new TestableDamagedState(knight, 7, mock(KnightState.class));
         verify(knight).createRespawnParticles(7);
         verify(scene).setRespawnParticles(anyList());
     }
 
     @Test
-    void jump_incrementsJumpCounter_setsJumpParticles_andReturnsUpdatedVelocity() {
+    public void jump_incrementsJumpCounter_setsJumpParticles_andReturnsUpdatedVelocity() {
         TestableDamagedState state = new TestableDamagedState(knight, 1, mock(KnightState.class));
 
         when(knight.getJumpCounter()).thenReturn(1);
@@ -109,7 +109,7 @@ class DamagedStateWhiteBoxTests {
     }
 
     @Test
-    void dash_facingRight_true_and_false() {
+    public void dash_facingRight_true_and_false() {
         TestableDamagedState state = new TestableDamagedState(knight, 1, mock(KnightState.class));
         when(knight.getVelocity()).thenReturn(new Vector(0.0, 5.0));
         when(knight.getDashBoost()).thenReturn(3.0);
@@ -129,7 +129,7 @@ class DamagedStateWhiteBoxTests {
     }
 
     @Test
-    void updateVelocity_appliesAccelerationAndGravity() {
+    public void updateVelocity_appliesAccelerationAndGravity() {
         TestableDamagedState state = new TestableDamagedState(knight, 1, mock(KnightState.class));
         when(knight.getAcceleration()).thenReturn(0.5);
         when(scene.getGravity()).thenReturn(1.0);
@@ -142,7 +142,7 @@ class DamagedStateWhiteBoxTests {
     // -------- getNextState branches --------
 
     @Test
-    void getNextState_whenCollideSpike_returnsRespawnState10() {
+    public void getNextState_whenCollideSpike_returnsRespawnState10() {
         when(scene.collideSpike()).thenReturn(true);
         DamagedState state = new TestableDamagedState(knight, 1, mock(KnightState.class));
 
@@ -151,7 +151,7 @@ class DamagedStateWhiteBoxTests {
     }
 
     @Test
-    void getNextState_whenHpZero_returnsRespawnState5() {
+    public void getNextState_whenHpZero_returnsRespawnState5() {
         when(scene.collideSpike()).thenReturn(false);
         when(knight.getHP()).thenReturn(0);
 
@@ -162,7 +162,7 @@ class DamagedStateWhiteBoxTests {
     }
 
     @Test
-    void getNextState_afterTicks_notOnGround_returnsNextOnAirState_andSetsGotHitFalse() {
+    public void getNextState_afterTicks_notOnGround_returnsNextOnAirState_andSetsGotHitFalse() {
         KnightState onAir = mock(KnightState.class);
         TestableDamagedState state = new TestableDamagedState(knight, 1, onAir);
 
@@ -178,7 +178,7 @@ class DamagedStateWhiteBoxTests {
     }
 
     @Test
-    void getNextState_afterTicks_onGround_overMaxXVelocity_returnsDashState_andResetsJumpCounter() {
+    public void getNextState_afterTicks_onGround_overMaxXVelocity_returnsDashState_andResetsJumpCounter() {
         TestableDamagedState state = new TestableDamagedState(knight, 1, mock(KnightState.class));
 
         advanceTicksToEnd(state);
@@ -194,7 +194,7 @@ class DamagedStateWhiteBoxTests {
     }
 
     @Test
-    void getNextState_afterTicks_onGround_walkingVelocity_returnsWalkingState() {
+    public void getNextState_afterTicks_onGround_walkingVelocity_returnsWalkingState() {
         TestableDamagedState state = new TestableDamagedState(knight, 1, mock(KnightState.class));
 
         advanceTicksToEnd(state);
@@ -211,7 +211,7 @@ class DamagedStateWhiteBoxTests {
     }
 
     @Test
-    void getNextState_afterTicks_onGround_belowMinVelocity_returnsIdleState() {
+    public void getNextState_afterTicks_onGround_belowMinVelocity_returnsIdleState() {
         TestableDamagedState state = new TestableDamagedState(knight, 1, mock(KnightState.class));
 
         advanceTicksToEnd(state);

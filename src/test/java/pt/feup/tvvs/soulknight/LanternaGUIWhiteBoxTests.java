@@ -50,12 +50,12 @@ class LanternaGUIWhiteBoxTests {
     }
 
     @Test
-    void getACTION_whenNoKeyPressed_returnsNULL() throws Exception {
+    public void getACTION_whenNoKeyPressed_returnsNULL() throws Exception {
         assertEquals(RescalableGUI.ACTION.NULL, gui.getACTION());
     }
 
     @Test
-    void spamKey_LEFT_keepsPriorityUntilReleased() throws Exception {
+    public void spamKey_LEFT_keepsPriorityUntilReleased() throws Exception {
         press(VK_LEFT);
 
         assertEquals(RescalableGUI.ACTION.LEFT, gui.getACTION());
@@ -66,7 +66,7 @@ class LanternaGUIWhiteBoxTests {
     }
 
     @Test
-    void spamKey_RIGHT_keepsPriorityUntilReleased() throws Exception {
+    public void spamKey_RIGHT_keepsPriorityUntilReleased() throws Exception {
         press(VK_RIGHT);
         assertEquals(RescalableGUI.ACTION.RIGHT, gui.getACTION());
         assertEquals(RescalableGUI.ACTION.RIGHT, gui.getACTION());
@@ -76,7 +76,7 @@ class LanternaGUIWhiteBoxTests {
     }
 
     @Test
-    void nonSpamKey_setsKeyPressedOnly_andReleaseRestoresPriority() throws Exception {
+    public void nonSpamKey_setsKeyPressedOnly_andReleaseRestoresPriority() throws Exception {
         press(VK_UP);
         assertEquals(RescalableGUI.ACTION.UP, gui.getACTION());
 
@@ -87,7 +87,7 @@ class LanternaGUIWhiteBoxTests {
     }
 
     @Test
-    void getACTION_coversAllSwitchCases() throws Exception {
+    public void getACTION_coversAllSwitchCases() throws Exception {
         press(VK_DOWN);
         assertEquals(RescalableGUI.ACTION.DOWN, gui.getACTION());
 
@@ -111,7 +111,7 @@ class LanternaGUIWhiteBoxTests {
     }
 
     @Test
-    void setResolutionScale_whenScreenAlreadyExists_closesOldScreen() throws Exception {
+    public void setResolutionScale_whenScreenAlreadyExists_closesOldScreen() throws Exception {
         RescalableGUI.ResolutionScale newScale = mock(RescalableGUI.ResolutionScale.class);
 
         gui.setResolutionScale(newScale);
@@ -121,13 +121,13 @@ class LanternaGUIWhiteBoxTests {
     }
 
     @Test
-    void widthAndHeight_useScreenGeneratorWidth() {
+    public void widthAndHeight_useScreenGeneratorWidth() {
         assertEquals(120, gui.getWidth());
         assertEquals(120, gui.getHeight());
     }
 
     @Test
-    void drawMethods_callTextGraphics() {
+    public void drawMethods_callTextGraphics() {
         gui.drawPixel(1, 2, new TextColor.RGB(1, 2, 3));
         verify(screen, atLeastOnce()).newTextGraphics();
         verify(tg, atLeastOnce()).setBackgroundColor(any(TextColor.RGB.class));
@@ -138,7 +138,7 @@ class LanternaGUIWhiteBoxTests {
     }
 
     @Test
-    void drawHitBox_and_drawRectangle_coverLoops() {
+    public void drawHitBox_and_drawRectangle_coverLoops() {
         gui.drawRectangle(0, 0, 2, 2, new TextColor.RGB(10, 10, 10));
         gui.drawHitBox(0, 0, 2, 2, new TextColor.RGB(10, 10, 10));
 
@@ -149,7 +149,7 @@ class LanternaGUIWhiteBoxTests {
     }
 
     @Test
-    void cls_flush_close_coverScreenCalls() throws Exception {
+    public void cls_flush_close_coverScreenCalls() throws Exception {
         gui.cls();
         verify(screen, atLeastOnce()).clear();
 

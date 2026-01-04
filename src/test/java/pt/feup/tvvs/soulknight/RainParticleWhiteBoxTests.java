@@ -35,13 +35,13 @@ class RainParticleWhiteBoxTests {
     }
 
     @Test
-    void moveParticle_whenPositionNull_throwsIllegalStateException() {
+    public void moveParticle_whenPositionNull_throwsIllegalStateException() {
         RainParticle p = new NullPosRainParticle(0, 0, new Position(0, 0), new TextColor.RGB(255, 255, 255));
         assertThrows(IllegalStateException.class, () -> p.moveParticle(scene, 0));
     }
 
     @Test
-    void moveParticle_whenNewXNegative_wrapsToWidthMinus1() {
+    public void moveParticle_whenNewXNegative_wrapsToWidthMinus1() {
         RainParticle p = new RainParticle(-10, 0, new Position(0, 0), new TextColor.RGB(255, 255, 255));
 
         Position out = p.moveParticle(scene, 0);
@@ -51,7 +51,7 @@ class RainParticleWhiteBoxTests {
     }
 
     @Test
-    void moveParticle_whenNewXTooLarge_setsTo1() {
+    public void moveParticle_whenNewXTooLarge_setsTo1() {
         RainParticle p = new RainParticle(10, 0, new Position(0, 0), new TextColor.RGB(255, 255, 255));
 
         Position out = p.moveParticle(scene, 0);
@@ -61,7 +61,7 @@ class RainParticleWhiteBoxTests {
     }
 
     @Test
-    void moveParticle_whenNewXInBounds_keepsComputedX_andYInBounds() {
+    public void moveParticle_whenNewXInBounds_keepsComputedX_andYInBounds() {
         RainParticle p = new RainParticle(5, 0, new Position(0, 0), new TextColor.RGB(255, 255, 255));
 
         Position out = p.moveParticle(scene, 0);
@@ -71,7 +71,7 @@ class RainParticleWhiteBoxTests {
     }
 
     @Test
-    void moveParticle_whenNewYReachesBottom_resetsTo0() {
+    public void moveParticle_whenNewYReachesBottom_resetsTo0() {
 
         RainParticle p = new RainParticle(0, 8, new Position(0, 0), new TextColor.RGB(255, 255, 255));
 
